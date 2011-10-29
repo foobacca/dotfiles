@@ -10,15 +10,15 @@
 HISTCONTROL=ignoreboth
 
 # Expand the history size
-HISTFILESIZE=20000
-HISTSIZE=2000
-
-# commands with leading space do not get added to history
-HISTCONTROL=ignorespace
+HISTFILESIZE=50000
+HISTSIZE=5000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# allow use of **
+if [[ $BASH_VERSION == 4.* ]]; then shopt -s globstar; fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
@@ -26,6 +26,10 @@ shopt -s checkwinsize
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+if [ -d $HOME/bin ]; then
+  PATH=$PATH:$HOME/bin
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
@@ -41,11 +45,11 @@ fi
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 
-# abbreviate the dir path in the prompt
 RESET=$(tput sgr0)
 GREEN=$(tput setaf 2)
 RED=$(tput setaf 1)
 
+# abbreviate the dir path in the prompt
 PROMPT_COMMAND='RET=$?;CurDir=`pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g"`'
 RET_VALUE='$(if [[ $? = 0 ]]; then echo -ne "\[$GREEN\]$?"; else echo -ne "\[$RED\]$?"; fi;)'
 PS1="$RET_VALUE \u@\h:\$CurDir\[$RESET\]\$ "
@@ -74,7 +78,7 @@ export BC_ENV_ARGS=-l
 
 # CVS exports
 export CVS_RSH=ssh
-export CVSROOT=":ext:hamish@cvs.aidworld.org:/home/cvs/root/"
+export CVSROOT=":ext:hamish@cvs.aptivate.org:/home/cvs/root/"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
