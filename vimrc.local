@@ -1,20 +1,27 @@
 " Search & Replace
 set nohlsearch          " don't highlight search terms
 set gdefault            " assume the /g flag on :s substitutions to replace all matches in a line
+set autoindent
 
 " allow vim to be the man pager
 let $PAGER=''
 
+nmap <Leader>ct :ConqueTerm bash --login<CR>
+
 " from http://stackoverflow.com/questions/726894/vim-tricks-your-mom-never-told-you-about-dark-corners
 " hit - (minus) anytime to open the file explorer to show files adjacent to the one just edited
 map - :Explore<cr>
-map <c-l> :tabnext<enter>
-map <c-h> :tabprevious<enter>
+nmap <C-l> :tabnext<enter>
+nmap <C-h> :tabprevious<enter>
 
 " from http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 cmap w!! %!sudo tee > /dev/null %
 
+" recognize anything in my .Postponed directory as a news article, and anything
+" at all with a .txt extension as being human-language text [this clobbers the
+" `help' filetype, but that doesn't seem to prevent help from working
+" properly]:
 augroup filetype
   autocmd BufNewFile,BufRead */.Postponed/* set filetype=mail
   autocmd BufNewFile,BufRead *.txt set filetype=human
@@ -77,6 +84,7 @@ abbreviate teh the
 abbreviate hamsih hamish 
 abbreviate Hamsih Hamish
 abbreviate admins administrators
+abbreviate Haish Hamish
 abbreviate atmoic atomic
 iabbrev lfpg Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch
 iabbrev hse he/she
@@ -115,8 +123,8 @@ vnoremap Q gq
 " have the usual indentation keystrokes still work in visual mode:
 vnoremap <C-T> >
 vnoremap <C-D> <LT>
-" vmap <Tab> <C-T>
-" vmap <S-Tab> <C-D>
+vmap <Tab> <C-T>
+vmap <S-Tab> <C-D>
 
 " have Y behave analogously to D and C rather than to dd and cc (which is
 " already done by yy):
@@ -130,33 +138,23 @@ noremap Y y$
 
 " have \tp ("toggle paste") toggle paste on/off and report the change, and
 " where possible also have <F4> do this both in normal and insert mode:
-nnoremap \tp :set invpaste paste?<CR>
-nmap <F5> \tp
-imap <F5> <C-O>\tp
-set pastetoggle=<F5>
+nnoremap <Leader>tp :set invpaste paste?<CR>
+"nmap <F5> \tp
+"imap <F5> <C-O>\tp
+"set pastetoggle=<F5>
 
 " have \tf ("toggle format") toggle the automatic insertion of line breaks
 " during typing and report the change:
-nnoremap \tf :if &fo =~ 't' <Bar> set fo-=t <Bar> else <Bar> set fo+=t <Bar>
+nnoremap <Leader>tf :if &fo =~ 't' <Bar> set fo-=t <Bar> else <Bar> set fo+=t <Bar>
   \ endif <Bar> set fo?<CR>
-nmap <F3> \tf
-imap <F3> <C-O>\tf
+"nmap <F3> \tf
+"imap <F3> <C-O>\tf
 
 " have \tl ("toggle list") toggle list on/off and report the change:
-nnoremap \tl :set invlist list?<CR>
-nmap <F2> \tl
+nnoremap <Leader>tl :set invlist list?<CR>
+"nmap <F2> \tl
 
 " have \th ("toggle highlight") toggle highlighting of search matches, and
 " report the change:
-nnoremap \th :set invhls hls?<CR>
-
-" have \ct launch ConqueTerm
-nnoremap \ct :ConqueTerm bash --login
-
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
-
-" Use the same symbols as TextMate for tabstops and EOLs
-set list listchars=tab:▸\ ,eol:¬,trail:·
-
+nnoremap <Leader>th :set invhls hls?<CR>
 
