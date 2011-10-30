@@ -1,4 +1,5 @@
 # aliases ...
+# vi: ft=sh
 
 alias vimcheat='eog file:///home/mish/Desktop/vi-vim-cheat-sheet.gif'
 
@@ -52,9 +53,6 @@ alias show="aptitude show"
 # from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
 alias xopen="xdg-open"
 
-# ack - for vim Ack extension
-alias ack='ack-grep'
-
 # from web
 
 alias c=clear
@@ -68,5 +66,5 @@ alias j=jobs
 alias po=popd
 alias pu=pushd
 alias s='screen -r'
-alias ss='screen -Rx'
+alias ss='screen -Rd'
 
