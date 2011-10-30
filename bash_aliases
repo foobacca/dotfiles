@@ -49,10 +49,11 @@ alias searchc="apt-cache search"
 alias search="aptitude search"
 alias show="aptitude show"
 
-# from
-# http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
+# from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
 alias xopen="xdg-open"
 
+# ack - for vim Ack extension
+alias ack='ack-grep'
 
 # from web
 
