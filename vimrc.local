@@ -2,6 +2,7 @@
 set nohlsearch          " don't highlight search terms
 set gdefault            " assume the /g flag on :s substitutions to replace all matches in a line
 set autoindent
+set encoding=utf-8
 
 " allow vim to be the man pager
 let $PAGER=''
@@ -25,6 +26,82 @@ nmap <C-h> :tabprevious<enter>
 " from http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 cmap w!! %!sudo tee > /dev/null %
+
+" allow <BkSpc> to delete line breaks, beyond the start of the current
+" insertion, and over indentations:
+set backspace=eol,start,indent
+
+" keep a few lines beneath the cursor
+set scrolloff=3
+
+" * Keystrokes -- Moving Around
+
+" have the h and l cursor keys wrap between lines (like <Space> and <BkSpc> do
+" by default), and ~ covert case over line breaks; also have the cursor keys
+" wrap in insert mode:
+set whichwrap=h,l,~,[,]
+
+" page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
+" `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
+" or <BkSpc> (like in `Netscape Navigator'):
+noremap <Space> <PageDown>
+noremap <BS> <PageUp>
+noremap - <PageUp>
+" [<Space> by default is like l, <BkSpc> like h, and - like k.]
+
+" scroll the window (but leaving the cursor in the same place) by a couple of
+" lines up/down with <Ins>/<Del> (like in `Lynx'):
+noremap <Ins> 2<C-Y>
+noremap <Del> 2<C-E>
+" [<Ins> by default is like i, and <Del> like x.]
+
+" * Keystrokes -- Formatting
+
+" have Q reformat the current paragraph (or selected text if there is any):
+nnoremap Q gqap
+vnoremap Q gq
+
+" have the usual indentation keystrokes still work in visual mode:
+vnoremap <C-T> >
+vnoremap <C-D> <LT>
+vmap <Tab> <C-T>
+vmap <S-Tab> <C-D>
+
+" have Y behave analogously to D and C rather than to dd and cc (which is
+" already done by yy):
+noremap Y y$
+
+" * Keystrokes -- Toggles
+
+" Keystrokes to toggle options are defined here.  They are all set to normal
+" mode keystrokes beginning \t but some function keys (which won't work in all
+" terminals) are also mapped.
+
+" have \tp ("toggle paste") toggle paste on/off and report the change, and
+" where possible also have <F4> do this both in normal and insert mode:
+nnoremap <Leader>tp :set invpaste paste?<CR>
+"nmap <F5> \tp
+"imap <F5> <C-O>\tp
+"set pastetoggle=<F5>
+
+" have \tf ("toggle format") toggle the automatic insertion of line breaks
+" during typing and report the change:
+nnoremap <Leader>tf :if &fo =~ 't' <Bar> set fo-=t <Bar> else <Bar> set fo+=t <Bar>
+  \ endif <Bar> set fo?<CR>
+"nmap <F3> \tf
+"imap <F3> <C-O>\tf
+
+" have \tl ("toggle list") toggle list on/off and report the change:
+nnoremap <Leader>tl :set invlist list?<CR>
+"nmap <F2> \tl
+
+" have \th ("toggle highlight") toggle highlighting of search matches, and
+" report the change:
+nnoremap <Leader>th :set invhls hls?<CR>
+
+" have \tw ("toggle wrap") toggle wrapping of lines (for display purposes)
+" report the change:
+nnoremap <Leader>tw :set invwrap wrap?<CR>
 
 " recognize anything in my .Postponed directory as a news article, and anything
 " at all with a .txt extension as being human-language text [this clobbers the
@@ -96,77 +173,4 @@ abbreviate Haish Hamish
 abbreviate atmoic atomic
 iabbrev lfpg Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch
 iabbrev hse he/she
-
-" allow <BkSpc> to delete line breaks, beyond the start of the current
-" insertion, and over indentations:
-set backspace=eol,start,indent
-
-" * Keystrokes -- Moving Around
-
-" have the h and l cursor keys wrap between lines (like <Space> and <BkSpc> do
-" by default), and ~ covert case over line breaks; also have the cursor keys
-" wrap in insert mode:
-set whichwrap=h,l,~,[,]
-
-" page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
-" `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
-" or <BkSpc> (like in `Netscape Navigator'):
-noremap <Space> <PageDown>
-noremap <BS> <PageUp>
-noremap - <PageUp>
-" [<Space> by default is like l, <BkSpc> like h, and - like k.]
-
-" scroll the window (but leaving the cursor in the same place) by a couple of
-" lines up/down with <Ins>/<Del> (like in `Lynx'):
-noremap <Ins> 2<C-Y>
-noremap <Del> 2<C-E>
-" [<Ins> by default is like i, and <Del> like x.]
-
-" * Keystrokes -- Formatting
-
-" have Q reformat the current paragraph (or selected text if there is any):
-nnoremap Q gqap
-vnoremap Q gq
-
-" have the usual indentation keystrokes still work in visual mode:
-vnoremap <C-T> >
-vnoremap <C-D> <LT>
-vmap <Tab> <C-T>
-vmap <S-Tab> <C-D>
-
-" have Y behave analogously to D and C rather than to dd and cc (which is
-" already done by yy):
-noremap Y y$
-
-" * Keystrokes -- Toggles
-
-" Keystrokes to toggle options are defined here.  They are all set to normal
-" mode keystrokes beginning \t but some function keys (which won't work in all
-" terminals) are also mapped.
-
-" have \tp ("toggle paste") toggle paste on/off and report the change, and
-" where possible also have <F4> do this both in normal and insert mode:
-nnoremap <Leader>tp :set invpaste paste?<CR>
-"nmap <F5> \tp
-"imap <F5> <C-O>\tp
-"set pastetoggle=<F5>
-
-" have \tf ("toggle format") toggle the automatic insertion of line breaks
-" during typing and report the change:
-nnoremap <Leader>tf :if &fo =~ 't' <Bar> set fo-=t <Bar> else <Bar> set fo+=t <Bar>
-  \ endif <Bar> set fo?<CR>
-"nmap <F3> \tf
-"imap <F3> <C-O>\tf
-
-" have \tl ("toggle list") toggle list on/off and report the change:
-nnoremap <Leader>tl :set invlist list?<CR>
-"nmap <F2> \tl
-
-" have \th ("toggle highlight") toggle highlighting of search matches, and
-" report the change:
-nnoremap <Leader>th :set invhls hls?<CR>
-
-" have \tw ("toggle wrap") toggle wrapping of lines (for display purposes)
-" report the change:
-nnoremap <Leader>tw :set invwrap wrap?<CR>
 
