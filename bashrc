@@ -17,7 +17,7 @@ HISTSIZE=5000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# allow use of **
+# allow use of ** - but only in bash 4.x
 if [[ $BASH_VERSION == 4.* ]]; then shopt -s globstar; fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
