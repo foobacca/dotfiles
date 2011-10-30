@@ -11,7 +11,8 @@ nmap <Leader>ct :ConqueTerm bash --login<CR>
 
 " stuff from vimcasts
 " Use the same symbols as TextMate for tabstops and EOLs
-set list listchars=tab:▸\ ,eol:¬,trail:·
+" set list listchars=tab:▸\ ,eol:¬,trail:·
+set list listchars=tab:▸\ ,trail:·
 
 " from http://stackoverflow.com/questions/726894/vim-tricks-your-mom-never-told-you-about-dark-corners
 " hit - (minus) anytime to open the file explorer to show files adjacent to the one just edited
