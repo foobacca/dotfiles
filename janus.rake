@@ -1,7 +1,7 @@
 # vi: set ft=ruby
 
 # pyflakes for python errors
-# might also want to do: sudo pip install git+git://github.com/kevinw/pyflakes.git
+# might also want to do: sudo pip install -e git+git://github.com/kevinw/pyflakes.git#egg=Package
 vim_plugin_task "pyflakes", "git://github.com/kevinw/pyflakes-vim.git"
 
 # exploring buffers
