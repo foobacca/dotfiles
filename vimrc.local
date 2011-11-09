@@ -27,6 +27,9 @@ nmap <C-h> :tabprevious<enter>
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 cmap w!! %!sudo tee > /dev/null %
 
+" in command mode, expand %% to the current directory
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
 " allow <BkSpc> to delete line breaks, beyond the start of the current
 " insertion, and over indentations:
 set backspace=eol,start,indent
@@ -171,6 +174,4 @@ abbreviate Hamsih Hamish
 abbreviate admins administrators
 abbreviate Haish Hamish
 abbreviate atmoic atomic
-iabbrev lfpg Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch
-iabbrev hse he/she
 
