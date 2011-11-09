@@ -153,6 +153,9 @@ autocmd FileType html,css set noexpandtab tabstop=2
 " (despite the mappings later):
 autocmd FileType make set noexpandtab shiftwidth=8
 
+" for man pages don't show line numbers
+autocmd FileType man set nonumber
+
 " * Spelling
 
 " define `Ispell' language and personal dictionary, used in several places
