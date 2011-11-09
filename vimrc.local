@@ -30,6 +30,10 @@ nmap <C-h> :tabprevious<enter>
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 cmap w!! %!sudo tee > /dev/null %
 
+" :Wrap - wrap text with long lines and without breaking words across the line
+" boundary
+command! -nargs=* Wrap set wrap linebreak nolist
+
 " in command mode, expand %% to the current directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
