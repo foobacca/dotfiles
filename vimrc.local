@@ -10,6 +10,9 @@ let $PAGER=''
 " stuff to work with janus
 nmap <Leader>ct :ConqueTerm bash --login<CR>
 
+" stuff to work with YankRing
+nmap <Leader>yr :YRShow<CR>
+
 " stuff from vimcasts
 " Use the same symbols as TextMate for tabstops and EOLs
 " set list listchars=tab:▸\ ,eol:¬,trail:·
