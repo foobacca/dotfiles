@@ -161,19 +161,17 @@ autocmd FileType make set noexpandtab shiftwidth=8
 autocmd FileType man set nonumber
 
 " * Spelling
-
-" define `Ispell' language and personal dictionary, used in several places
-" below:
-let IspellLang = 'british'
-let PersonalDict = '~/.ispell_' . IspellLang
+" Toggle spell checking on and off with `\s`
+nmap <silent> <leader>s :set spell!<CR>
+ 
+" Set region to British English
+set spelllang=en_gb
 
 " try to avoid misspelling words in the first place -- have the insert mode
 " <Ctrl>+N/<Ctrl>+P keys perform completion on partially-typed words by
 " checking the Linux word list and the personal `Ispell' dictionary; sort out
 " case sensibly (so that words at starts of sentences can still be completed
 " with words that are in the dictionary all in lower case):
-execute 'set dictionary+=' . PersonalDict
-set dictionary+=/usr/dict/words
 set complete=.,w,k
 set infercase
 
