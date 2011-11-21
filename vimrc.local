@@ -1,8 +1,19 @@
 " Search & Replace
-set nohlsearch          " don't highlight search terms
+"set nohlsearch          " don't highlight search terms
 set gdefault            " assume the /g flag on :s substitutions to replace all matches in a line
+" do nice regex stuff
+nnoremap / /\v
+vnoremap / /\v
+nnoremap <leader><space> :noh<cr>   " make it easy to turn off search highlighting
+
 set autoindent
 set encoding=utf-8
+
+" use ; as :
+"nnoremap ; :
+
+" always save when changing tabs etc
+au FocusLost * :wa
 
 " allow vim to be the man pager
 let $PAGER=''
