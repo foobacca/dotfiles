@@ -50,10 +50,9 @@ GREEN=$(tput setaf 2)
 RED=$(tput setaf 1)
 
 # abbreviate the dir path in the prompt
-PROMPT_COMMAND='RET=$?;CurDir=`pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g"`'
-RET_VALUE='$(if [[ $? = 0 ]]; then echo -ne "\[$GREEN\]$?"; else echo -ne "\[$RED\]$?"; fi;)'
+PROMPT_COMMAND='CurDir=`pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g"`'
+RET_VALUE='$(RET=$?; if [[ $RET = 0 ]]; then echo -ne "\[$GREEN\]0"; else echo -ne "\[$RED\]$RET"; fi;)'
 PS1="$RET_VALUE \u@\h:\$CurDir\[$RESET\]\$ "
-
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
