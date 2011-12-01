@@ -103,6 +103,10 @@ if [ -f ~/dev/dotfiles/bash_aliases ]; then
   source ~/dev/dotfiles/bash_aliases
 fi
 
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
+
 if [ -d ~/Dropbox/tech/bin ]; then
   export PATH=/home/mish/Dropbox/tech/bin:$PATH
 fi
