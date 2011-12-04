@@ -150,7 +150,7 @@ autocmd FileType c set formatoptions+=ro
 autocmd FileType perl set smartindent
 
 " for Python programming, have 4 space tabs
-autocmd FileType python set nosmartindent shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4
 
 " for CSS, also have things in braces indented:
 autocmd FileType css set smartindent
