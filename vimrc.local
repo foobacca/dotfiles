@@ -31,6 +31,9 @@ set list listchars=tab:▸\ ,trail:·
 " and set the colours so it's not too in your face
 highlight SpecialKey cterm=NONE ctermfg=black
 
+" make spelling highlight readable
+highlight SpellBad term=reverse ctermbg=black ctermfg=green
+
 " from http://stackoverflow.com/questions/726894/vim-tricks-your-mom-never-told-you-about-dark-corners
 " hit - (minus) anytime to open the file explorer to show files adjacent to the one just edited
 map - :Explore<cr>
