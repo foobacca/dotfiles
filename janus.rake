@@ -10,3 +10,6 @@ vim_plugin_task "bufexplorer", "git://github.com/vim-scripts/bufexplorer.zip.git
 
 # managing yanks (copy/paste buffers)
 vim_plugin_task "yankring", "git://github.com/chrismetcalf/vim-yankring.git"
+
+# unimpaired - buffer shortcuts
+vim_plugin_task "unimpaired", "git://github.com/tpope/vim-unimpaired.git"
