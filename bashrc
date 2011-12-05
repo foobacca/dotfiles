@@ -107,6 +107,11 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
+# from https://github.com/seebi/dircolors-solarized
+if [ -f ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal ]; then
+  eval `dircolors ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal`
+fi
+
 if [ -d ~/Dropbox/tech/bin ]; then
   export PATH=/home/mish/Dropbox/tech/bin:$PATH
 fi

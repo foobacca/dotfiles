@@ -1,0 +1,10 @@
+" include the vimrc
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
+" window size
+set lines=50
+set columns=110
+
+
