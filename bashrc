@@ -107,6 +107,10 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
+if [ -f ~/.dir_colors ]; then
+  eval `dircolors ~/.dir_colors`
+fi
+
 if [ -d ~/Dropbox/tech/bin ]; then
   export PATH=/home/mish/Dropbox/tech/bin:$PATH
 fi
