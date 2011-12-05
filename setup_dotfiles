@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+# vi: set ft=python
+"""
+This script will set up all the files in the correct places.
+
+Using --force will remove any previous files
+"""
+
+import os, sys
+import getopt
+
+class Usage(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+def create_link(link_name, source_name):
+    if not os.path.isfile(link_name):
+        os.symlink(source_name, link_name)
+    else:
+        if not os.path.islink(link_name):
+            os.rename(link_name, link_name+'.orig')
+            os.symlink(source_name, link_name)
+        elif os.readlink(link_name) != source_name:
+            os.remove(link_name)
+            os.symlink(source_name, link_name)
+
+def setup_dotlink(filename):
+    link_name = os.path.join(os.environ["HOME"], filename)
+    source_name = os.path.join(os.environ["HOME"], 'dev', 'dotfiles', filename)
+    create_link(link_name, source_name)
+
+def setup_terminator_config():
+    link_name = os.path.join(os.environ["HOME"], '.config', 'terminator', 'config')
+    source_name = os.path.join(os.environ["HOME"], 'dev', 'dotfiles', 'terminator.config')
+    create_link(link_name, source_name)
+
+def setup_janus():
+    # run the bootstrap script
+    pass
+
+def main(argv=None):
+    if argv is None:
+        argv = sys.argv
+    try:
+        try:
+            opts, args = getopt.getopt(argv[1:], "fh", ["force", "help"])
+        except getopt.error, msg:
+             raise Usage(msg)
+        # more code, unchanged
+        # set up the rc file links
+        for file in ["ackrc", "bashrc", "gvimrc.local", "inputrc", "janus.rake",
+                    "tmux.conf", "vimrc.local"]:
+            setup_dotlink(file)
+        setup_terminator_config()
+        setup_janus()
+    except Usage, err:
+        print >>sys.stderr, err.msg
+        print >>sys.stderr, "for help use --help"
+        return 2
+
+if __name__ == "__main__":
+    sys.exit(main())
