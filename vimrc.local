@@ -108,6 +108,9 @@ nnoremap <Leader>tp :set invpaste paste?<CR>
 "imap <F5> <C-O>\tp
 "set pastetoggle=<F5>
 
+" have F5 toggle the solarized colorscheme from light to dark
+call togglebg#map("<F6>")
+
 " have \tf ("toggle format") toggle the automatic insertion of line breaks
 " during typing and report the change:
 nnoremap <Leader>tf :if &fo =~ 't' <Bar> set fo-=t <Bar> else <Bar> set fo+=t <Bar>
