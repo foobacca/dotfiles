@@ -1,5 +1,8 @@
 # vi: set ft=ruby
 
+# solarized color scheme
+vim_plugin_task "solarized", "git://github.com/altercation/vim-colors-solarized.git"
+
 # pyflakes for python errors
 # might also want to do: sudo pip install -e git+git://github.com/kevinw/pyflakes.git#egg=Package
 vim_plugin_task "pyflakes", "git://github.com/kevinw/pyflakes-vim.git"
