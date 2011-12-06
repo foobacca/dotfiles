@@ -28,10 +28,6 @@ if [[ $BASH_VERSION == 4.* ]]; then shopt -s globstar; fi
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-if [ -d $HOME/bin ]; then
-  PATH=$PATH:$HOME/bin
-fi
-
 RESET=$(tput sgr0)
 GREEN=$(tput setaf 2)
 RED=$(tput setaf 1)
@@ -110,6 +106,10 @@ fi
 # from https://github.com/seebi/dircolors-solarized
 if [ -f ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal ]; then
   eval `dircolors ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal`
+fi
+
+if [ -d $HOME/bin ]; then
+  PATH=$PATH:$HOME/bin
 fi
 
 if [ -d ~/Dropbox/tech/bin ]; then
