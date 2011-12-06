@@ -35,11 +35,21 @@ def create_link(link_name, source_name, verbose=False):
             os.symlink(source_name, link_name)
         else:
             if verbose:
-                print "Link already present"
+                print "Link already present - nothing to do"
 
 def setup_dotlink(filename, verbose=False):
     link_name = os.path.join(os.environ["HOME"], '.' + filename)
     source_name = os.path.join(os.environ["HOME"], 'dev', 'dotfiles', filename)
+    create_link(link_name, source_name, verbose)
+
+def setup_ack_link(verbose=False):
+    local_bin_dir = os.path.join(os.environ["HOME"], 'bin')
+    if not os.path.isdir(local_bin_dir):
+        if verbose:
+            print "Creating local bin directory"
+        os.mkdir(local_bin_dir)
+    link_name = os.path.join(local_bin_dir, 'ack')
+    source_name = os.path.join("/", 'usr', 'bin', 'ack-grep')
     create_link(link_name, source_name, verbose)
 
 def setup_terminator_config(verbose=False):
@@ -49,6 +59,7 @@ def setup_terminator_config(verbose=False):
 
 def setup_janus(verbose=False):
     # run the bootstrap script
+    # curl https://raw.github.com/carlhuda/janus/master/bootstrap.sh -o - | sh
     pass
 
 def main(argv=None):
@@ -70,6 +81,7 @@ def main(argv=None):
                     "tmux.conf", "vimrc.local"]:
             setup_dotlink(file, verbose)
         setup_terminator_config(verbose)
+        setup_ack_link(verbose)
         setup_janus(verbose)
     except Usage, err:
         print >>sys.stderr, err.msg
