@@ -16,3 +16,7 @@ vim_plugin_task "yankring", "git://github.com/chrismetcalf/vim-yankring.git"
 
 # unimpaired - buffer shortcuts
 vim_plugin_task "unimpaired", "git://github.com/tpope/vim-unimpaired.git"
+
+# plugins to try out:
+# https://github.com/Shougo/neocomplcache
+# https://github.com/Shougo/unite.vim
