@@ -158,6 +158,17 @@ autocmd FileType perl set smartindent
 " for Python programming, have 4 space tabs
 autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4
 
+" extra stuff for django
+nnoremap _dt :set ft=htmldjango<CR>
+nnoremap _pd :set ft=python.django<CR>
+
+au BufNewFile,BufRead admin.py     setlocal filetype=python.django
+au BufNewFile,BufRead urls.py      setlocal filetype=python.django
+au BufNewFile,BufRead models.py    setlocal filetype=python.django
+au BufNewFile,BufRead views.py     setlocal filetype=python.django
+au BufNewFile,BufRead settings.py  setlocal filetype=python.django
+au BufNewFile,BufRead forms.py     setlocal filetype=python.django
+
 " for CSS, also have things in braces indented:
 autocmd FileType css set smartindent
 
