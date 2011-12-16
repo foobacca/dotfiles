@@ -1,0 +1,118 @@
+--- 
+:date: 
+  :fg: white
+  :bg: default
+:horizontal_selector_unselected: 
+  :fg: cyan
+  :bg: default
+:generic_notice_patina: 
+  :fg: cyan
+  :bg: default
+:index_draft: 
+  :fg: red
+  :bg: default
+:status: 
+  :fg: black
+  :bg: yellow
+:option: 
+  :fg: white
+  :bg: default
+:missing_message: 
+  :fg: black
+  :bg: red
+:search_highlight: 
+  :fg: black
+  :bg: yellow
+:quote_patina: 
+  :fg: yellow
+  :bg: default
+:labellist_old: 
+  :fg: white
+  :bg: default
+:tagged: 
+  :fg: yellow
+  :bg: default
+:cryptosig_valid: 
+  :fg: yellow
+  :bg: default
+:attachment: 
+  :fg: cyan
+  :bg: default
+:system_buf: 
+  :fg: blue
+  :bg: default
+:sig_patina: 
+  :fg: yellow
+  :bg: default
+:labellist_new: 
+  :fg: white
+  :bg: default
+:draft_notification: 
+  :fg: red
+  :bg: default
+:starred: 
+  :fg: yellow
+  :bg: default
+:quote: 
+  :fg: yellow
+  :bg: default
+:cryptosig_valid_untrusted: 
+  :fg: yellow
+  :bg: blue
+:label: 
+  :fg: magenta
+  :bg: default
+:index_old: 
+  :fg: cyan
+  :bg: default
+:regular_buf: 
+  :fg: white
+  :bg: default
+:snippet: 
+  :fg: white
+  :bg: default
+:to_me: 
+  :fg: green
+  :bg: default
+:twiddle: 
+  :fg: blue
+  :bg: default
+:completion_character: 
+  :fg: white
+  :bg: default
+:sig: 
+  :fg: orange
+  :bg: default
+:cryptosig_unknown: 
+  :fg: cyan
+  :bg: default
+:index_new: 
+  :fg: green
+  :bg: default
+:modified_buffer: 
+  :fg: yellow
+  :bg: default
+:starred_patina: 
+  :fg: yellow
+  :bg: green
+:message_patina: 
+  :fg: black
+  :bg: green
+:horizontal_selector_selected: 
+  :fg: green
+  :bg: default
+:cryptosig_invalid: 
+  :fg: brightyellow
+  :bg: red
+:index_starred: 
+  :fg: yellow
+  :bg: default
+:size_widget: 
+  :fg: white
+  :bg: default
+:alternate_starred_patina: 
+  :fg: yellow
+  :bg: blue
+:alternate_patina: 
+  :fg: black
+  :bg: blue
