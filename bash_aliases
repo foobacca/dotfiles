@@ -65,6 +65,7 @@ alias h=history
 alias j=jobs
 alias po=popd
 alias pu=pushd
+alias suod=sudo
 alias s='screen -r'
 alias ss='screen -Rd'
 
