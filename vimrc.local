@@ -95,6 +95,9 @@ vmap <S-Tab> <C-D>
 " already done by yy):
 noremap Y y$
 
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
 " * Keystrokes -- Toggles
 
 " Keystrokes to toggle options are defined here.  They are all set to normal
