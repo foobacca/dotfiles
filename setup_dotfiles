@@ -9,6 +9,7 @@ Using --force will remove any previous files
 import os
 import sys
 import getopt
+import subprocess
 
 force = False
 
@@ -18,10 +19,15 @@ class Usage(Exception):
         self.msg = msg
 
 
-def create_link(link_name, source_name, verbose=False):
+def get_dotfiles_dir():
+    return os.path.abspath(os.path.dirname(__file__))
+
+
+def create_link(link_name, source_name, is_dir=False, verbose=False):
     if verbose:
         print "about to link %s to %s" % (link_name, source_name)
-    if not os.path.isfile(link_name):
+    if not ((not is_dir and os.path.isfile(link_name)) or
+            (is_dir and os.path.isdir(link_name))):
         if verbose:
             print "No file found so just created link"
         os.symlink(source_name, link_name)
@@ -41,10 +47,10 @@ def create_link(link_name, source_name, verbose=False):
                 print "Link already present - nothing to do"
 
 
-def setup_dotlink(filename, verbose=False):
+def setup_dotlink(filename, is_dir=False, verbose=False):
     link_name = os.path.join(os.environ["HOME"], '.' + filename)
-    source_name = os.path.join(os.environ["HOME"], 'dev', 'dotfiles', filename)
-    create_link(link_name, source_name, verbose)
+    source_name = os.path.join(get_dotfiles_dir(), filename)
+    create_link(link_name, source_name, is_dir=is_dir, verbose=verbose)
 
 
 def setup_ack_link(verbose=False):
@@ -55,13 +61,19 @@ def setup_ack_link(verbose=False):
         os.mkdir(local_bin_dir)
     link_name = os.path.join(local_bin_dir, 'ack')
     source_name = os.path.join("/", 'usr', 'bin', 'ack-grep')
-    create_link(link_name, source_name, verbose)
+    create_link(link_name, source_name, verbose=verbose)
+
+
+def setup_git_submodules(verbose=False):
+    dotfiles_dir = get_dotfiles_dir()
+    subprocess.call(['git', 'submodule', 'sync'], cwd=dotfiles_dir)
+    subprocess.call(['git', 'submodule', 'update', '--init'], cwd=dotfiles_dir)
 
 
 def setup_terminator_config(verbose=False):
     link_name = os.path.join(os.environ["HOME"], '.config', 'terminator', 'config')
-    source_name = os.path.join(os.environ["HOME"], 'dev', 'dotfiles', 'terminator.config')
-    create_link(link_name, source_name, verbose)
+    source_name = os.path.join(get_dotfiles_dir(), 'terminator.config')
+    create_link(link_name, source_name, verbose=verbose)
 
 
 def setup_janus(verbose=False):
@@ -85,11 +97,13 @@ def main(argv=None):
             if o in ["-v", "--verbose"]:
                 verbose = True
         # set up the rc file links
-        for file in ["ackrc", "bashrc", "gvimrc.after", "inputrc", "janus",
+        for file in ["ackrc", "bashrc", "gvimrc.after", "inputrc",
                     "tmux.conf", "vimrc.after", "vimrc.before"]:
-            setup_dotlink(file, verbose)
+            setup_dotlink(file, verbose=verbose)
+        setup_dotlink("janus", is_dir=True, verbose=verbose)
         setup_terminator_config(verbose)
         setup_ack_link(verbose)
+        setup_git_submodules(verbose)
         setup_janus(verbose)
     except Usage, err:
         print >>sys.stderr, err.msg
