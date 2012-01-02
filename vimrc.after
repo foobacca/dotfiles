@@ -50,6 +50,10 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 " in command mode, expand %% to the current directory
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 
 " allow <BkSpc> to delete line breaks, beyond the start of the current
 " insertion, and over indentations:
