@@ -7,3 +7,6 @@
 [submodule "janus/unimpaired"]
 	path = janus/unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "janus/solarized"]
+	path = janus/solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
