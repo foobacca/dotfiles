@@ -6,14 +6,17 @@ This script will set up all the files in the correct places.
 Using --force will remove any previous files
 """
 
-import os, sys
+import os
+import sys
 import getopt
 
 force = False
 
+
 class Usage(Exception):
     def __init__(self, msg):
         self.msg = msg
+
 
 def create_link(link_name, source_name, verbose=False):
     if verbose:
@@ -26,7 +29,7 @@ def create_link(link_name, source_name, verbose=False):
         if not os.path.islink(link_name):
             if verbose:
                 print "File found so move it and create link"
-            os.rename(link_name, link_name+'.orig')
+            os.rename(link_name, link_name + '.orig')
             os.symlink(source_name, link_name)
         elif os.readlink(link_name) != source_name:
             if verbose:
@@ -37,10 +40,12 @@ def create_link(link_name, source_name, verbose=False):
             if verbose:
                 print "Link already present - nothing to do"
 
+
 def setup_dotlink(filename, verbose=False):
     link_name = os.path.join(os.environ["HOME"], '.' + filename)
     source_name = os.path.join(os.environ["HOME"], 'dev', 'dotfiles', filename)
     create_link(link_name, source_name, verbose)
+
 
 def setup_ack_link(verbose=False):
     local_bin_dir = os.path.join(os.environ["HOME"], 'bin')
@@ -52,15 +57,18 @@ def setup_ack_link(verbose=False):
     source_name = os.path.join("/", 'usr', 'bin', 'ack-grep')
     create_link(link_name, source_name, verbose)
 
+
 def setup_terminator_config(verbose=False):
     link_name = os.path.join(os.environ["HOME"], '.config', 'terminator', 'config')
     source_name = os.path.join(os.environ["HOME"], 'dev', 'dotfiles', 'terminator.config')
     create_link(link_name, source_name, verbose)
 
+
 def setup_janus(verbose=False):
     # run the bootstrap script
     # curl https://raw.github.com/carlhuda/janus/master/bootstrap.sh -o - | sh
     pass
+
 
 def main(argv=None):
     verbose = False
@@ -71,14 +79,14 @@ def main(argv=None):
             opts, args = getopt.getopt(argv[1:], "fhv", ["force", "help",
                     "verbose"])
         except getopt.error, msg:
-             raise Usage(msg)
+            raise Usage(msg)
         # more code, unchanged
         for o, a in opts:
             if o in ["-v", "--verbose"]:
                 verbose = True
         # set up the rc file links
-        for file in ["ackrc", "bashrc", "gvimrc.local", "inputrc", "janus.rake",
-                    "tmux.conf", "vimrc.local"]:
+        for file in ["ackrc", "bashrc", "gvimrc.after", "inputrc", "janus",
+                    "tmux.conf", "vimrc.after", "vimrc.before"]:
             setup_dotlink(file, verbose)
         setup_terminator_config(verbose)
         setup_ack_link(verbose)
