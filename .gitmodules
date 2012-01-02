@@ -1,0 +1,9 @@
+[submodule "janus/pyflakes"]
+	path = janus/pyflakes
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "janus/yankring"]
+	path = janus/yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git
+[submodule "janus/unimpaired"]
+	path = janus/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
