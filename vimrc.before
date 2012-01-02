@@ -1,0 +1,2 @@
+" disable node.js ftdetect due to error messages
+call janus#disable_plugin('nodejs')
