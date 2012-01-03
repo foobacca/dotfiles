@@ -39,6 +39,7 @@
     ci = commit
     co = checkout
     w = whatchanged
+    wtf = !git-wtf
 
 [merge]
     tool = meld
