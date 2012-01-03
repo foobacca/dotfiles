@@ -1,2 +1,4 @@
 " disable node.js ftdetect due to error messages
 call janus#disable_plugin('nodejs')
+" pep8 is a bit over the top ...
+call janus#disable_plugin('pep8')
