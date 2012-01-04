@@ -1,28 +1,17 @@
 " Search & Replace
 "set nohlsearch          " don't highlight search terms
 set gdefault            " assume the /g flag on :s substitutions to replace all matches in a line
-" do nice regex stuff
-nnoremap / /\v
-vnoremap / /\v
-nnoremap <leader><space> :noh<cr>   " make it easy to turn off search highlighting
-
 set autoindent
-set encoding=utf-8
 
-" use ; as :
-"nnoremap ; :
+" keep a few lines beneath the cursor
+set scrolloff=3
 
-" always save when changing tabs etc
-au FocusLost * :wa
+" * Keystrokes -- Moving Around
 
-" allow vim to be the man pager
-let $PAGER=''
-
-" stuff to work with janus
-nmap <Leader>ct :ConqueTerm bash --login<CR>
-
-" stuff to work with YankRing
-nmap <Leader>yr :YRShow<CR>
+" have the h and l cursor keys wrap between lines (like <Space> and <BkSpc> do
+" by default), and ~ covert case over line breaks; also have the cursor keys
+" wrap in insert mode:
+set whichwrap=h,l,~,[,]
 
 " stuff from vimcasts
 " Use the same symbols as TextMate for tabstops and EOLs
@@ -34,40 +23,37 @@ highlight SpecialKey cterm=NONE ctermfg=black
 " make spelling highlight readable
 highlight SpellBad term=reverse ctermbg=black ctermfg=green
 
-" from http://stackoverflow.com/questions/726894/vim-tricks-your-mom-never-told-you-about-dark-corners
-" hit - (minus) anytime to open the file explorer to show files adjacent to the one just edited
-map - :Explore<cr>
-nmap <C-l> :tabnext<enter>
-nmap <C-h> :tabprevious<enter>
-
-" from http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks
-" use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
-cmap w!! %!sudo tee > /dev/null %
+" allow vim to be the man pager
+let $PAGER=''
 
 " :Wrap - wrap text with long lines and without breaking words across the line
 " boundary
 command! -nargs=* Wrap set wrap linebreak nolist
 
-" in command mode, expand %% to the current directory
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+" stuff to work with janus
+nmap <Leader>ct :ConqueTerm bash --login<CR>
+
+" stuff to work with YankRing
+nmap <Leader>yr :YRShow<CR>
+
+" do nice regex stuff
+nnoremap / /\v
+vnoremap / /\v
+nnoremap <leader><space> :noh<cr>   " make it easy to turn off search highlighting
+
+" from http://stackoverflow.com/questions/726894/vim-tricks-your-mom-never-told-you-about-dark-corners
+" hit - (minus) anytime to open the file explorer to show files adjacent to the one just edited
+"map - :Explore<cr>
+nmap <C-l> :tabnext<enter>
+nmap <C-h> :tabprevious<enter>
+
+" from http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks
+" use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
+"cmap w!! %!sudo tee > /dev/null %
+"already in janus
+
+" in command mode, expand %% to the current directory - %% in janus
 map <leader>e :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
-
-" allow <BkSpc> to delete line breaks, beyond the start of the current
-" insertion, and over indentations:
-set backspace=eol,start,indent
-
-" keep a few lines beneath the cursor
-set scrolloff=3
-
-" * Keystrokes -- Moving Around
-
-" have the h and l cursor keys wrap between lines (like <Space> and <BkSpc> do
-" by default), and ~ covert case over line breaks; also have the cursor keys
-" wrap in insert mode:
-set whichwrap=h,l,~,[,]
 
 " page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
 " `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
@@ -102,6 +88,9 @@ noremap Y y$
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
+" use ; as : - by default ; does repeat of t/T/f/F
+"nnoremap ; :
+
 " * Keystrokes -- Toggles
 
 " Keystrokes to toggle options are defined here.  They are all set to normal
@@ -135,67 +124,65 @@ nnoremap <Leader>tl :set invlist list?<CR>
 " report the change:
 nnoremap <Leader>th :set invhls hls?<CR>
 
-" have \tw ("toggle wrap") toggle wrapping of lines (for display purposes)
-" report the change:
-nnoremap <Leader>tw :set invwrap wrap?<CR>
-
-" recognize anything in my .Postponed directory as a news article, and anything
-" at all with a .txt extension as being human-language text [this clobbers the
-" `help' filetype, but that doesn't seem to prevent help from working
-" properly]:
-augroup filetype
-  autocmd BufNewFile,BufRead */.Postponed/* set filetype=mail
-  autocmd BufNewFile,BufRead *.txt set filetype=human
-  autocmd BufNewFile,BufRead *.template set filetype=html
-  autocmd BufNewFile,BufRead *.mdwn set filetype=mkd
-augroup END
-
-" in human-language files, automatically format everything at 72 chars:
-autocmd FileType mail,human set formatoptions+=t textwidth=72
-
-" for C-like programming, have automatic indentation:
-autocmd FileType c,cpp,slang set cindent
-
-" for actual C (not C++) programming where comments have explicit end
-" characters, if starting a new line in the middle of a comment automatically
-" insert the comment leader characters:
-autocmd FileType c set formatoptions+=ro
-
-" for Perl programming, have things in braces indenting themselves:
-autocmd FileType perl set smartindent
-
-" for Python programming, have 4 space tabs
-autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4
-
 " extra stuff for django
 nnoremap _dt :set ft=htmldjango<CR>
 nnoremap _pd :set ft=python.django<CR>
 
-au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-au BufNewFile,BufRead models.py    setlocal filetype=python.django
-au BufNewFile,BufRead views.py     setlocal filetype=python.django
-au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-au BufNewFile,BufRead forms.py     setlocal filetype=python.django
+if has("autocmd")
+  " always save when changing tabs etc
+  au FocusLost * :wa
 
-" for CSS, also have things in braces indented:
-autocmd FileType css set smartindent
+  " recognize anything in my .Postponed directory as a news article, and anything
+  " at all with a .txt extension as being human-language text [this clobbers the
+  " `help' filetype, but that doesn't seem to prevent help from working
+  " properly]:
+  augroup filetype
+    autocmd BufNewFile,BufRead */.Postponed/* set filetype=mail
+    autocmd BufNewFile,BufRead *.txt set filetype=human
+    autocmd BufNewFile,BufRead *.template set filetype=html
+    autocmd BufNewFile,BufRead *.mdwn set filetype=mkd
+  augroup END
 
-" for HTML, generally format text, but if a long line has been created leave it
-" alone when editing:
-autocmd FileType html set formatoptions+=tl
+  " in human-language files, automatically format everything at 72 chars:
+  autocmd FileType mail,human set formatoptions+=t textwidth=72
 
-" for both CSS and HTML, use genuine tab characters for indentation, to make
-" files a few bytes smaller:
-autocmd FileType html,css set noexpandtab tabstop=2
+  " for C-like programming, have automatic indentation:
+  autocmd FileType c,cpp,slang set cindent
 
-" in makefiles, don't expand tabs to spaces, since actual tab characters are
-" needed, and have indentation at 8 chars to be sure that all indents are tabs
-" (despite the mappings later):
-autocmd FileType make set noexpandtab shiftwidth=8
+  " for actual C (not C++) programming where comments have explicit end
+  " characters, if starting a new line in the middle of a comment automatically
+  " insert the comment leader characters:
+  autocmd FileType c set formatoptions+=ro
 
-" for man pages don't show line numbers
-autocmd FileType man set nonumber
+  " for Perl programming, have things in braces indenting themselves:
+  autocmd FileType perl set smartindent
+
+  au BufNewFile,BufRead admin.py     setlocal filetype=python.django
+  au BufNewFile,BufRead urls.py      setlocal filetype=python.django
+  au BufNewFile,BufRead models.py    setlocal filetype=python.django
+  au BufNewFile,BufRead views.py     setlocal filetype=python.django
+  au BufNewFile,BufRead settings.py  setlocal filetype=python.django
+  au BufNewFile,BufRead forms.py     setlocal filetype=python.django
+
+  " for CSS, also have things in braces indented:
+  autocmd FileType css set smartindent
+
+  " for HTML, generally format text, but if a long line has been created leave it
+  " alone when editing:
+  autocmd FileType html set formatoptions+=tl
+
+  " for both CSS and HTML, use genuine tab characters for indentation, to make
+  " files a few bytes smaller:
+  autocmd FileType html,css set noexpandtab tabstop=2
+
+  " in makefiles, don't expand tabs to spaces, since actual tab characters are
+  " needed, and have indentation at 8 chars to be sure that all indents are tabs
+  " (despite the mappings later):
+  autocmd FileType make set noexpandtab shiftwidth=8
+
+  " for man pages don't show line numbers
+  autocmd FileType man set nonumber
+endif
 
 " * Spelling
 " Toggle spell checking on and off with `\s`
@@ -216,7 +203,5 @@ set infercase
 abbreviate teh the
 abbreviate hamsih hamish 
 abbreviate Hamsih Hamish
-abbreviate admins administrators
 abbreviate Haish Hamish
-abbreviate atmoic atomic
-
+abbreviate suod sudo
