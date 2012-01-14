@@ -42,4 +42,11 @@
     wtf = !git-wtf
 
 [merge]
-    tool = meld
+    #tool = meld
+    tool = threesome
+
+[mergetool "threesome"]
+    cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+    trustExitCode = true
+
+# vim: ft=gitconfig
