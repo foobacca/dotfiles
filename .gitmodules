@@ -13,3 +13,6 @@
 [submodule "tools/git-wtf"]
 	path = tools/git-wtf
 	url = git://github.com/michaelklishin/git-wtf.git
+[submodule "janus/threesome"]
+	path = janus/threesome
+	url = git://github.com/sjl/threesome.vim.git
