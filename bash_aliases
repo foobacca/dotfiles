@@ -58,6 +58,7 @@ alias xopen="xdg-open"
 alias c=clear
 alias d='dirs -v'
 alias e=$EDITOR
+alias v='gvim --remote-tab-silent'
 alias grep='egrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
