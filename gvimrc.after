@@ -4,7 +4,11 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 " window size
-set lines=50
+if hostname() == "fen-desktop3"
+  set lines=63
+else
+  set lines=50
+endif
 set columns=110
 
 " You can also specify a different font, overriding the default font
@@ -16,3 +20,5 @@ endif
 
 
 colorscheme solarized
+
+" vim: ft=vim
