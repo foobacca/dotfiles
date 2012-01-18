@@ -59,6 +59,7 @@ alias c=clear
 alias d='dirs -v'
 alias e=$EDITOR
 alias v='gvim --remote-tab-silent'
+alias vi='vim -u ~/.vimrc_light'
 alias grep='egrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
