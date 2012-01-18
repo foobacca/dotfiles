@@ -26,8 +26,9 @@ alias turnsole='TURNSOLE_LOG_LEVEL=debug ruby1.9.1 -I /home/mish/dev/sup/turnsol
 # some more ls aliases
 alias ll='ls -l'
 alias lh='ls -lh'
+alias llh='ls -lh'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -CF --hide=*.pyc'
 alias lt='ls -laptr' #oldest first sort
 alias labc='ls -lap' #alphabetical sort
 
