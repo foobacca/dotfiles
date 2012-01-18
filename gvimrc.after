@@ -4,7 +4,7 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 " window size
-if hostname() == "fen-desktop3"
+if hostname() == "fen-desktop3.fen.aptivate.org"
   set lines=63
 else
   set lines=50
