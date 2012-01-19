@@ -71,4 +71,5 @@ alias pu=pushd
 alias suod=sudo
 alias s='screen -r'
 alias ss='screen -Rd'
+alias tt='tmux attach -d'
 
