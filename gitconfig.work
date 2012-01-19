@@ -39,6 +39,23 @@
     ci = commit
     co = checkout
     w = whatchanged
+    wtf = !git-wtf
 
 [merge]
     tool = meld
+    #tool = threesome
+
+[mergetool "threesome"]
+    cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+    trustExitCode = true
+
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1543x1078+0+24
+	history-view-vpane-position = 538
+	main-window-view = HistoryView
+	file-view-vpane-position = 752
+	file-view-hpane-position = 323
+
+#
+# vim: ft=gitconfig
