@@ -33,6 +33,7 @@
 [core]
     pager = less -FRSX
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    editor = vim -u ~/.vimrc_light
 
 [alias]
     st = status
