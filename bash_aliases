@@ -18,6 +18,7 @@ alias sup-sync='SUP_LOG_LEVEL=debug ruby -I /home/mish/dev/sup/mainline/lib -w /
 
 alias heliotrope-add='ruby1.9.1 -I /home/mish/dev/sup/heliotrope/lib /home/mish/dev/sup/heliotrope/bin/heliotrope-add'
 alias heliotrope-console='ruby1.9.1 -I /home/mish/dev/sup/heliotrope/lib /home/mish/dev/sup/heliotrope/bin/heliotrope-console'
+alias heliotrope-add='ruby1.9.1 -I /home/mish/dev/sup/heliotrope/lib /home/mish/dev/sup/heliotrope/bin/heliotrope-import'
 alias heliotrope-server='ruby1.9.1 -I /home/mish/dev/sup/heliotrope/lib /home/mish/dev/sup/heliotrope/bin/heliotrope-server'
 alias turnsole='TURNSOLE_LOG_LEVEL=debug ruby1.9.1 -I /home/mish/dev/sup/turnsole/lib -I /home/mish/dev/sup/heliotrope/lib /home/mish/dev/sup/turnsole/bin/turnsole'
 
