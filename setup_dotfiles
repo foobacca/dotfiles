@@ -83,11 +83,13 @@ class Setup:
                 cwd=dotfiles_dir)
 
     def setup_terminator_config(self):
-        link_name = os.path.join(os.environ["HOME"],
-                '.config', 'terminator', 'config')
-        source_name = os.path.join(self.get_dotfiles_dir(),
-                'terminator.config')
-        self.create_link(link_name, source_name)
+        terminator_dir = os.path.join(os.environ["HOME"],
+                '.config', 'terminator')
+        if os.path.isdir(terminator_dir):
+            link_name = os.path.join(terminator_dir, 'config')
+            source_name = os.path.join(self.get_dotfiles_dir(),
+                    'terminator.config')
+            self.create_link(link_name, source_name)
 
     def setup_git_wtf(self):
         git_wtf_dir = os.path.join(self.get_dotfiles_dir(), 'tools', 'git-wtf')
