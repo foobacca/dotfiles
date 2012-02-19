@@ -29,7 +29,7 @@ class Setup:
     def create_link(self, link_name, source_name, is_dir=False):
         if self.verbose:
             print "about to link %s to %s" % (link_name, source_name)
-        if not ((not is_dir and os.path.isfile(link_name)) or
+        if not ((not is_dir and (os.path.isfile(link_name) or os.path.islink(link_name))) or
                 (is_dir and os.path.isdir(link_name))):
             if self.verbose:
                 print "No file found so just created link"
@@ -92,10 +92,18 @@ class Setup:
             self.create_link(link_name, source_name)
 
     def setup_git_wtf(self):
-        git_wtf_dir = os.path.join(self.get_dotfiles_dir(), 'tools', 'git-wtf')
+        git_wtf_dir = os.path.join(self.get_dotfiles_dir(), 'git', 'git-wtf')
         git_wtf_bin = os.path.join(git_wtf_dir, 'git-wtf')
         self.setup_binlink('git-wtf', git_wtf_bin)
         self.call_wrapper(['make'], cwd=git_wtf_dir)
+
+    def setup_git_tools(self):
+        self.setup_git_wtf()
+        git_dir = os.path.join(self.get_dotfiles_dir(), 'git')
+        for git_tool in os.listdir(git_dir):
+            git_tool_path = os.path.join(git_dir, git_tool)
+            if os.access(git_tool_path, os.X_OK):
+                self.setup_binlink(git_tool, git_tool_path)
 
     def setup_janus(self):
         # run the bootstrap script
@@ -127,7 +135,7 @@ def main(argv=None):
         setup.setup_dotlink("janus", is_dir=True)
         setup.setup_terminator_config()
         setup.setup_ack_link()
-        setup.setup_git_wtf()
+        setup.setup_git_tools()
         setup.setup_janus()
     except Usage, err:
         print >>sys.stderr, err.msg

@@ -39,7 +39,15 @@
     ci = commit
     co = checkout
     w = whatchanged
-    wtf = !git-wtf
+	wtf = !git-wtf
+    all = !git-all
+    amend = !git-amend
+    credit = !git-credit
+    delete-local-merged = !git-delete-local-merged
+    promote = !git-promote
+    rank-contributors = !git-rank-contributors
+    undo = !git-undo
+    up = !git-up
 
 [merge]
     #tool = meld
