@@ -11,7 +11,7 @@
 	path = janus/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "tools/git-wtf"]
-	path = tools/git-wtf
+	path = git/git-wtf
 	url = git://github.com/michaelklishin/git-wtf.git
 [submodule "janus/threesome"]
 	path = janus/threesome
