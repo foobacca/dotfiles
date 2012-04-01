@@ -1,0 +1,124 @@
+# UBUNTU-CONKY
+# A comprehensive conky script, configured for use on
+# Ubuntu / Debian Gnome, without the need for any external scripts.
+#
+# Based on conky-jc and the default .conkyrc.
+# INCLUDES:
+# - tail of /var/log/messages
+# - netstat connections to your computer
+#
+# — Pengo (conky@pengo.us)
+#
+# from http://www.tuxmaniac.com/work/conkyrc
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer right
+use_xft no
+
+# Update interval in seconds
+update_interval 5.0
+
+# Minimum size of text area
+# minimum_size 250 5
+
+# maximum width
+maximum_width 300
+
+# stop text being cut off
+text_buffer_size 512
+
+# Draw shades?
+draw_shades no
+
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+font inconsolata
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 3
+
+# border margins
+border_margin 9
+
+# border width
+border_width 10
+
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color grey
+
+own_window_colour brown
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x 10
+gap_y 10
+
+# short units (GiB -> G)
+short_units yes
+
+# stuff after ‘TEXT’ will be formatted on screen
+
+TEXT
+  
+$color
+${color orange}SYSTEM ${hr 2}$color
+$nodename $sysname $kernel on $machine
+${color #ffcb48}Uptime:$color $uptime - ${color #ffcb48}Load:$color $loadavg
+
+${color #ffcb48}CPUs$color
+${cpu cpu1}% ${alignr}${cpu cpu2}% 
+${cpugraph cpu1 25,100 78af78 a3a3a3}${alignr}${cpugraph cpu2 25,100 78af78 a3a3a3}
+Processes:$color $processes ${color grey}Running:$color $running_processes
+${color #98c2c7}NAME                PID   CPU%   MEM%   TIME
+${color #e5e5e5}${top name 1}   ${top pid 1} ${top cpu 1} ${top mem 1} ${top time 1}
+${color #c4c4c4}${top name 2}   ${top pid 2} ${top cpu 2} ${top mem 2} ${top time 2}
+${color #a3a3a3}${top name 3}   ${top pid 3} ${top cpu 3} ${top mem 3} ${top time 3}
+${color #939393}${top name 4}   ${top pid 4} ${top cpu 4} ${top mem 4} ${top time 4}
+${color #838383}${top name 5}   ${top pid 5} ${top cpu 5} ${top mem 5} ${top time 5}
+
+${color #98c2c7}NAME                PID   CPU%   MEM%   VIRT
+${color #e5e5e5}${top_mem name 1}   ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}   ${top_mem mem_vsize 1}
+${color #c4c4c4}${top_mem name 2}   ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}   ${top_mem mem_vsize 2}
+${color #a3a3a3}${top_mem name 3}   ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}   ${top_mem mem_vsize 3}
+${color #939393}${top_mem name 4}   ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}   ${top_mem mem_vsize 4}
+${color #838383}${top_mem name 5}   ${top_mem pid 5} ${top_mem cpu 5} ${top_mem mem 5}   ${top_mem mem_vsize 5}
+
+${color orange}MEMORY / DISK ${hr 2}$color
+RAM:  $mem/$memmax - $memperc% ${membar 6}$color
+Swap: $swap/$swapmax - $swapperc% ${swapbar 6}$color
+
+Boot: ${fs_used /boot}/${fs_size /boot} ${fs_free_perc /boot}% ${fs_bar 6 /boot}$color
+Root: ${fs_used /}/${fs_size /} ${fs_free_perc /}% ${fs_bar 6 /}$color
+Home: ${fs_used /home}/${fs_size /home} ${fs_free_perc /home}% ${fs_bar 6 /home}
+
+${color orange}NETWORK ${hr 2}$color
+${color #ffcb48}eth0(${addr eth0})${alignr}${color #ffffff}${downspeed eth0}k/s / ${upspeed eth0}k/s
+${downspeedgraph eth0 25,140 000000 ff0000} ${alignr}${upspeedgraph eth0 25,140 000000 00ff00}$color
+${color #98c2c7}DOWN: ${color #ffffff}${totaldown eth0}${alignr}${color #98c2c7}UP: ${color #ffffff}${totalup eth0}
+
+${color #ffcb48}wlan0$color: ${wireless_essid wlan0}${alignr}${wireless_bitrate wlan0}
+${addrs wlan0}${alignr}${color #ffffff}${downspeed wlan0}k/s / ${upspeed wlan0}k/s
+${color #98c2c7}${downspeedgraph wlan0 25,140 000000 ff0000}${alignr}${color #98c2c7}${upspeedgraph wlan0 25,140 000000 00ff00}
+${color #98c2c7}DOWN: ${color #ffffff}${totaldown wlan0}${alignr}${color #98c2c7}UP: ${color #ffffff}${totalup wlan0}
+
+${color orange}Connections: ${color orange}Inbound: ${color #ffcb48}${tcp_portmon 1 32767 count}  ${color orange}Outbound: ${color #ffcb48}${tcp_portmon 32768 61000 count}  ${color orange}Total: ${color #ffcb48}${tcp_portmon 1 65535 count} 
+
+${color orange}LOGGING ${hr 2}$color
+${execi 30 tail -n3 /var/log/syslog | fold -w50}
