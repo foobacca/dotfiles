@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/conky -d
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=10
+Name[en_GB]=conky
+Name=conky
+Comment[en_GB]=conky stuff
+Comment=conky stuff
