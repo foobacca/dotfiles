@@ -104,9 +104,7 @@ ${color orange}MEMORY / DISK ${hr 2}$color
 RAM:  $mem/$memmax - $memperc% ${membar 6}$color
 Swap: $swap/$swapmax - $swapperc% ${swapbar 6}$color
 
-Boot: ${fs_used /boot}/${fs_size /boot} ${fs_free_perc /boot}% ${fs_bar 6 /boot}$color
 Root: ${fs_used /}/${fs_size /} ${fs_free_perc /}% ${fs_bar 6 /}$color
-Home: ${fs_used /home}/${fs_size /home} ${fs_free_perc /home}% ${fs_bar 6 /home}
 
 ${color orange}NETWORK ${hr 2}$color
 ${color #ffcb48}eth0(${addr eth0})${alignr}${color #ffffff}${downspeed eth0}k/s / ${upspeed eth0}k/s
