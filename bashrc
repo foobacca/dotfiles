@@ -125,10 +125,14 @@ if [ -d /var/lib/gems/1.8/bin/ ]; then
   PATH=$PATH:/var/lib/gems/1.8/bin/
 fi
 
+if [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]]; then
+  source $HOME/.tmuxinator/scripts/tmuxinator
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source /etc/bash_completion
 fi
 
