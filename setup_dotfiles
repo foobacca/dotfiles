@@ -98,12 +98,13 @@ class Setup:
         self.call_wrapper(['make'], cwd=git_wtf_dir)
 
     def setup_git_tools(self):
-        self.setup_git_wtf()
         git_dir = os.path.join(self.get_dotfiles_dir(), 'git')
         for git_tool in os.listdir(git_dir):
             git_tool_path = os.path.join(git_dir, git_tool)
-            if os.access(git_tool_path, os.X_OK):
+            if os.access(git_tool_path, os.X_OK) and not os.path.isdir(git_tool_path):
                 self.setup_binlink(git_tool, git_tool_path)
+        # git wtf is a special case, do it last
+        self.setup_git_wtf()
 
     def setup_janus(self):
         # run the bootstrap script
