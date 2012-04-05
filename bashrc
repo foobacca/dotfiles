@@ -103,6 +103,11 @@ if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
 fi
 
+# ssh key stuff for fen-vz-console
+if [ `hostname` = 'fen-vz-console' ] && [ -f ~/bin/fixssh-vzconsole ]; then
+  source ~/bin/fixssh-vzconsole
+fi
+
 # from https://github.com/seebi/dircolors-solarized
 if [ -f ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal ]; then
   eval `dircolors ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal`
@@ -114,6 +119,10 @@ fi
 
 if [ -d ~/Dropbox/tech/bin ]; then
   export PATH=/home/mish/Dropbox/tech/bin:$PATH
+fi
+
+if [ -d /var/lib/gems/1.8/bin/ ]; then
+  PATH=$PATH:/var/lib/gems/1.8/bin/
 fi
 
 # enable programmable completion features (you don't need to enable
