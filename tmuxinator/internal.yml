@@ -1,0 +1,35 @@
+# ~/.tmuxinator/internal.yml
+# you can make as many tabs as you wish...
+
+project_name: Internal terminals
+project_root: ~/
+pre: /home/hamish/bin/start_ssh_agent.sh
+tabs:
+  - console:
+  - bash:
+  - bash:
+  - puppet:
+      layout: main-vertical
+      panes:
+        - ssh fen-vz-puppet.fen.aptivate.org
+        - ssh fen-vz-pupslave-debian.fen.aptivate.org
+        - ssh fen-vz-pupslave-centos.fen.aptivate.org
+  - fw: ssh fen-fw2.aptivate.org
+  - backup: 
+      layout: even-horizontal
+      panes:
+        - ssh fen-vz-backup2.fen.aptivate.org
+        - ssh fen-vz-backup.fen.aptivate.org
+  - apps: 
+      layout: even-horizontal
+      panes:
+        - ssh fen-apps.fen.aptivate.org
+        - ssh fen-fs3.fen.aptivate.org
+  - jenkins: ssh fen-vz-jenkins.fen.aptivate.org
+  - vz: 
+      layout: even-horizontal
+      panes:
+        - ssh fen-vz2.fen.aptivate.org
+        - ssh fen-vz3.fen.aptivate.org
+
+  # 4: puppet, 5: fw, 6: backup, 7: apps, 8: jenkins, 9: vz, 
