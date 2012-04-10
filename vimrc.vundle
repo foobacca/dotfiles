@@ -1,0 +1,62 @@
+" from http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+" Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+"Add your bundles here
+
+" Colours
+Bundle 'altercation/vim-colors-solarized' "T-H-E colorscheme
+
+" syntax highlighting
+Bundle 'tpope/vim-haml'
+Bundle 'pangloss/vim-javascript'
+Bundle 'tpope/vim-markdown'
+Bundle 'ajf/puppet-vim'
+Bundle 'tpope/vim''
+Bundle 'timcharper/textile.vim'
+Bundle 'vim-scripts/csv.vim'
+Bundle 'vim-ruby/vim-ruby'
+
+" functional plugins
+Bundle 'Syntastic' "uber awesome syntax and errors highlighter
+Bundle 'https://github.com/tpope/vim-fugitive' "So awesome, it should be illegal 
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'chrismetcalf/vim-yankring'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'sjl/threesome.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'edsono/vim-matchit'
+Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'mileszs/ack.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-endwise'
+Bundle 'ap/vim-css-color'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'kien/ctrlp.vim'
+
+"Bundle 'jbking/vim-pep8'
+
+"...All your other bundles...
+
+if iCanHazVundle == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
+" Setting up Vundle - the vim plugin bundler end
+
