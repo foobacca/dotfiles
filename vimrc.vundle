@@ -16,21 +16,21 @@ Bundle 'gmarik/vundle'
 "Add your bundles here
 
 " Colours
-Bundle 'altercation/vim-colors-solarized' "T-H-E colorscheme
+Bundle 'altercation/vim-colors-solarized'
 
 " syntax highlighting
 Bundle 'tpope/vim-haml'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-markdown'
 Bundle 'ajf/puppet-vim'
-Bundle 'tpope/vim''
+Bundle 'tpope/vim-git'
 Bundle 'timcharper/textile.vim'
 Bundle 'vim-scripts/csv.vim'
 Bundle 'vim-ruby/vim-ruby'
 
 " functional plugins
-Bundle 'Syntastic' "uber awesome syntax and errors highlighter
-Bundle 'https://github.com/tpope/vim-fugitive' "So awesome, it should be illegal 
+Bundle 'Syntastic'
+Bundle 'tpope/vim-fugitive' 
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'chrismetcalf/vim-yankring'
 Bundle 'tpope/vim-unimpaired'
@@ -48,6 +48,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'kien/ctrlp.vim'
+Bundle 'rgarver/Kwbd.vim'
 
 "Bundle 'jbking/vim-pep8'
 
@@ -58,5 +59,220 @@ if iCanHazVundle == 0
     echo ""
     :BundleInstall
 endif
+
+filetype plugin indent on     " required! 
+
 " Setting up Vundle - the vim plugin bundler end
+
+
+" make ack work on ubuntu
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" Search & Replace
+"set nohlsearch          " don't highlight search terms
+set gdefault            " assume the /g flag on :s substitutions to replace all matches in a line
+set autoindent
+
+" keep a few lines beneath the cursor
+set scrolloff=3
+
+" * Keystrokes -- Moving Around
+
+" have the h and l cursor keys wrap between lines (like <Space> and <BkSpc> do
+" by default), and ~ covert case over line breaks; also have the cursor keys
+" wrap in insert mode:
+set whichwrap=h,l,~,[,]
+
+" stuff from vimcasts
+" Use the same symbols as TextMate for tabstops and EOLs
+" set list listchars=tab:▸\ ,eol:¬,trail:·
+set list listchars=tab:▸\ ,trail:·
+" and set the colours so it's not too in your face
+highlight SpecialKey cterm=NONE ctermfg=black
+
+" make spelling highlight readable
+highlight SpellBad term=reverse ctermbg=black ctermfg=green
+
+" allow vim to be the man pager
+let $PAGER=''
+
+" :Wrap - wrap text with long lines and without breaking words across the line
+" boundary
+command! -nargs=* Wrap set wrap linebreak nolist
+
+" stuff to work with janus
+nmap <Leader>ct :ConqueTerm bash --login<CR>
+
+" stuff to work with YankRing
+nmap <Leader>yr :YRShow<CR>
+
+" do nice regex stuff
+nnoremap / /\v
+vnoremap / /\v
+nnoremap <leader><space> :noh<cr>   " make it easy to turn off search highlighting
+
+" from http://stackoverflow.com/questions/726894/vim-tricks-your-mom-never-told-you-about-dark-corners
+" hit - (minus) anytime to open the file explorer to show files adjacent to the one just edited
+"map - :Explore<cr>
+nmap <C-l> :tabnext<enter>
+nmap <C-h> :tabprevious<enter>
+
+" from http://stackoverflow.com/questions/95072/what-are-your-favorite-vim-tricks
+" use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
+"cmap w!! %!sudo tee > /dev/null %
+"already in janus
+
+" in command mode, expand %% to the current directory - %% in janus
+map <leader>e :e %%
+
+" page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
+" `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
+" or <BkSpc> (like in `Netscape Navigator'):
+noremap <Space> <PageDown>
+noremap <BS> <PageUp>
+noremap - <PageUp>
+" [<Space> by default is like l, <BkSpc> like h, and - like k.]
+
+" scroll the window (but leaving the cursor in the same place) by a couple of
+" lines up/down with <Ins>/<Del> (like in `Lynx'):
+noremap <Ins> 2<C-Y>
+noremap <Del> 2<C-E>
+" [<Ins> by default is like i, and <Del> like x.]
+
+" * Keystrokes -- Formatting
+
+" have Q reformat the current paragraph (or selected text if there is any):
+nnoremap Q gqap
+vnoremap Q gq
+
+" have the usual indentation keystrokes still work in visual mode:
+vnoremap <C-T> >
+vnoremap <C-D> <LT>
+vmap <Tab> <C-T>
+vmap <S-Tab> <C-D>
+
+" have Y behave analogously to D and C rather than to dd and cc (which is
+" already done by yy):
+noremap Y y$
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
+" use ; as : - by default ; does repeat of t/T/f/F
+"nnoremap ; :
+
+" * Keystrokes -- Toggles
+
+" Keystrokes to toggle options are defined here.  They are all set to normal
+" mode keystrokes beginning \t but some function keys (which won't work in all
+" terminals) are also mapped.
+
+" have \tp ("toggle paste") toggle paste on/off and report the change, and
+" where possible also have <F4> do this both in normal and insert mode:
+nnoremap <Leader>tp :set invpaste paste?<CR>
+"nmap <F5> \tp
+"imap <F5> <C-O>\tp
+"set pastetoggle=<F5>
+
+" have F5 toggle the solarized colorscheme from light to dark
+set bg=dark
+colorscheme solarized
+call togglebg#map("<F6>")
+
+" have \tf ("toggle format") toggle the automatic insertion of line breaks
+" during typing and report the change:
+nnoremap <Leader>tf :if &fo =~ 't' <Bar> set fo-=t <Bar> else <Bar> set fo+=t <Bar>
+  \ endif <Bar> set fo?<CR>
+"nmap <F3> \tf
+"imap <F3> <C-O>\tf
+
+" have \tl ("toggle list") toggle list on/off and report the change:
+nnoremap <Leader>tl :set invlist list?<CR>
+"nmap <F2> \tl
+
+" have \th ("toggle highlight") toggle highlighting of search matches, and
+" report the change:
+nnoremap <Leader>th :set invhls hls?<CR>
+
+" extra stuff for django
+nnoremap _dt :set ft=htmldjango<CR>
+nnoremap _pd :set ft=python.django<CR>
+
+if has("autocmd")
+  " always save when changing tabs etc
+  au FocusLost * :wa
+
+  " recognize anything in my .Postponed directory as a news article, and anything
+  " at all with a .txt extension as being human-language text [this clobbers the
+  " `help' filetype, but that doesn't seem to prevent help from working
+  " properly]:
+  augroup filetype
+    autocmd BufNewFile,BufRead */.Postponed/* set filetype=mail
+    autocmd BufNewFile,BufRead *.txt set filetype=human
+    autocmd BufNewFile,BufRead *.template set filetype=html
+    autocmd BufNewFile,BufRead *.mdwn set filetype=mkd
+  augroup END
+
+  " in human-language files, automatically format everything at 72 chars:
+  autocmd FileType mail,human set formatoptions+=t textwidth=72
+
+  " for C-like programming, have automatic indentation:
+  autocmd FileType c,cpp,slang set cindent
+
+  " for actual C (not C++) programming where comments have explicit end
+  " characters, if starting a new line in the middle of a comment automatically
+  " insert the comment leader characters:
+  autocmd FileType c set formatoptions+=ro
+
+  " for Perl programming, have things in braces indenting themselves:
+  autocmd FileType perl set smartindent
+
+  au BufNewFile,BufRead admin.py     setlocal filetype=python.django
+  au BufNewFile,BufRead urls.py      setlocal filetype=python.django
+  au BufNewFile,BufRead models.py    setlocal filetype=python.django
+  au BufNewFile,BufRead views.py     setlocal filetype=python.django
+  au BufNewFile,BufRead settings.py  setlocal filetype=python.django
+  au BufNewFile,BufRead forms.py     setlocal filetype=python.django
+
+  " for CSS, also have things in braces indented:
+  autocmd FileType css set smartindent
+
+  " for HTML, generally format text, but if a long line has been created leave it
+  " alone when editing:
+  autocmd FileType html set formatoptions+=tl
+
+  " for both CSS and HTML, use genuine tab characters for indentation, to make
+  " files a few bytes smaller:
+  autocmd FileType html,css set noexpandtab tabstop=2
+
+  " in makefiles, don't expand tabs to spaces, since actual tab characters are
+  " needed, and have indentation at 8 chars to be sure that all indents are tabs
+  " (despite the mappings later):
+  autocmd FileType make set noexpandtab shiftwidth=8
+
+  " for man pages don't show line numbers
+  autocmd FileType man set nonumber
+endif
+
+" * Spelling
+" Toggle spell checking on and off with `\s`
+nmap <silent> <leader>s :set spell!<CR>
+ 
+" Set region to British English
+set spelllang=en_gb
+
+" try to avoid misspelling words in the first place -- have the insert mode
+" <Ctrl>+N/<Ctrl>+P keys perform completion on partially-typed words by
+" checking the Linux word list and the personal `Ispell' dictionary; sort out
+" case sensibly (so that words at starts of sentences can still be completed
+" with words that are in the dictionary all in lower case):
+set complete=.,w,k
+set infercase
+
+" correct my common typos without me even noticing them:
+abbreviate teh the
+abbreviate hamsih hamish 
+abbreviate Hamsih Hamish
+abbreviate Haish Hamish
+abbreviate suod sudo
 
