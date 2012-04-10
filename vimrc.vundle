@@ -65,6 +65,13 @@ filetype plugin indent on     " required!
 
 " Setting up Vundle - the vim plugin bundler end
 
+"
+" bring in some stuff from janus
+"
+source ~/.vim_janus/janus/vim/core/before/plugin/gui_settings.vim
+source ~/.vim_janus/janus/vim/core/before/plugin/mappings.vim
+source ~/.vim_janus/janus/vim/core/before/plugin/settings.vim
+source ~/.vim_janus/janus/vim/core/before/plugin/statusline.vim
 
 " make ack work on ubuntu
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
@@ -203,6 +210,16 @@ if has("autocmd")
   " always save when changing tabs etc
   au FocusLost * :wa
 
+  " Treat JSON files like JavaScript
+  au BufNewFile,BufRead *.json set ft=javascript
+
+  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+
+  " Remember last location in file, but not for commit messages.
+  " see :help last-position-jump
+  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
   " recognize anything in my .Postponed directory as a news article, and anything
   " at all with a .txt extension as being human-language text [this clobbers the
   " `help' filetype, but that doesn't seem to prevent help from working
