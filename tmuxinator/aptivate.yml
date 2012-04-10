@@ -3,7 +3,7 @@
 
 project_name: Aptivate work setup
 project_root: ~/
-pre: ssh-add
+#pre: ssh-add
 tabs:
   - localmail:
       layout: even-horizontal
