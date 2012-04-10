@@ -1,5 +1,7 @@
 --smart-case
 --type-set
+puppet=.pp
+--type-set
 log=.log
 --type-set
 django=.py,.html
