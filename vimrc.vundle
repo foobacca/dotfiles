@@ -29,29 +29,37 @@ Bundle 'vim-scripts/csv.vim'
 Bundle 'vim-ruby/vim-ruby'
 
 " functional plugins
+" syntax checkers
 Bundle 'Syntastic'
-Bundle 'tpope/vim-fugitive' 
 Bundle 'kevinw/pyflakes-vim'
+"Bundle 'jbking/vim-pep8'
+" git (and merge)
+Bundle 'tpope/vim-fugitive'
+Bundle 'sjl/threesome.vim'
+" manage buffers and windows
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'rgarver/Kwbd.vim'
+Bundle 'sjl/clam.vim'
+Bundle 'benmills/vimux'
+" manage files etc
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'matthias-guenther/hammer.vim'
+Bundle 'mileszs/ack.vim'
+" editing
 Bundle 'chrismetcalf/vim-yankring'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'sjl/threesome.vim'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
 Bundle 'edsono/vim-matchit'
 Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'mileszs/ack.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-endwise'
 Bundle 'ap/vim-css-color'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'kien/ctrlp.vim'
-Bundle 'rgarver/Kwbd.vim'
 
-"Bundle 'jbking/vim-pep8'
 
 "...All your other bundles...
 
