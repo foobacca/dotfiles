@@ -4,6 +4,7 @@
 alias vimcheat='eog file:///home/mish/Desktop/vi-vim-cheat-sheet.gif'
 
 alias p4='ping 4.2.2.2 -c 4'
+alias t4='traceroute -n 4.2.2.2'
 alias p1='ping 192.168.1.1 -c 4'
 
 # pwsafe
