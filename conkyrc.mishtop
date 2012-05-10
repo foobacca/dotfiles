@@ -82,6 +82,8 @@ ${color orange}SYSTEM ${hr 2}$color
 $nodename $sysname $kernel on $machine
 ${color #ffcb48}Uptime:$color $uptime - ${color #ffcb48}Load:$color $loadavg
 
+Last backup done: ${tail /home/mish/.lastbackupdate 1}
+
 ${color #ffcb48}CPUs$color
 ${cpu cpu1}% ${alignr}${cpu cpu2}% 
 ${cpugraph cpu1 25,100 78af78 a3a3a3}${alignr}${cpugraph cpu2 25,100 78af78 a3a3a3}
@@ -107,12 +109,12 @@ Swap: $swap/$swapmax - $swapperc% ${swapbar 6}$color
 Root: ${fs_used /}/${fs_size /} ${fs_free_perc /}% ${fs_bar 6 /}$color
 
 ${color orange}NETWORK ${hr 2}$color
-${color #ffcb48}eth0(${addr eth0})${alignr}${color #ffffff}${downspeed eth0}k/s / ${upspeed eth0}k/s
+${color #ffcb48}eth0(${addr eth0})${alignr}${color #ffffff}${downspeed eth0}/s / ${upspeed eth0}/s
 ${downspeedgraph eth0 25,140 000000 ff0000} ${alignr}${upspeedgraph eth0 25,140 000000 00ff00}$color
 ${color #98c2c7}DOWN: ${color #ffffff}${totaldown eth0}${alignr}${color #98c2c7}UP: ${color #ffffff}${totalup eth0}
 
 ${color #ffcb48}wlan0$color: ${wireless_essid wlan0}${alignr}${wireless_bitrate wlan0}
-${addrs wlan0}${alignr}${color #ffffff}${downspeed wlan0}k/s / ${upspeed wlan0}k/s
+${addrs wlan0}${alignr}${color #ffffff}${downspeed wlan0}/s / ${upspeed wlan0}/s
 ${color #98c2c7}${downspeedgraph wlan0 25,140 000000 ff0000}${alignr}${color #98c2c7}${upspeedgraph wlan0 25,140 000000 00ff00}
 ${color #98c2c7}DOWN: ${color #ffffff}${totaldown wlan0}${alignr}${color #98c2c7}UP: ${color #ffffff}${totalup wlan0}
 
