@@ -1,6 +1,6 @@
 " include the vimrc
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(expand("~/.vimrc"))
+  source ~/.vimrc
 endif
 
 " window size
