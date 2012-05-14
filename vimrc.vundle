@@ -81,13 +81,16 @@ filetype plugin indent on     " required!
 "
 " bring in some stuff (from janus originally)
 "
+source ~/dev/dotfiles/vim/abbrev.vim
 source ~/dev/dotfiles/vim/gui_settings.vim
 source ~/dev/dotfiles/vim/mappings.vim
 source ~/dev/dotfiles/vim/settings.vim
 source ~/dev/dotfiles/vim/statusline.vim
+" do autocmds last to do filetype override of other config
+source ~/dev/dotfiles/vim/autocmds.vim
 
-" stuff to work with janus
-nmap <Leader>ct :ConqueTerm bash --login<CR>
+" ConqueTerm
+"nmap <Leader>ct :ConqueTerm bash --login<CR>
 
 " stuff to work with YankRing
 nmap <Leader>yr :YRShow<CR>
