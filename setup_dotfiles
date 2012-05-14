@@ -58,8 +58,10 @@ class Setup:
                         (' '.join(args), kwargs['cwd'])
         subprocess.call(args, **kwargs)
 
-    def setup_dotlink(self, filename, is_dir=False):
-        link_name = os.path.join(os.environ["HOME"], '.' + filename)
+    def setup_dotlink(self, filename, is_dir=False, dotfilename=None):
+        if dotfilename == None:
+            dotfilename = '.' + filename
+        link_name = os.path.join(os.environ["HOME"], dotfilename)
         source_name = os.path.join(self.get_dotfiles_dir(), filename)
         self.create_link(link_name, source_name, is_dir=is_dir)
 
@@ -106,11 +108,6 @@ class Setup:
         # git wtf is a special case, do it last
         self.setup_git_wtf()
 
-    def setup_janus(self):
-        # run the bootstrap script
-        # curl https://raw.github.com/carlhuda/janus/master/bootstrap.sh -o - | sh
-        pass
-
 
 def main(argv=None):
     verbose = False
@@ -130,14 +127,12 @@ def main(argv=None):
         setup = Setup(verbose)
         setup.setup_git_submodules()
         # set up the rc file links
-        for file in ["ackrc", "bashrc", "gvimrc.after", "inputrc",
-                    "tmux.conf", "vimrc.after", "vimrc.before"]:
+        for file in ["ackrc", "bashrc", "gvimrc", "inputrc", "tmux.conf",]:
             setup.setup_dotlink(file)
-        setup.setup_dotlink("janus", is_dir=True)
+        setup.setup_dotlink("vimrc.vundle", dotfilename='.vimrc')
         setup.setup_terminator_config()
         setup.setup_ack_link()
         setup.setup_git_tools()
-        setup.setup_janus()
     except Usage, err:
         print >>sys.stderr, err.msg
         print >>sys.stderr, "for help use --help"
