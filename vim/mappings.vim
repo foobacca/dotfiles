@@ -3,13 +3,53 @@
 "" (not dependent on plugins)
 ""
 
+" use ; as : - by default ; does repeat of t/T/f/F
+"nnoremap ; :
+
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
 
+" * Keystrokes -- Toggles
+
+" Keystrokes to toggle options are defined here.  They are all set to normal
+" mode keystrokes beginning \t but some function keys (which won't work in all
+" terminals) are also mapped.
+
+" have \tp ("toggle paste") toggle paste on/off and report the change, and
+" where possible also have <F4> do this both in normal and insert mode:
+nnoremap <Leader>tp :set invpaste paste?<CR>
+"nmap <F5> \tp
+"imap <F5> <C-O>\tp
+"set pastetoggle=<F5>
 " Toggle paste mode
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
+
+
+" have F5 toggle the solarized colorscheme from light to dark
+set bg=dark
+colorscheme solarized
+call togglebg#map("<F6>")
+
+" have \tf ("toggle format") toggle the automatic insertion of line breaks
+" during typing and report the change:
+nnoremap <Leader>tf :if &fo =~ 't' <Bar> set fo-=t <Bar> else <Bar> set fo+=t <Bar>
+  \ endif <Bar> set fo?<CR>
+"nmap <F3> \tf
+"imap <F3> <C-O>\tf
+
+" have \tl ("toggle list") toggle list on/off and report the change:
+nnoremap <Leader>tl :set invlist list?<CR>
+"nmap <F2> \tl
+
+" have \th ("toggle highlight") toggle highlighting of search matches, and
+" report the change:
+nnoremap <Leader>th :set invhls hls?<CR>
+
+" * Spelling
+" Toggle spell checking on and off with `\s`
+nmap <silent> <leader>s :set spell!<CR>
 
 " format the entire file
 nmap <leader>fef ggVG=
@@ -45,6 +85,11 @@ nmap <silent> <leader>ul :t.\|s/./=/g\|:nohls<cr>
 " set text wrapping toggles
 nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
 
+" :Wrap - wrap text with long lines and without breaking words across the line
+" boundary
+command! -nargs=* Wrap set wrap linebreak nolist
+
+
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
@@ -52,25 +97,25 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 map <Down> gj
 map <Up> gk
 
+" page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
+" `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
+" or <BkSpc> (like in `Netscape Navigator'):
+noremap <Space> <PageDown>
+noremap <BS> <PageUp>
+noremap - <PageUp>
+" [<Space> by default is like l, <BkSpc> like h, and - like k.]
+
+" scroll the window (but leaving the cursor in the same place) by a couple of
+" lines up/down with <Ins>/<Del> (like in `Lynx'):
+noremap <Ins> 2<C-Y>
+noremap <Del> 2<C-E>
+" [<Ins> by default is like i, and <Del> like x.]
+
 " Toggle hlsearch with <leader>hs
 nmap <leader>hs :set hlsearch! hlsearch?<CR>
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
-
-" Map command-[ and command-] to indenting or outdenting
-" while keeping the original selection in visual mode
-vmap <A-]> >gv
-vmap <A-[> <gv
-
-nmap <A-]> >>
-nmap <A-[> <<
-
-omap <A-]> >>
-omap <A-[> <<
-
-imap <A-]> <Esc>>>i
-imap <A-[> <Esc><<i
 
 " Bubble single lines
 nmap <C-Up> [e
@@ -127,4 +172,41 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/"<CR>
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <leader><space> :noh<cr>   " make it easy to turn off search highlighting
+
+" * Keystrokes -- Formatting
+
+" have Q reformat the current paragraph (or selected text if there is any):
+nnoremap Q gqap
+vnoremap Q gq
+
+" have the usual indentation keystrokes still work in visual mode:
+vnoremap <C-T> >
+vnoremap <C-D> <LT>
+vmap <Tab> <C-T>
+vmap <S-Tab> <C-D>
+
+" have Y behave analogously to D and C rather than to dd and cc (which is
+" already done by yy):
+noremap Y y$
+
+" Visually select the text that was last edited/pasted
+nmap gV `[v`]
+
+" Map command-[ and command-] to indenting or outdenting
+" while keeping the original selection in visual mode
+vmap <A-]> >gv
+vmap <A-[> <gv
+
+nmap <A-]> >>
+nmap <A-[> <<
+
+omap <A-]> >>
+omap <A-[> <<
+
+imap <A-]> <Esc>>>i
+imap <A-[> <Esc><<i
+
+" extra stuff for django
+nnoremap _dt :set ft=htmldjango<CR>
+nnoremap _pd :set ft=python.django<CR>
 
