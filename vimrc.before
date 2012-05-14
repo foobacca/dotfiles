@@ -1,7 +1,0 @@
-" disable node.js ftdetect due to error messages
-call janus#disable_plugin('nodejs')
-" pep8 is a bit over the top ...
-call janus#disable_plugin('pep8')
-
-" make ack work on ubuntu
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
