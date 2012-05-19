@@ -7,6 +7,11 @@ alias p4='ping 4.2.2.2 -c 4'
 alias t4='traceroute -n 4.2.2.2'
 alias p1='ping 192.168.1.1 -c 4'
 
+# ssh
+alias mailao='ssh -t mail.aptivate.org tmux attach -d'
+alias socks='ssh -C -D 1080 lin-vnc.aptivate.org'
+alias heltun='ssh -f hamish -L 8042:hamish:8042 -N'
+
 # pwsafe
 alias pw='pwsafe -p'
 
