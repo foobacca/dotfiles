@@ -96,6 +96,8 @@ source ~/dev/dotfiles/vim/autocmds.vim
 nmap <Leader>yr :YRShow<CR>
 
 " plugin specific stuff
+"
+" ORG Mode
 let g:org_capture_file = '~/org_files/mycaptures.org'
 command! OrgCapture :call org#CaptureBuffer()
 command! OrgCaptureFile :call org#OpenCaptureFile()
@@ -103,3 +105,5 @@ command! OrgCaptureFile :call org#OpenCaptureFile()
 " make ack work on ubuntu
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" NERD tree
+nmap <Leader>n :NERDTreeToggle<cr>
