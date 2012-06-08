@@ -11,9 +11,8 @@ tabs:
   - puppet:
       layout: main-vertical
       panes:
-        - ssh fen-vz-puppet.fen.aptivate.org
-        - ssh fen-vz-pupslave-debian.fen.aptivate.org
-        - ssh fen-vz-pupslave-centos.fen.aptivate.org
+        - ssh fen-vz-puppet2.fen.aptivate.org
+        - ssh fen-vz-puppet2.fen.aptivate.org
   - fw: ssh fen-fw2.aptivate.org
   - backup: 
       layout: even-horizontal
