@@ -40,8 +40,8 @@
     ci = commit
     co = checkout
     w = whatchanged
-    wtf = !git-wtf
-
+	  wtf = !git-wtf
+	  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
 [merge]
     tool = meld
     #tool = threesome
