@@ -1,0 +1,18 @@
+# ~/.tmuxinator/fandango.yml
+# you can make as many tabs as you wish...
+
+project_name: Fandango
+project_root: /home/mish/dev/sup/fandango
+#pre: sudo /etc/rc.d/mysqld start
+tabs:
+  - fandango:
+      layout: even-horizontal
+      panes:
+        - vim
+        - # bash
+  - heliotrope:
+      layout: main-vertical
+      panes:
+        - cd ../heliotrope; vim
+        - cd ../heliotrope
+        - cd ../heliotrope; ruby1.9.1 -Ilib bin/heliotrope-server -d ~/.heliotrope/
