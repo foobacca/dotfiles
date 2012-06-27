@@ -2,7 +2,7 @@
 # you can make as many tabs as you wish...
 
 project_name: Aptivate work setup
-project_root: ~/
+project_root: ~/work/
 pre: ssh-add
 tabs:
   - localmail:
