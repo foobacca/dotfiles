@@ -1,0 +1,20 @@
+# ~/.tmuxinator/idsapi.yml
+# you can make as many tabs as you wish...
+
+project_name: IDS API
+project_root: ~/work/gitsvn/idsapi
+#pre: sudo /etc/rc.d/mysqld start
+tabs:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+        - #empty, will just run plain bash
+        - cd django/idsapi; ./manage.py runserver
+#  - shell: git pull
+#  - database: rails db
+#  - server: rails s
+#  - logs: tail -f logs/development.log
+#  - console: rails c
+#  - capistrano:
+#  - server: ssh me@myhost
