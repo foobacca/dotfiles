@@ -66,6 +66,7 @@ alias xopen="xdg-open"
 alias c=clear
 alias d='dirs -v'
 alias e=$EDITOR
+alias se=sudoedit
 alias v='gvim --remote-tab-silent'
 alias vi='vim -u ~/.vimrc_light'
 alias grep='egrep --color=auto'
