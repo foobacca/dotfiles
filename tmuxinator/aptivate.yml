@@ -15,5 +15,5 @@ tabs:
   - shell: 
       layout: even-horizontal
       panes:
-        - cd ~/work/
-        - cd ~/work/
+        -
+        -
