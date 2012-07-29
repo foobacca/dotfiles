@@ -73,6 +73,9 @@ gap_y 10
 # short units (GiB -> G)
 short_units yes
 
+# cut lines I might want to keep
+#Last backup done: ${tail /home/mish/.lastbackupdate 1}
+#
 # stuff after ‘TEXT’ will be formatted on screen
 
 TEXT
@@ -82,7 +85,7 @@ ${color orange}SYSTEM ${hr 2}$color
 $nodename $sysname $kernel on $machine
 ${color #ffcb48}Uptime:$color $uptime - ${color #ffcb48}Load:$color $loadavg
 
-Last backup done: ${tail /home/mish/.lastbackupdate 1}
+${execpi 300 /home/mish/dev/dotfiles/bin/conky_backup}
 
 ${color #ffcb48}CPUs$color
 ${cpu cpu1}% ${alignr}${cpu cpu2}% 
@@ -121,4 +124,4 @@ ${color #98c2c7}DOWN: ${color #ffffff}${totaldown wlan0}${alignr}${color #98c2c7
 ${color orange}Connections: ${color orange}Inbound: ${color #ffcb48}${tcp_portmon 1 32767 count}  ${color orange}Outbound: ${color #ffcb48}${tcp_portmon 32768 61000 count}  ${color orange}Total: ${color #ffcb48}${tcp_portmon 1 65535 count} 
 
 ${color orange}LOGGING ${hr 2}$color
-${execi 30 tail -n3 /var/log/syslog | fold -w50}
+${execi 60 tail -n3 /var/log/syslog | fold -w50}
