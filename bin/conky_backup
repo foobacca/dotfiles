@@ -1,0 +1,24 @@
+#!/bin/sh
+# script to check back up age and print warning if not
+
+WARNING_AGE=7
+CRITICAL_AGE=14
+BACKUP_FILE_RECORD=~/.lastbackupdate
+
+if [ -f $BACKUP_FILE_RECORD ]; then
+  filemtime=`stat -c %Y ${BACKUP_FILE_RECORD}`
+  currtime=`date +%s`
+  backup_age=$(( (currtime - filemtime) / 86400 ))
+
+  if [ $backup_age -gt $CRITICAL_AGE ]; then
+    # if file older than critical
+    echo "\${color red}BACKUP CRITICAL: Last backup is ${backup_age} days old\${color}"
+  elif [ $backup_age -gt $WARNING_AGE ]; then
+    # elif file older than warning
+    echo "\${color green}BACKUP WARNING: Last backup is ${backup_age} days old\${color}"
+  else
+    echo "Last backup is ${backup_age} days old"
+  fi
+fi
+
+
