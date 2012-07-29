@@ -85,10 +85,10 @@ set scrolloff=3
 set whichwrap=h,l,~,[,]
 
 " and set the colours so it's not too in your face
-highlight NonText cterm=NONE ctermfg=yellow
-highlight SpecialKey cterm=NONE ctermfg=yellow
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+highlight NonText cterm=NONE ctermfg=brown
+highlight SpecialKey cterm=NONE ctermfg=brown
+highlight NonText guifg=#804C00
+highlight SpecialKey guifg=#804C00
 
 " make spelling highlight readable
 highlight SpellBad term=reverse ctermbg=black ctermfg=green
