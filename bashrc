@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -135,4 +135,25 @@ fi
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
+
+# check for when the last back up was run
+BACKUP_FILE_RECORD=~/.lastbackupdate
+
+if [ -f $BACKUP_FILE_RECORD ]; then
+  filemtime=`stat -c %Y ${BACKUP_FILE_RECORD}`
+  currtime=`date +%s`
+  backup_age=$(( (currtime - filemtime) / 86400 ))
+
+  WARNING_AGE=7
+  CRITICAL_AGE=14
+
+  if [ $backup_age -gt $CRITICAL_AGE ]; then
+    # if file older than critical
+    echo "${RED}Last backup is ${backup_age} days old${RESET}"
+  elif [ $backup_age -gt $WARNING_AGE ]; then
+    # elif file older than warning
+    echo "${GREEN}Last backup is ${backup_age} days old${RESET}"
+  fi
+fi
+
 
