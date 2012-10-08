@@ -44,6 +44,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# root mysql
+alias mysqlroot='mysql -u root -p$(sudo cat /root/mysql_root_password)'
+
 # from lifehacker
 # install a package and automatically respond yes to confirmation prompt
 alias ins="sudo aptitude install"
