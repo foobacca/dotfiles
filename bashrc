@@ -10,8 +10,8 @@
 HISTCONTROL=ignoreboth
 
 # Expand the history size
-HISTFILESIZE=50000
-HISTSIZE=5000
+HISTFILESIZE=500000
+HISTSIZE=50000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -155,5 +155,4 @@ if [ -f $BACKUP_FILE_RECORD ]; then
     echo "${GREEN}Last backup is ${backup_age} days old${RESET}"
   fi
 fi
-
 
