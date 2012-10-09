@@ -6,10 +6,11 @@ project_root: /home/mish/dev/sup/fandango
 #pre: sudo /etc/rc.d/mysqld start
 tabs:
   - fandango:
-      layout: even-horizontal
+      layout: main-vertical
       panes:
-        - vim
+        - cd html; vim
         - # bash
+        - cd lighttpd; lighttpd -f lighttpd.conf; tail -f logs/lighttpd.error.log
   - heliotrope:
       layout: main-vertical
       panes:
