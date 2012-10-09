@@ -1,0 +1,12 @@
+# ~/.tmuxinator/aptivate.yml
+# you can make as many tabs as you wish...
+
+project_name: Aptivate mail
+project_root: ~/
+pre: ssh-add
+tabs:
+  - localmail:
+      layout: even-horizontal
+      panes:
+        - #empty, will just run plain bash
+        - ssh -t mail.aptivate.org tmux attach -d
