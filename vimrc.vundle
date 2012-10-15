@@ -17,6 +17,7 @@ Bundle 'gmarik/vundle'
 
 " Colours
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bitterjug/vim-colors-freyr'
 
 " syntax highlighting
 Bundle 'tpope/vim-haml'
@@ -62,7 +63,7 @@ Bundle 'chrisbra/NrrwRgn'
 " org mode and related
 Bundle 'hsitz/VimOrganizer'
 Bundle 'chrisbra/NrrwRgn'
-Bundle 'vim-scripts/utl'
+Bundle 'vim-scripts/utl.vim'
 Bundle 'mattn/calendar-vim'
 
 
