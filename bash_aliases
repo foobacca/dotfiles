@@ -64,13 +64,22 @@ alias show="aptitude show"
 # from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
 alias xopen="xdg-open"
 
+# fasd is handy - https://github.com/clvv/fasd
+if [ -f /usr/local/bin/fasd ]; then
+  eval "$(fasd --init auto)"
+  alias g='f -e cd'  # quick goto dir
+  alias v='f -e vim' # quick opening files with vim
+  alias m='f -e mplayer' # quick opening files with mplayer
+  alias o='a -e xdg-open' # quick opening files with xdg-open
+fi
+
 # from web
 
 alias c=clear
-alias d='dirs -v'
+#alias d='dirs -v'
 alias e=$EDITOR
 alias se=sudoedit
-alias v='gvim --remote-tab-silent'
+#alias v='gvim --remote-tab-silent'
 alias vi='vim -u ~/.vimrc_light'
 alias grep='egrep --color=auto'
 alias egrep='egrep --color=auto'

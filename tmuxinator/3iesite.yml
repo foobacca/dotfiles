@@ -2,7 +2,7 @@
 # you can make as many tabs as you wish...
 
 project_name: 3ie Site
-project_root: ~/work/repos/3iesite
+project_root: ~/work/dev/3iesite
 #pre: sudo /etc/rc.d/mysqld start
 tabs:
   - main:
