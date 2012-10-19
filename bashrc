@@ -79,6 +79,9 @@ export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
 # wrap by default
 export MOST_SWITCHES="-w"
 
+# have colour output from Django
+export DJANGO_COLORs="dark"
+
 # stop the pc speaker ever annoying me :)
 setterm -bfreq 0
 
