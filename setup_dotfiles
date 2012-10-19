@@ -127,7 +127,7 @@ def main(argv=None):
         setup = Setup(verbose)
         setup.setup_git_submodules()
         # set up the rc file links
-        for file in ["ackrc", "bashrc", "gvimrc", "inputrc", "tmux.conf",]:
+        for file in ["ackrc", "bashrc", "gvimrc", "inputrc", "tigrc", "tmux.conf",]:
             setup.setup_dotlink(file)
         setup.setup_dotlink("vimrc.vundle", dotfilename='.vimrc')
         setup.setup_terminator_config()
