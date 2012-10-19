@@ -74,7 +74,7 @@ gap_y 10
 short_units yes
 
 # cut lines I might want to keep
-#Last backup done: ${tail /home/mish/.lastbackupdate 1}
+#${execpi 300 /home/mish/dev/dotfiles/bin/conky_backup}
 #
 # stuff after ‘TEXT’ will be formatted on screen
 
@@ -85,7 +85,7 @@ ${color orange}SYSTEM ${hr 2}$color
 $nodename $sysname $kernel on $machine
 ${color #ffcb48}Uptime:$color $uptime - ${color #ffcb48}Load:$color $loadavg
 
-${execpi 300 /home/mish/dev/dotfiles/bin/conky_backup}
+Last backup done: ${tail /home/mish/.lastbackupdate 1}
 
 ${color #ffcb48}CPUs$color
 ${cpu cpu1}% ${alignr}${cpu cpu2}% 
