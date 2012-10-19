@@ -48,6 +48,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'matthias-guenther/hammer.vim'
 Bundle 'mileszs/ack.vim'
+" wordpress
+Bundle 'vim-scripts/VimRepress'
 " editing
 Bundle 'chrismetcalf/vim-yankring'
 Bundle 'tpope/vim-unimpaired'
