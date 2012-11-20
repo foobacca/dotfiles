@@ -28,6 +28,7 @@ Bundle 'tpope/vim-git'
 Bundle 'timcharper/textile.vim'
 Bundle 'vim-scripts/csv.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'jnwhiteh/vim-golang'
 
 " functional plugins
 " syntax checkers
@@ -48,6 +49,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'matthias-guenther/hammer.vim'
 Bundle 'mileszs/ack.vim'
+" wordpress
+Bundle 'vim-scripts/VimRepress'
 " editing
 Bundle 'chrismetcalf/vim-yankring'
 Bundle 'tpope/vim-unimpaired'
