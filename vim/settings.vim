@@ -43,8 +43,8 @@ set gdefault    " assume the /g flag on :s substitutions to replace all matches 
 "" Wild settings
 ""
 
-" TODO: Investigate the precise meaning of these settings
-" set wildmode=list:longest,list:full
+" Investigate the precise meaning of these settings
+set wildmode=list:longest,list:full
 
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
