@@ -20,6 +20,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'bitterjug/vim-colors-freyr'
 
 " syntax highlighting
+Bundle 'vim-scripts/django.vim'
 Bundle 'tpope/vim-haml'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-markdown'
