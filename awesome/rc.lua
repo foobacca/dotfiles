@@ -89,6 +89,7 @@ hamishmenu = {
    { "skype", "skype" },
    { "redshift", "gtk-redshift" },
    { "conky", "conky -d" },
+   { "sound settings", "gnome-control-center sound" },
    { "Log Out", "/home/hamish/bin/shutdown_dialog.sh" },
 }
 
