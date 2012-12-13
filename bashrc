@@ -30,12 +30,18 @@ if [[ $BASH_VERSION == 4.* ]]; then shopt -s globstar; fi
 
 RESET=$(tput sgr0)
 GREEN=$(tput setaf 2)
+YELLOW="$(tput bold ; tput setaf 3)"
 RED=$(tput setaf 1)
+
+function parse_git_branch {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo " ("${ref#refs/heads/}")"
+}
 
 # abbreviate the dir path in the prompt
 PROMPT_COMMAND='history -a; CurDir=`pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g"`'
 RET_VALUE='$(RET=$?; if [[ $RET = 0 ]]; then echo -ne "\[$GREEN\]0"; else echo -ne "\[$RED\]$RET"; fi;)'
-PS1="$RET_VALUE \u@\h:\$CurDir\[$RESET\]\$ "
+PS1="$RET_VALUE \u@\h:\$CurDir\[$YELLOW\]\$(parse_git_branch)\[$RESET\]\$ "
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
