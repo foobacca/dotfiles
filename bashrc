@@ -68,6 +68,10 @@ export BC_ENV_ARGS=-l
 export CVS_RSH=ssh
 export CVSROOT=":ext:hamish@cvs.aptivate.org:/home/cvs/root/"
 
+# for vmail
+export VMAIL_HTML_PART_READER='elinks -dump'
+export VMAIL_BROWSER='xdg-open'
+
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
