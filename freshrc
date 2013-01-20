@@ -25,8 +25,7 @@ fresh foobacca/dotfiles gvimrc --file
 fresh foobacca/dotfiles vimrc.vundle --file=~/.vimrc
 
 # bin commands
-fresh foobacca/dotfiles bin/* --bin
-fresh foobacca/dotfiles gitbin/* --bin
-fresh git://gitorious.org/willgit/mainline bin/* --bin
+fresh foobacca/dotfiles 'bin/*' --bin
+fresh foobacca/dotfiles 'gitbin/*' --bin
 
 fresh freshshell/fresh contrib/completion/fresh-completion.bash
