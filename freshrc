@@ -10,15 +10,19 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
-# my files
+# general config
 fresh ackrc --file
 fresh inputrc --file
+# looks good, but captures Ctrl-L :/
+#fresh jasoncodes/dotfiles config/inputrc --file
 fresh tigrc --file
 fresh tmux.conf --file
+fresh jasoncodes/dotfiles config/sqliterc --file
 
 # bash
 fresh bashrc --file
 fresh bash_aliases --file=~/.bashrc
+fresh jasoncodes/dotfiles aliases/editor.sh --file=~/.bashrc
 
 # vim
 fresh gvimrc --file
