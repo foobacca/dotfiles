@@ -86,13 +86,13 @@ filetype plugin indent on     " required!
 "
 " bring in some stuff (from janus originally)
 "
-source ~/dev/dotfiles/vim/abbrev.vim
-source ~/dev/dotfiles/vim/gui_settings.vim
-source ~/dev/dotfiles/vim/mappings.vim
-source ~/dev/dotfiles/vim/settings.vim
-source ~/dev/dotfiles/vim/statusline.vim
+source ~/.dotfiles/vim/abbrev.vim
+source ~/.dotfiles/vim/gui_settings.vim
+source ~/.dotfiles/vim/mappings.vim
+source ~/.dotfiles/vim/settings.vim
+source ~/.dotfiles/vim/statusline.vim
 " do autocmds last to do filetype override of other config
-source ~/dev/dotfiles/vim/autocmds.vim
+source ~/.dotfiles/vim/autocmds.vim
 
 " ConqueTerm
 "nmap <Leader>ct :ConqueTerm bash --login<CR>
