@@ -1,6 +1,6 @@
 [user]
     name = Hamish Downer
-    email = hamish@aptivate.org
+    email = dmishd@gmail.com
 
 [github]
     user = foobacca
@@ -51,11 +51,11 @@
     trustExitCode = true
 
 [giggle]
-	main-window-maximized = false
-	main-window-geometry = 1543x1078+0+24
-	history-view-vpane-position = 538
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+	history-view-vpane-position = 336
 	main-window-view = HistoryView
-	file-view-vpane-position = 752
+	file-view-vpane-position = 550
 	file-view-hpane-position = 323
 
 #
