@@ -1,0 +1,32 @@
+# freshshell.com
+#
+# Examples:
+#
+#   fresh twe4ked/dotfiles shell/functions.sh
+#   fresh jasoncodes/dotfiles aliases/rails.sh
+#   fresh jasoncodes/dotfiles config/tmux.conf --file
+#
+# See http://freshshell.com/readme for documentation.
+
+fresh freshshell/fresh bin/fresh --bin
+
+# my files
+fresh foobacca/dotfiles ackrc --file
+fresh foobacca/dotfiles inputrc --file
+fresh foobacca/dotfiles tigrc --file
+fresh foobacca/dotfiles tmux.conf --file
+
+# bash
+fresh foobacca/dotfiles bashrc --file
+fresh foobacca/dotfiles bash_aliases --file=~/.bashrc
+
+# vim
+fresh foobacca/dotfiles gvimrc --file
+fresh foobacca/dotfiles vimrc.vundle --file=~/.vimrc
+
+# bin commands
+fresh foobacca/dotfiles bin/* --bin
+fresh foobacca/dotfiles gitbin/* --bin
+fresh git://gitorious.org/willgit/mainline bin/* --bin
+
+fresh freshshell/fresh contrib/completion/fresh-completion.bash

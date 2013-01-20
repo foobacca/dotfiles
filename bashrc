@@ -149,6 +149,10 @@ if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
+if [ -f ~/.fresh/build/shell.sh ]; then
+    source ~/.fresh/build/shell.sh
+fi
+
 # check for when the last back up was run
 BACKUP_FILE_RECORD=~/.lastbackupdate
 
