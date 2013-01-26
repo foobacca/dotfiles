@@ -10,6 +10,10 @@ less=.less
 --type-set
 vim=.vim
 --type-set
+js=.js
+--type-set
+javascript=.js
+--type-set
 fe=.html,.js,.less
 --type-set
 fea=.html,.js,.less,.css
