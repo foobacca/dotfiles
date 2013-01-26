@@ -1,0 +1,7 @@
+
+# ssh key stuff for fen-vz-console
+if [ `hostname` = 'fen-vz-console' ] && [ -f ~/bin/fixssh-vzconsole ]; then
+  source ~/bin/fixssh-vzconsole
+fi
+
+# vi: ft=sh
