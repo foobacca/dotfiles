@@ -1,0 +1,28 @@
+
+# use vim as the man pager instead of less
+export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
+# default editor
+export EDITOR=vim
+
+# make bc work nicely - use math library
+export BC_ENV_ARGS=-l
+
+# CVS exports
+export CVS_RSH=ssh
+export CVSROOT=":ext:hamish@cvs.aptivate.org:/home/cvs/root/"
+
+# for vmail
+export VMAIL_HTML_PART_READER='elinks -dump'
+export VMAIL_BROWSER='xdg-open'
+
+# wrap by default
+export MOST_SWITCHES="-w"
+
+# have colour output from Django
+export DJANGO_COLORS="dark"
+
+# vi: ft=sh
