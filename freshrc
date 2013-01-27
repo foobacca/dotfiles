@@ -19,6 +19,10 @@ fresh tigrc --file
 fresh tmux.conf --file
 fresh jasoncodes/dotfiles config/sqliterc --file
 
+# git
+fresh git/gitconfig --file
+fresh git/gitconfig.local.home --file=~/.gitconfig.local
+
 # bash
 fresh bashrc --file
 fresh 'bash/*'
