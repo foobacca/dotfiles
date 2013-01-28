@@ -1,0 +1,25 @@
+
+# from https://github.com/seebi/dircolors-solarized
+if [ -f ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal ]; then
+  eval `dircolors ~/dev/solarize/dircolors-solarized/dircolors.ansi-universal`
+fi
+
+if [ -d $HOME/bin ]; then
+  PATH=$PATH:$HOME/bin
+fi
+
+if [ -d ~/Dropbox/tech/bin ]; then
+  export PATH=~/Dropbox/tech/bin:$PATH
+fi
+
+if [ -d /var/lib/gems/1.9.1/bin/ ]; then
+  PATH=$PATH:/var/lib/gems/1.9.1/bin/
+elif [ -d /var/lib/gems/1.8/bin/ ]; then
+  PATH=$PATH:/var/lib/gems/1.8/bin/
+fi
+
+if [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]]; then
+  source $HOME/.tmuxinator/scripts/tmuxinator
+fi
+
+# vi: ft=sh
