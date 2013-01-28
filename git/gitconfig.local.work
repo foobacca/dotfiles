@@ -1,0 +1,9 @@
+
+[user]
+    name = Hamish Downer
+    email = dmishd@gmail.com
+
+[github]
+    user = foobacca
+
+# vi: ft=gitconfig

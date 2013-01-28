@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+GIT_URL=git@github.com:foobacca/dotfiles.git
+#GIT_URL=git://github.com/foobacca/dotfiles.git
+
 if [ -d ~/.dotfiles ]; then
   if type -t git-up > /dev/null; then
     (cd ~/.dotfiles && git-up)
@@ -7,7 +10,7 @@ if [ -d ~/.dotfiles ]; then
     (cd ~/.dotfiles && git pull --rebase)
   fi
 else
-  git clone git://github.com/twe4ked/dotfiles.git ~/.dotfiles
+  git clone GIT_URL ~/.dotfiles
 fi
 
 [ -e ~/.freshrc ] || ln -sv ~/.dotfiles/freshrc ~/.freshrc

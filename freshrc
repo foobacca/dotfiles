@@ -13,15 +13,19 @@ fresh freshshell/fresh bin/fresh --bin
 # general config
 fresh ackrc --file
 fresh inputrc --file
-# looks good, but captures Ctrl-L :/
-#fresh jasoncodes/dotfiles config/inputrc --file
+
+fresh jasoncodes/dotfiles config/inputrc --file
 fresh tigrc --file
 fresh tmux.conf --file
 fresh jasoncodes/dotfiles config/sqliterc --file
 
+# git
+fresh git/gitconfig --file
+fresh git/gitconfig.local.home --file=~/.gitconfig.local
+
 # bash
 fresh bashrc --file
-fresh bash_aliases --file=~/.bashrc
+fresh 'bash/*'
 fresh jasoncodes/dotfiles aliases/editor.sh --file=~/.bashrc
 
 # vim
