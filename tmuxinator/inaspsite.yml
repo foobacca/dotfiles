@@ -1,0 +1,25 @@
+# ~/.tmuxinator/inaspsite.yml
+# you can make as many tabs as you wish...
+
+project_name: INASP Site
+project_root: ~/work/dev/inaspsite
+#pre: sudo /etc/rc.d/mysqld start
+tabs:
+  - main:
+      layout: even-horizontal
+      panes:
+        - cd deploy; fab -l
+        - 
+  - server:
+      layout: main-vertical
+      panes:
+        - cd django/website
+        - cd django/website
+        - cd django/website; ./manage.py runserver
+#  - shell: git pull
+#  - database: rails db
+#  - server: rails s
+#  - logs: tail -f logs/development.log
+#  - console: rails c
+#  - capistrano:
+#  - server: ssh me@myhost
