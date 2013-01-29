@@ -52,11 +52,11 @@ if has("autocmd")
 
   " for HTML, generally format text, but if a long line has been created leave it
   " alone when editing:
-  autocmd FileType html set formatoptions+=tl
+  autocmd FileType html set formatoptions+=tl noexpandtab softtabstop=2 tabstop=2 shiftwidth=2
 
   " for both CSS and HTML, use genuine tab characters for indentation, to make
   " files a few bytes smaller:
-  autocmd FileType html,css set noexpandtab tabstop=2
+  autocmd FileType css set noexpandtab softtabstop=2 tabstop=2 shiftwidth=2
 
   " in makefiles, don't expand tabs to spaces, since actual tab characters are
   " needed, and have indentation at 8 chars to be sure that all indents are tabs
