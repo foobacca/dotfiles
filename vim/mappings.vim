@@ -187,7 +187,7 @@ vmap <S-Tab> <C-D>
 
 " have Y behave analogously to D and C rather than to dd and cc (which is
 " already done by yy):
-noremap Y y$
+nnoremap Y y$
 
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
