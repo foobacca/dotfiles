@@ -11,11 +11,16 @@ tabs:
         - cd deploy; fab -l
         - 
   - server:
-      layout: main-vertical
+      layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
       panes:
         - cd django/website
         - cd django/website
         - cd django/website; ./manage.py runserver
+  - virtualenv:
+      layout: even-horizontal
+      panes:
+        - cd django/website/.ve/lib/python2.7/site-packages/
+        - cd django/website/.ve/lib/python2.7/site-packages/
 #  - shell: git pull
 #  - database: rails db
 #  - server: rails s
