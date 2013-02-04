@@ -2,20 +2,26 @@
 # you can make as many tabs as you wish...
 
 project_name: INASP Site
-project_root: ~/work/dev/inaspsite
+project_root: ~/work/dev/inaspsite/django/website/
 #pre: sudo /etc/rc.d/mysqld start
 tabs:
   - main:
       layout: even-horizontal
       panes:
-        - cd deploy; fab -l
+        - cd ../../deploy; fab -l
         - 
   - server:
       layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
       panes:
-        - cd django/website
-        - cd django/website
-        - cd django/website; ./manage.py runserver
+        - vim
+        - 
+        - ./manage.py runserver
+  - celery:
+      layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
+      panes:
+        - 
+        - ./manage.py celerybeat -S djcelery.schedulers.DatabaseScheduler
+        - ./manage.py celeryd start --time-limit=600 --concurrency=4 -Q email
   - virtualenv:
       layout: even-horizontal
       panes:
