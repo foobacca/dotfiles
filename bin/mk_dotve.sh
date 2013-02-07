@@ -8,7 +8,5 @@ fi
 PROJ=$1
 
 # do we want that?
-mkdir -p ~/work/virtualenvs/
-
-mv -i .ve ~/work/virtualenvs/$PROJ
+mkdir -p ~/work/virtualenvs/$PROJ
 ln -s ~/work/virtualenvs/$PROJ .ve
