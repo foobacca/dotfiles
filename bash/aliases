@@ -47,7 +47,7 @@ alias ....='cd ../../..'
 # root mysql
 alias mysqlroot='mysql -u root -p$(sudo cat /root/mysql_root_password)'
 
-alias rmpyc='find . -name \*.pyc | xargs rm'
+alias rmpyc='find . -name \*.pyc -print0 | xargs -0 -i{} rm {}'
 
 # renice dropbox
 #alias renicedropbox="renice 10 -p $(ps -ef | grep dropbox | grep -v grep | awk '{print $2}')"
