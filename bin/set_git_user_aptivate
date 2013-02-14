@@ -1,0 +1,5 @@
+#!/bin/sh
+
+git config user.name "Hamish Downer"
+git config user.email hamish@aptivate.org
+
