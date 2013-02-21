@@ -1,3 +1,5 @@
+# python encoding
+export PYTHONIOENCODING=utf-8
 
 # use vim as the man pager instead of less
 export PAGER="/bin/sh -c \"unset PAGER;col -b -x | \
