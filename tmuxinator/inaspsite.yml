@@ -25,7 +25,7 @@ tabs:
   - virtualenv:
       layout: even-horizontal
       panes:
-        - cd .ve/lib/python2.7/site-packages/ ; ls -CF -I '*egg*'
+        - cd .ve/lib/python2.7/site-packages/ ; ls -CF -I \'*egg*'
         - cd .ve/lib/python2.7/site-packages/
 #  - shell: git pull
 #  - database: rails db
