@@ -36,4 +36,11 @@ fresh vimrc.vundle --file=~/.vimrc
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
 
+
+# sack stuff - https://github.com/sampson-chen/sack
+fresh sampson-chen/sack sack --bin
+fresh sampson-chen/sack sag --bin
+fresh sampson-chen/sack sgrep --bin
+fresh sampson-chen/sack .sackrc
+
 fresh freshshell/fresh contrib/completion/fresh-completion.bash
