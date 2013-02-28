@@ -33,11 +33,11 @@ Bundle 'jnwhiteh/vim-golang'
 
 " functional plugins
 " syntax checkers
-Bundle 'Syntastic'
-Bundle 'kevinw/pyflakes-vim'
+Bundle 'scrooloose/syntastic'
 "Bundle 'jbking/vim-pep8'
 " git (and merge)
 Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'sjl/threesome.vim'
 " manage buffers and windows
 Bundle 'vim-scripts/ZoomWin'
