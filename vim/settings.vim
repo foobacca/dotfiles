@@ -65,13 +65,7 @@ set wildignore+=*.swp,*~,._*
 
 set backupdir=~/.vim/_backup//    " where to put backup files.
 set directory=~/.vim/_temp//      " where to put swap files.
-"
-"
-"
-"
-"
-"
-"
+
 " Search & Replace
 set autoindent
 
@@ -113,6 +107,8 @@ set infercase
 "" settings for plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" PYTHON MODE
+
 " Rope
 " Go to definition in a new buffer: horizontal split
 let g:pymode_rope_goto_def_newwin='new'
@@ -120,4 +116,5 @@ let g:pymode_rope_goto_def_newwin='new'
 " Pymode:Lint
 let g:pymode_lint_ignore="E126,E128,E501"
 
-
+let g:pymode_folding = 0
+let g:pymode_syntax_space_errors = 0
