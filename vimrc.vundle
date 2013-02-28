@@ -34,6 +34,9 @@ Bundle 'jnwhiteh/vim-golang'
 " functional plugins
 " syntax checkers
 Bundle 'scrooloose/syntastic'
+" python stuff
+Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
 "Bundle 'jbking/vim-pep8'
 " git (and merge)
 Bundle 'tpope/vim-fugitive'
