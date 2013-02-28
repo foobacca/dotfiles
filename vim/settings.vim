@@ -108,3 +108,16 @@ set spelllang=en_gb
 set complete=.,w,k
 set infercase
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" settings for plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Rope
+" Go to definition in a new buffer: horizontal split
+let g:pymode_rope_goto_def_newwin='new'
+
+" Pymode:Lint
+let g:pymode_lint_ignore="E126,E128,E501"
+
+
