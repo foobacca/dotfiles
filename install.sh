@@ -26,6 +26,9 @@ if ! [ -d ~/.vim/bundle/vundle ]; then
   git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
+mkdir -p .vim/_temp
+mkdir -p .vim/_backup
+
 # vim -N -u ~/.vimrc -s <(cat <<-EOF
 # :set buftype=nofile
 # iRun \`:qa\` to finish install when bundle completes.
