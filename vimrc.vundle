@@ -30,6 +30,8 @@ Bundle 'timcharper/textile.vim'
 Bundle 'vim-scripts/csv.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'jnwhiteh/vim-golang'
+" status line
+Bundle 'Lokaltog/vim-powerline'
 
 " functional plugins
 " syntax checkers
