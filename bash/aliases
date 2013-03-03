@@ -86,7 +86,7 @@ alias c=clear
 alias e=$EDITOR
 alias se=sudoedit
 #alias v='gvim --remote-tab-silent'
-alias vi='vim -u ~/.vimrc_light'
+#alias vi='vim -u ~/.vimrc_light'
 alias grep='egrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -97,5 +97,4 @@ alias pu=pushd
 alias suod=sudo
 alias s='screen -r'
 alias ss='screen -Rd'
-alias tt='tmux attach -d'
 
