@@ -1,0 +1,13 @@
+# set ft=sh
+
+# for tmux: export 256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+
+if [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]]; then
+  source $HOME/.tmuxinator/scripts/tmuxinator
+fi
+
+alias tt='tmux attach -d'
+alias tmux='TERM=xterm-256color tmux -2'
+alias tmuxinator='TERM=xterm-256color tmuxinator'
+alias mux='TERM=xterm-256color mux'
