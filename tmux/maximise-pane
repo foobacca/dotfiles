@@ -1,0 +1,6 @@
+# from http://superuser.com/a/357799/1630
+# "maximise pane" - put pane in new window, but have placeholder pane to return to
+#bind y new-window -d -n tmux-zoom 'clear && echo TMUX ZOOM' \; swap-pane -s tmux-zoom.0 \; select-window -t tmux-zoom
+bind y new-window -d -n tmux-zoom \; swap-pane -s tmux-zoom.0 \; select-window -t tmux-zoom
+# put pane back in place and dispose of old pane
+bind z last-window \; swap-pane -s tmux-zoom.0 \; kill-window -t tmux-zoom
