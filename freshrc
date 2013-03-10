@@ -36,6 +36,8 @@ fresh vimrc.vundle --file=~/.vimrc
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
 
+# terminator solarized sample config
+fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
 # sack stuff - https://github.com/sampson-chen/sack
 fresh sampson-chen/sack sack --bin
