@@ -36,6 +36,9 @@ fresh vimrc.vundle --file=~/.vimrc
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
 
+# powerline
+fresh powerline --file=~/.config/powerline/
+
 # terminator solarized sample config
 fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
