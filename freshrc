@@ -38,6 +38,7 @@ fresh 'tmux/*' --file=~/.tmux.conf
 # bin commands
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
+fresh clvv/fasd fasd --bin
 
 # powerline
 fresh powerline --file=~/.config/powerline/

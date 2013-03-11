@@ -56,13 +56,3 @@ alias renicedropbox="ps -ef | grep dropbox | grep -v grep | awk '{print \$2}' | 
 # from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
 alias xopen="xdg-open"
 
-# fasd is handy - https://github.com/clvv/fasd
-if [ -f /usr/local/bin/fasd ]; then
-  eval "$(fasd --init auto)"
-  alias g='f -e cd'  # quick goto dir
-  alias v='f -e vim' # quick opening files with vim
-  alias m='f -e mplayer' # quick opening files with mplayer
-  alias o='a -e xdg-open' # quick opening files with xdg-open
-fi
-
-
