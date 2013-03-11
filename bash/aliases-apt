@@ -1,0 +1,15 @@
+# from lifehacker
+# install a package and automatically respond yes to confirmation prompt
+alias ins="sudo aptitude install"
+alias update="sudo aptitude update"
+alias upgrade="sudo aptitude safe-upgrade"
+
+# remove a package and its configuration files
+alias remp="sudo aptitude purge"
+
+# search for a package
+alias searchc="apt-cache search"
+alias search="aptitude search"
+alias show="aptitude show"
+
+# vi: ft=sh
