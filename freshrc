@@ -43,6 +43,9 @@ fresh clvv/fasd fasd --bin
 # powerline
 fresh powerline --file=~/.config/powerline/
 
+# redshift
+fresh redshift.conf --file=~/.config/redshift.conf
+
 # terminator solarized sample config
 fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
