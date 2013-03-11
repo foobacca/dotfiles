@@ -1,0 +1,7 @@
+# use "v" and "s" to do vertical/horizontal splits, like vim
+bind s split-window -v
+bind v split-window -h
+
+# C-a r reloads the configuration, handy
+bind r source-file ~/.tmux.conf
+

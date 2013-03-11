@@ -16,7 +16,6 @@ fresh inputrc --file
 
 fresh jasoncodes/dotfiles config/inputrc --file
 fresh tigrc --file
-fresh tmux.conf --file
 fresh jasoncodes/dotfiles config/sqliterc --file
 
 # git
@@ -30,12 +29,21 @@ fresh jasoncodes/dotfiles aliases/editor.sh --file=~/.bashrc
 
 # vim
 fresh gvimrc --file
+# note vimrc sources files from .dotfiles/vim in particular order
 fresh vimrc.vundle --file=~/.vimrc
+
+# tmux
+fresh 'tmux/*' --file=~/.tmux.conf
 
 # bin commands
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
 
+# powerline
+fresh powerline --file=~/.config/powerline/
+
+# terminator solarized sample config
+fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
 # sack stuff - https://github.com/sampson-chen/sack
 fresh sampson-chen/sack sack --bin

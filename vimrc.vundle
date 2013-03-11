@@ -30,6 +30,8 @@ Bundle 'timcharper/textile.vim'
 Bundle 'vim-scripts/csv.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'jnwhiteh/vim-golang'
+" status line
+Bundle 'Lokaltog/powerline'
 
 " functional plugins
 " syntax checkers
@@ -99,6 +101,9 @@ source ~/.dotfiles/vim/autocmds.vim
 
 " ConqueTerm
 "nmap <Leader>ct :ConqueTerm bash --login<CR>
+
+" enable powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " stuff to work with YankRing
 nmap <Leader>yr :YRShow<CR>

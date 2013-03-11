@@ -1,0 +1,18 @@
+# Set status bar
+#set -g status-bg black
+#set -g status-fg white
+#set -g status-left '#[fg=green]#H:#S'
+
+# Highlight active window
+#set-window-option -g window-status-current-bg red
+
+#set -g status-right '#[fg=yellow]#(uptime | cut -d "," -f 2- )'
+#set -g status-right '%a %b %d, %Y %H:%M'
+
+# Set window notifications
+setw -g monitor-activity on
+set -g visual-activity on
+
+# use powerline stuff
+source '~/.vim/bundle/powerline/powerline/bindings/tmux/powerline.conf'
+

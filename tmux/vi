@@ -1,0 +1,17 @@
+# use vim motion keys while in copy mode
+setw -g mode-keys vi
+
+# use the vim motion keys to move between panes
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# use the vim resize keys.
+# the number at the end is how much the pane will be resized,
+# and 1 is fairly small -- you might want to tweak this.
+bind < resize-pane -L 5
+bind > resize-pane -R 5
+bind - resize-pane -D 5
+bind + resize-pane -U 5
+
