@@ -1,0 +1,7 @@
+# from https://github.com/seebi/dircolors-solarized
+# dircolors put in place by fresh
+if [ -f ~/.dircolors ]; then
+  eval `dircolors ~/.dircolors`
+fi
+
+# vi: ft=sh

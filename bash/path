@@ -1,0 +1,13 @@
+# from http://superuser.com/a/39995/1630
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+pathadd $HOME/bin
+pathadd $HOME/Dropbox/tech/bin
+pathadd /var/lib/gems/1.8/bin/
+pathadd /var/lib/gems/1.9.1/bin/
+
+# vi: ft=sh
