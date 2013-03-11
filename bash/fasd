@@ -1,0 +1,18 @@
+# fasd is handy - https://github.com/clvv/fasd
+if [ -f ~/bin/fasd ]; then
+  # cached start up stuff - from fasd readme
+  fasd_cache="$HOME/.fasd-init-bash"
+  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install >| "$fasd_cache"
+  fi
+  source "$fasd_cache"
+  unset fasd_cache
+
+  # handy aliases
+  alias g='f -e cd'  # quick goto dir
+  alias v='f -e vim' # quick opening files with vim
+  alias m='f -e mplayer' # quick opening files with mplayer
+  alias o='a -e xdg-open' # quick opening files with xdg-open
+fi
+
+# vi: ft=sh
