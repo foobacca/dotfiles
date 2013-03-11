@@ -48,6 +48,9 @@ fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-so
 # dircolors - solarized
 fresh seebi/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
 
+# xchat - solarized
+fresh solarized/xchat-colors-solarized solarized-dark-colors.conf --file=~/.xchat2/colors.conf
+
 # sack stuff - https://github.com/sampson-chen/sack
 fresh sampson-chen/sack sack --bin
 fresh sampson-chen/sack sag --bin
