@@ -2,19 +2,21 @@
 # you can make as many tabs as you wish...
 
 project_name: IDS API
-project_root: ~/work/gitsvn/idsapi
-#pre: sudo /etc/rc.d/mysqld start
+project_root: ~/work/dev/idsapi/django/idsapi
 tabs:
-  - editor:
-      layout: main-vertical
+  - main:
+      layout: even-horizontal
+      panes:
+        - cd ../../deploy; fab -l
+        - 
+  - server:
+      layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
       panes:
         - vim
-        - #empty, will just run plain bash
-        - cd django/idsapi; ./manage.py runserver
-#  - shell: git pull
-#  - database: rails db
-#  - server: rails s
-#  - logs: tail -f logs/development.log
-#  - console: rails c
-#  - capistrano:
-#  - server: ssh me@myhost
+        - 
+        - ./manage.py runserver
+  - virtualenv:
+      layout: even-horizontal
+      panes:
+        - cd .ve/lib/python2.7/site-packages/ ; ls -CF -I \'*egg*'
+        - cd .ve/lib/python2.7/site-packages/
