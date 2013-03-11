@@ -45,6 +45,9 @@ fresh powerline --file=~/.config/powerline/
 # terminator solarized sample config
 fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
+# dircolors - solarized
+fresh seebi/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
+
 # sack stuff - https://github.com/sampson-chen/sack
 fresh sampson-chen/sack sack --bin
 fresh sampson-chen/sack sag --bin
