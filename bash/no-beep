@@ -1,0 +1,3 @@
+# stop the pc speaker ever annoying me :)
+setterm -bfreq 0
+
