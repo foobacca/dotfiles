@@ -25,7 +25,7 @@ fresh git/gitconfig.local.home --file=~/.gitconfig.local
 # bash
 fresh bashrc --file
 fresh 'bash/*'
-fresh jasoncodes/dotfiles aliases/editor.sh --file=~/.bashrc
+fresh jasoncodes/dotfiles shell/aliases/editor.sh --file=~/.bashrc
 
 # vim
 fresh gvimrc --file
