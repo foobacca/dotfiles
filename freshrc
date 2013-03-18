@@ -39,6 +39,7 @@ fresh 'tmux/*' --file=~/.tmux.conf
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
 fresh clvv/fasd fasd --bin
+fresh zx2c4/gmail-notmuch gmail-notmuch.py --bin
 
 # powerline
 fresh powerline --file=~/.config/powerline/
