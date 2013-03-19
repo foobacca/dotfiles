@@ -210,3 +210,4 @@ imap <A-[> <Esc><<i
 nnoremap _dt :set ft=htmldjango<CR>
 nnoremap _pd :set ft=python.django<CR>
 
+nmap <leader>B :BuffergatorToggle<CR>
