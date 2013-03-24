@@ -17,6 +17,8 @@ fresh inputrc --file
 fresh jasoncodes/dotfiles config/inputrc --file
 fresh tigrc --file
 fresh jasoncodes/dotfiles config/sqliterc --file
+fresh alot/config --file=~/.config/alot/config
+fresh kazuoteramoto/dotfiles .config/alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
 
 # git
 fresh git/gitconfig --file
