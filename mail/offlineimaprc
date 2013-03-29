@@ -14,7 +14,7 @@ postsynchook = ~/bin/notmuchwork new
 [Repository LocalAptivate]
 type = Maildir
 localfolders = ~/workmail
-nametrans = lambda folder: {'Inbox': 'Inbox',
+nametrans = lambda folder: {'Inbox': 'general_inbox',
                             'carers': 'INBOX.carers',
                             'nagios': 'INBOX.nagios',
                             'Sent':   'Sent',
@@ -27,13 +27,13 @@ remoteuser = hamish
 remotepasseval = mailpasswd('aptivate')
 maxconnections = 2
 ssl = yes
-nametrans = lambda folder: {'Inbox': 'Inbox',
+nametrans = lambda folder: {'general_inbox': 'Inbox',
                             'INBOX.carers': 'carers',
                             'INBOX.nagios': 'nagios',
                             'Sent':   'Sent',
                             }.get(folder, folder)
 folderfilter = lambda foldername: foldername in [
-             'Inbox', 'INBOX.carers', 'INBOX.nagios', 'Sent']
+             'general_inbox', 'INBOX.carers', 'INBOX.nagios', 'Sent']
 
 
 [Account Gmail]
