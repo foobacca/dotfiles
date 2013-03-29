@@ -17,7 +17,7 @@ localfolders = ~/workmail
 nametrans = lambda folder: {'Inbox': 'Inbox',
                             'carers': 'INBOX.carers',
                             'nagios': 'INBOX.nagios',
-                            'sent':   'sent.mbox',
+                            'Sent':   'Sent',
                             }.get(folder, folder)
 
 [Repository RemoteAptivate]
@@ -30,10 +30,10 @@ ssl = yes
 nametrans = lambda folder: {'Inbox': 'Inbox',
                             'INBOX.carers': 'carers',
                             'INBOX.nagios': 'nagios',
-                            'sent.mbox':   'sent',
+                            'Sent':   'Sent',
                             }.get(folder, folder)
 folderfilter = lambda foldername: foldername in [
-             'Inbox', 'INBOX.carers', 'INBOX.nagios']
+             'Inbox', 'INBOX.carers', 'INBOX.nagios', 'Sent']
 
 
 [Account Gmail]
