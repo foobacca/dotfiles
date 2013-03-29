@@ -1,0 +1,74 @@
+[general]
+accounts = Aptivate
+#accounts = Aptivate, Gmail
+ui = tty.ttyui
+#pythonfile = 
+fsync = False
+
+[Account Aptivate]
+localrepository = LocalAptivate
+remoterepository = RemoteAptivate
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository LocalAptivate]
+type = Maildir
+localfolders = ~/workmail
+nametrans = lambda folder: {'Inbox': 'Inbox',
+                            'carers': 'INBOX.carers',
+                            'nagios': 'INBOX.nagios',
+                            'sent':   'sent.mbox',
+                            }.get(folder, folder)
+
+[Repository RemoteAptivate]
+type = IMAP
+remotehost = mail.aptivate.org
+remoteuser = hamish
+#remotepasseval
+maxconnections = 2
+ssl = yes
+nametrans = lambda folder: {'Inbox': 'Inbox',
+                            'INBOX.carers': 'carers',
+                            'INBOX.nagios': 'nagios',
+                            'sent.mbox':   'sent',
+                            }.get(folder, folder)
+folderfilter = lambda foldername: foldername in [
+             'Inbox', 'INBOX.carers', 'INBOX.nagios']
+
+
+[Account Gmail]
+localrepository = GmailLocal
+remoterepository = GmailRemote
+status_backend = sqlite
+#postsynchook = notmuch new
+
+[Repository GmailLocal]
+type = Maildir
+localfolders = ~/.mail/steve-stevelosh.com
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository GmailRemote]
+maxconnections = 1
+type = Gmail
+remoteuser = dmishd@gmail.com
+#remotepasseval = get_keychain_pass(account="steve@stevelosh.com", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             'Nagios',
+                                             'Django',
+                                             'Flask',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
+
