@@ -7,7 +7,10 @@ def mailpasswd(acct):
     acct = os.path.basename(acct)
     path = "/home/hamish/.passwd/%s.gpg" % acct
     args = ["gpg", "--use-agent", "--quiet", "--batch", "-d", path]
-    try:
-        return subprocess.check_output(args).strip()
-    except subprocess.CalledProcessError:
-        return ""
+    proc = subprocess.Popen(args, stdout=subprocess.PIPE)
+    output = proc.communicate()[0].strip()
+    retcode = proc.wait()
+    if retcode == 0:
+        return output
+    else:
+        return ''
