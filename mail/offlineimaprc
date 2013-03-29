@@ -2,14 +2,14 @@
 accounts = Aptivate
 #accounts = Aptivate, Gmail
 ui = tty.ttyui
-#pythonfile = 
+pythonfile = ~/.dotfiles/mail/offlineimap.py
 fsync = False
 
 [Account Aptivate]
 localrepository = LocalAptivate
 remoterepository = RemoteAptivate
 status_backend = sqlite
-postsynchook = notmuch new
+postsynchook = ~/bin/notmuchwork new
 
 [Repository LocalAptivate]
 type = Maildir
@@ -24,7 +24,7 @@ nametrans = lambda folder: {'Inbox': 'Inbox',
 type = IMAP
 remotehost = mail.aptivate.org
 remoteuser = hamish
-#remotepasseval
+remotepasseval = mailpasswd('aptivate')
 maxconnections = 2
 ssl = yes
 nametrans = lambda folder: {'Inbox': 'Inbox',
