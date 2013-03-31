@@ -1,7 +1,10 @@
 [general]
 accounts = Aptivate
 #accounts = Aptivate, Gmail
-ui = tty.ttyui
+ui = Curses.Blinkenlights
+#ui = TTY.TTYUI
+# non-interactive means not asking for a password
+#ui = Noninteractive.Basic
 pythonfile = ~/.dotfiles/mail/offlineimap.py
 fsync = False
 
@@ -10,6 +13,8 @@ localrepository = LocalAptivate
 remoterepository = RemoteAptivate
 status_backend = sqlite
 postsynchook = ~/bin/notmuchwork new
+autorefresh = 5
+quick = 10
 
 [Repository LocalAptivate]
 type = Maildir
@@ -24,7 +29,7 @@ nametrans = lambda folder: {'Inbox': 'general_inbox',
 type = IMAP
 remotehost = mail.aptivate.org
 remoteuser = hamish
-remotepasseval = mailpasswd('aptivate')
+#remotepasseval = mailpasswd('aptivate')
 maxconnections = 2
 ssl = yes
 nametrans = lambda folder: {'general_inbox': 'Inbox',
@@ -56,7 +61,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
 maxconnections = 1
 type = Gmail
 remoteuser = dmishd@gmail.com
-#remotepasseval = get_keychain_pass(account="steve@stevelosh.com", server="imap.gmail.com")
+#remotepasseval = mailpasswd('gmail')
 realdelete = no
 nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
                             '[Gmail]/Sent Mail': 'sent',
