@@ -36,7 +36,7 @@ tags = +idsapi
 message = IDS API/lighthouse
 
 [Filter.10]
-query = 'to:carers*' OR 'to:postmaster*' OR 'to:root*' OR 'to:admin-*' OR 'from:nobody@fen-fw*'
+query = 'to:carers* OR to:postmaster* OR to:root* OR to:admin-* OR from:nobody@fen-fw*'
 tags = +carers;-inbox
 message = Carers
 [Filter.11]
@@ -50,4 +50,9 @@ message = Nagios
 
 #[ArchiveSentMailsFilter]
 #sent_tag = sent
-[InboxFilter]
+#[InboxFilter]
+
+[Filter.999]
+message = 'strip new tag'
+query = 'tag:new'
+tags = -new
