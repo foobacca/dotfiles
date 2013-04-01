@@ -1,0 +1,17 @@
+
+[accounts]
+
+  [[gmail]]
+    realname = Hamish Downer
+    address = dmishd@gmail.com
+    type = sendmail
+    sendmail_command = msmtp --account=gmail -t
+    draft_box = maildir:///home/hamish/.maildir-gmail/Drafts
+    sent_box = maildir:///home/hamish/.maildir-gmail/Sent
+    [[[abook]]]
+      type = shellcommand
+      command = nottoomuch-addresses.sh
+      regexp = (\"(?P<name>.+)\")?\s*<(?P<email>.*@.+?)>
+
+
+
