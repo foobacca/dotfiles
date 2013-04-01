@@ -1,0 +1,8 @@
+[bindings]
+  x = bclose
+  ctrl d = move page down
+  ctrl u = move page up
+  L = prompt 'search tag:'
+  A = search is:action
+  W = search is:waiting
+  C = search tag:carers AND NOT tag:logwatch

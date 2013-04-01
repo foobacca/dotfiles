@@ -1,0 +1,18 @@
+theme = solarized_dark
+
+search_threads_sort_order = newest_first
+
+#thread_statusbar = [{buffer_no}: thread:{tid}] {subject}, total: {total_messages}
+
+editor_cmd = /usr/bin/vim -f -c 'set filetype=mail'
+#editor_spawn = False
+#editor_in_thread = False
+
+displayed_headers = From,To,Cc,Bcc,Subject,Message-Id
+
+initial_command = search tag:inbox
+attachment_prefix = ~/downloads/
+prefer_plaintext = 1
+
+prompt_suffix = "> "
+
