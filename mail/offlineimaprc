@@ -12,7 +12,7 @@ fsync = False
 localrepository = LocalAptivate
 remoterepository = RemoteAptivate
 status_backend = sqlite
-postsynchook = ~/bin/notmuchwork new
+postsynchook = /home/hamish/bin/notmuchwork new
 autorefresh = 5
 quick = 10
 
