@@ -1,3 +1,7 @@
+# launching apps
 alias nmw=$HOME/bin/notmuchwork
 alias afw=$HOME/bin/afewwork
 alias alw=$HOME/bin/alotwork
+
+# nudge gpg-agent to open it
+alias gpgprime="gpg -d ~/.passwd/prime.gpg"
