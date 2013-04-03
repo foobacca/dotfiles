@@ -13,7 +13,7 @@ localrepository = LocalAptivate
 remoterepository = RemoteAptivate
 status_backend = sqlite
 postsynchook = /home/hamish/bin/notmuchwork new
-autorefresh = 5
+autorefresh = 10
 quick = 10
 
 [Repository LocalAptivate]
