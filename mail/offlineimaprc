@@ -1,10 +1,11 @@
 [general]
 accounts = Aptivate
 #accounts = Aptivate, Gmail
-ui = Curses.Blinkenlights
+#ui = Curses.Blinkenlights
 #ui = TTY.TTYUI
 # non-interactive means not asking for a password
 #ui = Noninteractive.Basic
+ui = Noninteractive.Quiet
 pythonfile = ~/.dotfiles/mail/offlineimap.py
 fsync = False
 
@@ -12,8 +13,8 @@ fsync = False
 localrepository = LocalAptivate
 remoterepository = RemoteAptivate
 status_backend = sqlite
-postsynchook = /home/hamish/bin/notmuchwork new
-autorefresh = 10
+#postsynchook = /home/hamish/bin/notmuchwork new
+#autorefresh = 10
 quick = 10
 
 [Repository LocalAptivate]
@@ -30,6 +31,7 @@ type = IMAP
 remotehost = mail.aptivate.org
 remoteuser = hamish
 #remotepasseval = mailpasswd('aptivate')
+preauthtunnel = ssh -q -i /home/hamish/.ssh/id_mail_imap -o Compression=yes mail.aptivate.org '/usr/libexec/dovecot/imap'
 maxconnections = 2
 ssl = yes
 nametrans = lambda folder: {'general_inbox': 'Inbox',
