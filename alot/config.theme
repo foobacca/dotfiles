@@ -1,0 +1,27 @@
+
+[tags]
+
+  [[unread]]
+    translated = 'U'
+  [[inbox]]
+    translated = 'I'
+  [[action]]
+    normal = '', '', 'white','light red', 'white','#d66'
+    translated = ACTION
+  [[waiting]]
+    normal = '', '', 'white','light red', 'white','#d66'
+    translated = WAITING
+  [[flagged]]
+    translated = ⚑
+    normal = '','','light red','','dark red',''
+  [[sent]]
+    #translated =  ↗#⇗
+    translated =  ↗ 
+    normal = '','', 'dark blue', '', 'dark blue', ''
+  [[replied]]
+    translated = ⏎
+    normal = '','', 'dark cyan', 'default', 'dark blue', 'default'
+  [[attachment]]
+    translated = @
+    normal = "", "", 'light blue', '', 'light blue', ''
+
