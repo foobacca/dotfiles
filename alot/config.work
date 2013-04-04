@@ -3,7 +3,7 @@
   [[aptivate]]
     realname = Hamish Downer
     address = hamish@aptivate.org
-    #signature = ~/.signature.work
+    signature = ~/.signature.work
     type = sendmail
     sendmail_command = msmtp --account=aptivate -t
     draft_box = maildir:///home/hamish/workmail/Drafts
