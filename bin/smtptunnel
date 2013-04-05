@@ -1,6 +1,0 @@
-#!/bin/bash
-
-while [[ 1 ]];
-    ssh -i ~/.ssh/id_mail_smtp -N -L2587:mail.aptivate.org:25 hamish@aptivate.org
-    sleep 5
-done
