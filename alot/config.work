@@ -5,7 +5,7 @@
     address = hamish@aptivate.org
     signature = ~/.signature.work
     type = sendmail
-    sendmail_command = msmtp --account=aptivate -t
+    sendmail_command = ssh -q -i /home/hamish/.ssh/id_mail_smtp mail.aptivate.org
     draft_box = maildir:///home/hamish/workmail/Drafts
     sent_box = maildir:///home/hamish/workmail/Sent
     [[[abook]]]
