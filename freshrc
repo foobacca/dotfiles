@@ -53,6 +53,7 @@ fresh 'tmux/*' --file=~/.tmux.conf
 
 #mail stuff
 fresh mail/mailcap --file=~/.mailcap
+fresh mail/msmtprc --file=~/.msmtprc
 fresh mail/signature.work --file=~/.signature.work
 fresh mail/offlineimaprc --file=~/.offlineimaprc
 
