@@ -13,9 +13,9 @@ fsync = False
 localrepository = LocalAptivate
 remoterepository = RemoteAptivate
 status_backend = sqlite
-#postsynchook = /home/hamish/bin/notmuchwork new
+postsynchook = /home/hamish/bin/notmuchwork new
 #autorefresh = 10
-quick = 10
+#quick = 10
 
 [Repository LocalAptivate]
 type = Maildir
