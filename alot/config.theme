@@ -9,7 +9,7 @@
     normal = '', '', 'white','light red', 'white','#d66'
     translated = ACTION
   [[waiting]]
-    normal = '', '', 'white','light red', 'white','#d66'
+    normal = '', '', 'black','brown', 'black','brown'
     translated = WAITING
   [[flagged]]
     translated = ⚑
