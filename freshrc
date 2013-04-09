@@ -31,8 +31,8 @@ fresh alot/config.gmail --file=~/.config/alot/config
 fresh alot/config.bindings --file=~/.config/alot/config
 fresh alot/config.theme --file=~/.config/alot/config
 
-fresh kazuoteramoto/dotfiles .config/alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
-fresh kazuoteramoto/dotfiles .config/alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
+fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
+fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
 
 # git
 fresh git/gitconfig --file
