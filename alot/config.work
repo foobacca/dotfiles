@@ -10,6 +10,8 @@
     sent_box = maildir:///home/hamish/workmail/Sent
     [[[abook]]]
       type = shellcommand
+      #command = /home/hamish/bin/notmuch-abook -c ~/.notmuch-config-work lookup --abook-output
+      #regexp = '^(?P<email>[^@]+@[^\t]+)\t+(?P<name>[^\t]+)'
       command = nottoomuch-addresses.sh
       regexp = (\"(?P<name>.+)\")?\s*<(?P<email>.*@.+?)>
 
