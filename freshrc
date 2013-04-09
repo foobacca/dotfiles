@@ -55,6 +55,7 @@ fresh 'tmux/*' --file=~/.tmux.conf
 fresh mail/mailcap --file=~/.mailcap
 fresh mail/msmtprc --file=~/.msmtprc
 fresh mail/signature.work --file=~/.signature.work
+fresh mail/notmuch-post-new.work --file=~/workmail/.notmuch/hooks/post-new
 fresh mail/offlineimaprc --file=~/.offlineimaprc
 
 # bin commands
