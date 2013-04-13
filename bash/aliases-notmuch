@@ -7,4 +7,4 @@ alias alw=$HOME/bin/alotwork
 alias gpgprime="gpg -d ~/.passwd/prime.gpg"
 
 # re-export gpg agent settings
-alias gpgagentexport="eval $(cat ~/.gpg-agent-info) ; export GPG_AGENT_INFO"
+alias gpgagentexport='eval $(cat ~/.gpg-agent-info) ; export GPG_AGENT_INFO'
