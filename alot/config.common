@@ -16,7 +16,7 @@ search_threads_sort_order = newest_first
 #
 # compose stuff
 #
-editor_cmd = /usr/bin/vim -f -c 'set filetype=mail' -c 'setlocal spell spelllang=en'
+editor_cmd = /usr/bin/vim -f -c 'set filetype=mail' -c 'setlocal spell spelllang=en' +/^$ +noh
 #editor_spawn = False
 #editor_in_thread = False
 
