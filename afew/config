@@ -40,7 +40,7 @@ query = to:carers* OR to:postmaster* OR to:root* OR to:admin-* OR from:nobody@fe
 tags = +carers;-new
 message = Carers
 [Filter.11]
-query = from:logwatch
+query = from:logwatch*
 tags = +carers;+logwatch;-new
 message = Carers
 [Filter.12]
