@@ -1,12 +1,12 @@
 #!/bin/bash
 
-NOTMUCH=$HOME/bin/notmuchwork
+NMC="$HOME/bin/notmuchwork count --output=threads"
 
 function tag_report(){
   TAG=$1
-  TOTAL_COUNT=$($NOTMUCH count tag:$TAG)
-  FLAGGED_COUNT=$($NOTMUCH count tag:$TAG AND tag:flagged)
-  UNREAD_COUNT=$($NOTMUCH count tag:$TAG AND tag:unread)
+  TOTAL_COUNT=$($NMC tag:$TAG)
+  FLAGGED_COUNT=$($NMC tag:$TAG AND tag:flagged)
+  UNREAD_COUNT=$($NMC tag:$TAG AND tag:unread)
 
   echo "$TAG: total $TOTAL_COUNT flagged $FLAGGED_COUNT unread $UNREAD_COUNT"
 }
