@@ -69,6 +69,8 @@ Bundle 'tpope/vim-endwise'
 Bundle 'ap/vim-css-color'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
+" email
+Bundle "guyzmo/notmuch-abook"
 " org mode and related
 Bundle 'hsitz/VimOrganizer'
 Bundle 'chrisbra/NrrwRgn'
