@@ -35,9 +35,9 @@ set listchars+=precedes:<         " The character to show in the last column whe
 ""
 
 set hlsearch    " highlight matches
-set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
+set incsearch   " incremental searching
 set gdefault    " assume the /g flag on :s substitutions to replace all matches in a line
 
 ""
@@ -71,6 +71,10 @@ set autoindent
 
 " keep a few lines beneath the cursor
 set scrolloff=3
+
+" more natural split opening
+set splitbelow
+set splitright
 
 " * Keystrokes -- Moving Around
 
