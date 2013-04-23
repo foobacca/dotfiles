@@ -85,7 +85,7 @@ set whichwrap=h,l,~,[,]
 
 " and set the colours so it's not too in your face
 highlight NonText cterm=NONE ctermfg=brown
-highlight SpecialKey cterm=NONE ctermfg=brown
+highlight SpecialKey cterm=NONE ctermfg=Green
 highlight NonText guifg=#804C00
 highlight SpecialKey guifg=#804C00
 
