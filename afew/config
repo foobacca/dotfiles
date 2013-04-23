@@ -36,12 +36,12 @@ tags = +idsapi
 message = IDS API/lighthouse
 
 [Filter.10]
-query = to:carers* OR to:postmaster* OR to:root* OR to:admin-* OR from:nobody@fen-fw*
-tags = +carers;-new
-message = Carers
-[Filter.11]
 query = from:logwatch*
 tags = +carers;+logwatch;-new
+message = Carers
+[Filter.11]
+query = to:carers* OR to:postmaster* OR to:root* OR to:admin-* OR from:nobody@fen-fw*
+tags = +carers;-new
 message = Carers
 [Filter.12]
 query = from:nagios
