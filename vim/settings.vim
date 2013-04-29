@@ -35,9 +35,9 @@ set listchars+=precedes:<         " The character to show in the last column whe
 ""
 
 set hlsearch    " highlight matches
-set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
+set incsearch   " incremental searching
 set gdefault    " assume the /g flag on :s substitutions to replace all matches in a line
 
 ""
@@ -72,6 +72,10 @@ set autoindent
 " keep a few lines beneath the cursor
 set scrolloff=3
 
+" more natural split opening
+set splitbelow
+set splitright
+
 " * Keystrokes -- Moving Around
 
 " have the h and l cursor keys wrap between lines (like <Space> and <BkSpc> do
@@ -81,7 +85,7 @@ set whichwrap=h,l,~,[,]
 
 " and set the colours so it's not too in your face
 highlight NonText cterm=NONE ctermfg=brown
-highlight SpecialKey cterm=NONE ctermfg=brown
+highlight SpecialKey cterm=NONE ctermfg=Green
 highlight NonText guifg=#804C00
 highlight SpecialKey guifg=#804C00
 
