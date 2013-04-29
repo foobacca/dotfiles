@@ -7,6 +7,12 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
+# use the vim motion keys (upper) to resize pane by 1
+bind H resize-pane -L
+bind J resize-pane -D
+bind K resize-pane -U
+bind L resize-pane -R
+
 # use the vim resize keys.
 # the number at the end is how much the pane will be resized,
 # and 1 is fairly small -- you might want to tweak this.

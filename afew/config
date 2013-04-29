@@ -34,6 +34,10 @@ message = Centos - not urgent
 query = from:no-reply@lighthouseapp.com
 tags = +idsapi
 message = IDS API/lighthouse
+[Filter.8]
+query = to:here@aptivate.org
+tags = +mm
+message = MM etc
 
 [Filter.10]
 query = from:logwatch*
