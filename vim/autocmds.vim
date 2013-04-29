@@ -8,6 +8,8 @@ if has("autocmd")
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 
+  au FileType ruby setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
+
   " keep tabs in go
   au FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4
 
