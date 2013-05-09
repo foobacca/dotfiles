@@ -40,14 +40,18 @@ tags = +mm
 message = MM etc
 
 [Filter.10]
+query = to:carers+dropbox
+tags = +carers;+inbox;-new
+message = Dropbox
+[Filter.14]
 query = from:logwatch*
 tags = +carers;+logwatch;-new
-message = Carers
-[Filter.11]
+message = Logwatch (and Carers)
+[Filter.15]
 query = to:carers* OR to:postmaster* OR to:root* OR to:admin-* OR from:nobody@fen-fw*
 tags = +carers;-new
 message = Carers
-[Filter.12]
+[Filter.16]
 query = from:nagios
 tags = +nagios;-new
 message = Nagios
