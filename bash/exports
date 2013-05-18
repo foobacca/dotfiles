@@ -35,4 +35,7 @@ export MOST_SWITCHES="-w"
 # have colour output from Django
 export DJANGO_COLORS="dark"
 
+# virtualenvwrapper home
+export WORKON_HOME=~/.venv
+
 # vi: ft=sh
