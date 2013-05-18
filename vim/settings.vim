@@ -117,6 +117,9 @@ set infercase
 " Go to definition in a new buffer: horizontal split
 let g:pymode_rope_goto_def_newwin='new'
 
+" nerdtree - ignore pyc
+let NERDTreeIgnore = ['\.pyc$']
+
 " Pymode:Lint
 let g:pymode_lint_ignore="E126,E128,E501"
 
