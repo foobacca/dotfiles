@@ -1,0 +1,13 @@
+# virtualenvwrapper home
+export WORKON_HOME=~/.venv
+
+# development home
+export PROJECT_HOME=~/dev
+
+# lazy loading of virtualenv
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then
+    source /usr/local/bin/virtualenvwrapper_lazy.sh
+fi
+
+# vi: ft=sh
