@@ -2,8 +2,14 @@
 # git config -f ~/.gitconfig.local user.name John Appleseed
 # git config -f ~/.gitconfig.local user.email me@example.com
 
+[user]
+    name = Hamish Downer
+
+[github]
+    user = foobacca
+
 [include]
-path = .gitconfig.local
+    path = .gitconfig.local
 
 [color]
     diff = auto
