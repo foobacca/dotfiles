@@ -120,8 +120,8 @@ map <Leader>= <C-w>=
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
-nmap <C-k> [e
-nmap <C-j> ]e
+"nmap <C-k> [e
+"nmap <C-j> ]e
 
 " Bubble multiple lines
 vmap <C-Up> [egv
@@ -160,6 +160,9 @@ imap <C-9> <Esc>9gt
 "map - :Explore<cr>
 nmap <C-l> :tabnext<enter>
 nmap <C-h> :tabprevious<enter>
+
+nmap <C-j> :bnext<enter>
+nmap <C-k> :bprev<enter>
 
 ""
 "" Command-Line Mappings
