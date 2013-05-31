@@ -19,7 +19,7 @@ query = to:hamish+linkedin@aptivate.org
 tags = +linkedin
 message = Linkedin
 [Filter.3]
-query = from:aptivate@econsensus.org
+query = from:aptivate@econsensus.org OR from:aptivateprivate@econsensus.org
 tags = +consensus
 message = Econsensus
 [Filter.4]
