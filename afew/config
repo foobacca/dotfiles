@@ -36,7 +36,7 @@ tags = +idsapi
 message = IDS API/lighthouse
 [Filter.8]
 query = to:here@aptivate.org
-tags = +mm
+tags = +here
 message = MM etc
 
 [Filter.10]
