@@ -1,0 +1,5 @@
+
+[user]
+    email = hamish@foobacca.co.uk
+
+# vi: ft=gitconfig
