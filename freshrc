@@ -37,6 +37,7 @@ fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
 # git
 fresh git/gitconfig.$(hostname) --file=~/.gitconfig
 fresh git/gitconfig --file
+fresh git/gitignore --file
 
 # bash
 fresh bashrc --file
