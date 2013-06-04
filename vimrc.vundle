@@ -76,6 +76,8 @@ Bundle 'hsitz/VimOrganizer'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'vim-scripts/utl.vim'
 Bundle 'mattn/calendar-vim'
+" utility
+Bundle 'mbadran/headlights'
 
 
 "...All your other bundles...
