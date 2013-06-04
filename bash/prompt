@@ -1,9 +1,11 @@
 
 RESET="\[$(tput sgr0)\]"
-BLUE="\[$(tput setf 1)\]"
-GREEN="\[$(tput setaf 2)\]"
-YELLOW="\[$(tput bold ; tput setaf 3)\]"
 RED="\[$(tput setaf 1)\]"
+GREEN="\[$(tput setaf 2)\]"
+YELLOW="\[$(tput setaf 3)\]"
+BLUE="\[$(tput setaf 4)\]"
+PINK="\[$(tput setaf 5)\]"
+ORANGE="\[$(tput setaf 9)\]"
 
 function parse_git_branch {
 
@@ -20,7 +22,7 @@ function parse_git_branch {
     state+="u"
   fi
   if [[ "$state" != "" ]]; then
-    state="${RED}["$state"]"
+    state="${ORANGE}["$state"]"
   fi
 
   remote_pattern="# Your branch is (.*) of"
@@ -54,7 +56,7 @@ function prompt_func() {
     history -a;
 
     if [ -n "${VIRTUAL_ENV:+x}" ]; then
-        ve="${YELLOW}["${VIRTUAL_ENV##*/}"]${RESET}" #`basename \` dirname ${VIRTUAL_ENV}\``]"
+        ve="${BLUE}["${VIRTUAL_ENV##*/}"]${RESET}" #`basename \` dirname ${VIRTUAL_ENV}\``]"
     else
         ve=""
     fi
