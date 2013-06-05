@@ -26,6 +26,10 @@ message = Econsensus
 query = subject:"due in the next"
 tags = +action
 message = Action
+[Filter.5]
+query = to:tech@aptivate.org
+tags = +tech
+message = Aptivate Tech
 [Filter.6]
 query = subject:centos -subject:important -subject:critical
 tags = -new
