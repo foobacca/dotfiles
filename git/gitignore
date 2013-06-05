@@ -1,2 +1,4 @@
 .ropeproject
 *.pybundle
+db_dump.sql
+.vagrant
