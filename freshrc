@@ -1,48 +1,30 @@
 # freshshell.com
 #
-# Examples:
-#
-#   fresh twe4ked/dotfiles shell/functions.sh
-#   fresh jasoncodes/dotfiles aliases/rails.sh
-#   fresh jasoncodes/dotfiles config/tmux.conf --file
-#
 # See http://freshshell.com/readme for documentation.
 
 fresh freshshell/fresh bin/fresh --bin
 
-# general config
-fresh ackrc --file
+fresh freshshell/fresh contrib/completion/fresh-completion.bash
+
+# inputrc - base set up
 fresh inputrc --file
-
 fresh jasoncodes/dotfiles config/inputrc --file
-fresh tigrc --file
+
+# bash set up
+fresh bashrc --file
+fresh 'bash/*'
+fresh jasoncodes/dotfiles shell/aliases/editor.sh --file=~/.bashrc
+
+# tools
+fresh ackrc --file
 fresh jasoncodes/dotfiles config/sqliterc --file
-
-# notmuch related bits
-fresh afew/config --file=~/.config/afew/config
-
-fresh alot/config.common --file=~/.config/alotwork/config
-fresh alot/config.work --file=~/.config/alotwork/config
-fresh alot/config.bindings --file=~/.config/alotwork/config
-fresh alot/config.theme --file=~/.config/alotwork/config
-
-fresh alot/config.common --file=~/.config/alot/config
-fresh alot/config.gmail --file=~/.config/alot/config
-fresh alot/config.bindings --file=~/.config/alot/config
-fresh alot/config.theme --file=~/.config/alot/config
-
-fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
-fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
 
 # git
 fresh git/gitconfig.$(hostname) --file=~/.gitconfig
 fresh git/gitconfig --file
 fresh git/gitignore --file
 
-# bash
-fresh bashrc --file
-fresh 'bash/*'
-fresh jasoncodes/dotfiles shell/aliases/editor.sh --file=~/.bashrc
+fresh tigrc --file
 
 # vim
 fresh gvimrc --file
@@ -52,12 +34,8 @@ fresh vimrc.vundle --file=~/.vimrc
 # tmux
 fresh 'tmux/*' --file=~/.tmux.conf
 
-#mail stuff
-fresh mail/mailcap --file=~/.mailcap
-fresh mail/msmtprc --file=~/.msmtprc
-fresh mail/signature.work --file=~/.signature.work
-fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
-fresh mail/offlineimaprc --file=~/.offlineimaprc
+# dircolors - solarized
+fresh seebi/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
 
 # bin commands
 fresh 'bin/*' --bin
@@ -65,8 +43,16 @@ fresh 'gitbin/*' --bin
 fresh clvv/fasd fasd --bin
 fresh zx2c4/gmail-notmuch gmail-notmuch.py --bin
 
+# sack stuff - https://github.com/sampson-chen/sack
+fresh sampson-chen/sack sack --bin
+fresh sampson-chen/sack sag --bin
+fresh sampson-chen/sack sgrep --bin
+fresh sampson-chen/sack .sackrc
+
 # powerline
 fresh powerline --file=~/.config/powerline/
+
+# gui apps
 
 # redshift
 fresh redshift.conf --file=~/.config/redshift.conf
@@ -74,16 +60,37 @@ fresh redshift.conf --file=~/.config/redshift.conf
 # terminator solarized sample config
 fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
-# dircolors - solarized
-fresh seebi/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
-
 # xchat - solarized
 fresh solarized/xchat-colors-solarized solarized-dark-colors.conf --file=~/.xchat2/colors.conf
 
-# sack stuff - https://github.com/sampson-chen/sack
-fresh sampson-chen/sack sack --bin
-fresh sampson-chen/sack sag --bin
-fresh sampson-chen/sack sgrep --bin
-fresh sampson-chen/sack .sackrc
+############
+# mail stuff
+############
+if [ $(hostname) = "foobacca.co.uk" ]; then
+    fresh mail/mailcap --file=~/.mailcap
+    fresh mail/msmtprc --file=~/.msmtprc
+    fresh mail/signature.work --file=~/.signature.work
+    fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
+    fresh mail/offlineimaprc --file=~/.offlineimaprc
 
-fresh freshshell/fresh contrib/completion/fresh-completion.bash
+    # notmuch related bits
+    fresh afew/config --file=~/.config/afew/config
+
+    fresh-options --file=~/.config/alotwork/config
+        fresh alot/config.common
+        fresh alot/config.work
+        fresh alot/config.bindings
+        fresh alot/config.theme
+    fresh-options
+
+    fresh-options --file=~/.config/alot/config
+        fresh alot/config.common
+        fresh alot/config.gmail
+        fresh alot/config.bindings
+        fresh alot/config.theme
+    fresh-options
+
+    fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
+    fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
+
+fi
