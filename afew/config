@@ -42,6 +42,10 @@ message = IDS API/lighthouse
 query = to:here@aptivate.org
 tags = +here
 message = MM etc
+[Filter.9]
+query = from:jenkins@aptivate.org
+tags = +jenkins
+message = Jenkins
 
 [Filter.10]
 query = to:carers+dropbox
