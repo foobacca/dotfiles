@@ -5,5 +5,5 @@ for file in $($HOME/bin/notmuchwork search --output=files tag:new) ; do
     cat $file | $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
 done
 
-$HOME/.pythonbrew/pythons/Python-2.7.3/bin/python $HOME/dev/afew/bin/afew \
+$HOME/.local/bin/afew \
     --notmuch-config=$HOME/.notmuch-config-work --new --tag
