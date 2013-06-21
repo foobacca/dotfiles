@@ -5,7 +5,8 @@ accounts = Aptivate
 #ui = TTY.TTYUI
 # non-interactive means not asking for a password
 #ui = Noninteractive.Basic
-ui = Noninteractive.Quiet
+#ui = Noninteractive.Quiet
+ui = quiet
 pythonfile = ~/.dotfiles/mail/offlineimap.py
 fsync = False
 
