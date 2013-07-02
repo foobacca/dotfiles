@@ -24,4 +24,9 @@
   [[attachment]]
     translated = @
     normal = "", "", 'light blue', '', 'light blue', ''
+  [[lists]]
+    translated = L
+  [[encrypted]]
+    translated = *
+    normal = '','','light red','','dark red',''
 
