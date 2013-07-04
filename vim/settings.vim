@@ -126,3 +126,5 @@ let g:pymode_lint_ignore="E126,E128,E501"
 let g:pymode_folding = 0
 let g:pymode_syntax_space_errors = 0
 let g:pymode_utils_whitespace = 0
+
+let g:notmuchconfig = $NOTMUCH_CONFIG
