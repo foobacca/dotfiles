@@ -12,58 +12,6 @@ header_field = To
 regex_string = (?P<team_name>[a-z0-9]+)-team@aptivate.org
 regex_group = team_name
 
-#custom filters
-# remember to remove new tag when removing inbox!
-[Filter.2]
-query = to:hamish+linkedin@aptivate.org
-tags = +linkedin
-message = Linkedin
-[Filter.3]
-query = from:aptivate@econsensus.org OR from:aptivateprivate@econsensus.org
-tags = +consensus
-message = Econsensus
-[Filter.4]
-query = subject:"due in the next"
-tags = +action
-message = Action
-[Filter.5]
-query = to:tech@aptivate.org
-tags = +tech
-message = Aptivate Tech
-[Filter.6]
-query = subject:centos -subject:important -subject:critical
-tags = -new
-message = Centos - not urgent
-[Filter.7]
-query = from:no-reply@lighthouseapp.com
-tags = +idsapi
-message = IDS API/lighthouse
-[Filter.8]
-query = to:here@aptivate.org
-tags = +here
-message = MM etc
-[Filter.9]
-query = from:jenkins@aptivate.org
-tags = +jenkins
-message = Jenkins
-
-[Filter.10]
-query = to:carers+dropbox
-tags = +carers;+inbox;-new
-message = Dropbox
-[Filter.14]
-query = from:logwatch*
-tags = +carers;+logwatch;-new
-message = Logwatch (and Carers)
-[Filter.15]
-query = to:carers* OR to:postmaster* OR to:root* OR to:admin-* OR from:nobody@fen-fw*
-tags = +carers;-new
-message = Carers
-[Filter.16]
-query = from:nagios
-tags = +nagios;-new
-message = Nagios
-
 #[ArchiveSentMailsFilter]
 #sent_tag = sent
-[InboxFilter]
+#[InboxFilter]

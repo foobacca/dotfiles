@@ -1,9 +1,34 @@
 #!/bin/sh
 
-# first update notmuch-abook
-for file in $($HOME/bin/notmuchwork search --output=files tag:new) ; do
+NMW=$HOME/bin/notmuchwork
+
+$NMW tag +nagios -new -- 'tag:new AND from:nagios'
+$NMW tag +carers -new +inbox -- 'tag:new AND to:carers+dropbox.com'
+$NMW tag +carers -new +logwatch -- 'tag:new AND from:logwatch'
+$NMW tag +carers -new -- 'tag:new AND (to:carers OR to:postmaster OR to:root OR to:admin- OR from:nobody@fen-fw)'
+$NMW tag +centos -new -- 'tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)'
+
+$NMW tag +consensus -- 'tag:new AND (from:aptivate@econsensus.org OR from:aptivateprivate@econsensus.org)'
+$NMW tag +jenkins -- 'tag:new AND from:jenkins@aptivate.org'
+$NMW tag +idsapi -- 'tag:new AND from:no-reply@lighthouseapp.com'
+
+# update notmuch-abook after the email I don't care about addresses for
+# has been dealt with
+for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
     cat $file | $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
 done
 
+$NMW tag +here -- 'tag:new AND to:here@aptivate.org'
+$NMW tag +tech -- 'tag:new AND to:tech@aptivate.org'
+$NMW tag +linkedin -- 'tag:new AND to:hamish+linkedin@aptivate.org'
+
+$NMW tag +action -- 'tag:new AND subject:"due in the next"'
+
+# just does some regex header stuff
 $HOME/.local/bin/afew \
     --notmuch-config=$HOME/.notmuch-config-work --new --tag
+
+# finally, add the inbox tag to non killed/spam
+$NMW tag +inbox -new -- 'NOT tag:killed AND NOT tag:spam'
+# and remove the new tag completely
+$NMW tag -new -- 'tag:new'
