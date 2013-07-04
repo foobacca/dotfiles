@@ -29,6 +29,6 @@ $HOME/.local/bin/afew \
     --notmuch-config=$HOME/.notmuch-config-work --new --tag
 
 # finally, add the inbox tag to non killed/spam
-$NMW tag +inbox -new -- 'NOT tag:killed AND NOT tag:spam'
+$NMW tag +inbox -new -- 'tag:new AND NOT tag:killed AND NOT tag:spam'
 # and remove the new tag completely
 $NMW tag -new -- 'tag:new'
