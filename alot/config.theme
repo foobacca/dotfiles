@@ -29,4 +29,7 @@
   [[encrypted]]
     translated = *
     normal = '','','light red','','dark red',''
+  [[signed]]
+    translated = ~
+    normal = '','','light red','','dark red',''
 
