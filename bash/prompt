@@ -61,9 +61,16 @@ function prompt_func() {
         ve=""
     fi
 
+    job_count=$(jobs -s | wc -l)
+    if [ $job_count -gt 0 ]; then
+        jobs="${PINK}[$job_count]${RESET}"
+    else
+        jobs=""
+    fi
+
     CurDir=$(pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g")
 
-    PS1="${return_val} ${ve}${prompt_col}\u@\h:${CurDir}${YELLOW}$(parse_git_branch)${RESET}\$ "
+    PS1="${return_val} ${jobs}${ve}${prompt_col}\u@\h:${CurDir}${YELLOW}$(parse_git_branch)${RESET}\$ "
 }
 
 # abbreviate the dir path in the prompt
