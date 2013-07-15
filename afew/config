@@ -7,10 +7,20 @@
 [KillThreadsFilter]
 [ListMailsFilter]
 
-[RegexFilter.1]
-header_field = To
-regex_string = (?P<team_name>[a-z0-9]+)-team@aptivate.org
-regex_group = team_name
+[HeaderMatchingFilter.1]
+header = To
+pattern = (?P<team_name>[a-z0-9]+)-team@aptivate.org
+tags = +{team_name}
+
+[HeaderMatchingFilter.2]
+header = Cc
+pattern = (?P<team_name>[a-z0-9]+)-team@aptivate.org
+tags = +{team_name}
+
+[HeaderMatchingFilter.3]
+header = X-Redmine-Project
+pattern = (?P<project>.*)
+tags = +{project}
 
 #[ArchiveSentMailsFilter]
 #sent_tag = sent
