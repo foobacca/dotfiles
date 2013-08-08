@@ -73,6 +73,7 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
     fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
     fresh mail/offlineimaprc --file=~/.offlineimaprc
     fresh mail/notmuch-config-work --file=~/.notmuch-config-work
+    fresh mail/notmuch-work-abook-ignore --file=~/.notmuch-work-abook-ignore
     fresh mail/notmuch-config-gmail --file=~/.notmuch-config
 
     # notmuch related bits

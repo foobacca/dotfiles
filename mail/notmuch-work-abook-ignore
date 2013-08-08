@@ -1,0 +1,25 @@
+logwatch@
+mailer-daemon@
+autoreply
+aidworld.org
+aptivate.org.uk
+aptivate.com
+noreply
+no_reply
+no-reply
+do-not-reply
+reply.github.com
+auto-shipping@amazon
+apache@
+@aptivate.kanbantool.com
+marketplace.amazon.co.uk
+@linkedin.com
+@localhost
+/^root@/
+/-test.*@/
+/^hamish[-+][-a-z0-9_]*@aptivate.org/
+/@[-\.\w]+\.aptivate.org/
+/^redmine-.*@aptivate/
+
+# this is if there is no @ character present
+/^[^@]*$/
