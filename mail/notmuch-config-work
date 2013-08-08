@@ -88,3 +88,4 @@ synchronize_flags=true
 [addressbook]
 path=/home/hamish/.notmuch-work-abook.db
 backend=sqlite3
+ignorefile=/home/hamish/.notmuch-work-abook-ignore
