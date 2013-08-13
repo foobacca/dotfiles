@@ -9,8 +9,8 @@ tabs:
       layout: even-horizontal
       panes:
         - #empty, will just run plain bash
-        - mosh -- foobacca.co.uk sh -c '/usr/bin/tmux attach -d'
-  - vnc: mosh -- lin-vnc2.aptivate.org sh -c 'tmux attach -d'
+        - mosh foobacca.co.uk -- sh -c '/usr/bin/tmux attach -d'
+  - vnc: mosh lin-vnc2.aptivate.org -- sh -c 'tmux attach -d'
   - office: ssh -t -A fen-fw.aptivate.org ssh -t fen-vz-console.fen.aptivate.org tmux attach -d
   - shell: 
       layout: even-horizontal
