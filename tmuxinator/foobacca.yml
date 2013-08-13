@@ -9,4 +9,4 @@ tabs:
       layout: even-horizontal
       panes:
         - #empty, will just run plain bash
-        - ssh -t foobacca.co.uk tmux attach -d
+        - mosh -- foobacca.co.uk sh -c '/usr/bin/tmux attach -d'
