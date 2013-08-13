@@ -12,6 +12,8 @@ $NMW tag +consensus -new +inbox -- 'tag:new AND (from:aptivate@econsensus.org OR
 $NMW tag +jenkins -new +inbox -- 'tag:new AND from:jenkins@aptivate.org'
 $NMW tag +idsapi -new +inbox -- 'tag:new AND from:no-reply@lighthouseapp.com'
 $NMW tag +inaspsite -new +inbox -- 'tag:new AND from:notifications@kanbantool.com AND subject:"INASP Site"'
+$NMW tag +linkedin -new +inbox -- 'tag:new AND to:hamish+linkedin@aptivate.org'
+$NMW tag +linkedin -new +inbox -- 'tag:new AND from:@linkedin.com'
 
 # update notmuch-abook after the email I don't care about addresses for
 # has been dealt with
@@ -21,12 +23,12 @@ done
 
 $NMW tag +here -- 'tag:new AND to:here@aptivate.org'
 $NMW tag +tech -- 'tag:new AND to:tech@aptivate.org'
-$NMW tag +linkedin -- 'tag:new AND to:hamish+linkedin@aptivate.org'
 
 $NMW tag +action -- 'tag:new AND subject:"due in the next"'
 
 $NMW tag +cashflow -- 'tag:new AND subject:cashflow'
 $NMW tag +capacity -- 'tag:new AND subject:capacity'
+$NMW tag +ethical_engagement -- 'tag:new AND subject:"ethical engagement"'
 
 # just does some regex header stuff
 $HOME/.local/bin/afew \
