@@ -10,6 +10,7 @@ $NMW tag +centos -new -- 'tag:new AND (subject:centos AND NOT subject:important 
 
 $NMW tag +consensus -new +inbox -- 'tag:new AND (from:aptivate@econsensus.org OR from:aptivateprivate@econsensus.org)'
 $NMW tag +jenkins -new +inbox -- 'tag:new AND from:jenkins@aptivate.org'
+$NMW tag +django-error -new +inbox -- 'tag:new AND subject:"django error external ip internal server error"'
 $NMW tag +idsapi -new +inbox -- 'tag:new AND from:no-reply@lighthouseapp.com'
 $NMW tag +inaspsite -new +inbox -- 'tag:new AND from:notifications@kanbantool.com AND subject:"INASP Site"'
 $NMW tag +linkedin -new +inbox -- 'tag:new AND to:hamish+linkedin@aptivate.org'
