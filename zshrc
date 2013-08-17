@@ -49,4 +49,6 @@ plugins=(git command-not-found django extract fabric history history-substring-s
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+if [ -f ~/.fresh/build/shell.sh ]; then
+    source ~/.fresh/build/shell.sh
+fi
