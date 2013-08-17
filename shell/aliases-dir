@@ -3,7 +3,7 @@ alias ll='ls -l'
 alias lh='ls -lh'
 alias llh='ls -lh'
 alias la='ls -A'
-alias l='ls -CF --hide=*.pyc'
+alias l="ls -CF --hide='*.pyc'"
 alias lt='ls -laptr' #oldest first sort
 alias labc='ls -lap' #alphabetical sort
 
@@ -11,5 +11,6 @@ alias labc='ls -lap' #alphabetical sort
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # vi: ft=sh
