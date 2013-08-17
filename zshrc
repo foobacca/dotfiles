@@ -69,6 +69,15 @@ bindkey -M vicmd 'j' history-substring-search-down
 # Display CPU usage stats for commands taking more than 10 seconds
 REPORTTIME=10
 
+# - global aliases
+alias -g G='| grep'
+alias -g H='| head'
+alias -g L="| less"  # Write L after a command to page through the output.
+alias -g T='| tail'
+alias -g NUL="> /dev/null 2>&1" # You get the idea.
+
+# TODO: hash, alias -s (suffix)
+
 if [ -f ~/.fresh/build/shell.sh ]; then
     source ~/.fresh/build/shell.sh
 fi
