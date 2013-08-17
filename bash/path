@@ -9,6 +9,7 @@ pathadd() {
 
 pathadd $HOME/bin
 pathadd $HOME/.local/bin
+pathadd $HOME/.wp-cli/bin
 pathadd $HOME/Dropbox/tech/bin
 pathadd /var/lib/gems/1.8/bin/
 pathadd /var/lib/gems/1.9.1/bin/
