@@ -49,6 +49,16 @@ plugins=(git command-not-found django extract fabric history history-substring-s
 
 source $ZSH/oh-my-zsh.sh
 
+# use PageUp and PageDown like Ctrl-R
+[[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
+[[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
+
+# rebind keys for history substring search - they seem to get lost somewhere
+bindkey '\e[A' history-substring-search-up
+bindkey '\e[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 if [ -f ~/.fresh/build/shell.sh ]; then
     source ~/.fresh/build/shell.sh
 fi
