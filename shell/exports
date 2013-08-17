@@ -1,7 +1,3 @@
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... and ignore same sucessive entries.
-HISTCONTROL=ignoreboth
-
 # Expand the history size
 HISTFILESIZE=500000
 HISTSIZE=50000

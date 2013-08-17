@@ -4,7 +4,6 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
-fresh freshshell/fresh contrib/completion/fresh-completion.bash
 
 # inputrc - base set up
 fresh inputrc --file
@@ -12,12 +11,17 @@ fresh jasoncodes/dotfiles config/inputrc --file
 
 # bash set up
 fresh bashrc --file
-fresh 'bash/*'
-fresh jasoncodes/dotfiles shell/aliases/editor.sh --file=~/.bashrc
+fresh 'bash/*' --file=~/.bashrc
+fresh freshshell/fresh contrib/completion/fresh-completion.bash --file=~/.bashrc
 
 # zsh set up
 fresh zshrc --file
+fresh freshshell/fresh contrib/completion/fresh-completion.zsh --file=~/.zshrc
 fresh zsh/foobacca.zsh-theme --file=~/.oh-my-zsh/themes/foobacca.zsh-theme
+
+# general shell stuff for both bash and zsh
+fresh 'shell/*'
+fresh jasoncodes/dotfiles shell/aliases/editor.sh
 
 # tools
 fresh ackrc --file
