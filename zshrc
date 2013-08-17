@@ -49,6 +49,9 @@ plugins=(git command-not-found django extract fabric history history-substring-s
 
 source $ZSH/oh-my-zsh.sh
 
+# add in the syntax highlighting plugin
+source ~/.fresh/build/vendor/zsh-syntax-highlighting.zsh
+
 # use PageUp and PageDown like Ctrl-R
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
