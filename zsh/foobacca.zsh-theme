@@ -1,9 +1,57 @@
-# Yay! High voltage and arrows!
+# stuff nicked from kphoen.zsh-theme and pygmalion.zsh-theme
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}("
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%})%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
+
+    ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}("
+    ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%})%{$reset_color%} "
+    ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
+    ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+    ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[blue]%} ✚"
+    ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✭"
+    ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%} ~"
+    ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[green]%} ✖"
+    ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%} ?"
+    ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[magenta]%} U"
+    ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[cyan]%} ⬋"
+    ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[yellow]%}↑"
+    ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg[yellow]%}↓"
+    ZSH_THEME_GIT_PROMPT_DIVERGED="%{$fg[yellow]%}↕"
+
+    # display exitcode on the right when >0
+    return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%} )"
+
+    RPROMPT='${return_code}$(git_prompt_status)%{$reset_color%}'
+
+#    PROMPT='%{$fg[red]%}%n%{$reset_color%}:%{$fg[blue]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)
+#❯ '
+else
+
+    ZSH_THEME_GIT_PROMPT_PREFIX="("
+    ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+    ZSH_THEME_GIT_PROMPT_DIRTY="⚡"
+    ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+    ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
+    ZSH_THEME_GIT_PROMPT_MODIFIED=" ✭"
+    ZSH_THEME_GIT_PROMPT_RENAMED=" ~"
+    ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
+    ZSH_THEME_GIT_PROMPT_UNMERGED=" ?"
+    ZSH_THEME_GIT_PROMPT_UNTRACKED=" U"
+    ZSH_THEME_GIT_PROMPT_STASHED=" ⬋"
+    ZSH_THEME_GIT_PROMPT_AHEAD="↑"
+    ZSH_THEME_GIT_PROMPT_BEHIND="↓"
+    ZSH_THEME_GIT_PROMPT_DIVERGED="↕"
+
+    # display exitcode on the right when >0
+    return_code="%(?..%? ↵ )"
+
+    RPROMPT='${return_code}$(git_prompt_status)'
+
+#    PROMPT='[%n@%m:%~$(git_prompt_info)]
+#%# '
+fi
+
 
 PREV_EXIT_FILE=/tmp/XYZprev_exit
 
