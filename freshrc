@@ -15,6 +15,10 @@ fresh bashrc --file
 fresh 'bash/*'
 fresh jasoncodes/dotfiles shell/aliases/editor.sh --file=~/.bashrc
 
+# zsh set up
+fresh zshrc --file
+fresh zsh/foobacca.zsh-theme --file=~/.oh-my-zsh/themes/foobacca.zsh-theme
+
 # tools
 fresh ackrc --file
 fresh jasoncodes/dotfiles config/sqliterc --file
