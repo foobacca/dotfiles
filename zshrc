@@ -59,6 +59,13 @@ bindkey '\e[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+#
+# exports
+#
+
+# Display CPU usage stats for commands taking more than 10 seconds
+REPORTTIME=10
+
 if [ -f ~/.fresh/build/shell.sh ]; then
     source ~/.fresh/build/shell.sh
 fi
