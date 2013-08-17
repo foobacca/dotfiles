@@ -43,5 +43,6 @@ function abbrev_dir {
     pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g"
 }
 
-PROMPT='$(prev_exit) $(venv_active)$(job_count)$(prev_exit_colour)%n@%m:%{$reset_color%}%{$fg[cyan]%}$(abbrev_dir)%{$reset_color%} $(git_prompt_info)%{$fg[cyan]%}⇒%{$reset_color%}  '
+PROMPT='$(prev_exit) $(venv_active)$(job_count)$(prev_exit_colour)%n@%m:%{$reset_color%}%{$fg[cyan]%}$(abbrev_dir)%{$reset_color%} $(git_prompt_info)%{$fg[cyan]%}%#%{$reset_color%} '
 
+# vi: ft=zsh
