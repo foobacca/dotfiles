@@ -16,6 +16,7 @@ fresh freshshell/fresh contrib/completion/fresh-completion.bash --file=~/.bashrc
 
 # zsh set up
 fresh zshrc --file
+fresh zsh/zshenv --file
 fresh freshshell/fresh contrib/completion/fresh-completion.zsh --file=~/.zshrc
 fresh zsh/foobacca.zsh-theme --file=~/.oh-my-zsh/themes/foobacca.zsh-theme
 

@@ -1,0 +1,15 @@
+typeset -U path
+# from http://superuser.com/a/39995/1630
+# if the directory exists, and the directory is not already
+# on the path, then add to $PATH
+function pathadd {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        path=($1 $path)
+    fi
+}
+
+pathadd $HOME/bin
+pathadd $HOME/.local/bin
+pathadd $HOME/Dropbox/tech/bin
+pathadd /var/lib/gems/1.8/bin/
+pathadd /var/lib/gems/1.9.1/bin/
