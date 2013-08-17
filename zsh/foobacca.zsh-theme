@@ -1,5 +1,3 @@
-PREV_EXIT_FILE=/tmp/XYZprev_exit
-
 function venv_active {
     if [ -n "${VIRTUAL_ENV:+x}" ]; then
         echo "["${VIRTUAL_ENV##*/}"]"  #`basename \` dirname ${VIRTUAL_ENV}\``]"
@@ -13,8 +11,57 @@ function job_count {
     fi
 }
 
-function abbrev_dir {
+function abbrev_pwd {
     pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g"
+}
+
+# nicked from https://github.com/twe4ked/dotfiles/blob/master/shell/zsh/prompt.zsh
+function prompt_pwd {
+    # find git root directory
+    if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
+        local repo="$(basename "$(git rev-parse --show-toplevel)")"
+    fi
+
+    # split the path into it's parts
+    parts=(${(s:/:)${${PWD}/#${HOME}/\~}})
+
+    i=0
+    while (( i++ < ${#parts} )); do
+        part="$parts[i]"
+        if [[ "$part" == "$repo" ]]; then
+            # if this part of the path represents the repo,
+            # underline it, and skip truncating the component
+            parts[i]="%U$part%u"
+        else
+            # shorten the path as long as it isn't the last piece
+            #if [[ "$parts[${#parts}]" != "$part" ]]; then
+            if [[ $i != ${#parts} ]]; then
+                if [[ $part[1,1] == "." ]]; then
+                    parts[i]="$part[1,2]"
+                else
+                    parts[i]="$part[1,1]"
+                fi
+            fi
+        fi
+    done
+
+    local prompt_path="${(j:/:)parts}"
+    if [ "$parts[1]" != "~" ]; then
+        prompt_path="/$prompt_path"
+    fi
+    echo "$prompt_path"
+}
+
+function prompt_color {
+    if [ "$USER" = "root" ]; then
+        echo "red"
+    else
+        if [ -n "$SSH_TTY" ]; then
+            echo "blue"
+        else
+            echo "cyan"
+        fi
+    fi
 }
 
 # stuff nicked from kphoen.zsh-theme and pygmalion.zsh-theme
@@ -37,18 +84,17 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg[yellow]%}↓"
     ZSH_THEME_GIT_PROMPT_DIVERGED="%{$fg[yellow]%}↕"
 
-    # display exitcode on the right when >0
+    # display exitcode when >0
     return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%} )"
 
-    RPROMPT='${return_code}$(git_prompt_status)%{$reset_color%}'
-
-#    PROMPT='%{$fg[red]%}%n%{$reset_color%}:%{$fg[blue]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)
-#❯ '
-    PROMPT='%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(abbrev_dir) $(git_prompt_info)%{$fg[cyan]%}%#%{$reset_color%} '
+    # 1 line prompt
+    #RPROMPT='${return_code}$(git_prompt_status) %{$fg[yellow]%}[%*]%{$reset_color%}'
+    #PROMPT='%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(abbrev_pwd) $(git_prompt_info)%{$fg[cyan]%}%#%{$reset_color%} '
     # 3 line prompt
-#    PROMPT='
-#%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}${PWD/#$HOME/~} $(git_prompt_info) %{$fg[yellow]%}[%*]
-#%{$fg[cyan]%}%#%{$reset_color%} '
+    RPROMPT='$(git_prompt_status) %{$fg[yellow]%}[%*]%{$reset_color%}'
+    PROMPT='
+${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)
+%{$fg[cyan]%}%#%{$reset_color%} '
 
 else
 
@@ -71,11 +117,16 @@ else
     # display exitcode on the right when >0
     return_code="%(?..%? ↵ )"
 
+    # one line prompt
     RPROMPT='${return_code}$(git_prompt_status)'
+    PROMPT='$(venv_active)$(job_count)%n@%m:$(abbrev_pwd) $(git_prompt_info)%# '
 
-#    PROMPT='[%n@%m:%~$(git_prompt_info)]
-#%# '
-    PROMPT='$(venv_active)$(job_count)%n@%m:$(abbrev_dir) $(git_prompt_info)%# '
+    # 3 line prompt
+    RPROMPT='$(git_prompt_status) [%*]'
+    PROMPT='
+${return_code}$(venv_active)$(job_count)%n@%m:$(prompt_pwd) $(git_prompt_info)
+%# '
+
 fi
 
 
