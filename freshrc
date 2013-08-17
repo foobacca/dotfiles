@@ -48,6 +48,10 @@ fresh 'tmux/*' --file=~/.tmux.conf
 # dircolors - solarized
 fresh seebi/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
 
+# development lighttpd
+fresh lighttpd.conf --file=~/dev/lighttpd/lighttpd.conf
+fresh empty --file=~/dev/lighttpd/logs/empty
+
 # bin commands
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
