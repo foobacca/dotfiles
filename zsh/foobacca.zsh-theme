@@ -68,9 +68,9 @@ function prompt_color {
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
 
-    ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}("
-    ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[green]%})%{$reset_color%} "
-    ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
+    ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[yellow]%}("
+    ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[yellow]%})%{$reset_color%} "
+    ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}⚡"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[blue]%} ✚"
