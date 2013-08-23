@@ -18,7 +18,7 @@ fresh freshshell/fresh contrib/completion/fresh-completion.bash --file=~/.bashrc
 fresh zshrc --file
 fresh zsh/zshenv --file
 fresh freshshell/fresh contrib/completion/fresh-completion.zsh --file=~/.zshrc
-fresh zsh/foobacca.zsh-theme --file=~/.oh-my-zsh/themes/foobacca.zsh-theme
+fresh zsh/foobacca.zsh-theme --file=~/.oh-my-zsh/custom/themes/foobacca.zsh-theme
 fresh zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting.zsh --file=vendor/zsh-syntax-highlighting.zsh
 fresh zsh-users/zsh-syntax-highlighting highlighters --file=vendor/highlighters/
 
