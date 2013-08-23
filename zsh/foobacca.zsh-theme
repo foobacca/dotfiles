@@ -73,13 +73,19 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     ZSH_THEME_GIT_PROMPT_DIRTY="%{$reset_color%}⚡"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-    ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[blue]%} ✚"
-    ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✭"
-    ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%} ~"
-    ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[green]%} ✖"
-    ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%} ?"
+    ZSH_THEME_GIT_PROMPT_INDEX_PREFIX="%{$fg[blue]%} S"
+    ZSH_THEME_GIT_PROMPT_WORKING_PREFIX="%{$fg[green]%} W"
+    ZSH_THEME_GIT_PROMPT_UNMERGED_PREFIX="%{$fg[magenta]%} ?"
+
+    ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
+    ZSH_THEME_GIT_PROMPT_MODIFIED=" ✭"
+    ZSH_THEME_GIT_PROMPT_RENAMED=" ~"
+    ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
+    ZSH_THEME_GIT_PROMPT_UNMERGED=" ?"
+
     ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[magenta]%} U"
     ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[cyan]%} ⬋"
+
     ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg[yellow]%}↑"
     ZSH_THEME_GIT_PROMPT_BEHIND="%{$fg[yellow]%}↓"
     ZSH_THEME_GIT_PROMPT_DIVERGED="%{$fg[yellow]%}↕"
@@ -91,7 +97,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     #RPROMPT='${return_code}$(git_prompt_status) %{$fg[yellow]%}[%*]%{$reset_color%}'
     #PROMPT='%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(abbrev_pwd) $(git_prompt_info)%{$fg[cyan]%}%#%{$reset_color%} '
     # 3 line prompt
-    RPROMPT='$(git_prompt_status) %{$fg[yellow]%}[%*]%{$reset_color%}'
+    RPROMPT='$(git_prompt_status2) %{$fg[yellow]%}[%*]%{$reset_color%}'
     PROMPT='
 ${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)
 %{$fg[cyan]%}%#%{$reset_color%} '
@@ -103,13 +109,19 @@ else
     ZSH_THEME_GIT_PROMPT_DIRTY="⚡"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+    ZSH_THEME_GIT_PROMPT_INDEX_PREFIX=" S"
+    ZSH_THEME_GIT_PROMPT_WORKING_PREFIX=" W"
+    ZSH_THEME_GIT_PROMPT_UNMERGED_PREFIX=" ?"
+
     ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
     ZSH_THEME_GIT_PROMPT_MODIFIED=" ✭"
     ZSH_THEME_GIT_PROMPT_RENAMED=" ~"
     ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
     ZSH_THEME_GIT_PROMPT_UNMERGED=" ?"
+
     ZSH_THEME_GIT_PROMPT_UNTRACKED=" U"
     ZSH_THEME_GIT_PROMPT_STASHED=" ⬋"
+
     ZSH_THEME_GIT_PROMPT_AHEAD="↑"
     ZSH_THEME_GIT_PROMPT_BEHIND="↓"
     ZSH_THEME_GIT_PROMPT_DIVERGED="↕"
