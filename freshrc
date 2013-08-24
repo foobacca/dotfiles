@@ -100,6 +100,7 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
         fresh alot/config.bindings
         fresh alot/config.theme
     fresh-options
+    fresh alot/hooks.py --file=~/.config/alotwork/hooks.py
 
     fresh-options --file=~/.config/alot/config
         fresh alot/config.common
@@ -107,6 +108,7 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
         fresh alot/config.bindings
         fresh alot/config.theme
     fresh-options
+    fresh alot/hooks.py --file=~/.config/alot/hooks.py
 
     fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
     fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
