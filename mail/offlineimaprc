@@ -1,5 +1,5 @@
 [general]
-accounts = Aptivate
+accounts = Aptivate,FastMail
 #accounts = Aptivate, Gmail
 #ui = Curses.Blinkenlights
 #ui = TTY.TTYUI
@@ -52,7 +52,7 @@ status_backend = sqlite
 
 [Repository GmailLocal]
 type = Maildir
-localfolders = ~/.mail/steve-stevelosh.com
+localfolders = ~/.maildir-gmail
 nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
                             'flagged': '[Gmail]/Starred',
@@ -80,3 +80,25 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Spam',
                                              ]
 
+[Account FastMail]
+localrepository = FastMailLocal
+remoterepository = FastMailRemote
+status_backend = sqlite
+
+[Repository FastMailLocal]
+type = Maildir
+localfolders = ~/.maildir-fastmail
+
+[Repository FastMailRemote]
+maxconnections = 2
+type = IMAP
+ssl = yes
+expunge = no
+remotehost = mail.messagingengine.com
+remoteuser = mishd@fastmail.fm
+remotepassfile = ~/.passwd/fastmail
+#remotepasseval = mailpasswd('fastmail')
+realdelete = no
+folderfilter = lambda folder: folder not in ['INBOX.Trash',
+                                             'INBOX.Junk',
+                                             'INBOX.Junk Mail']
