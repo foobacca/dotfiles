@@ -2,20 +2,30 @@
 # you can make as many tabs as you wish...
 
 project_name: 3ie Site
-project_root: ~/work/dev/3iesite
+project_root: ~/dev/3iesite/dev/django/threeiesite
 #pre: sudo /etc/rc.d/mysqld start
 tabs:
   - main:
       layout: even-horizontal
       panes:
-        - vim
+        - cd ../../deploy/
         - 
   - server:
       layout: main-vertical
       panes:
-        - cd django/threeiesite
+        - 
         - cd ~/lib/apache-solr-3.5.0/example/; java -jar start.jar
-        - cd django/threeiesite; ./manage.py runserver
+        - ./manage.py runserver
+  - shell:
+      layout: even-horizontal
+      panes:
+        - vim
+        - 
+  - virtualenv:
+      layout: even-horizontal
+      panes:
+        - cd .ve/lib/python2.7/site-packages/ ; ls -CF -I "'"*egg*"'"
+        - cd .ve/lib/python2.7/site-packages/
 #  - shell: git pull
 #  - database: rails db
 #  - server: rails s
