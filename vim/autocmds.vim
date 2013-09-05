@@ -1,22 +1,22 @@
 if has("autocmd")
   " always save when changing tabs etc
-  au FocusLost * :wa
-
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json setlocal ft=javascript
-
-  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-  au FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
-
-  au FileType ruby setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
-
-  " keep tabs in go
-  au FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4
+  autocmd FocusLost * :wa
 
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+  autocmd BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g`\"" | endif
+
+  "
+  " Setting filetype
+  "
+
+  " Treat JSON files like JavaScript
+  autocmd BufNewFile,BufRead *.json setlocal ft=javascript
+
+  " Puppet files
+  autocmd BufNewFile,BufRead *.pp setlocal ft=puppet
+
   " recognize anything in my .Postponed directory as a news article, and anything
   " at all with a .txt extension as being human-language text [this clobbers the
   " `help' filetype, but that doesn't seem to prevent help from working
@@ -27,6 +27,25 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.template setlocal filetype=html
     autocmd BufNewFile,BufRead *.mdwn setlocal filetype=mkd
   augroup END
+
+  autocmd BufNewFile,BufRead admin.py     setlocal filetype=python.django
+  autocmd BufNewFile,BufRead urls.py      setlocal filetype=python.django
+  autocmd BufNewFile,BufRead models.py    setlocal filetype=python.django
+  autocmd BufNewFile,BufRead views.py     setlocal filetype=python.django
+  autocmd BufNewFile,BufRead settings.py  setlocal filetype=python.django
+  autocmd BufNewFile,BufRead forms.py     setlocal filetype=python.django
+
+  "
+  " Settings based on filetype
+  "
+
+  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+  autocmd FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
+
+  autocmd FileType ruby setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
+
+  " keep tabs in go
+  autocmd FileType go setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4
 
   " in human-language files, automatically format everything at 72 chars:
   autocmd FileType mail,human setlocal formatoptions+=t textwidth=72
@@ -41,13 +60,6 @@ if has("autocmd")
 
   " for Perl programming, have things in braces indenting themselves:
   autocmd FileType perl setlocal smartindent
-
-  au BufNewFile,BufRead admin.py     setlocal filetype=python.django
-  au BufNewFile,BufRead urls.py      setlocal filetype=python.django
-  au BufNewFile,BufRead models.py    setlocal filetype=python.django
-  au BufNewFile,BufRead views.py     setlocal filetype=python.django
-  au BufNewFile,BufRead settings.py  setlocal filetype=python.django
-  au BufNewFile,BufRead forms.py     setlocal filetype=python.django
 
   " for HTML, generally format text, but if a long line has been created leave it
   " alone when editing:
@@ -70,8 +82,8 @@ if has("autocmd")
   autocmd FileType man setlocal nonumber
 
   " ORG mode stuff
-  au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-  au BufEnter *.org call org#SetOrgFileType()
+  autocmd! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+  autocmd BufEnter *.org call org#SetOrgFileType()
 
 endif
 
