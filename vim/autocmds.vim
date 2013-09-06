@@ -17,6 +17,9 @@ if has("autocmd")
   " Puppet files
   autocmd BufNewFile,BufRead *.pp setlocal ft=puppet
 
+  " Markdown files
+  autocmd BufNewFile,BufRead *.md setlocal ft=markdown
+
   " recognize anything in my .Postponed directory as a news article, and anything
   " at all with a .txt extension as being human-language text [this clobbers the
   " `help' filetype, but that doesn't seem to prevent help from working
