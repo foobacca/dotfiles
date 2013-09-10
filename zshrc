@@ -44,7 +44,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git command-not-found django extract fabric history history-substring-search pip python svn tmux tmuxinator vi-mode virtualenv vundle)
+plugins=(git command-not-found django docker extract fabric history history-substring-search pip python svn tmux tmuxinator vi-mode virtualenv vundle)
 # others worth looking at: debian git* 
 
 source $ZSH/oh-my-zsh.sh
@@ -61,6 +61,12 @@ bindkey '\e[A' history-substring-search-up
 bindkey '\e[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+#
+# options
+#
+setopt interactive_comments  # ignore the # char and after
+setopt no_share_history      # don't import shared command history data into shell
 
 #
 # exports
