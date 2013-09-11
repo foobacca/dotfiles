@@ -3,6 +3,7 @@ mailer-daemon@
 autoreply
 @aidworld.org
 @aptivate.org.uk
+installuser@aptivate.org
 @apivate.org
 @aptivate.com
 noreply
@@ -19,8 +20,9 @@ marketplace.amazon.co.uk
 /^root@/
 /-test.*@/
 /^hamish[-+][-a-z0-9_]*@aptivate.org/
+/^chris[-+][-a-z0-9_]*@(aptivate.org|qwirx.com)$/
 /@[-\.\w]+\.aptivate.org/
-/^redmine-.*@aptivate/
+/^redmine-.*@aptivate.org$/
 
 # this is if there is no @ character present
 /^[^@]*$/
