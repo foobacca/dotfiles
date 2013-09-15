@@ -5,7 +5,7 @@
     address = hamish@aptivate.org
     signature = ~/.signature.work
     type = sendmail
-    sendmail_command = ssh -q -i /home/hamish/.ssh/id_mail_smtp mail.aptivate.org
+    sendmail_command = ssh -q -o ControlPath=/home/hamish/.ssh/muxcontrol/SMTP_%r@%h:%p -i /home/hamish/.ssh/id_mail_smtp mail.aptivate.org
     draft_box = maildir:///home/hamish/workmail/Drafts
     sent_box = maildir:///home/hamish/workmail/Sent
     [[[abook]]]
