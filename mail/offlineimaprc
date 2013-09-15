@@ -32,7 +32,7 @@ type = IMAP
 remotehost = mail.aptivate.org
 remoteuser = hamish
 #remotepasseval = mailpasswd('aptivate')
-preauthtunnel = ssh -q -i /home/hamish/.ssh/id_mail_imap -o Compression=yes mail.aptivate.org '/usr/libexec/dovecot/imap'
+preauthtunnel = ssh -q -o ControlPath=/home/hamish/.ssh/muxcontrol/IMAP_%r@%h:%p -i /home/hamish/.ssh/id_mail_imap -o Compression=yes mail.aptivate.org '/usr/libexec/dovecot/imap'
 maxconnections = 2
 ssl = yes
 nametrans = lambda folder: {'general_inbox': 'Inbox',
