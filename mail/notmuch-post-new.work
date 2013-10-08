@@ -11,6 +11,7 @@ $NMW tag +carers -new -- 'tag:new AND (to:carers OR to:postmaster OR to:root OR 
 $NMW tag +centos -new -- 'tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)'
 
 # tag and put in inbox, but skip the notmuch-abook stage
+$NMW tag +action -new +inbox -- 'tag:new AND from:projects@aptivate.org AND subject:"due in the next"'
 $NMW tag +consensus -new +inbox -- 'tag:new AND (from:aptivate@econsensus.org OR from:aptivateprivate@econsensus.org)'
 $NMW tag +jenkins -new +inbox -- 'tag:new AND from:jenkins@aptivate.org'
 $NMW tag +django-error -new +inbox -- 'tag:new AND subject:"django error external ip internal server error"'
@@ -28,8 +29,7 @@ done
 
 $NMW tag +here -- 'tag:new AND to:here@aptivate.org'
 $NMW tag +tech -- 'tag:new AND to:tech@aptivate.org'
-
-$NMW tag +action -- 'tag:new AND subject:"due in the next"'
+$NMW tag +infrastructure -- 'tag:new AND to:infrastructure@aptivate.org'
 
 $NMW tag +cashflow -- 'tag:new AND subject:cashflow'
 $NMW tag +capacity -- 'tag:new AND subject:capacity'
