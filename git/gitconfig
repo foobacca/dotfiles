@@ -16,7 +16,7 @@
     status = auto
     branch = auto
     interactive = auto
-    ui = true
+    ui = auto
     pager = true
 
 [color "branch"]
