@@ -1,8 +1,15 @@
 [bindings]
   x = bclose
-  ctrl d = move page down
-  ctrl u = move page up
+  'ctrl d' = move halfpage down
+  'ctrl u' = move halfpage up
+  'ctrl f' = move page down
+  'ctrl b' = move page up
+  'ctrl e' = move down
+  'ctrl y' = move up
   L = prompt 'search tag:'
   A = search is:action
   W = search is:waiting
   C = search tag:carers AND NOT tag:logwatch
+
+  [[search]]
+  S = toggletags spam
