@@ -1,7 +1,7 @@
 # general option
 #
 theme = solarized_dark
-initial_command = search tag:inbox AND NOT tag:killed
+initial_command = search tag:inbox AND NOT tag:killed AND NOT tag:spam
 prompt_suffix = ": "
 
 attachment_prefix = ~/attin/
