@@ -6,6 +6,7 @@
   'ctrl b' = move page up
   'ctrl e' = move down
   'ctrl y' = move up
+  I = search tag:inbox AND NOT tag:killed AND NOT tag:spam
   L = prompt 'search tag:'
   A = search is:action
   W = search is:waiting
