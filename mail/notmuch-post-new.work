@@ -20,6 +20,7 @@ $NMW tag +inaspsite -new +inbox -- 'tag:new AND from:notifications@kanbantool.co
 $NMW tag +linkedin -new +inbox -- 'tag:new AND to:hamish+linkedin@aptivate.org'
 $NMW tag +linkedin -new +inbox -- 'tag:new AND from:@linkedin.com'
 $NMW tag +blogcomment -new +inbox -- 'tag:new AND from:wordpress@old.aptivate.org'
+$NMW tag +gplus -new +inbox -- 'tag:new AND from:plus.google.com'
 
 # update notmuch-abook after the email I don't care about addresses for
 # has been dealt with
