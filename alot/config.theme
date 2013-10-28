@@ -32,4 +32,6 @@
   [[signed]]
     translated = ~
     normal = '','','light red','','dark red',''
+  [[gplus]]
+    translated = G+
 
