@@ -35,6 +35,7 @@ $NMW tag +infrastructure -- 'tag:new AND to:infrastructure@aptivate.org'
 $NMW tag +cashflow -- 'tag:new AND subject:cashflow'
 $NMW tag +capacity -- 'tag:new AND subject:capacity'
 $NMW tag +ethical_engagement -- 'tag:new AND subject:"ethical engagement"'
+$NMW tag +bond +event -- 'tag:new AND to:bond2013@aptivate.org'
 
 # just does some regex header stuff
 $HOME/.local/bin/afew \
