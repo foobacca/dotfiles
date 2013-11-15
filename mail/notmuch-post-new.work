@@ -9,6 +9,7 @@ $NMW tag +carers -new +logwatch -- 'tag:new AND from:logwatch'
 $NMW tag +carers -new +logwatch -- 'tag:new AND subject:"logwatch for"'
 $NMW tag +carers -new -- 'tag:new AND (to:carers OR to:postmaster OR to:root OR to:admin- OR from:nobody@fen-fw)'
 $NMW tag +centos -new -- 'tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)'
+$NMW tag +blogcomment -new -- 'tag:new AND from:wordpress@old.aptivate.org'
 
 # tag and put in inbox, but skip the notmuch-abook stage
 $NMW tag +action -new +inbox -- 'tag:new AND from:projects@aptivate.org AND subject:"due in the next"'
@@ -19,7 +20,6 @@ $NMW tag +idsapi -new +inbox -- 'tag:new AND from:no-reply@lighthouseapp.com'
 $NMW tag +inaspsite -new +inbox -- 'tag:new AND from:notifications@kanbantool.com AND subject:"INASP Site"'
 $NMW tag +linkedin -new +inbox -- 'tag:new AND to:hamish+linkedin@aptivate.org'
 $NMW tag +linkedin -new +inbox -- 'tag:new AND from:@linkedin.com'
-$NMW tag +blogcomment -new +inbox -- 'tag:new AND from:wordpress@old.aptivate.org'
 $NMW tag +gplus -new +inbox -- 'tag:new AND from:plus.google.com'
 
 # update notmuch-abook after the email I don't care about addresses for
