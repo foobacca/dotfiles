@@ -3,6 +3,7 @@ set -g prefix C-a
 
 # go to the last active window
 bind-key C-a last-window
+bind-key Tab last-window
 # send C-a through to window
 bind-key a send-prefix
 
