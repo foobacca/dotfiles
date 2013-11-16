@@ -31,8 +31,13 @@ alias vimcheat='eog file:///home/mish/Desktop/vi-vim-cheat-sheet.gif'
 
 # ssh
 alias mailao='ssh -t mail.aptivate.org tmux attach -d'
-alias socks='ssh -C -D 1080 lin-vnc.aptivate.org'
+alias socks='ssh -C -D 1080 lin-vnc2.aptivate.org'
 alias heltun='ssh -f hamish -L 8042:hamish:8042 -N'
+
+# tmux - tab completion of session names
+alias tma='tmux attach -d -t'
+# new tmux session with git dir name
+alias git-tmux='tmux new -s $(basename $(pwd))'
 
 # pwsafe
 alias pw='pwsafe -p'
