@@ -10,6 +10,12 @@ keysToAdd x =
 
 myKeys x = M.union (keys gnomeConfig x) (M.fromList (keysToAdd x))
 
+myManagementHooks :: [ManageHook]
+myManagementHooks =
+    [
+        resource =? "pwsafe" --> doIgnore
+    ]
+
 main = xmonad gnomeConfig
        { modMask = mod4Mask
         , keys = myKeys
