@@ -1,15 +1,16 @@
-
 # enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+DIRCOLORS=`which dircolors`
+if [ "$TERM" != "dumb" ] && [ -x $DIRCOLORS ]; then
     if [ -f ~/.dircolors ]; then
         # from https://github.com/seebi/dircolors-solarized
         # dircolors put in place by fresh
-        eval `dircolors -b ~/.dircolors`
+        eval `$DIRCOLORS -b ~/.dircolors`
     else
-        eval "`dircolors -b`"
+        eval "`$DIRCOLORS -b`"
     fi
     alias ls='ls --color=auto'
 fi
+unset DIRCOLORS
 
 
 # vi: ft=sh
