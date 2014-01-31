@@ -2,6 +2,9 @@
 
 NMW=$HOME/bin/notmuchwork
 
+# ensure we label stuff in the new spam folder
+$NMW tag +spam_chris -- 'tag:new AND folder:spam'
+
 # skip the inbox (mostly ...)
 $NMW tag +nagios -new -- 'tag:new AND from:nagios'
 $NMW tag +carers -new +inbox -- 'tag:new AND to:carers+dropbox.com'
@@ -29,6 +32,7 @@ for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
 done
 
 $NMW tag +here -- 'tag:new AND to:here@aptivate.org'
+$NMW tag +interesting -- 'tag:new AND to:interesting@aptivate.org'
 $NMW tag +tech -- 'tag:new AND to:tech@aptivate.org'
 $NMW tag +infrastructure -- 'tag:new AND to:infrastructure@aptivate.org'
 
