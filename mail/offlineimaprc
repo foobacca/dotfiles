@@ -41,7 +41,7 @@ nametrans = lambda folder: {'general_inbox': 'Inbox',
                             'Sent':   'Sent',
                             }.get(folder, folder)
 folderfilter = lambda foldername: foldername in [
-             'general_inbox', 'INBOX.carers', 'INBOX.nagios', 'Sent']
+             'general_inbox', 'INBOX.carers', 'INBOX.nagios', 'Sent', 'spam']
 
 
 [Account Gmail]
