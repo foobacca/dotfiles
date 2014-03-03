@@ -37,6 +37,9 @@
 [push]
     default = tracking
 
+[diff "zip"]
+    textconv = unzip -c -a
+
 [merge]
     log = true
     conflictstyle = diff3
