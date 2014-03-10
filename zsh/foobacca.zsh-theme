@@ -4,13 +4,6 @@ function venv_active {
     fi
 }
 
-function job_count {
-    num_jobs=$(jobs -s | wc -l)
-    if [ $num_jobs -gt 0 ]; then
-        echo "[$num_jobs] "
-    fi
-}
-
 function abbrev_pwd {
     pwd|sed -e "s!$HOME!~!"|sed -re "s!([^/])[^/]+/!\1/!g"
 }
@@ -95,11 +88,11 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
 
     # 1 line prompt
     #RPROMPT='${return_code}$(git_prompt_status) %{$fg[yellow]%}[%*]%{$reset_color%}'
-    #PROMPT='%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(abbrev_pwd) $(git_prompt_info)%{$fg[cyan]%}%#%{$reset_color%} '
+    #PROMPT='%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(abbrev_pwd) $(git_prompt_info)%{$fg[cyan]%}%#%{$reset_color%} '
     # 3 line prompt
     RPROMPT='$(git_prompt_status2) %{$fg[yellow]%}[%*]%{$reset_color%}'
     PROMPT='
-${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}$(job_count)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)
+${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)
 %{$fg[cyan]%}%#%{$reset_color%} '
 
 else
