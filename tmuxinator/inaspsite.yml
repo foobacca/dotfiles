@@ -8,7 +8,7 @@ tabs:
   - main:
       layout: even-horizontal
       panes:
-        - cd ../../deploy; fab -l
+        - cd ../../deploy; ./fab.py -l
         - 
   - server:
       layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
