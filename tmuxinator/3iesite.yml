@@ -2,7 +2,7 @@
 # you can make as many tabs as you wish...
 
 project_name: 3ie Site
-project_root: ~/dev/3iesite/dev/django/threeiesite
+project_root: ~/dev/3iesite/django/threeiesite
 #pre: sudo /etc/rc.d/mysqld start
 tabs:
   - main:
