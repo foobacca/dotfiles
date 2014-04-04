@@ -10,17 +10,17 @@ tabs:
       panes:
         - cd ../../deploy/
         - 
+  - edit_shell:
+      layout: even-horizontal
+      panes:
+        - vim
+        - 
   - server:
       layout: main-vertical
       panes:
         - 
         - cd ~/lib/apache-solr-3.5.0/example/; java -jar start.jar
         - ./manage.py runserver
-  - shell:
-      layout: even-horizontal
-      panes:
-        - vim
-        - 
   - virtualenv:
       layout: even-horizontal
       panes:
