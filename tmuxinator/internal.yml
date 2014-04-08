@@ -24,7 +24,7 @@ tabs:
       panes:
         - ssh fen-apps.fen.aptivate.org
         - ssh fen-fs3.fen.aptivate.org
-  - jenkins: ssh fen-vz-jenkins.fen.aptivate.org
+  - jenkins: ssh fen-vz-jenkins2.fen.aptivate.org
   - vz: 
       layout: even-horizontal
       panes:
