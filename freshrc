@@ -58,7 +58,6 @@ fresh empty --file=~/dev/lighttpd/logs/empty
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
 fresh clvv/fasd fasd --bin
-fresh zx2c4/gmail-notmuch gmail-notmuch.py --bin
 
 # sack stuff - https://github.com/sampson-chen/sack
 fresh sampson-chen/sack sack --bin
@@ -90,15 +89,22 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
     fresh mail/mailcap --file=~/.mailcap
     fresh mail/msmtprc --file=~/.msmtprc
     fresh mail/signature.work --file=~/.signature.work
-    fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
+    fresh mail/mbsyncrc --file=~/.mbsyncrc
+    fresh mail/checkworkmail --bin
     fresh mail/offlineimaprc --file=~/.offlineimaprc
+
+    # core notmuch
     fresh mail/notmuch-config-work --file=~/.notmuch-config-work
-    fresh mail/notmuch-work-abook-ignore --file=~/.notmuch-work-abook-ignore
     fresh mail/notmuch-config-gmail --file=~/.notmuch-config
+    # gmail collection script
+    fresh zx2c4/gmail-notmuch gmail-notmuch.py --bin
 
-    # notmuch related bits
+    # notmuch filtering
+    fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
     fresh afew/config --file=~/.config/afew/config
+    fresh mail/notmuch-work-abook-ignore --file=~/.notmuch-work-abook-ignore
 
+    # alot - notmuch based mail client
     fresh-options --file=~/.config/alotwork/config
         fresh alot/config.common
         fresh alot/config.work
