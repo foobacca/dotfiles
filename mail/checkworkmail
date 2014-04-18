@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# set the channel for mbsync to use, but set it to inbox only
+# if the quick argument is used
+CHANNEL=aptivate
+
+if [ $# -gt 0 ]; then
+    if [ $1 = 'quick' ]; then
+        CHANNEL=aptivate-inbox-channel
+    fi
+fi
+
+# the grep -v lines should mean there is no output on a successful run
+mbsync -q ${CHANNEL}  2>&1 | grep -v '^Debug:' | grep -v 'imap(hamish): Info: Disconnected: Logged out'
+
+/home/hamish/bin/notmuchwork new > /dev/null

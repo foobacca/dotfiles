@@ -1,0 +1,42 @@
+IMAPAccount aptivate
+Host mail.aptivate.org
+User hamish
+Tunnel "ssh -q -o ControlPath=/home/hamish/.ssh/muxcontrol/IMAP_%r@%h:%p -i /home/hamish/.ssh/id_mail_imap -o Compression=yes mail.aptivate.org '/usr/libexec/dovecot/imap'"
+RequireSSL no
+
+IMAPStore aptivate-store
+Account aptivate
+
+MaildirStore aptivate-local-store
+Path ~/workmail/
+Inbox ~/workmail/Inbox
+
+
+Channel aptivate-inbox-channel
+Master :aptivate-store:
+Slave :aptivate-local-store:
+Patterns general_inbox
+Create Both
+Expunge Slave
+Sync All
+
+Channel aptivate-sentspam-channel
+Master :aptivate-store:
+Slave :aptivate-local-store:
+Patterns Sent spam
+Create Both
+Expunge Slave
+Sync All
+
+
+Channel aptivate-auto-channel
+Master :aptivate-store:
+Slave :aptivate-local-store:
+Patterns INBOX.carers INBOX.nagios
+Create Both
+Expunge Slave
+Sync All
+
+
+Group aptivate
+Channels aptivate-inbox-channel aptivate-sentspam-channel aptivate-auto-channel
