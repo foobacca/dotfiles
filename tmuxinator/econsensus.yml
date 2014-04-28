@@ -4,7 +4,7 @@
 project_name: econsensus
 project_root: ~/work/dev/econsensus/django/econsensus/
 #pre: sudo /etc/rc.d/mysqld start
-tabs:
+windows:
   - main:
       layout: even-horizontal
       panes:

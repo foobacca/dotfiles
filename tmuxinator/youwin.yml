@@ -4,7 +4,7 @@
 project_name: YouWin Competition
 project_root: ~/work/dev/youwin/django/dfidyouwin
 #pre: sudo /etc/rc.d/mysqld start
-tabs:
+windows:
   - main:
       layout: even-horizontal
       panes:

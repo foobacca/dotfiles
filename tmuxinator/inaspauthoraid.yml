@@ -4,7 +4,7 @@
 project_name: INASP AuthorAID
 project_root: ~/dev/inaspauthoraid/django/website/
 #pre: sudo /etc/rc.d/mysqld start
-tabs:
+windows:
   - main:
       layout: even-horizontal
       panes:
