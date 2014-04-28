@@ -3,7 +3,7 @@
 project_name: Aptivate work setup (in office)
 project_root: /home/hamish/
 pre: ssh-add
-tabs:
+windows:
   - localmail:
       layout: even-horizontal
       panes:

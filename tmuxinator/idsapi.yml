@@ -3,7 +3,7 @@
 
 project_name: IDS API
 project_root: ~/work/dev/idsapi/django/idsapi
-tabs:
+windows:
   - main:
       layout: even-horizontal
       panes:
