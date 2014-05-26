@@ -1,11 +1,11 @@
 # from lifehacker
 # install a package and automatically respond yes to confirmation prompt
-alias ins="sudo aptitude install"
-alias update="sudo aptitude update"
-alias upgrade="sudo aptitude safe-upgrade"
+alias ins="sudo apt-get install"
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade"
 
 # remove a package and its configuration files
-alias remp="sudo aptitude purge"
+alias remp="sudo apt-get remove --purge"
 
 # search for a package
 alias searchc="apt-cache search"
