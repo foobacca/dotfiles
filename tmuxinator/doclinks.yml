@@ -1,10 +1,10 @@
 # ~/.tmuxinator/doclinks.yml
 # you can make as many tabs as you wish...
 
-project_name: Doc Links
-project_root: ~/work/repos/doclinks
+name: Doc Links
+root: ~/work/repos/doclinks
 #pre: sudo /etc/rc.d/mysqld start
-tabs:
+windows:
   - main:
       layout: even-horizontal
       panes:

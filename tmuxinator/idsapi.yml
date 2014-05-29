@@ -1,14 +1,17 @@
 # ~/.tmuxinator/idsapi.yml
 # you can make as many tabs as you wish...
 
-project_name: IDS API
-project_root: ~/work/dev/idsapi/django/idsapi
+name: IDS API
+root: ~/work/dev/idsapi/django/idsapi
 windows:
   - main:
       layout: even-horizontal
       panes:
-        - cd ../../deploy; fab -l
-        - 
+        - deploy:
+          - cd ../../deploy
+          - fab -l
+        - spare:
+          - 
   - server:
       layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
       panes:
@@ -16,7 +19,9 @@ windows:
         - 
         - ./manage.py runserver
   - virtualenv:
+      pre:
+        - cd .ve/lib/python2.7/site-packages/
       layout: even-horizontal
       panes:
-        - cd .ve/lib/python2.7/site-packages/ ; ls -CF -I "'"*egg*"'"
-        - cd .ve/lib/python2.7/site-packages/
+        - ls -CF -I "'"*egg*"'"
+        -

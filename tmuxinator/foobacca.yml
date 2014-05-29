@@ -1,8 +1,8 @@
 # ~/.tmuxinator/aptivate.yml
 # you can make as many tabs as you wish...
 
-project_name: Foobacca
-project_root: ~/
+name: Foobacca
+root: ~/
 pre: ssh-add
 windows:
   - localmail:

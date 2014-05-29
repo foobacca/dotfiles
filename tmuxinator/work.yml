@@ -1,7 +1,7 @@
 # ~/.tmuxinator/aptivate.yml
 # you can make as many tabs as you wish...
-project_name: Aptivate work setup (in office)
-project_root: /home/hamish/
+name: Aptivate work setup (in office)
+root: /home/hamish/
 pre: ssh-add
 windows:
   - localmail:

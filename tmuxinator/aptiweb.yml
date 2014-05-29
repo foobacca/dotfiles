@@ -1,10 +1,10 @@
 # ~/.tmuxinator/doclinks.yml
 # you can make as many tabs as you wish...
 
-project_name: Aptivate Website
-project_root: ~/work/repos/aptivate-website
+name: Aptivate Website
+root: ~/work/repos/aptivate-website
 #pre: sudo /etc/rc.d/mysqld start
-tabs:
+windows:
   - main:
       layout: even-horizontal
       panes:

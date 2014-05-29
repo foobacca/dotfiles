@@ -1,15 +1,18 @@
 # ~/.tmuxinator/3iesite.yml
 # you can make as many tabs as you wish...
 
-project_name: 3ie Site
-project_root: ~/dev/3iesite/django/threeiesite
+name: 3ie Site
+root: ~/dev/3iesite/django/threeiesite
 #pre: sudo /etc/rc.d/mysqld start
 windows:
   - main:
       layout: even-horizontal
       panes:
-        - cd ../../deploy/
-        - 
+        - deploy:
+          - cd ../../deploy
+          - fab -l
+        - spare:
+          - 
   - edit_shell:
       layout: even-horizontal
       panes:
@@ -22,9 +25,13 @@ windows:
         - cd ~/lib/apache-solr-3.5.0/example/; java -jar start.jar
         - ./manage.py runserver
   - virtualenv:
+      pre:
+        - cd .ve/lib/python2.7/site-packages/
       layout: even-horizontal
       panes:
-        - cd .ve/lib/python2.7/site-packages/ ; ls -CF -I "'"*egg*"'"
+        - ls -CF -I "'"*egg*"'"
+        -
+      pre:
         - cd .ve/lib/python2.7/site-packages/
 #  - shell: git pull
 #  - database: rails db

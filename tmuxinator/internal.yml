@@ -1,10 +1,10 @@
 # ~/.tmuxinator/internal.yml
 # you can make as many tabs as you wish...
 
-project_name: Internal terminals
-project_root: ~/
+name: Internal terminals
+root: ~/
 pre: /home/hamish/bin/start_ssh_agent.sh
-tabs:
+windows:
   - console:
   - bash:
   - bash:
