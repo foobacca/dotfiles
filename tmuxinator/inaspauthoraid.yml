@@ -1,15 +1,18 @@
 # ~/.tmuxinator/econsensus.yml
 # you can make as many tabs as you wish...
 
-project_name: INASP AuthorAID
-project_root: ~/dev/inaspauthoraid/django/website/
+name: INASP AuthorAID
+root: ~/dev/inaspauthoraid/django/website/
 #pre: sudo /etc/rc.d/mysqld start
 windows:
   - main:
       layout: even-horizontal
       panes:
-        - cd ../../deploy; ./fab.py -l
-        - 
+        - deploy:
+          - cd ../../deploy
+          - ./fab.py -l
+        - spare:
+          - 
   - server:
       layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
       panes:
@@ -22,7 +25,9 @@ windows:
         - 
         - 
   - virtualenv:
+      pre:
+        - cd .ve/lib/python2.7/site-packages/
       layout: even-horizontal
       panes:
-        - cd .ve/lib/python2.7/site-packages/ ; ls -CF -I "'"*egg*"'"
-        - cd .ve/lib/python2.7/site-packages/
+        - ls -CF -I "'"*egg*"'"
+        -
