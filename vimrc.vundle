@@ -32,6 +32,10 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Shutnik/jshint2.vim'
 " status line
 Bundle 'Lokaltog/powerline'
 
@@ -49,7 +53,7 @@ Bundle 'sjl/threesome.vim'
 " manage buffers and windows
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'rgarver/Kwbd.vim'
+" Bundle 'rgarver/Kwbd.vim'
 Bundle 'sjl/clam.vim'
 Bundle 'benmills/vimux'
 " manage files etc
