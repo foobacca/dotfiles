@@ -67,7 +67,6 @@ Bundle 'vim-scripts/VimRepress'
 Bundle 'chrismetcalf/vim-yankring'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'edsono/vim-matchit'
 Bundle 'ervandew/supertab'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
@@ -95,6 +94,8 @@ if iCanHazVundle == 0
 endif
 
 filetype plugin indent on     " required! 
+
+runtime macros/matchit.vim
 
 " Setting up Vundle - the vim plugin bundler end
 
