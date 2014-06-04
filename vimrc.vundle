@@ -74,6 +74,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'ap/vim-css-color'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
+Bundle 'SirVer/ultisnips'
 " email
 Bundle "guyzmo/notmuch-abook"
 " org mode and related
