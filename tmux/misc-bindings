@@ -6,4 +6,4 @@ bind v split-window -h
 bind r source-file ~/.tmux.conf
 
 # make the top pane 4 lines high
-bind F resize-pane -y 4 -t 0
+bind F resize-pane -y 4 -t 1
