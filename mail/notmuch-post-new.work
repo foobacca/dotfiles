@@ -11,6 +11,7 @@ $NMW tag +carers -new +inbox -- 'tag:new AND to:carers+dropbox.com'
 $NMW tag +carers -new +logwatch -- 'tag:new AND from:logwatch'
 $NMW tag +carers -new +logwatch -- 'tag:new AND subject:"logwatch for"'
 $NMW tag +carers -new -- 'tag:new AND (to:carers OR to:postmaster OR to:root OR to:admin- OR from:nobody@fen-fw)'
+$NMW tag +carers +mailer-daemon -new -- 'tag:new AND from:mailer-daemon'
 $NMW tag +centos -new -- 'tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)'
 $NMW tag +blogcomment -new -- 'tag:new AND from:wordpress@old.aptivate.org'
 
