@@ -17,5 +17,7 @@ javascript=.js
 fe=.html,.js,.less
 --type-set
 fea=.html,.js,.less,.css
+--type-set
+puppet=.pp
 --ignore-dir=public/media/cache
 --ignore-dir=public/static/cache
