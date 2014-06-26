@@ -1,0 +1,197 @@
+#!/usr/bin/env python
+# from http://www.kryogenix.org/days/2014/06/25/throttling-or-slowing-down-network-interfaces-on-ubuntu/
+
+import os
+import sys
+import array
+import fcntl
+import socket
+import struct
+from gi.repository import Gtk, GLib
+
+
+def which(program):
+    def is_exe(fpath):
+        return os.path.isfile(fpath) and os.access(fpath, os.X_OK)
+
+    fpath, fname = os.path.split(program)
+    if fpath:
+        if is_exe(program):
+            return program
+    else:
+        for path in os.environ["PATH"].split(os.pathsep):
+            path = path.strip('"')
+            exe_file = os.path.join(path, program)
+            if is_exe(exe_file):
+                return exe_file
+    return None
+
+
+def all_interfaces():
+    max_possible = 128  # arbitrary. raise if needed.
+    bytes = max_possible * 32
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    names = array.array('B', '\0' * bytes)
+    outbytes = struct.unpack('iL', fcntl.ioctl(
+        s.fileno(),
+        0x8912,  # SIOCGIFCONF
+        struct.pack('iL', bytes, names.buffer_info()[0])
+    ))[0]
+    namestr = names.tostring()
+    lst = {}
+    for i in range(0, outbytes, 40):
+        name = namestr[i:i+16].split('\0', 1)[0]
+        #ip = namestr[i+20:i+24]
+        friendly = ""
+        if name == "lo":
+            friendly = "localhost"
+        if name.startswith("eth"):
+            friendly = "Wired connection %s" % (name.replace("eth", ""))
+        if name.startswith("wlan"):
+            friendly = "Wifi connection %s" % (name.replace("eth", ""))
+        lst[name] = (
+            {"friendly": friendly, "action_timer": None, "current_real_value": 0,
+             "toggled_by_code": False}
+        )
+    return lst
+
+
+class App(object):
+
+    def __init__(self):
+        win = Gtk.Window()
+        win.set_size_request(300, 200)
+        win.connect("destroy", Gtk.main_quit)
+        win.set_title("Network Throttle")
+        self.ifs = all_interfaces()
+        tbl = Gtk.Table(rows=len(self.ifs.keys())+1, columns=4)
+        tbl.set_row_spacings(3)
+        tbl.set_col_spacings(10)
+        tbl.attach(Gtk.Label("Throttled"), 2, 3, 0, 1)
+        delay_label = Gtk.Label("Delay")
+        delay_label.set_size_request(150, 40)
+        tbl.attach(delay_label, 3, 4, 0, 1)
+        row = 1
+        for k, v in self.ifs.items():
+            tbl.attach(Gtk.Label(k), 0, 1, row, row+1)
+            tbl.attach(Gtk.Label(v["friendly"]), 1, 2, row, row+1)
+            tb = Gtk.CheckButton()
+            tbl.attach(tb, 2, 3, row, row+1)
+            tb.connect("toggled", self.toggle_button, k)
+            self.ifs[k]["checkbox"] = tb
+            sl = Gtk.HScale()
+            sl.set_draw_value(True)
+            sl.set_increments(20, 100)
+            sl.set_range(20, 980)
+            sl.connect("value_changed", self.value_changed, k)
+            sl.set_sensitive(False)
+            tbl.attach(sl, 3, 4, row, row+1)
+            self.ifs[k]["slider"] = sl
+            row += 1
+        box = Gtk.Box(spacing=6)
+        box.pack_start(tbl, True, True, 6)
+        win.add(box)
+        win.show_all()
+        self.get_tc()
+
+    def toggle_button(self, button, interface):
+        self.ifs[interface]["slider"].set_sensitive(button.get_active())
+        if self.ifs[interface]["toggled_by_code"]:
+            print "ignoring toggle button because it was toggled by code, not user"
+            self.ifs[interface]["toggled_by_code"] = False
+            return
+        print "toggled to", button.get_active()
+        if button.get_active():
+            self.turn_on_throttling(interface)
+        else:
+            self.turn_off_throttling(interface)
+
+    def value_changed(self, slider, interface):
+        print "value_changed", slider.get_value()
+        if slider.get_value() == self.ifs[interface]["current_real_value"]:
+            print "Not setting if because it already is that value"
+            return
+        self.turn_on_throttling(interface)
+
+    def get_tc(self):
+        print "getting tc"
+        self.throttled_ifs = {}
+
+        def get_tc_output(io, condition):
+            print "got tc output", condition
+            line = io.readline()
+            print "got tc line", line
+            parts = line.split()
+            if len(parts) > 2 and parts[0] == "qdisc" and parts[1] == "netem":
+                if len(parts) == 12:
+                    self.throttled_ifs[parts[4]] = {"delay": parts[11].replace("ms", "")}
+            if condition == GLib.IO_IN:
+                return True
+            elif condition == GLib.IO_HUP | GLib.IO_IN:
+                GLib.source_remove(self.source_id)
+                print "throttled IFs are", self.throttled_ifs
+                self.update_throttled_list(self.throttled_ifs)
+                return False
+
+        pid, stdin, stdout, stderr = GLib.spawn_async(
+            ["tc", "qdisc"],
+            flags=GLib.SpawnFlags.SEARCH_PATH,
+            standard_output=True
+        )
+        io = GLib.IOChannel(stdout)
+        self.source_id = io.add_watch(GLib.IO_IN|GLib.IO_HUP, get_tc_output,
+            priority=GLib.PRIORITY_HIGH)
+        pid.close()
+
+    def actually_turn_on_throttling(self, interface, value):
+        print "actually throttling", interface, "to", value
+        self.ifs[interface]["action_timer"] = None
+        cmd = "pkexec tc qdisc replace dev %s root handle 1:0 netem delay %smsec" % (interface, int(value),)
+        print cmd
+        os.system(cmd)
+
+    def turn_on_throttling(self, interface):
+        val = self.ifs[interface]["slider"].get_value()
+        if self.ifs[interface]["action_timer"] is not None:
+            print "aborting previous throttle request for", interface
+            GLib.source_remove(self.ifs[interface]["action_timer"])
+        print "throttling", interface, "to", val
+        source_id = GLib.timeout_add_seconds(1, self.actually_turn_on_throttling, interface, val)
+        self.ifs[interface]["action_timer"] = source_id
+
+    def actually_turn_off_throttling(self, interface):
+        print "actually unthrottling", interface
+        self.ifs[interface]["action_timer"] = None
+        cmd = "pkexec tc qdisc del dev %s root" % (interface,)
+        print cmd
+        os.system(cmd)
+
+    def turn_off_throttling(self, interface):
+        if self.ifs[interface]["action_timer"] is not None:
+            print "aborting previous throttle request for", interface
+            GLib.source_remove(self.ifs[interface]["action_timer"])
+        print "unthrottling", interface
+        source_id = GLib.timeout_add_seconds(1, self.actually_turn_off_throttling, interface)
+        self.ifs[interface]["action_timer"] = source_id
+
+    def update_throttled_list(self, throttled_ifs):
+        for k, v in self.ifs.items():
+            if k in throttled_ifs:
+                current = v["checkbox"].get_active()
+                if not current:
+                    self.ifs[k]["toggled_by_code"] = True
+                    v["checkbox"].set_active(True)
+                    delay = float(throttled_ifs[k]["delay"])
+                    self.ifs[k]["current_real_value"] = delay
+                    v["slider"].set_value(delay)
+            else:
+                current = v["checkbox"].get_active()
+                if current:
+                    v["checkbox"].set_active(False)
+
+if __name__ == "__main__":
+    if not which("pkexec"):
+        print "You need pkexec installed."
+        sys.exit(1)
+    app = App()
+    Gtk.main()
