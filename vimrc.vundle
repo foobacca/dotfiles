@@ -22,7 +22,6 @@ Bundle 'bitterjug/vim-colors-freyr'
 " syntax highlighting
 Bundle 'vim-scripts/django.vim'
 Bundle 'tpope/vim-haml'
-Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-markdown'
 Bundle 'ajf/puppet-vim'
 Bundle 'tpope/vim-git'
@@ -79,7 +78,6 @@ Bundle 'SirVer/ultisnips'
 Bundle "guyzmo/notmuch-abook"
 " org mode and related
 Bundle 'hsitz/VimOrganizer'
-Bundle 'chrisbra/NrrwRgn'
 Bundle 'vim-scripts/utl.vim'
 Bundle 'mattn/calendar-vim'
 " utility
