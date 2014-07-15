@@ -7,12 +7,21 @@ pathadd() {
     fi
 }
 
+ldlibrarypathadd() {
+    if [ -d "$1" ] && [[ ":$LD_LIBRARY_PATH:" != *":$1:"* ]]; then
+        LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+"$LD_LIBRARY_PATH:"}$1"
+    fi
+}
+
 pathadd $HOME/bin
 pathadd $HOME/.local/bin
+pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/.wp-cli/bin
 pathadd $HOME/Dropbox/tech/bin
 pathadd $HOME/lib/pebble/bin
 pathadd /var/lib/gems/1.8/bin/
 pathadd /var/lib/gems/1.9.1/bin/
+
+ldlibrarypathadd $HOME/.linuxbrew/lib
 
 # vi: ft=sh
