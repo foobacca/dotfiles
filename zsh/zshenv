@@ -8,10 +8,21 @@ function pathadd {
     fi
 }
 
+typeset -T LD_LIBRARY_PATH ld_library_path
+typeset -U ld_library_path
+function ldlibrarypathadd {
+    if [ -d "$1" ] && [[ ":$LD_LIBRARY_PATH:" != *":$1:"* ]]; then
+        ld_library_path=($1 $ld_library_path)
+    fi
+}
+
 pathadd $HOME/bin
 pathadd $HOME/.local/bin
+pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/.wp-cli/bin
 pathadd $HOME/Dropbox/tech/bin
 pathadd $HOME/lib/pebble/bin
 pathadd /var/lib/gems/1.8/bin/
 pathadd /var/lib/gems/1.9.1/bin/
+
+ldlibrarypathadd $HOME/.linuxbrew/lib
