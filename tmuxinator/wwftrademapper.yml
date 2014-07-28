@@ -1,0 +1,35 @@
+# ~/.tmuxinator/inaspsite.yml
+# you can make as many tabs as you wish...
+
+name: WWF Trade Mapper
+root: ~/work/dev/wwftrademapper/trademapper-js/trademapper/
+#pre: sudo /etc/rc.d/mysqld start
+windows:
+  - deploy:
+      layout: even-horizontal
+      panes:
+        - deploy:
+          - cd ../../deploy
+          - fab -l
+        - spare:
+          - 
+  - main:
+      layout: even-horizontal
+      panes:
+        - vim -p index.html js/*
+        -
+  - mapdata:
+  - server:
+      layout: even-horizontal
+      panes:
+        - 
+        - python -m SimpleHTTPServer 8008
+  - paul: cd ~/dev/wwftrademapper/paul-trademapper/
+  - wwmap: cd ~/dev/washwatchmap/d3js/
+#  - shell: git pull
+#  - database: rails db
+#  - server: rails s
+#  - logs: tail -f logs/development.log
+#  - console: rails c
+#  - capistrano:
+#  - server: ssh me@myhost
