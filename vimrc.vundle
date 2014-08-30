@@ -74,6 +74,8 @@ Bundle 'ap/vim-css-color'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'SirVer/ultisnips'
+Bundle 'bronson/vim-visual-star-search'
+Bundle 'kana/vim-textobj-lastpat'
 " email
 Bundle "guyzmo/notmuch-abook"
 " org mode and related
