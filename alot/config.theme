@@ -34,4 +34,6 @@
     normal = '','','light red','','dark red',''
   [[gplus]]
     translated = G+
+  [[kanban]]
+    translated = kb
 
