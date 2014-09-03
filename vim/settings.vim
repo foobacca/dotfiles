@@ -23,7 +23,8 @@ set backspace=indent,eol,start    " backspace through everything in insert mode
 " List chars
 " set list listchars=tab:▸\ ,eol:¬,trail:·
 set listchars=""                  " Reset the listchars
-set listchars=tab:▻\             " tab should show as '▻ '
+set listchars=tab:▸\              " tab should show as '▸ '
+"set listchars=tab:▻\             " tab should show as '▻ '
 set listchars+=trail:·            " show trailing spaces as dots
 set listchars+=extends:>          " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
@@ -85,7 +86,7 @@ set whichwrap=h,l,~,[,]
 
 " and set the colours so it's not too in your face
 highlight NonText cterm=NONE ctermfg=brown
-highlight SpecialKey cterm=NONE ctermfg=Green
+highlight SpecialKey cterm=NONE ctermfg=8
 highlight NonText guifg=#804C00
 highlight SpecialKey guifg=#804C00
 
