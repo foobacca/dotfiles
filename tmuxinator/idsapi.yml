@@ -11,7 +11,7 @@ windows:
           - cd ../../deploy
           - fab -l
         - spare:
-          - 
+            - ssh -o 'ControlMaster=no' -f test.api.ids.ac.uk -L 8983:test.api.ids.ac.uk:8983 -N
   - server:
       layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
       panes:
