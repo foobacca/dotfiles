@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+"""Extract Django Error
+
+Usage:
+  extract_django_error <filename>...
+  extract_django_error (-h | --help)
+
+Options:
+  -h --help    Show this text
+
+
+This script is intended to parse files containing error emails from a
+django server, producing a single line of output per
+
+notmuch search --output=files --limit=200 tag:django-error \
+       | xargs bin/extract_django_error \
+       | sort | uniq -c | sort -n
+"""
+from __future__ import absolute_import, unicode_literals
+
+import sys
+from docopt import docopt
+from email.parser import Parser
+
+
+def get_email_body(msg_file):
+    parsed_email = Parser().parse(open(msg_file, 'r'))
+    email_parts = [p for p in parsed_email.walk()]
+    if len(email_parts) > 1:
+        raise Exception("unexpected parts to email %s" % msg_file)
+    return email_parts[0].get_payload()
+
+
+# take file as argument, extract the error
+def main(argv):
+    # TODO: proper args and options - docopt
+    # - maxlen of error string
+    # - include server name
+    # - include path
+    # - include query string
+    # - only if match server name
+    # - read email from stdin
+    # - ...
+    args = docopt(__doc__, argv)
+    for filename in args['<filename>']:
+        try:
+            body = get_email_body(filename)
+            # there are two blank lines after the end of the traceback
+            traceback, request = body.split("\n\n\n", 1)
+            tb_lines = traceback.split("\n")
+            print tb_lines[-1]
+        except Exception as e:
+            print e
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
