@@ -6,8 +6,11 @@ Usage:
     extract_django_error (-h | --help)
 
 Options:
-    --max-len=LEN   Maximum length of returned string [default: 80]
-    -h --help       Show this text
+    --max-len=LEN     Maximum length of returned string [default: 80]
+    -s --server-name  Include the URL server name
+    -p --path         Include the URL path
+    -q --query        Include the URL query string
+    -h --help         Show this text
 
 
 This script is intended to parse files containing error emails from a
@@ -79,6 +82,21 @@ class ErrorParser(object):
         meta_text = "\n".join(meta_lines)[5:-1]
         self.meta = ast.literal_eval(meta_text)
 
+    def assemble_output(self, args):
+        bits = []
+        if args["--server-name"]:
+            bits.append(self.meta["SERVER_NAME"])
+        if args["--path"]:
+            bits.append(self.meta["PATH_INFO"])
+        if args["--query"]:
+            bits.append(self.meta["QUERY_STRING"])
+        bits.append(self.one_line_error)
+        out = " ".join(bits)
+        max_len = int(args['--max-len'])
+        if max_len > 0:
+            out = out[:max_len]
+        return out
+
 
 # take file as argument, extract the error
 def main(argv):
@@ -91,10 +109,9 @@ def main(argv):
     # - read email from stdin
     # - ...
     args = docopt(__doc__, argv)
-    max_len = int(args['--max-len'])
     for filename in args['<filename>']:
         parser = ErrorParser(filename)
-        print parser.one_line_error[:max_len]
+        print parser.assemble_output(args)
     return 0
 
 if __name__ == "__main__":
