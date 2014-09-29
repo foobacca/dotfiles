@@ -36,4 +36,6 @@
     translated = G+
   [[kanban]]
     translated = kb
+  [[django-error]]
+    translated = DjE
 
