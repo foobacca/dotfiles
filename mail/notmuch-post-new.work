@@ -5,12 +5,20 @@ NMW=$HOME/bin/notmuchwork
 # ensure we label stuff in the new spam folder
 $NMW tag +spam_chris -- 'tag:new AND folder:spam'
 
+# django-errors get special handling
+$NMW tag -new +inbox +django-error -- 'tag:new AND subject:"django error external ip internal server error"'
+for msgid in $($NMW search --format=text --output=messages '(tag:new AND tag:django-error)') ; do
+    file=$($NMW search --output=files --limit=1 "$msgid")
+    error_tag=$(/usr/local/bin/extract_django_error --one-word $file)
+    $NMW tag +$error_tag -- "$msgid"
+done
+$NMW tag -new -- 'tag:new AND tag:django-error"'
+
 # skip the inbox (mostly ...)
 $NMW tag -new +nagios -- 'tag:new AND from:nagios'
 $NMW tag -new +inbox +carers -- 'tag:new AND to:carers+dropbox.com'
 $NMW tag -new +carers +logwatch -- 'tag:new AND from:logwatch'
 $NMW tag -new +carers +logwatch -- 'tag:new AND subject:"logwatch for"'
-$NMW tag -new +inbox +django-error -- 'tag:new AND subject:"django error external ip internal server error"'
 $NMW tag -new +carers -- 'tag:new AND (to:carers OR to:postmaster OR to:root OR to:admin- OR from:nobody@fen-fw OR from:root@*.aptivate.org)'
 $NMW tag -new +carers +mailer-daemon -- 'tag:new AND from:mailer-daemon'
 $NMW tag -new +centos -- 'tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)'
