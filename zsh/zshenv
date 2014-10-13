@@ -26,3 +26,7 @@ pathadd /var/lib/gems/1.8/bin/
 pathadd /var/lib/gems/1.9.1/bin/
 
 ldlibrarypathadd $HOME/.linuxbrew/lib
+
+
+# disable Ctrl-S / Ctrl-Q
+#stty stop '' -ixon -ixoff

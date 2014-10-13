@@ -93,6 +93,9 @@ alias gup='nocorrect git up'
 autoload -U zargs
 #autoload -U zmv
 
+# disable Ctrl-S/Ctrl-Q
+setopt noflowcontrol
+
 # TODO: hash, alias -s (suffix)
 
 if [ -f ~/.fresh/build/shell.sh ]; then
