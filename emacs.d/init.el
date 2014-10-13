@@ -14,4 +14,9 @@
 ; close the email compose buffer when we've sent it
 (setq message-kill-buffer-on-exit t)
 
+; message-mode stuff
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
+(setq sendmail-program "/usr/sbin/sendmail")
+(setq message-from-style 'angles)
+
 (server-start)
