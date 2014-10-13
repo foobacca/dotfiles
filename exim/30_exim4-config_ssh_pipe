@@ -1,0 +1,25 @@
+# adapted from http://log.or.cz/?p=332
+
+# put this in /etc/exim4/conf.d/transport/
+# then in /etc/exim4/conf.d/router/200_exim4-config_primary
+# look for smarthost:
+# and change
+#     transport = remote_smtp_smarthost
+# to
+#     transport = ssh_pipe
+# then:
+# $ sudo update-exim4.conf
+# $ sudo service exim4 restart
+
+ssh_pipe:
+  debug_print = "T: ssh_pipe for smarthost delivery"
+  driver = pipe
+  path = "/bin:/usr/bin:/usr/local/bin"
+  #command = "ssh me@server.example.org nc -w1 localhost smtp"
+  command = "ssh -q -o ControlMaster=no -p 48001 -i /etc/exim4/keys/id_mail_smtp hamish@mail.aptivate.org"
+  #use_bsmtp
+  #message_prefix = "HELO mynotebook.example.org\r\n"
+  delivery_date_add
+  envelope_to_add
+
+# vi: ft=exim
