@@ -23,5 +23,5 @@ windows:
         - cd .ve/lib/python2.7/site-packages/
       layout: even-horizontal
       panes:
-        - ls -CF -I "'"*egg*"'"
+        - ls -CF -I "*egg*"
         -
