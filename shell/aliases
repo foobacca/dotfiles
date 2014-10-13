@@ -40,7 +40,7 @@ alias tma='tmux attach -d -t'
 alias git-tmux='tmux new -s $(basename $(pwd))'
 
 # pwsafe
-alias pw='pwsafe -p'
+#alias pw='pwsafe -p'
 
 #alias ruboto='jruby -I /usr/lib/jruby/lib/ruby/gems/1.8/gems/ruboto-core-0.1.0/lib /usr/lib/jruby/lib/ruby/gems/1.8/gems/ruboto-core-0.1.0/bin/ruboto'
 
