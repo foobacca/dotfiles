@@ -11,3 +11,7 @@
 (require 'notmuch-address)
 (setq notmuch-address-command "/home/hamish/bin/notmuch-abook-lookup")
 (notmuch-address-message-insinuate)
+
+; change colours a little
+(setq notmuch-search-line-faces '(("unread" :weight bold)
+                                  ("flagged" :foreground "green")))
