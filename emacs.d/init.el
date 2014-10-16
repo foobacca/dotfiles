@@ -22,8 +22,11 @@
 (setq message-kill-buffer-on-exit t)
 
 ; message-mode stuff
-(setq message-send-mail-function 'message-send-mail-with-sendmail)
-(setq sendmail-program "/usr/sbin/sendmail")
+;(setq message-send-mail-function 'message-send-mail-with-sendmail)
+;(setq sendmail-program "/usr/sbin/sendmail")
+;(setq sendmail-program "/home/hamish/bin/sendmail-ssh")
+(setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-default-smtp-server "mail.aptivate.org" 465)
 (setq message-from-style 'angles)
 
 (server-start)
