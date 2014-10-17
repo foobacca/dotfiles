@@ -2,7 +2,7 @@
 
 ; bcc emails to self, as the emails live on a different machine
 (setq notmuch-fcc-dirs nil)
-(add-hook 'message-header-setup-nook
+(add-hook 'message-header-setup-hook
     (lambda () (insert (format "Bcc: %s <%s>\n"
                 (notmuch-user-name)
                 (notmuch-user-primary-email)))))
