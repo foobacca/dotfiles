@@ -46,8 +46,10 @@ fresh vimrc.vundle --file=~/.vimrc
 
 # emacs
 fresh emacs.d/init.el --file=~/.emacs.d/init.el
-fresh emacs.d/notmuch-config.el --file=~/.emacs.d/notmuch-config.el
-fresh emacs.d/org-mode --file=~/.emacs.d/org-mode
+#fresh emacs.d/notmuch-config.el --file=~/.emacs.d/notmuch-config.el
+fresh emacs.d/init/init-evil.el --file=~/.emacs.d/init/init-evil.el
+fresh emacs.d/init/init-notmuch.el --file=~/.emacs.d/init/init-notmuch.el
+#fresh emacs.d/org-mode --file=~/.emacs.d/org-mode
 fresh emacsmirror/evil . --file=~/.emacs.d/evil/
 
 # tmux
