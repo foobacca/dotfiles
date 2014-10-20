@@ -27,6 +27,13 @@
                                (:name "nagios" :query "tag:nagios" :sort-order 'oldest-first)
                                (:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'oldest-first)))
 
+(define-key notmuch-show-mode-map "b"
+      (lambda (&optional address)
+        "Bounce the current message."
+        (interactive "sBounce To: ")
+        (notmuch-show-view-raw-message)
+        (message-resend address)))
+
 ; message-mode stuff
 ;(setq message-send-mail-function 'message-send-mail-with-sendmail)
 ;(setq sendmail-program "/usr/sbin/sendmail")
