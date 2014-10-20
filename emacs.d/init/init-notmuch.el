@@ -22,17 +22,10 @@
 (setq notmuch-search-line-faces '(("unread" :weight bold)
                                   ("flagged" :foreground "green")))
 
-(setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox AND NOT tag:killed AND NOT tag:deleted" :sort-order 'oldest-first)
-                               (:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'oldest-first)
-                               (:name "nagios" :query "tag:nagios" :sort-order 'oldest-first)
-                               (:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'oldest-first)))
-
-(define-key notmuch-show-mode-map "b"
-      (lambda (&optional address)
-        "Bounce the current message."
-        (interactive "sBounce To: ")
-        (notmuch-show-view-raw-message)
-        (message-resend address)))
+;(setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox AND NOT tag:killed AND NOT tag:deleted" :sort-order 'oldest-first)
+                               ;(:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'oldest-first)
+                               ;(:name "nagios" :query "tag:nagios" :sort-order 'oldest-first)
+                               ;(:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'oldest-first)))
 
 ; message-mode stuff
 ;(setq message-send-mail-function 'message-send-mail-with-sendmail)
