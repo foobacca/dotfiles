@@ -29,8 +29,12 @@
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-default-smtp-server "mail.aptivate.org"
       smtpmail-smtp-server "mail.aptivate.org"
+      smtpmail-stream-type 'ssl
       smtpmail-smtp-service 465)
 (setq message-from-style 'angles)
+
+;(setq smtpmail-debug-info t)
+;(setq smtpmail-debug-verb t)
 
 ; close the email compose buffer when we've sent it
 (setq message-kill-buffer-on-exit t)
