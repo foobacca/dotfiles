@@ -13,6 +13,7 @@ for msgid in $($NMW search --format=text --output=messages '(tag:new AND tag:dja
     $NMW tag +$error_tag -- "$msgid"
 done
 $NMW tag -new -- 'tag:new AND tag:django-error"'
+$NMW tag -inbox -- 'tag:inbox AND tag:UnicodeEncodeError AND from:api@ids.ac.uk'
 
 # skip the inbox (mostly ...)
 $NMW tag -new +nagios -- 'tag:new AND from:nagios'
@@ -40,6 +41,8 @@ $NMW tag -new +inbox +gplus -- 'tag:new AND from:plus.google.com'
 for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
     cat $file | $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
 done
+
+$NMW tag +sent -unread -- 'tag:new AND from:hamish@aptivate.org'
 
 $NMW tag +here -- 'tag:new AND to:here@aptivate.org'
 $NMW tag +interesting -- 'tag:new AND to:interesting@aptivate.org'
