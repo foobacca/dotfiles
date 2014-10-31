@@ -31,3 +31,5 @@ windows:
       panes:
         - ls -CF -I "*egg*"
         -
+  - standard:
+      - cd ~/dev/opencontracting/standard/standard/
