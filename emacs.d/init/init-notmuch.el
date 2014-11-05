@@ -22,10 +22,10 @@
 (setq notmuch-search-line-faces '(("unread" :weight bold)
                                   ("flagged" :foreground "green")))
 
-;(setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox AND NOT tag:killed AND NOT tag:deleted" :sort-order 'oldest-first)
-                               ;(:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'oldest-first)
-                               ;(:name "nagios" :query "tag:nagios" :sort-order 'oldest-first)
-                               ;(:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'oldest-first)))
+(setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox AND NOT tag:killed AND NOT tag:deleted" :sort-order 'newest-first)
+                               (:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'newest-first)
+                               (:name "nagios" :query "tag:nagios" :sort-order 'newest-first)
+                               (:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'newest-first)))
 
 ; message-mode stuff
 ;(setq message-send-mail-function 'message-send-mail-with-sendmail)
