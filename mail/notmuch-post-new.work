@@ -46,6 +46,7 @@ $NMW tag +sent -unread -- 'tag:new AND from:hamish@aptivate.org'
 $NMW tag +sent -unread -- 'tag:new AND from:hamish+sent@aptivate.org'
 
 $NMW tag +here -- 'tag:new AND to:here@aptivate.org'
+$NMW tag +support -- 'tag:new AND to:support@aptivate.org'
 $NMW tag +interesting -- 'tag:new AND to:interesting@aptivate.org'
 $NMW tag +tech -- 'tag:new AND to:tech@aptivate.org'
 $NMW tag +infrastructure -- 'tag:new AND to:infrastructure@aptivate.org'
