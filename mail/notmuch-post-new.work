@@ -8,9 +8,10 @@ $NMW tag +spam_chris -- 'tag:new AND folder:spam'
 # django-errors get special handling
 $NMW tag +inbox +django-error -- 'tag:new AND subject:"django error external ip internal server error"'
 for msgid in $($NMW search --format=text --output=messages '(tag:new AND tag:django-error)') ; do
-    file=$($NMW search --output=files --limit=1 "id:$msgid")
+    # the msgid starts with "id:" so we don't need to add it below
+    file=$($NMW search --output=files --limit=1 "$msgid")
     error_tag=$(/usr/local/bin/extract_django_error --one-word $file)
-    $NMW tag +$error_tag -- "id:$msgid"
+    $NMW tag +$error_tag -- "$msgid"
 done
 $NMW tag -new -- 'tag:new AND tag:django-error"'
 $NMW tag -inbox -- 'tag:inbox AND tag:UnicodeEncodeError AND from:api@ids.ac.uk'
