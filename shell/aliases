@@ -13,6 +13,7 @@ alias grep='egrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias h=history
+alias n=note.sh  # dev journal
 alias j=jobs
 alias po=popd
 alias pu=pushd
