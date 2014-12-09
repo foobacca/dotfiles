@@ -35,6 +35,7 @@ windows:
   - wwmap: cd ~/dev/washwatchmap/d3js/
   - sparkle: cd ~/SparkleShare/wwftrademapper-design/
   - branded: cd ~/dev/wwftrademapper/branded/html
+  - grunt: grunt sass; grunt copy; grunt watch
 #  - shell: git pull
 #  - database: rails db
 #  - server: rails s
