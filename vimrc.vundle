@@ -85,6 +85,7 @@ Bundle "guyzmo/notmuch-abook"
 Bundle 'hsitz/VimOrganizer'
 Bundle 'vim-scripts/utl.vim'
 Bundle 'mattn/calendar-vim'
+Bundle 'bitterjug/vim-notebook'
 " utility
 Bundle 'mbadran/headlights'
 
