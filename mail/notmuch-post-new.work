@@ -58,7 +58,9 @@ $NMW tag +lunch -- 'tag:new AND subject:lunch'
 $NMW tag +ethical_engagement -- 'tag:new AND subject:"ethical engagement"'
 $NMW tag +bond +event -- 'tag:new AND to:bond2013@aptivate.org'
 
-$NMW tag +atanigeriakms -- 'tag:new AND to:atanigeriakms-all@aptivate.org'
+$NMW tag +atanigeriatool -atanigeriakms -- 'tag:new AND to:atanigeriakms-team@aptivate.org'
+$NMW tag +atanigeriatool -- 'tag:new AND to:atanigeriakms-all@aptivate.org'
+$NMW tag +atanigeriatool -- 'tag:new AND to:atanigeriatool-all@aptivate.org'
 
 # just does some regex header stuff
 $HOME/.local/bin/afew \
