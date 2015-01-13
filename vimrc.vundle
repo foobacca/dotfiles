@@ -35,6 +35,7 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Shutnik/jshint2.vim'
+Bundle 'groenewege/vim-less'
 " status line
 Bundle 'Lokaltog/powerline'
 
