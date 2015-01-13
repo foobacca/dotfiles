@@ -44,7 +44,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git command-not-found django docker extract fabric history history-substring-search mosh pip python svn tmux tmuxinator vi-mode virtualenv vundle)
+plugins=(git command-not-found django docker extract fabric history history-substring-search mosh pip python svn tmux tmuxinator vi-mode virtualenv virtualenvwrapper vundle)
 # others worth looking at: debian git* 
 
 source $ZSH/oh-my-zsh.sh
