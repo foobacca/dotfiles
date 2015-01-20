@@ -29,7 +29,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead */.Postponed/* setlocal filetype=mail
     autocmd BufNewFile,BufRead *.txt setlocal filetype=human
     autocmd BufNewFile,BufRead *.template setlocal filetype=html
-    "
+
     " Treat JSON files like JavaScript
     autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 
@@ -39,6 +39,9 @@ if has("autocmd")
     " Markdown files
     autocmd BufNewFile,BufRead *.md setlocal ft=markdown
     autocmd BufNewFile,BufRead *.mdwn setlocal filetype=markdown
+
+    " less css files
+    autocmd BufNewFile,BufRead *.less setlocal ft=less
 
     autocmd BufNewFile,BufRead admin.py     setlocal filetype=python.django
     autocmd BufNewFile,BufRead urls.py      setlocal filetype=python.django
