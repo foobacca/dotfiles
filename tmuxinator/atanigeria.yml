@@ -1,0 +1,33 @@
+# ~/.tmuxinator/econsensus.yml
+# you can make as many tabs as you wish...
+
+name: ATA Nigeria Tool
+root: ~/dev/atanigeria/atanigeriatool/django/website/
+#pre: sudo /etc/rc.d/mysqld start
+windows:
+  - main:
+      layout: even-horizontal
+      panes:
+        - deploy:
+          - cd ../../deploy
+          - ./fab.py -l
+        - spare:
+          - 
+  - server:
+      layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
+      panes:
+        - vim
+        - 
+        - ./manage.py runserver
+  - extra:
+      layout: even-horizontal
+      panes:
+        - 
+        - 
+  - virtualenv:
+      pre:
+        - cd .ve/lib/python2.7/site-packages/
+      layout: even-horizontal
+      panes:
+        - ls -CF -I "*egg*"
+        -
