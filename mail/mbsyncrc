@@ -32,7 +32,7 @@ Sync All
 Channel aptivate-auto-channel
 Master :aptivate-store:
 Slave :aptivate-local-store:
-Patterns INBOX.carers INBOX.nagios
+Patterns INBOX.carers INBOX.nagios INBOX.django_error
 Create Both
 Expunge Slave
 Sync All
