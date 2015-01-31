@@ -1,6 +1,12 @@
 #!/bin/sh
 
+if [ $(hostname) -eq "foobacca.co.uk" ]; then
 NMW=$HOME/bin/notmuchwork
+EDE=/usr/local/bin/extract_django_error
+else
+NMW=/usr/bin/notmuch
+EDE=/home/hamish/.local/bin/extract_django_error
+fi
 
 # ensure we label stuff in the new spam folder
 $NMW tag +spam_chris -- 'tag:new AND folder:spam'
@@ -10,7 +16,7 @@ $NMW tag +inbox +django-error -- 'tag:new AND subject:"django error external ip 
 for msgid in $($NMW search --format=text --output=messages '(tag:new AND tag:django-error)') ; do
     # the msgid starts with "id:" so we don't need to add it below
     file=$($NMW search --output=files --limit=1 "$msgid")
-    error_tag=$(/usr/local/bin/extract_django_error --one-word $file)
+    error_tag=$($EDE --one-word $file)
     $NMW tag +$error_tag -- "$msgid"
 done
 $NMW tag -new -- 'tag:new AND tag:django-error"'
@@ -39,9 +45,11 @@ $NMW tag -new +inbox +gplus -- 'tag:new AND from:plus.google.com'
 
 # update notmuch-abook after the email I don't care about addresses for
 # has been dealt with
-for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
-    cat $file | $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
-done
+if [ $(hostname) -eq 'foobacca.co.uk' ]; then
+    for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
+        cat $file | $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
+    done
+fi
 
 $NMW tag +sent -unread -- 'tag:new AND from:hamish@aptivate.org'
 $NMW tag +sent -unread -- 'tag:new AND from:hamish+sent@aptivate.org'
