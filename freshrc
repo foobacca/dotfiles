@@ -120,6 +120,15 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
 
     fresh mail/notmuch-work-abook-ignore --file=~/.notmuch-work-abook-ignore
 
+    fresh-options --file=~/.config/alotwork/config
+        fresh alot/config.common
+        fresh alot/config.work
+        fresh alot/config.bindings
+        fresh alot/config.theme
+    fresh-options
+    fresh alot/hooks.py --file=~/.config/alotwork/hooks.py
+    fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
+
     fresh-options --file=~/.config/alot/config
         fresh alot/config.common
         fresh alot/config.gmail
@@ -143,7 +152,7 @@ if [ $(hostname) = "lap-e330" ]; then
         fresh alot/config.theme
     fresh-options
     fresh alot/hooks.py --file=~/.config/alot/hooks.py
-    fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
+    fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
 fi
 
 # vi: ft=sh
