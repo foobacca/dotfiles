@@ -93,13 +93,24 @@ fresh xmonad/xmonad.hs --file=~/.xmonad/xmonad.hs
 ############
 # mail stuff
 ############
-if [ $(hostname) = "foobacca.co.uk" ]; then
-    fresh mail/mailcap --file=~/.mailcap
-    fresh mail/msmtprc --file=~/.msmtprc
+
+# common stuff
+if [ $(hostname) = "foobacca.co.uk" ] || [ $(hostname) = "lap-e330" ]; then
     fresh mail/signature.work --file=~/.signature.work
     fresh mail/mbsyncrc --file=~/.mbsyncrc
     fresh mail/checkworkmail --bin
-    fresh mail/offlineimaprc --file=~/.offlineimaprc
+    # fresh mail/offlineimaprc --file=~/.offlineimaprc
+
+    # notmuch filtering
+    fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
+    fresh afew/config --file=~/.config/afew/config
+
+fi
+
+# foobacca only stuff
+if [ $(hostname) = "foobacca.co.uk" ]; then
+    fresh mail/mailcap.server --file=~/.mailcap
+    fresh mail/msmtprc --file=~/.msmtprc
 
     # core notmuch
     fresh mail/notmuch-config-work --file=~/.notmuch-config-work
@@ -107,19 +118,7 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
     # gmail collection script
     fresh zx2c4/gmail-notmuch gmail-notmuch.py --bin
 
-    # notmuch filtering
-    fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
-    fresh afew/config --file=~/.config/afew/config
     fresh mail/notmuch-work-abook-ignore --file=~/.notmuch-work-abook-ignore
-
-    # alot - notmuch based mail client
-    fresh-options --file=~/.config/alotwork/config
-        fresh alot/config.common
-        fresh alot/config.work
-        fresh alot/config.bindings
-        fresh alot/config.theme
-    fresh-options
-    fresh alot/hooks.py --file=~/.config/alotwork/hooks.py
 
     fresh-options --file=~/.config/alot/config
         fresh alot/config.common
@@ -128,8 +127,23 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
         fresh alot/config.theme
     fresh-options
     fresh alot/hooks.py --file=~/.config/alot/hooks.py
-
     fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
-    fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
-
 fi
+
+# laptop only stuff
+if [ $(hostname) = "lap-e330" ]; then
+    fresh mail/mailcap.laptop --file=~/.mailcap
+    fresh mail/notmuch-config-work --file=~/.notmuch-config
+
+    # alot - notmuch based mail client
+    fresh-options --file=~/.config/alot/config
+        fresh alot/config.common
+        fresh alot/config.work
+        fresh alot/config.bindings
+        fresh alot/config.theme
+    fresh-options
+    fresh alot/hooks.py --file=~/.config/alot/hooks.py
+    fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
+fi
+
+# vi: ft=sh
