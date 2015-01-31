@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $(hostname) -eq "foobacca.co.uk" ]; then
+if [ $(hostname) = "foobacca.co.uk" ]; then
 NMW=$HOME/bin/notmuchwork
 EDE=/usr/local/bin/extract_django_error
 else
@@ -45,7 +45,7 @@ $NMW tag -new +inbox +gplus -- 'tag:new AND from:plus.google.com'
 
 # update notmuch-abook after the email I don't care about addresses for
 # has been dealt with
-if [ $(hostname) -eq 'foobacca.co.uk' ]; then
+if [ $(hostname) = 'foobacca.co.uk' ]; then
     for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
         cat $file | $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
     done
