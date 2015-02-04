@@ -12,6 +12,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/init"))
 
 (mapc 'require '(init-evil
+                 init-ido
                  init-notmuch
                 ))
 
