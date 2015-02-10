@@ -9,39 +9,45 @@ EDE=/home/hamish/.local/bin/extract_django_error
 fi
 
 # ensure we label stuff in the new spam folder
-$NMW tag +spam_chris -- 'tag:new AND folder:spam'
+$NMW tag --batch <<EOF1
++spam_chris -- 'tag:new AND folder:spam'
+EOF1
 
 # django-errors get special handling
-$NMW tag +inbox +django-error -- 'tag:new AND subject:"django error external ip internal server error"'
+$NMW tag --batch <<EOF2
++inbox +django-error -- 'tag:new AND subject:"django error external ip internal server error"'
+EOF2
 for msgid in $($NMW search --format=text --output=messages '(tag:new AND tag:django-error)') ; do
     # the msgid starts with "id:" so we don't need to add it below
     file=$($NMW search --output=files --limit=1 "$msgid")
     error_tag=$($EDE --one-word $file)
     $NMW tag +$error_tag -- "$msgid"
 done
-$NMW tag -new -- 'tag:new AND tag:django-error'
-$NMW tag -inbox -- 'tag:inbox AND tag:UnicodeEncodeError AND from:api@ids.ac.uk'
+$NMW tag --batch <<EOF3
+-new -- tag:new AND tag:django-error
+-inbox -- tag:inbox AND tag:UnicodeEncodeError AND from:api@ids.ac.uk
 
 # skip the inbox (mostly ...)
-$NMW tag -new +nagios -- 'tag:new AND from:nagios'
-$NMW tag -new +inbox +carers -- 'tag:new AND to:carers+dropbox.com'
-$NMW tag -new +carers +logwatch -- 'tag:new AND from:logwatch'
-$NMW tag -new +carers +logwatch -- 'tag:new AND subject:"logwatch for"'
-$NMW tag -new +carers -- 'tag:new AND (to:carers OR to:postmaster OR to:root OR to:admin- OR from:nobody@fen-fw OR from:root@*.aptivate.org)'
-$NMW tag -new +carers +mailer-daemon -- 'tag:new AND from:mailer-daemon'
-$NMW tag -new +centos -- 'tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)'
-$NMW tag -new +blogcomment -- 'tag:new AND from:wordpress@old.aptivate.org'
+-new +nagios -- tag:new AND from:nagios
+-new +inbox +carers -- tag:new AND to:carers+dropbox.com
+-new +carers +logwatch -- tag:new AND from:logwatch
+-new +carers +logwatch -- tag:new AND subject:"logwatch for"
+-new +carers -- tag:new AND (to:carers OR to:postmaster OR to:root OR to:admin- OR from:nobody@fen-fw OR from:root@*.aptivate.org)
+-new +carers +mailer-daemon -- tag:new AND from:mailer-daemon
+-new +centos -- tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)
+-new +blogcomment -- tag:new AND from:wordpress@old.aptivate.org
 
 # tag and put in inbox, but skip the notmuch-abook stage
-$NMW tag -new +inbox +action -- 'tag:new AND from:projects@aptivate.org AND subject:"due in the next"'
-$NMW tag -new +inbox +consensus -- 'tag:new AND (from:aptivate@econsensus.org OR from:aptivateprivate@econsensus.org)'
-$NMW tag -new +inbox +jenkins -- 'tag:new AND from:jenkins@aptivate.org'
-$NMW tag -new +inbox +kanban -- 'tag:new AND from:notifications@kanbantool.com'
-$NMW tag -new +inbox +idsapi -- 'tag:new AND from:no-reply@lighthouseapp.com'
-$NMW tag -new +inbox +inaspsite -- 'tag:new AND from:notifications@kanbantool.com AND subject:"INASP Site"'
-$NMW tag -new +inbox +linkedin -- 'tag:new AND to:hamish+linkedin@aptivate.org'
-$NMW tag -new +inbox +linkedin -- 'tag:new AND from:@linkedin.com'
-$NMW tag -new +inbox +gplus -- 'tag:new AND from:plus.google.com'
+-new +inbox +action -- tag:new AND from:projects@aptivate.org AND subject:"due in the next"
+-new +inbox +consensus -- tag:new AND (from:aptivate@econsensus.org OR from:aptivateprivate@econsensus.org)
+-new +inbox +jenkins -- tag:new AND from:jenkins@aptivate.org
+-new +inbox +kanban -- tag:new AND from:notifications@kanbantool.com
+-new +inbox +idsapi -- tag:new AND from:no-reply@lighthouseapp.com
+-new +inbox +inaspsite -- tag:new AND from:notifications@kanbantool.com AND subject:"INASP Site"
+-new +inbox +linkedin -- tag:new AND to:hamish+linkedin@aptivate.org
+-new +inbox +linkedin -- tag:new AND from:@linkedin.com
+-new +inbox +gplus -- tag:new AND from:plus.google.com
+EOF3
 
 # update notmuch-abook after the email I don't care about addresses for
 # has been dealt with
@@ -51,30 +57,34 @@ if [ $(hostname) = 'foobacca.co.uk' ]; then
     done
 fi
 
-$NMW tag +sent -unread -- 'tag:new AND from:hamish@aptivate.org'
-$NMW tag +sent -unread -- 'tag:new AND from:hamish+sent@aptivate.org'
+$NMW tag --batch <<EOF4
++sent -unread -- tag:new AND from:hamish@aptivate.org
++sent -unread -- tag:new AND from:hamish+sent@aptivate.org
 
-$NMW tag +here -- 'tag:new AND to:here@aptivate.org'
-$NMW tag +support -- 'tag:new AND to:support@aptivate.org'
-$NMW tag +interesting -- 'tag:new AND to:interesting@aptivate.org'
-$NMW tag +tech -- 'tag:new AND to:tech@aptivate.org'
-$NMW tag +infrastructure -- 'tag:new AND to:infrastructure@aptivate.org'
++here -- tag:new AND to:here@aptivate.org
++support -- tag:new AND to:support@aptivate.org
++interesting -- tag:new AND to:interesting@aptivate.org
++tech -- tag:new AND to:tech@aptivate.org
++infrastructure -- tag:new AND to:infrastructure@aptivate.org
 
-$NMW tag +cashflow -- 'tag:new AND subject:cashflow'
-$NMW tag +capacity -- 'tag:new AND subject:capacity'
-$NMW tag +lunch -- 'tag:new AND subject:lunch'
-$NMW tag +ethical_engagement -- 'tag:new AND subject:"ethical engagement"'
-$NMW tag +bond +event -- 'tag:new AND to:bond2013@aptivate.org'
++cashflow -- tag:new AND subject:cashflow
++capacity -- tag:new AND subject:capacity
++lunch -- tag:new AND subject:lunch
++ethical_engagement -- tag:new AND subject:"ethical engagement"
++bond +event -- tag:new AND to:bond2013@aptivate.org
 
-$NMW tag +atanigeriatool -atanigeriakms -- 'tag:new AND to:atanigeriakms-team@aptivate.org'
-$NMW tag +atanigeriatool -- 'tag:new AND to:atanigeriakms-all@aptivate.org'
-$NMW tag +atanigeriatool -- 'tag:new AND to:atanigeriatool-all@aptivate.org'
++atanigeriatool -atanigeriakms -- tag:new AND to:atanigeriakms-team@aptivate.org
++atanigeriatool -- tag:new AND to:atanigeriakms-all@aptivate.org
++atanigeriatool -- tag:new AND to:atanigeriatool-all@aptivate.org
+EOF4
 
 # just does some regex header stuff
 $HOME/.local/bin/afew \
     --notmuch-config=$HOME/.notmuch-config-work --new --tag
 
+$NMW tag --batch <<EOF5
 # finally, add the inbox tag to non killed/spam
-$NMW tag +inbox -new -- 'tag:new AND NOT tag:killed AND NOT tag:spam'
++inbox -new -- tag:new AND NOT tag:killed AND NOT tag:spam
 # and remove the new tag completely
-$NMW tag -new -- 'tag:new'
+-new -- tag:new
+EOF5
