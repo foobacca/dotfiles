@@ -15,7 +15,7 @@ mbsync -q ${CHANNEL}  2>&1 | \
     grep -v '^Debug:' | \
     grep -v 'imap(hamish): Info: Disconnected: Logged out'
 
-/home/hamish/bin/notmuchwork new > /dev/null 2>&1 | \
+/home/hamish/bin/notmuchwork new --quiet 2>&1 | \
     grep -v 'already locked$'
 
 # put this here so the script exits 0 as grep -v might exit 1
