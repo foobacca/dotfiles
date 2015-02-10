@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ $(hostname) = "foobacca.co.uk" ]; then
-NMW=$HOME/bin/notmuchwork
+NMW="/usr/bin/notmuch --config=$HOME/.notmuch-config-work"
 EDE=/usr/local/bin/extract_django_error
 else
 NMW=/usr/bin/notmuch
