@@ -19,7 +19,7 @@ for msgid in $($NMW search --format=text --output=messages '(tag:new AND tag:dja
     error_tag=$($EDE --one-word $file)
     $NMW tag +$error_tag -- "$msgid"
 done
-$NMW tag -new -- 'tag:new AND tag:django-error"'
+$NMW tag -new -- 'tag:new AND tag:django-error'
 $NMW tag -inbox -- 'tag:inbox AND tag:UnicodeEncodeError AND from:api@ids.ac.uk'
 
 # skip the inbox (mostly ...)
