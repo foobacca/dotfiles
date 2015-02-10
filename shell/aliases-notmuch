@@ -1,5 +1,5 @@
 # launching apps
-alias nmw=$HOME/bin/notmuchwork
+alias nmw="notmuch --config=$HOME/.notmuch-config-work"
 alias afw=$HOME/bin/afewwork
 alias alw=$HOME/bin/alotwork
 
