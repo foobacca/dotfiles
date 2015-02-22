@@ -14,5 +14,6 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 # use powerline stuff
-source ~/.vim/bundle/powerline/powerline/bindings/tmux/powerline.conf
+source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+#source ~/.vim/bundle/powerline/powerline/bindings/tmux/powerline.conf
 
