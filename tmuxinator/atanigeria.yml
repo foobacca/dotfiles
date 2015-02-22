@@ -31,3 +31,10 @@ windows:
       panes:
         - ls -CF -I "*egg*"
         -
+  - data:
+      pre:
+        - cd ~/dev/atanigeria/atanigeriadata/notebooks/
+      layout: even-horizontal
+      panes:
+        - 
+        -
