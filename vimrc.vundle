@@ -37,7 +37,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Shutnik/jshint2.vim'
 Bundle 'groenewege/vim-less'
 " status line
-Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
 
 " functional plugins
 " syntax checkers
