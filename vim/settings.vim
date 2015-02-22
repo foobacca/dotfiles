@@ -129,3 +129,8 @@ let g:pymode_syntax_space_errors = 0
 let g:pymode_utils_whitespace = 0
 
 let g:notmuchconfig = $NOTMUCH_CONFIG
+
+" vim-airline settings
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='solarized2'
