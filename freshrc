@@ -42,7 +42,8 @@ fresh tigrc --file
 # vim
 fresh gvimrc --file
 # note vimrc sources files from .dotfiles/vim in particular order
-fresh vimrc.vundle --file=~/.vimrc
+fresh vimrc --file=~/.vimrc
+fresh vimrc --file=~/.nvimrc
 
 # emacs
 fresh emacs.d/init.el --file=~/.emacs.d/init.el
