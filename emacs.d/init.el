@@ -13,6 +13,7 @@
 
 (mapc 'require '(init-evil
                  init-ido
+                 init-org
                  init-notmuch
                 ))
 
