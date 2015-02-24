@@ -45,6 +45,9 @@ Bundle 'scrooloose/syntastic'
 " python stuff
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'vim-scripts/Tagbar'
+"Bundle 'xolox/vim-misc'
+"Bundle 'xolox/vim-easytags'
 "Bundle 'jbking/vim-pep8'
 " git (and merge)
 Bundle 'tpope/vim-fugitive'
