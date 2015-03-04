@@ -1,4 +1,5 @@
 (require 'package)
+(setq package-enable-at-startup nil)
 (package-initialize)
 (add-to-list 'package-archives
     '("marmalade" . "http://marmalade-repo.org/packages/") t)

@@ -47,6 +47,7 @@ fresh vimrc --file=~/.nvimrc
 
 # emacs
 fresh emacs.d/init.el --file=~/.emacs.d/init.el
+fresh emacs.d/notmuch-config.el --file=~/.emacs.d/notmuch-config.el
 fresh emacs.d/init --file=~/.emacs.d/init/
 #fresh emacs.d/org-mode --file=~/.emacs.d/org-mode
 fresh emacsmirror/evil . --file=~/.emacs.d/evil/
