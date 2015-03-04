@@ -7,6 +7,10 @@
     ;("marmalade" . "http://marmalade-repo.org/packages/")
     ;("melpa" . "http://melpa.milkbox.net/packages/")))
 
+; don't show the start up screen
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+
 ; use the solarized theme
 (load-theme 'solarized-dark t)
 
