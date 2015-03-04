@@ -13,6 +13,14 @@
                 (notmuch-user-name)
                 (notmuch-user-primary-email)))))
 
+; use 'b' to bounce messages
+(define-key notmuch-show-mode-map "b"
+    (lambda (&optional address)
+        "Bounce the current message."
+        (interactive "sBounce To: ")
+        (notmuch-show-view-raw-message)
+        (message-resend address)))
+
 ; address autocomplete
 (require 'notmuch-address)
 (setq notmuch-address-command "/home/hamish/bin/notmuch-abook-lookup")
@@ -35,6 +43,7 @@
       smtpmail-default-smtp-server "mail.aptivate.org"
       smtpmail-smtp-server "mail.aptivate.org"
       smtpmail-stream-type 'ssl
+      ;smtpmail-smtp-service 587)
       smtpmail-smtp-service 465)
 (setq message-from-style 'angles)
 
