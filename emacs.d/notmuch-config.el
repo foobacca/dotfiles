@@ -1,5 +1,3 @@
-;(setq notmuch-command "/home/hamish/bin/notmuch")
-
 (define-key notmuch-show-mode-map "b"
       (lambda (&optional address)
         "Bounce the current message."

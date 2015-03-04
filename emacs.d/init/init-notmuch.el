@@ -1,7 +1,7 @@
 (provide 'init-notmuch)
 
 ; notmuch related stuff
-(autoload 'notmuch' "notmuch" "notmuch mail" t)
+(require 'notmuch)
 
 ; notmuch runs on a server, we use this script
 (setq notmuch-command "~/bin/remote-notmuch.sh")
@@ -13,14 +13,6 @@
                 (notmuch-user-name)
                 (notmuch-user-primary-email)))))
 
-; use 'b' to bounce messages
-(define-key notmuch-show-mode-map "b"
-    (lambda (&optional address)
-        "Bounce the current message."
-        (interactive "sBounce To: ")
-        (notmuch-show-view-raw-message)
-        (message-resend address)))
-
 ; address autocomplete
 (require 'notmuch-address)
 (setq notmuch-address-command "/home/hamish/bin/notmuch-abook-lookup")
@@ -30,7 +22,7 @@
 (setq notmuch-search-line-faces '(("unread" :weight bold)
                                   ("flagged" :foreground "green")))
 
-(setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox AND NOT tag:killed AND NOT tag:deleted" :sort-order 'newest-first)
+(setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox" :sort-order 'newest-first)
                                (:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'newest-first)
                                (:name "nagios" :query "tag:nagios" :sort-order 'newest-first)
                                (:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'newest-first)))
@@ -52,4 +44,3 @@
 
 ; close the email compose buffer when we've sent it
 (setq message-kill-buffer-on-exit t)
-
