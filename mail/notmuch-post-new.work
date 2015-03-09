@@ -1,10 +1,10 @@
 #!/bin/sh
 
 if [ $(hostname) = "foobacca.co.uk" ]; then
-NMW="/usr/bin/notmuch --config=$HOME/.notmuch-config-work"
+NMW="/home/hamish/.linuxbrew/bin/notmuch --config=$HOME/.notmuch-config-work"
 EDE=/usr/local/bin/extract_django_error
 else
-NMW=/usr/bin/notmuch
+NMW=/home/hamish/.linuxbrew/bin/notmuch
 EDE=/home/hamish/.local/bin/extract_django_error
 fi
 
@@ -79,7 +79,7 @@ $NMW tag --batch <<EOF4
 EOF4
 
 # just does some regex header stuff
-$HOME/.local/bin/afew \
+LD_LIBRARY_PATH=$HOME/.linuxbrew/lib $HOME/.local/bin/afew \
     --notmuch-config=$HOME/.notmuch-config-work --new --tag
 
 $NMW tag --batch <<EOF5
