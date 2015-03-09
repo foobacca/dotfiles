@@ -1,6 +1,7 @@
 (provide 'init-notmuch)
 
 ; notmuch related stuff
+(add-to-list 'load-path "~/.linuxbrew/share/emacs/site-lisp")
 (require 'notmuch)
 
 ; notmuch runs on a server, we use this script
