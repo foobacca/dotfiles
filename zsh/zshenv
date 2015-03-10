@@ -25,6 +25,7 @@ pathadd $HOME/lib/pebble/bin
 pathadd /var/lib/gems/1.8/bin/
 pathadd /var/lib/gems/1.9.1/bin/
 
+ldlibrarypathadd /usr/local/lib
 ldlibrarypathadd $HOME/.linuxbrew/lib
 
 
