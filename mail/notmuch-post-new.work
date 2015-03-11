@@ -1,5 +1,7 @@
 #!/bin/sh
 
+LD_LIBRARY_PATH=$HOME/.linuxbrew/lib
+
 if [ $(hostname) = "foobacca.co.uk" ]; then
 NMW="/home/hamish/.linuxbrew/bin/notmuch --config=$HOME/.notmuch-config-work"
 EDE=/usr/local/bin/extract_django_error
@@ -53,7 +55,7 @@ EOF3
 # has been dealt with
 if [ $(hostname) = 'foobacca.co.uk' ]; then
     for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
-        cat $file | $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
+        cat $file | LD_LIBRARY_PATH=$HOME/.linuxbrew/lib $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
     done
 fi
 

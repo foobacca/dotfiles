@@ -1,5 +1,8 @@
 # launching apps
 alias nmw="notmuch --config=$HOME/.notmuch-config-work"
+
+alias nmwbook='LD_LIBRARY_PATH=$HOME/.linuxbrew/lib /home/hamish/.vim/bundle/notmuch-abook/pylibs/notmuch_abook.py -c ~/.notmuch-config-work'
+
 alias afw=$HOME/bin/afewwork
 alias alw=$HOME/bin/alotwork
 
