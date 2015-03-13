@@ -79,7 +79,7 @@ fresh sampson-chen/sack sgrep --bin
 fresh sampson-chen/sack .sackrc
 
 # powerline
-#fresh powerline --file=~/.config/powerline/
+fresh powerline --file=~/.config/powerline/
 
 # gui apps
 
