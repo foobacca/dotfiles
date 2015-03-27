@@ -67,6 +67,13 @@ set wildignore+=*.swp,*~,._*
 set backupdir=~/.vim/_backup//    " where to put backup files.
 set directory=~/.vim/_temp//      " where to put swap files.
 
+""
+"" gvim settings
+""
+if has('gui running')
+    set guifont=Inconsolata for Powerline Italic 12
+endif
+
 " Search & Replace
 set autoindent
 
