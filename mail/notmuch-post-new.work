@@ -68,6 +68,7 @@ $NMW tag --batch <<EOF4
 +interesting -- tag:new AND to:interesting@aptivate.org
 +tech -- tag:new AND to:tech@aptivate.org
 +infrastructure -- tag:new AND to:infrastructure@aptivate.org
++planning -- tag:new AND to:planning@aptivate.org
 
 +cashflow -- tag:new AND subject:cashflow
 +capacity -- tag:new AND subject:capacity
