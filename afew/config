@@ -22,6 +22,11 @@ header = X-Redmine-Project
 pattern = (?P<project>.*)
 tags = +{project}
 
+[HeaderMatchingFilter.4]
+header = Sender
+pattern = (?P<sender>.*calendar-notification@google.com.*)
+tags = +gcal
+
 #[ArchiveSentMailsFilter]
 #sent_tag = sent
 #[InboxFilter]
