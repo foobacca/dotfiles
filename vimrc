@@ -57,6 +57,7 @@ Plugin 'vim-scripts/Tagbar'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'sjl/threesome.vim'
+Plugin 'gregsexton/gitv'
 " manage buffers and windows
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'jeetsukumaran/vim-buffergator'
