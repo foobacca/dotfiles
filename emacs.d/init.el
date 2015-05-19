@@ -11,6 +11,8 @@
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 
+(tool-bar-mode -1)
+
 ; use the solarized theme
 (load-theme 'solarized-dark t)
 
