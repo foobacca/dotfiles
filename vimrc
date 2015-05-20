@@ -1,3 +1,7 @@
+set nocompatible
+filetype off
+
+
 " from http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
@@ -10,88 +14,89 @@ if !filereadable(vundle_readme)
     let iCanHazVundle=0
 endif
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
+Plugin 'gmarik/vundle'
 
 "Add your bundles here
 
 " Colours
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bitterjug/vim-colors-freyr'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bitterjug/vim-colors-freyr'
 
 " syntax highlighting
-Bundle 'vim-scripts/django.vim'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-markdown'
-Bundle 'ajf/puppet-vim'
-Bundle 'tpope/vim-git'
-Bundle 'timcharper/textile.vim'
-Bundle 'vim-scripts/csv.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'evanmiller/nginx-vim-syntax'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Shutnik/jshint2.vim'
-Bundle 'groenewege/vim-less'
+Plugin 'vim-scripts/django.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
+Plugin 'ajf/puppet-vim'
+Plugin 'tpope/vim-git'
+Plugin 'timcharper/textile.vim'
+Plugin 'vim-scripts/csv.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'groenewege/vim-less'
 " status line
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " functional plugins
 " syntax checkers
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " python stuff
-Bundle 'klen/python-mode'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'vim-scripts/Tagbar'
+Plugin 'klen/python-mode'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/Tagbar'
 "Bundle 'xolox/vim-misc'
 "Bundle 'xolox/vim-easytags'
 "Bundle 'jbking/vim-pep8'
 " git (and merge)
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'sjl/threesome.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'sjl/threesome.vim'
+Plugin 'gregsexton/gitv'
 " manage buffers and windows
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'jeetsukumaran/vim-buffergator'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'jeetsukumaran/vim-buffergator'
 " Bundle 'rgarver/Kwbd.vim'
-Bundle 'sjl/clam.vim'
-Bundle 'benmills/vimux'
+Plugin 'sjl/clam.vim'
+Plugin 'benmills/vimux'
 " manage files etc
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'matthias-guenther/hammer.vim'
-Bundle 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'matthias-guenther/hammer.vim'
+Plugin 'mileszs/ack.vim'
 " wordpress
-Bundle 'vim-scripts/VimRepress'
+Plugin 'vim-scripts/VimRepress'
 " editing
-Bundle 'chrismetcalf/vim-yankring'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'ervandew/supertab'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-repeat'
-Bundle 'ap/vim-css-color'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'chrisbra/NrrwRgn'
-Bundle 'SirVer/ultisnips'
-Bundle 'bronson/vim-visual-star-search'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-lastpat'
+Plugin 'chrismetcalf/vim-yankring'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ervandew/supertab'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
+Plugin 'ap/vim-css-color'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'chrisbra/NrrwRgn'
+Plugin 'SirVer/ultisnips'
+Plugin 'bronson/vim-visual-star-search'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-lastpat'
 " email
-Bundle "guyzmo/notmuch-abook"
+Plugin 'guyzmo/notmuch-abook'
 " org mode and related
-Bundle 'hsitz/VimOrganizer'
-Bundle 'vim-scripts/utl.vim'
-Bundle 'mattn/calendar-vim'
-Bundle 'bitterjug/vim-notebook'
+Plugin 'hsitz/VimOrganizer'
+Plugin 'vim-scripts/utl.vim'
+Plugin 'mattn/calendar-vim'
+Plugin 'bitterjug/vim-notebook'
 " utility
-Bundle 'mbadran/headlights'
+Plugin 'mbadran/headlights'
 
 
 "...All your other bundles...
@@ -99,8 +104,10 @@ Bundle 'mbadran/headlights'
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
     echo ""
-    :BundleInstall
+    :PluginInstall
 endif
+
+call vundle#end()
 
 filetype plugin indent on     " required! 
 
