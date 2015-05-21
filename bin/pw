@@ -1,0 +1,10 @@
+#!/bin/sh
+
+$HOME/bin/clipsafe -f $HOME/Dropbox/passwordsafe/pwsafe.dat $1
+
+# wait for user input and clear
+echo "press enter to clear the screen"
+read dummy
+clear
+# something in this stops Ctrl-C working, the following command fixes it
+stty sane
