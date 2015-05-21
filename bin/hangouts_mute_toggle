@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# select the Firefox window
+wmctrl -a Firefox
+# :b hangouts<return> selects the hangouts tab (using vimperator)
+# Ctrl+d toggles mute in hangouts
+xdotool getactivewindow key : b ' ' h a n g o u t s "Return" "ctrl+d"
