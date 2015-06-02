@@ -94,6 +94,8 @@ if has("autocmd")
     " files a few bytes smaller:
     autocmd FileType css setlocal noexpandtab softtabstop=2 tabstop=2 shiftwidth=2 smartindent
 
+    autocmd FileType rst setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2 smartindent
+
     " in makefiles, don't expand tabs to spaces, since actual tab characters are
     " needed, and have indentation at 8 chars to be sure that all indents are tabs
     " (despite the mappings later):
