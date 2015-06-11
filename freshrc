@@ -46,7 +46,7 @@ fresh vimrc --file=~/.vimrc
 fresh vimrc --file=~/.nvimrc
 # if we copy in blindly we might stuff up the vundle installation
 # so only copy in once the directory exists
-if [ -d '.vim/bundle/vim-airline/autoload/airline/themes' ]; then
+if [ -d "$HOME/.vim/bundle/vim-airline/autoload/airline/themes" ]; then
     fresh vim/airline/themes/solarized2.vim --file=~/.vim/bundle/vim-airline/autoload/airline/themes/solarized2.vim
 fi
 
