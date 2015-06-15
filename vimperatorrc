@@ -1,0 +1,64 @@
+"1.0b6 (created: 2011/03/09 09:25:18)
+" vi: ft=vi
+
+loadplugins '\.(js|penta)$'
+"group user
+set activate=quickmark,paste
+"set complete=l
+" add open tabs to completion list
+set complete=tfls
+set insertmode
+set titlestring=Firefox
+
+" select next/previous tab
+map <Right> gt
+map <Left>  gT
+
+" move current tab left/right
+map <S-Right> :tabmove! +1<CR>
+map <S-Left>  :tabmove! -1<CR>
+
+" Disable vimperator keys on certain sites:
+autocmd LocationChange .* :js modes.passAllKeys = /mail\.google\.com|docs\.google\.com|www\.google\.com\/reader\/view|plus\.google\.com\/hangouts\/youtube.com\//.test(buffer.URL)
+
+" Set the Vim filetype to "mail" when editing mail in GMail with the external editor:
+au LocationChange .* :set editor="gvim -f"
+au LocationChange projects\.aptivate\.org :set editor="gvim -f -c 'set ft=textile'"
+au LocationChange mail\.google\.com :set editor="gvim -f -c 'set ft=mail'"
+au LocationChange stackoverflow\.com :set editor="gvim -f -c 'set ft=mkd'"
+au LocationChange serverfault\.com :set editor="gvim -f -c 'set ft=mkd'"
+au LocationChange github\.com :set editor="gvim -f -c 'set ft=mkd'"
+au LocationChange wikipedia\.org :set editor="gvim -f -c 'set ft=Wikipedia'"
+au LocationChange ash\.coop :set editor="gvim -f -c 'set ft=Wikipedia'"
+
+" Firefox settings
+"
+" make the caret visible
+set! ui.caretWidth=4
+set! ui.caretBlinkTime=250
+" other options to save doing about:config all the time
+set! browser.backspace_action=0
+set! browser.blink_allowed=false
+set! browser.tabs.tabMinWidth=65
+set! browser.urlbar.hideGoButton=true
+set! network.http.pipelining.maxrequests=16
+set! security.dialog_enable_delay=0
+set! spellchecker.dictionary=en_GB
+"set stal=1
+
+" moves the identity box (click on to see certificate) to the status bar
+"javascript <<EOF
+"    (function () {
+"        dactyl.log("Moving the identity box to the statusbar...")
+"        let panel = document.createElement("statusbarpanel");
+"        let box = document.getElementById("identity-box");
+"        panel.appendChild(box.parentNode.removeChild(box));
+"        panel.maxHeight = "16px";
+"        document.getElementById("status-bar").insertBefore(panel, document.getElementById("security-button"));
+"        # document.getElementById("security-button").collapsed = true;
+"    })();
+"EOF
+
+
+
+" vim: ft=vim

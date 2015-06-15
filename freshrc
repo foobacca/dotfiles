@@ -41,6 +41,7 @@ fresh tigrc --file
 
 # vim
 fresh gvimrc --file
+fresh vimperatorrc --file
 # note vimrc sources files from .dotfiles/vim in particular order
 fresh vimrc --file=~/.vimrc
 fresh vimrc --file=~/.nvimrc
