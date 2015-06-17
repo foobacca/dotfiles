@@ -19,7 +19,7 @@ map <S-Right> :tabmove! +1<CR>
 map <S-Left>  :tabmove! -1<CR>
 
 " Disable vimperator keys on certain sites:
-autocmd LocationChange .* :js modes.passAllKeys = /mail\.google\.com|docs\.google\.com|www\.google\.com\/reader\/view|plus\.google\.com\/hangouts\/youtube.com\//.test(buffer.URL)
+autocmd LocationChange .* :js modes.passAllKeys = /mail\.google\.com|docs\.google\.com|plus\.google\.com\/|hangouts\/|youtube.com\//.test(buffer.URL)
 
 " Set the Vim filetype to "mail" when editing mail in GMail with the external editor:
 au LocationChange .* :set editor="gvim -f"
