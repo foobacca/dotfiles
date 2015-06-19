@@ -6,6 +6,7 @@ fresh freshshell/fresh bin/fresh --bin
 
 
 # inputrc - base set up
+fresh profile --file
 fresh inputrc --file
 fresh jasoncodes/dotfiles config/inputrc --file
 
