@@ -8,3 +8,5 @@ if [ -f ~/.fresh/build/shell.sh ]; then
     source ~/.fresh/build/shell.sh
 fi
 
+# disable Ctrl-S
+stty -ixon -ixoff 2>/dev/null
