@@ -6,6 +6,9 @@
 " use ; as : - by default ; does repeat of t/T/f/F
 "nnoremap ; :
 
+" use space as leader
+map <Space> <Leader>
+
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
