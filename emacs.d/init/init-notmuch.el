@@ -25,6 +25,7 @@
 
 (setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox" :sort-order 'newest-first)
                                (:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'newest-first)
+                               (:name "unread" :query "tag:unread AND NOT tag:nagios AND NOT tag:carers" :sort-order 'newest-first)
                                (:name "nagios" :query "tag:nagios" :sort-order 'newest-first)
                                (:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'newest-first)))
 
