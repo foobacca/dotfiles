@@ -6,8 +6,11 @@ if [ -f $BACKUP_FILE_RECORD ]; then
   currtime=`date +%s`
   backup_age=$(( (currtime - filemtime) / 86400 ))
 
-  WARNING_AGE=7
-  CRITICAL_AGE=14
+  RESET=$(tput sgr0)
+  GREEN=$(tput setaf 2)
+  RED=$(tput setaf 1)
+  WARNING_AGE=3
+  CRITICAL_AGE=7
 
   if [ $backup_age -gt $CRITICAL_AGE ]; then
     # if file older than critical
