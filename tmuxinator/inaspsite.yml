@@ -23,8 +23,8 @@ windows:
       layout: 23d5,225x71,0,0{130x71,0,0,94x71,131,0[94x35,131,0,94x35,131,36]}
       panes:
         - 
-        - ./manage.py celerybeat -S djcelery.schedulers.DatabaseScheduler
-        - ./manage.py celeryd start --time-limit=600 --concurrency=4 -Q email
+        - ./manage.py celery beat -S djcelery.schedulers.DatabaseScheduler
+        - ./manage.py celery worker --time-limit=600 --concurrency=4 -Q email
   - virtualenv:
       pre:
         - cd .ve/lib/python2.7/site-packages/
