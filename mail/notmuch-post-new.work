@@ -38,6 +38,7 @@ $NMW tag --batch <<EOF3
 -new +carers +mailer-daemon -- tag:new AND from:mailer-daemon
 -new +centos -- tag:new AND (subject:centos AND NOT subject:important AND NOT subject:critical)
 -new +blogcomment -- tag:new AND from:wordpress@old.aptivate.org
+-new +adb -- tag:new AND from:noreply@adb.org
 
 # tag and put in inbox, but skip the notmuch-abook stage
 -new +inbox +action -- tag:new AND from:projects@aptivate.org AND subject:"due in the next"
