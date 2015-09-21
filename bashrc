@@ -8,5 +8,7 @@ if [ -f ~/.fresh/build/shell.sh ]; then
     source ~/.fresh/build/shell.sh
 fi
 
-# disable Ctrl-S
-stty -ixon -ixoff 2>/dev/null
+# disable Ctrl-S - but only for interactive shells
+if [[ $- == *i* ]]; then
+    stty -ixon -ixoff 2>/dev/null
+fi

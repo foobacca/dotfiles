@@ -29,6 +29,8 @@ ldlibrarypathadd /usr/local/lib
 ldlibrarypathadd $HOME/.linuxbrew/lib
 
 
-# disable Ctrl-S / Ctrl-Q
-stty -ixon
-#stty stop '' -ixon -ixoff
+if [[ -o login ]]; then
+    # disable Ctrl-S / Ctrl-Q
+    stty -ixon
+    #stty stop '' -ixon -ixoff
+fi
