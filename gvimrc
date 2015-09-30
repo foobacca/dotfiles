@@ -13,7 +13,7 @@ set columns=110
 
 " You can also specify a different font, overriding the default font
 if has('gui_gtk2')
-  set guifont=Inconsolata\ for\ Powerline\ Italic\ 12
+  set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
 else
   set guifont=-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
 endif
