@@ -69,6 +69,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'matthias-guenther/hammer.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 " wordpress
 Plugin 'vim-scripts/VimRepress'
 " editing
