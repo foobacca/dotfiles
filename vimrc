@@ -91,6 +91,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'bronson/vim-visual-star-search'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-lastpat'
+Plugin 'terryma/vim-expand-region'
+
 " email
 Plugin 'guyzmo/notmuch-abook'
 " org mode and related

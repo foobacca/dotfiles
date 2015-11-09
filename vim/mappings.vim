@@ -200,6 +200,14 @@ nnoremap Y y$
 " Visually select the text that was last edited/pasted
 nmap gV `[v`]
 
+" copy and paste to system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
 " Map command-[ and command-] to indenting or outdenting
 " while keeping the original selection in visual mode
 vmap <A-]> >gv
@@ -219,7 +227,13 @@ nnoremap _dt :set ft=htmldjango<CR>
 nnoremap _pd :set ft=python.django<CR>
 
 
+"""""""""""""""""
 " plugin mappings
+" """""""""""""""""
 nmap <leader>B :BuffergatorToggle<CR>
 
 nmap <leader>u :GundoToggle<CR>
+
+" expand region - keep pressing v to expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
