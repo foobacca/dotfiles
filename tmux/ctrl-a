@@ -1,9 +1,9 @@
 # use Ctrl-A (rather than Ctrl-B)
-set -g prefix C-a
+set -g prefix C-Space
 
 # go to the last active window
-bind-key C-a last-window
+bind-key C-Space last-window
 bind-key Tab last-window
 # send C-a through to window
-bind-key a send-prefix
+bind-key Space copy-mode
 
