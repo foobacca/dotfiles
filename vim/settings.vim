@@ -5,8 +5,11 @@
 set nocompatible      " Use vim, no vi defaults
 set number            " Show line numbers
 set ruler             " Show line and column number
+set cursorline        " highlight the current line
+set lazyredraw        " don't redraw in the middle of macros
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
+filetype indent on    " load filetype-specific indent files
 
 ""
 "" Whitespace
