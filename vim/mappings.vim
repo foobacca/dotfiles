@@ -13,6 +13,9 @@ map <Space> <Leader>
 " (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
 
+" leave insert mode
+inoremap jk <Esc>
+
 " * Keystrokes -- Toggles
 
 " Keystrokes to toggle options are defined here.  They are all set to normal
@@ -100,10 +103,9 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 map <Down> gj
 map <Up> gk
 
-" page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
-" `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
+" page up with - (like in `Lynx', `Mutt', `Pine'),
 " or <BkSpc> (like in `Netscape Navigator'):
-noremap <Space> <PageDown>
+" noremap <Space> <PageDown>
 noremap <BS> <PageUp>
 noremap - <PageUp>
 " [<Space> by default is like l, <BkSpc> like h, and - like k.]
@@ -216,4 +218,8 @@ imap <A-[> <Esc><<i
 nnoremap _dt :set ft=htmldjango<CR>
 nnoremap _pd :set ft=python.django<CR>
 
+
+" plugin mappings
 nmap <leader>B :BuffergatorToggle<CR>
+
+nmap <leader>u :GundoToggle<CR>
