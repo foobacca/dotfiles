@@ -102,7 +102,7 @@ fresh xmonad/xmonad.hs --file=~/.xmonad/xmonad.hs
 ############
 
 # common stuff
-if [ $(hostname) = "foobacca.co.uk" ] || [ $(hostname) = "lap-e330" ]; then
+if [ $(hostname) = "foobacca.co.uk" ] || [ $(hostname) = "lap-e330" ] || [ $(hostname) = "mishtop" ]; then
     fresh mail/signature.work --file=~/.signature.work
     fresh mail/mbsyncrc --file=~/.mbsyncrc
     fresh mail/checkworkmail --bin
