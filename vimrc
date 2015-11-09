@@ -50,9 +50,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/Tagbar'
-"Bundle 'xolox/vim-misc'
-"Bundle 'xolox/vim-easytags'
-"Bundle 'jbking/vim-pep8'
+"Plugin 'tmhedberg/SimpylFold'  " might play with this one day
+"Plugin 'xolox/vim-misc'
+"Plugin 'xolox/vim-easytags'
+"Plugin 'jbking/vim-pep8'
 " git (and merge)
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -61,7 +62,7 @@ Plugin 'gregsexton/gitv'
 " manage buffers and windows
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'jeetsukumaran/vim-buffergator'
-" Bundle 'rgarver/Kwbd.vim'
+" Plugin 'rgarver/Kwbd.vim'
 Plugin 'sjl/clam.vim'
 Plugin 'benmills/vimux'
 " manage files etc
@@ -76,7 +77,8 @@ Plugin 'vim-scripts/VimRepress'
 Plugin 'chrismetcalf/vim-yankring'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+" Plugin 'ervandew/supertab'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
@@ -103,7 +105,7 @@ Plugin 'mbadran/headlights'
 "...All your other bundles...
 
 if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
+    echo "Installing Plugins, please ignore key map error messages"
     echo ""
     :PluginInstall
 endif
@@ -122,6 +124,7 @@ runtime macros/matchit.vim
 source ~/.dotfiles/vim/abbrev.vim
 source ~/.dotfiles/vim/gui_settings.vim
 source ~/.dotfiles/vim/mappings.vim
+source ~/.dotfiles/vim/python.vim
 source ~/.dotfiles/vim/settings.vim
 source ~/.dotfiles/vim/statusline.vim
 " do autocmds last to do filetype override of other config
