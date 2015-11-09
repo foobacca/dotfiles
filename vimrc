@@ -102,6 +102,7 @@ Plugin 'mattn/calendar-vim'
 Plugin 'bitterjug/vim-notebook'
 " utility
 Plugin 'mbadran/headlights'
+Plugin 'vim-utils/vim-man'
 
 
 "...All your other bundles...
