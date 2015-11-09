@@ -1,0 +1,9 @@
+#!/bin/sh
+vim -c "Man $1 $2" \
+    -c 'silent only' \
+    -c 'map q :q<CR>' \
+    -c 'set nomod nolist'
+
+# could re-add these?
+#    -c 'map <SPACE> <C-D>' \
+#    -c 'map b <C-U>' \
