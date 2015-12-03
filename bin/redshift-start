@@ -1,0 +1,3 @@
+#!/bin/sh
+
+redshift-gtk -l geoclue || redshift-gtk -l manual
