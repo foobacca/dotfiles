@@ -1,0 +1,60 @@
+# default values
+Sync Full
+Expunge Both
+Create Both
+
+# imap account
+IMAPAccount linguamatics
+Host mail.linguamatics.com
+User hdowner
+PassCmd "mail-pass -g hamish.downer@linguamatics.com"
+UseIMAPS yes
+RequireSSL yes
+
+# imap store
+IMAPStore lingumatics-remote
+Account linguamatics
+
+# local store
+MaildirStore lingumatics-local
+Path ~/local/mail/
+Inbox ~/local/mail/INBOX
+Flatten .
+
+Channel linguamatics-channel
+Master :lingumatics-remote:
+Slave :lingumatics-local:
+Patterns INBOX *
+Create Both
+Expunge Both
+Sync All
+SyncState *
+
+# Channel linguamatics-inbox-channel
+# Master :lingumatics-remote:
+# Slave :lingumatics-local:
+# Patterns general_inbox
+# Create Both
+# Expunge Slave
+# Sync All
+
+# Channel linguamatics-sentspam-channel
+# Master :lingumatics-remote:
+# Slave :lingumatics-local:
+# Patterns Sent spam
+# Create Both
+# Expunge Slave
+# Sync All
+
+
+# Channel linguamatics-auto-channel
+# Master :lingumatics-remote:
+# Slave :lingumatics-local:
+# Patterns INBOX.carers INBOX.nagios INBOX.django_error
+# Create Both
+# Expunge Slave
+# Sync All
+
+
+Group linguamatics
+Channels linguamatics-channel
