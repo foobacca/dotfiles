@@ -114,6 +114,19 @@ if [ $(hostname) = "foobacca.co.uk" ] || [ $(hostname) = "lap-e330" ] || [ $(hos
 
 fi
 
+if [ $(hostname) = "steelcommando" ]; then
+    fresh mail/signature.linguamatics --file=~/.signature
+    fresh mail/mbsyncrc.linguamatics --file=~/.mbsyncrc
+    fresh mail/checkworkmail --bin
+    fresh mail/mail-pass --bin
+    # fresh mail/offlineimaprc --file=~/.offlineimaprc
+
+    # notmuch filtering
+    # fresh mail/notmuch-post-new.linguamatics --bin=~/workmail/.notmuch/hooks/post-new
+    # fresh afew/config.linguamatics --file=~/.config/afew/config
+
+fi
+
 # foobacca only stuff
 if [ $(hostname) = "foobacca.co.uk" ]; then
     fresh mail/mailcap.server --file=~/.mailcap
