@@ -25,7 +25,8 @@ nmap <leader>L mQgewvu`Q
 nmap <C-l> gt
 nmap <C-h> gT
 
-nnoremap <leader><space> :noh<cr>   " make it easy to turn off search highlighting
+" make it easy to turn off search highlighting
+nnoremap <leader><space> :noh<cr>
 
 " have the usual indentation keystrokes still work in visual mode:
 vnoremap <C-T> >
