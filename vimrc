@@ -39,6 +39,8 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Shutnik/jshint2.vim'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'groenewege/vim-less'
 " status line
 Plugin 'bling/vim-airline'
