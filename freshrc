@@ -46,6 +46,7 @@ fresh vimperatorrc --file
 # note vimrc sources files from .dotfiles/vim in particular order
 fresh vimrc --file=~/.vimrc
 fresh vimrc --file=~/.nvimrc
+fresh ideavimrc --file=~/.ideavimrc
 # if we copy in blindly we might stuff up the vundle installation
 # so only copy in once the directory exists
 if [ -d "$HOME/.vim/bundle/vim-airline/autoload/airline/themes" ]; then

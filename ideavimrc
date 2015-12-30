@@ -1,0 +1,4 @@
+source ~/.dotfiles/vim/abbrev.vim
+source ~/.dotfiles/vim/autocmds.vim
+source ~/.dotfiles/vim/mappings.vim
+source ~/.dotfiles/vim/settings.vim
