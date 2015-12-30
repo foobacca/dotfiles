@@ -123,8 +123,10 @@ if [ $(hostname) = "steelcommando" ]; then
     # fresh mail/offlineimaprc --file=~/.offlineimaprc
 
     # notmuch filtering
-    # fresh mail/notmuch-post-new.linguamatics --bin=~/workmail/.notmuch/hooks/post-new
-    # fresh afew/config.linguamatics --file=~/.config/afew/config
+    fresh mail/notmuch-config-linguamatics --file=~/.notmuch-config
+    fresh mail/notmuch-post-new.linguamatics --bin=~/local/mail/.notmuch/hooks/post-new
+    fresh afew/config.linguamatics --file=~/.config/afew/config
+    fresh mail/notmuch-work-abook-ignore --file=/opt/hamish/.notmuch-work-abook-ignore
 
 fi
 

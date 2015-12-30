@@ -7,6 +7,10 @@
     ;("marmalade" . "http://marmalade-repo.org/packages/")
     ;("melpa" . "http://melpa.milkbox.net/packages/")))
 
+; use files from brew emacs install
+(let ((default-directory "/opt/hamish/.linuxbrew/share/emacs/site-lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ; don't show the start up screen
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
