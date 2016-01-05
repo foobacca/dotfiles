@@ -12,8 +12,8 @@ map <leader>g :action GotoDeclaration<cr>
 " map <leader>b :action GotoDeclaration<CR>
 " map <leader>c :action $Copy<CR>
 " map <leader>d :action EditorDuplicate<CR>
-" map <leader>e :action RecentFiles<CR>
-" map <leader>f :action Find<CR>
+map <leader>e :action RecentFiles<CR>
+map <leader>f :action Find<CR>
 " map <leader>g :action GotoLine<CR>
 " map <leader>h :action TypeHierarchy<CR>
 " map <leader>i :action ImplementMethods<CR>
