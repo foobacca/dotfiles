@@ -4,7 +4,7 @@ typeset -U path
 # on the path, then add to $PATH
 function pathadd {
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
-        path=($1 $path)
+        path=($path $1)
     fi
 }
 
@@ -12,18 +12,19 @@ typeset -T LD_LIBRARY_PATH ld_library_path
 typeset -U ld_library_path
 function ldlibrarypathadd {
     if [ -d "$1" ] && [[ ":$LD_LIBRARY_PATH:" != *":$1:"* ]]; then
-        ld_library_path=($1 $ld_library_path)
+        ld_library_path=($ld_library_path $1)
     fi
 }
 
-pathadd $HOME/bin
-pathadd $HOME/.local/bin
-pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/.wp-cli/bin
 pathadd $HOME/Dropbox/tech/bin
 pathadd $HOME/lib/pebble/bin
-pathadd /var/lib/gems/1.8/bin/
-pathadd /var/lib/gems/1.9.1/bin/
+pathadd /var/lib/gems/1.8/bin
+pathadd /var/lib/gems/1.9.1/bin
+pathadd $HOME/node_modules/phantomjs/bin
+pathadd $HOME/.local/bin
+pathadd $HOME/.linuxbrew/bin
+pathadd $HOME/bin
 
 ldlibrarypathadd /usr/local/lib
 ldlibrarypathadd $HOME/.linuxbrew/lib
