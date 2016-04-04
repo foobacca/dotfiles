@@ -78,6 +78,8 @@ nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
 " boundary
 command! -nargs=* Wrap set wrap linebreak nolist
 
+" :Md - quick markdown set up
+command! -nargs=* Md set wrap linebreak nolist ft=markdown tw=0
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
