@@ -5,16 +5,15 @@ source ~/.dotfiles/vim/settings.vim
 
 " mappings just for ideavim
 
-map <leader>g :action GotoDeclaration<cr>
 
 " others, from http://stackoverflow.com/a/33988035/3189
 " map <leader>a :action $SelectAll<CR>
-" map <leader>b :action GotoDeclaration<CR>
+map <leader>b :action Back<CR>
 " map <leader>c :action $Copy<CR>
 " map <leader>d :action EditorDuplicate<CR>
 map <leader>e :action RecentFiles<CR>
 map <leader>f :action Find<CR>
-" map <leader>g :action GotoLine<CR>
+map <leader>g :action GotoDeclaration<cr>
 " map <leader>h :action TypeHierarchy<CR>
 " map <leader>i :action ImplementMethods<CR>
 " map <leader>m :action EditorScrollToCenter<CR>
@@ -22,13 +21,15 @@ map <leader>f :action Find<CR>
 " map <leader>o :action MethodHierarchy.OverrideMethodAction<CR>
 " map <leader>p :action ParameterInfo<CR>
 " map <leader>q :action GuiDesigner.QuickJavadoc<CR>
-" map <leader>r :action Replace<CR>
+map <leader>r :action Refactorings.QuickListPopupAction<CR>
 " map <leader>s :action SaveAll<CR>
 " map <leader>t :action Vcs.UpdateProject<CR>
-" map <leader>u :action GotoSuperMethod<CR>
+map <leader>u :action PublishGroup.Upload<CR>
 " map <leader>v :action $Paste<CR>
 " map <leader>w :action EditorSelectWord<CR>
 " map <leader>x :action $Cut<CR>
 " map <leader>y :action EditorDeleteLine<CR>
 " map <leader>[ :action EditorCodeBlockStart<CR>
 " map <leader>] :action EditorCodeBlockEnd<CR>
+
+command! -nargs=* Usages action FindUsages
