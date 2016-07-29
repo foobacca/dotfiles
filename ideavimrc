@@ -4,10 +4,12 @@ source ~/.dotfiles/vim/mappings-safe.vim
 source ~/.dotfiles/vim/settings.vim
 
 " mappings just for ideavim
+set incsearch
+set surround
 
 
 " others, from http://stackoverflow.com/a/33988035/3189
-" map <leader>a :action $SelectAll<CR>
+map <leader>a :action Annotate<CR>
 map <leader>b :action Back<CR>
 " map <leader>c :action $Copy<CR>
 " map <leader>d :action EditorDuplicate<CR>
