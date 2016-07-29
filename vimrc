@@ -42,6 +42,8 @@ Plugin 'Shutnik/jshint2.vim'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'groenewege/vim-less'
+Plugin 'ekalinin/Dockerfile.vim'
+
 " status line
 Plugin 'bling/vim-airline'
 
