@@ -14,8 +14,13 @@ windows:
       layout: even-horizontal
       panes:
         - cd ~/tasks ; ls
+        - cd ~/tasks
+  - cindexd: 
+      layout: even-horizontal
+      panes:
+        - ssh cindexd.soldev
         -
-  - shell: 
+  - cindexd21: 
       layout: even-horizontal
       panes:
         -
