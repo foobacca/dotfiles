@@ -5,7 +5,7 @@
 (require 'notmuch)
 
 ; notmuch runs on a server, we use this script
-(setq notmuch-command "~/bin/remote-notmuch.sh")
+(setq notmuch-command "~/bin/notmuch")
 
 ; bcc emails to self, as the emails live on a different machine
 (setq notmuch-fcc-dirs nil)
@@ -24,21 +24,18 @@
                                   ("flagged" :foreground "green")))
 
 (setq notmuch-saved-searches '((:name "inbox" :query "tag:inbox" :sort-order 'newest-first)
-                               (:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'newest-first)
-                               (:name "unread" :query "tag:unread AND NOT tag:nagios AND NOT tag:carers" :sort-order 'newest-first)
-                               (:name "nagios" :query "tag:nagios" :sort-order 'newest-first)
-                               (:name "carers" :query "tag:carers AND NOT tag:logwatch" :sort-order 'newest-first)))
+                               (:name "unreadinbox" :query "tag:inbox AND tag:unread" :sort-order 'newest-first)))
 
 ; message-mode stuff
 ;(setq message-send-mail-function 'message-send-mail-with-sendmail)
 ;(setq sendmail-program "/usr/sbin/sendmail")
 ;(setq sendmail-program "/home/hamish/bin/sendmail-ssh")
 (setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-default-smtp-server "mail.aptivate.org"
-      smtpmail-smtp-server "mail.aptivate.org"
+      smtpmail-default-smtp-server "mail.linguamatics.com"
+      smtpmail-smtp-server "mail.linguamatics.com"
       smtpmail-stream-type 'ssl
-      ;smtpmail-smtp-service 587)
-      smtpmail-smtp-service 465)
+      smtpmail-smtp-service 587)
+      ;smtpmail-smtp-service 465)
 (setq message-from-style 'angles)
 
 ;(setq smtpmail-debug-info t)

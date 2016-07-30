@@ -22,8 +22,8 @@ fresh freshshell/fresh contrib/completion/fresh-completion.zsh --file=~/.zshrc
 fresh zsh/foobacca.zsh-theme --file=~/.oh-my-zsh/custom/themes/foobacca.zsh-theme
 fresh zsh/mosh.plugin.zsh --file=~/.oh-my-zsh/custom/mosh.plugin.zsh
 fresh zsh/tmuxinator.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/tmuxinator.plugin.zsh
-fresh zsh-users/zsh-syntax-highlighting zsh-syntax-highlighting.zsh --file=vendor/zsh-syntax-highlighting.zsh
-fresh zsh-users/zsh-syntax-highlighting highlighters --file=vendor/highlighters/
+fresh zsh/tmuxinator.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/tmuxinator.plugin.zsh
+fresh zsh-users/zsh-syntax-highlighting . --file=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
 
 # general shell stuff for both bash and zsh
 fresh 'shell/*'
@@ -46,6 +46,7 @@ fresh vimperatorrc --file
 # note vimrc sources files from .dotfiles/vim in particular order
 fresh vimrc --file=~/.vimrc
 fresh vimrc --file=~/.nvimrc
+fresh ideavimrc --file=~/.ideavimrc
 # if we copy in blindly we might stuff up the vundle installation
 # so only copy in once the directory exists
 if [ -d "$HOME/.vim/bundle/vim-airline/autoload/airline/themes" ]; then
@@ -111,6 +112,21 @@ if [ $(hostname) = "foobacca.co.uk" ] || [ $(hostname) = "lap-e330" ] || [ $(hos
     # notmuch filtering
     fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
     fresh afew/config --file=~/.config/afew/config
+
+fi
+
+if [ $(hostname) = "steelcommando" ]; then
+    fresh mail/signature.linguamatics --file=~/.signature
+    fresh mail/mbsyncrc.linguamatics --file=~/.mbsyncrc
+    fresh mail/checkworkmail --bin
+    fresh mail/mail-pass --bin
+    # fresh mail/offlineimaprc --file=~/.offlineimaprc
+
+    # notmuch filtering
+    fresh mail/notmuch-config-linguamatics --file=~/.notmuch-config
+    fresh mail/notmuch-post-new.linguamatics --bin=~/local/mail/.notmuch/hooks/post-new
+    fresh afew/config.linguamatics --file=~/.config/afew/config
+    fresh mail/notmuch-work-abook-ignore --file=/opt/hdowner/.notmuch-work-abook-ignore
 
 fi
 

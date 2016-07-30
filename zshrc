@@ -44,13 +44,10 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git command-not-found django docker extract fabric history history-substring-search mosh pip python svn tmux tmuxinator vi-mode virtualenv virtualenvwrapper vundle)
+plugins=(git mercurial command-not-found django docker extract history history-substring-search mosh pip python tmux tmuxinator vi-mode virtualenv virtualenvwrapper vundle zsh-syntax-highlighting)
 # others worth looking at: debian git* 
 
 source $ZSH/oh-my-zsh.sh
-
-# add in the syntax highlighting plugin
-source ~/.fresh/build/vendor/zsh-syntax-highlighting.zsh
 
 # use PageUp and PageDown like Ctrl-R
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward

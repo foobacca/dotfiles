@@ -3,18 +3,12 @@
 "" (not dependent on plugins)
 ""
 
-" use ; as : - by default ; does repeat of t/T/f/F
-"nnoremap ; :
-
-" use space as leader
-map <Space> <Leader>
+" mappings-safe is those safe for ideavim, so include them here
+source ~/.dotfiles/vim/mappings-safe.vim
 
 " use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
 " (it will prompt for sudo password when writing)
 cmap w!! %!sudo tee > /dev/null %
-
-" leave insert mode
-inoremap jk <Esc>
 
 " * Keystrokes -- Toggles
 
@@ -57,17 +51,6 @@ nnoremap <Leader>th :set invhls hls?<CR>
 " Toggle spell checking on and off with `\s`
 nmap <silent> <leader>s :set spell!<CR>
 
-" format the entire file
-nmap <leader>fef ggVG=
-
-" upper/lower word
-nmap <leader>u mQviwU`Q
-nmap <leader>l mQviwu`Q
-
-" upper/lower first char of word
-nmap <leader>U mQgewvU`Q
-nmap <leader>L mQgewvu`Q
-
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
 
@@ -95,6 +78,8 @@ nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
 " boundary
 command! -nargs=* Wrap set wrap linebreak nolist
 
+" :Md - quick markdown set up
+command! -nargs=* Md set wrap linebreak nolist ft=markdown tw=0
 
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
@@ -163,8 +148,6 @@ imap <C-9> <Esc>9gt
 " from http://stackoverflow.com/questions/726894/vim-tricks-your-mom-never-told-you-about-dark-corners
 " hit - (minus) anytime to open the file explorer to show files adjacent to the one just edited
 "map - :Explore<cr>
-nmap <C-l> :tabnext<enter>
-nmap <C-h> :tabprevious<enter>
 
 nmap <C-j> :bnext<enter>
 nmap <C-k> :bprev<enter>
@@ -179,26 +162,12 @@ cmap <C-P> <C-R>=expand("%:p:h") . "/"<CR>
 " do nice regex stuff
 nnoremap / /\v
 vnoremap / /\v
-nnoremap <leader><space> :noh<cr>   " make it easy to turn off search highlighting
 
 " * Keystrokes -- Formatting
 
 " have Q reformat the current paragraph (or selected text if there is any):
 nnoremap Q gqap
 vnoremap Q gq
-
-" have the usual indentation keystrokes still work in visual mode:
-vnoremap <C-T> >
-vnoremap <C-D> <LT>
-vmap <Tab> <C-T>
-vmap <S-Tab> <C-D>
-
-" have Y behave analogously to D and C rather than to dd and cc (which is
-" already done by yy):
-nnoremap Y y$
-
-" Visually select the text that was last edited/pasted
-nmap gV `[v`]
 
 " copy and paste to system clipboard
 vmap <Leader>y "+y

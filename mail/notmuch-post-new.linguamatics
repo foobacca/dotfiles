@@ -1,0 +1,60 @@
+#!/bin/sh
+
+LD_LIBRARY_PATH=$HOME/.linuxbrew/lib
+
+NMW=/home/hdowner/bin/notmuch
+EDE=/home/hdowner/.local/bin/extract_django_error
+
+# ensure we label stuff in the new spam folder
+
+
+# django-errors get special handling
+#$NMW tag --batch <<EOF2
+#+inbox +django-error -- 'tag:new AND subject:"django error external ip internal server error"'
+#EOF2
+#for msgid in $($NMW search --format=text --output=messages '(tag:new AND tag:django-error)') ; do
+    # the msgid starts with "id:" so we don't need to add it below
+#    file=$($NMW search --output=files --limit=1 "$msgid")
+#    error_tag=$($EDE --one-word $file)
+#    $NMW tag +$error_tag -- "$msgid"
+#done
+$NMW tag --batch <<EOF3
+-new -- tag:new AND tag:django-error
+
+# skip the inbox (mostly ...)
+#-new +nagios -- tag:new AND from:nagios
+
+# tag and put in inbox, but skip the notmuch-abook stage
+#-new +inbox +action -- tag:new AND from:projects@linguamatics.com AND subject:"due in the next"
+EOF3
+
+# update notmuch-abook after the email I don't care about addresses for
+# has been dealt with
+if [ $(hostname) = 'foobacca.co.uk' ]; then
+    for file in $($NMW search --output=files '(tag:new AND NOT tag:consensus)') ; do
+        cat $file | LD_LIBRARY_PATH=$HOME/.linuxbrew/lib $HOME/bin/notmuch-abook -c $HOME/.notmuch-config-work update
+    done
+fi
+
+$NMW tag --batch <<EOF4
++sent -unread -- tag:new AND from:hamish.downer@linguamatics.com
++sent -unread -- tag:new AND from:hamish.downer+sent@linguamatics.com
+
+#+here -- tag:new AND to:here@linguamatics.com
+#+support -- tag:new AND to:support@linguamatics.com
+
+# +ethical_engagement -- tag:new AND subject:"ethical engagement"
+
+EOF4
+
+# just does some regex header stuff
+# TODO: reinstate
+# LD_LIBRARY_PATH=$HOME/.linuxbrew/lib $HOME/.local/bin/afew \
+    # --notmuch-config=$HOME/.notmuch-config-work --new --tag
+
+$NMW tag --batch <<EOF5
+# finally, add the inbox tag to non killed/spam
++inbox -new -- tag:new AND NOT tag:killed AND NOT tag:spam
+# and remove the new tag completely
+-new -- tag:new
+EOF5
