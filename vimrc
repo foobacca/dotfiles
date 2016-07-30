@@ -42,6 +42,7 @@ Plugin 'Shutnik/jshint2.vim'
 Plugin 'groenewege/vim-less'
 " status line
 Plugin 'bling/vim-airline'
+Plugin 'lambdatoast/elm.vim'
 
 " functional plugins
 " syntax checkers
