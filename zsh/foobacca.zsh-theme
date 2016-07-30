@@ -129,7 +129,7 @@ else
     # 3 line prompt
     RPROMPT='$(git_prompt_status) [%*]'
     PROMPT='
-${return_code}$(venv_active)$(job_count)%n@%m:$(prompt_pwd) $(git_prompt_info)
+${return_code}$(venv_active)$(job_count)%n@%m:$(prompt_pwd) $(git_prompt_info)$(hg_prompt_info)
 %# '
 
 fi
