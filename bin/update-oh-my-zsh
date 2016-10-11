@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+set -x
+
+cd ~/.oh-my-zsh
+
+git pull
+git fetch origin
+git merge origin/master
+git push
+
+cd -
