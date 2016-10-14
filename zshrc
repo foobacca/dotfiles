@@ -62,6 +62,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 #
 # options
 #
+setopt extendedglob          # allow more options for pattern matching directories
 setopt interactive_comments  # ignore the # char and after
 setopt no_share_history      # don't import shared command history data into shell
 setopt rm_star_silent     # stop asking me to comfirm * deletes
