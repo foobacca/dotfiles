@@ -6,21 +6,21 @@ windows:
   - local:
       layout: even-horizontal
       panes:
-        - 
         -
-  - free: 
-  - free: 
+        -
+  - free:
+  - free:
   - todo:
       layout: even-horizontal
       panes:
         - cd ~/tasks ; ls
         - cd ~/tasks
-  - cindexd: 
+  - cindexd:
       layout: even-horizontal
       panes:
         - ssh cindexd.soldev
         -
-  - cindexd21: 
+  - cindexd22:
       layout: even-horizontal
       panes:
         -
