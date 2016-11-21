@@ -1,15 +1,15 @@
 # from lifehacker
 # install a package and automatically respond yes to confirmation prompt
-alias ins="sudo apt-get install"
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get upgrade"
+alias ins="sudo apt install"
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade"
 
 # remove a package and its configuration files
-alias remp="sudo apt-get remove --purge"
+alias remp="sudo apt purge"
 
 # search for a package
-alias searchc="apt-cache search"
+alias searcha="apt search"
 alias search="aptitude search"
-alias show="aptitude show"
+alias show="apt show"
 
 # vi: ft=sh
