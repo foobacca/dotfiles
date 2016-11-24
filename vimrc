@@ -46,6 +46,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 
 " status line
 Plugin 'bling/vim-airline'
+Plugin 'lambdatoast/elm.vim'
 
 " functional plugins
 " syntax checkers
