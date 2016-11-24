@@ -138,6 +138,11 @@ let g:pymode_folding = 0
 let g:pymode_syntax_space_errors = 0
 let g:pymode_utils_whitespace = 0
 
+" disable rope sometimes - certainly at the top level
+if filereadable(".disable_rope")
+    let g:pymode_rope_lookup_project = 0
+endif
+
 let g:notmuchconfig = $NOTMUCH_CONFIG
 
 " vim-airline settings
