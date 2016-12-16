@@ -25,4 +25,7 @@ export MOST_SWITCHES="-w"
 # have colour output from Django
 export DJANGO_COLORS="dark"
 
+# build go stuff
+export GO_PATH="$HOME/.local/share/go/"
+
 # vi: ft=sh
