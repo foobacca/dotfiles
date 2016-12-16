@@ -19,6 +19,7 @@ pathadd $HOME/lib/pebble/bin
 pathadd /var/lib/gems/1.8/bin/
 pathadd /var/lib/gems/1.9.1/bin/
 pathadd $HOME/.local/bin
+pathadd $HOME/.local/share/go/bin
 pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/bin
 
