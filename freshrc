@@ -41,6 +41,10 @@ fresh git/gitignore --file
 
 fresh tigrc --file
 
+# hg - in dev, do:
+# hg clone http://bitbucket.org/sjl/hg-prompt/
+fresh hgrc-promptonly --file
+
 # vim
 fresh gvimrc --file
 fresh vimperatorrc --file
