@@ -72,7 +72,7 @@ function hg_prompt_slosh {
     # As for speeding up "hg root", the only suggestion I have is to set
     # HGRCPATH to an empty string, and HGPLAIN=1.
     # or maybe HGRCPATH=~/.hgrc-promptonly
-    HGRCPATH=$HOME/.hgrc-promptonly HGPLAIN=1 hg prompt --angle-brackets "$ZSH_THEME_GIT_PROMPT_PREFIX<branch><:<bookmark>>%{$reset_color%}<status><update>$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    HGRCPATH=$HOME/.hgrc-promptonly HGPLAIN=1 hg prompt --angle-brackets "$ZSH_THEME_GIT_PROMPT_PREFIX<branch><:<bookmark>>%{$reset_color%}<status><update>$ZSH_THEME_GIT_PROMPT_SUFFIX" 2>/dev/null
 }
 
 # stuff nicked from kphoen.zsh-theme and pygmalion.zsh-theme
