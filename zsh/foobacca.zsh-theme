@@ -62,6 +62,19 @@ function prompt_color {
     fi
 }
 
+function hg_prompt_slosh {
+    # relies on hg prompt extension - in dev:
+    # hg clone http://bitbucket.org/sjl/hg-prompt/
+    # and in ~/.hgrc
+    # [extensions]
+    # prompt = ~/dev/hg-prompt/prompt.py
+
+    # As for speeding up "hg root", the only suggestion I have is to set
+    # HGRCPATH to an empty string, and HGPLAIN=1.
+    # or maybe HGRCPATH=~/.hgrc-promptonly
+    HGRCPATH=$HOME/.hgrc-promptonly HGPLAIN=1 hg prompt --angle-brackets "$ZSH_THEME_GIT_PROMPT_PREFIX<branch><:<bookmark>>%{$reset_color%}<status><update>$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
 # stuff nicked from kphoen.zsh-theme and pygmalion.zsh-theme
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
@@ -97,7 +110,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     # 3 line prompt
     RPROMPT='$(git_prompt_status2) %{$fg[yellow]%}[%*]%{$reset_color%}'
     PROMPT='
-${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)
+${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)$(hg_prompt_slosh)
 %{$fg[cyan]%}%#%{$reset_color%} '
 
 else
@@ -129,12 +142,12 @@ else
 
     # one line prompt
     RPROMPT='${return_code}$(git_prompt_status)'
-    PROMPT='$(venv_active)$(job_count)%n@%m:$(abbrev_pwd) $(git_prompt_info)%# '
+    PROMPT='$(venv_active)$(job_count)%n@%m:$(abbrev_pwd) $(git_prompt_info)$(hg_prompt_slosh)%# '
 
     # 3 line prompt
     RPROMPT='$(git_prompt_status) [%*]'
     PROMPT='
-${return_code}$(venv_active)$(job_count)%n@%m:$(prompt_pwd) $(git_prompt_info)$(hg_prompt_info)
+${return_code}$(venv_active)$(job_count)%n@%m:$(prompt_pwd) $(git_prompt_info)$(hg_prompt_slosh)
 %# '
 
 fi

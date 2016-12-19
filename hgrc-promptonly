@@ -1,0 +1,5 @@
+# to beused with prompt commands so it is fast
+
+[extensions]
+prompt = ~/dev/hg-prompt/prompt.py
+bookmarks = 
