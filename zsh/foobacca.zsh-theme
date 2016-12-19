@@ -15,6 +15,11 @@ function prompt_pwd {
         local homerepo=${$(git rev-parse --show-toplevel)/#${HOME}/\~}
         local repopartslen=${#${(s:/:)${homerepo}}}
     fi
+    # find hg root directory
+    if [ -d .hg ] || hg root > /dev/null 2>&1; then
+        local homerepo=${$(hg root)/#${HOME}/\~}
+        local repopartslen=${#${(s:/:)${homerepo}}}
+    fi
 
     # split the path into it's parts
     parts=(${(s:/:)${${PWD}/#${HOME}/\~}})
