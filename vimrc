@@ -1,132 +1,117 @@
 set nocompatible
 filetype off
 
-
-" from http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
-endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
-Plugin 'gmarik/vundle'
+" vim-plug stuff
+call plug#begin('~/.vim/plugged')
 
 "Add your bundles here
 
 " Colours
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bitterjug/vim-colors-freyr'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bitterjug/vim-colors-freyr'
 
 " syntax highlighting
-Plugin 'vim-scripts/django.vim'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
-Plugin 'ajf/puppet-vim'
-Plugin 'tpope/vim-git'
-Plugin 'timcharper/textile.vim'
-Plugin 'vim-scripts/csv.vim'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'jnwhiteh/vim-golang'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Shutnik/jshint2.vim'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'groenewege/vim-less'
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'vim-scripts/django.vim'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'ajf/puppet-vim'
+Plug 'tpope/vim-git'
+Plug 'timcharper/textile.vim'
+Plug 'vim-scripts/csv.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'jnwhiteh/vim-golang'
+Plug 'kchmck/vim-coffee-script'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Shutnik/jshint2.vim'
+Plug 'chase/vim-ansible-yaml'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'groenewege/vim-less'
+Plug 'ekalinin/Dockerfile.vim'
 
 " status line
-Plugin 'bling/vim-airline'
-Plugin 'lambdatoast/elm.vim'
+Plug 'bling/vim-airline'
+Plug 'lambdatoast/elm.vim'
 
 " functional plugins
 " syntax checkers
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 " python stuff
-Plugin 'klen/python-mode'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-scripts/Tagbar'
+Plug 'klen/python-mode'
+Plug 'davidhalter/jedi-vim'
+Plug 'vim-scripts/Tagbar'
 "Plugin 'tmhedberg/SimpylFold'  " might play with this one day
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
 "Plugin 'jbking/vim-pep8'
 " git (and merge)
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'sjl/threesome.vim'
-Plugin 'gregsexton/gitv'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'sjl/threesome.vim'
+Plug 'gregsexton/gitv'
 " manage buffers and windows
-Plugin 'vim-scripts/ZoomWin'
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'vim-scripts/ZoomWin'
+Plug 'jeetsukumaran/vim-buffergator'
 " Plugin 'rgarver/Kwbd.vim'
-Plugin 'sjl/clam.vim'
-Plugin 'benmills/vimux'
+Plug 'sjl/clam.vim'
+Plug 'benmills/vimux'
 " manage files etc
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'matthias-guenther/hammer.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'rking/ag.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'matthias-guenther/hammer.vim'
+Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 " wordpress
-Plugin 'vim-scripts/VimRepress'
+Plug 'vim-scripts/VimRepress'
 " editing
-Plugin 'chrismetcalf/vim-yankring'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'chrismetcalf/vim-yankring'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdcommenter'
+function! BuildYCM(info)
+    if a:info.status == 'installed' || a:info.force
+        !./install.sh
+    endif
+endfunction
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 " Plugin 'ervandew/supertab'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-repeat'
-Plugin 'ap/vim-css-color'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'chrisbra/NrrwRgn'
-Plugin 'SirVer/ultisnips'
-Plugin 'bronson/vim-visual-star-search'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-lastpat'
-Plugin 'terryma/vim-expand-region'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
+Plug 'ap/vim-css-color'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'chrisbra/NrrwRgn'
+Plug 'SirVer/ultisnips'
+Plug 'bronson/vim-visual-star-search'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-lastpat'
+Plug 'terryma/vim-expand-region'
 
 " email
-Plugin 'guyzmo/notmuch-abook'
+Plug 'guyzmo/notmuch-abook'
 " org mode and related
-Plugin 'hsitz/VimOrganizer'
-Plugin 'vim-scripts/utl.vim'
-Plugin 'mattn/calendar-vim'
-Plugin 'bitterjug/vim-notebook'
+Plug 'hsitz/VimOrganizer'
+Plug 'vim-scripts/utl.vim'
+Plug 'mattn/calendar-vim'
+Plug 'bitterjug/vim-notebook'
 " utility
-Plugin 'mbadran/headlights'
-Plugin 'vim-utils/vim-man'
+Plug 'mbadran/headlights'
+Plug 'vim-utils/vim-man'
+
+call plug#end()
 
 
-"...All your other bundles...
-
-if iCanHazVundle == 0
-    echo "Installing Plugins, please ignore key map error messages"
-    echo ""
-    :PluginInstall
-endif
-
-call vundle#end()
 
 filetype plugin indent on     " required! 
 
+
+
+
 runtime macros/matchit.vim
 
-" Setting up Vundle - the vim plugin bundler end
-
-"
 " bring in some stuff (from janus originally)
 "
 source ~/.dotfiles/vim/abbrev.vim
