@@ -99,7 +99,6 @@ Plug 'mattn/calendar-vim'
 Plug 'bitterjug/vim-notebook'
 " utility
 Plug 'mbadran/headlights'
-Plug 'vim-utils/vim-man'
 
 call plug#end()
 
