@@ -21,8 +21,6 @@ alias suod=sudo
 alias s='screen -r'
 alias ss='screen -Rd'
 
-alias man='viman'
-
 alias lhttp='lighttpd -D -f ~/dev/lighttpd/lighttpd.conf'
 
 # from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
