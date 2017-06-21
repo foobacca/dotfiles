@@ -16,7 +16,7 @@ map <leader>b :action Back<CR>
 map <leader>e :action RecentFiles<CR>
 map <leader>f :action Find<CR>
 map <leader>g :action GotoDeclaration<cr>
-" map <leader>h :action TypeHierarchy<CR>
+map <leader>h :action HideAllWindows<CR>
 " map <leader>i :action ImplementMethods<CR>
 " map <leader>m :action EditorScrollToCenter<CR>
 " map <leader>n :action FileChooser.NewFolder<CR>
