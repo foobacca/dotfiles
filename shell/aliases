@@ -50,3 +50,9 @@ alias mysqlroot='mysql -u root -p$(sudo cat /root/mysql_root_password)'
 # renice dropbox
 alias renicedropbox="ps -ef | grep dropbox | grep -v grep | awk '{print \$2}' | xargs renice 10 -p"
 
+# go to the dev directory
+if [ -d /opt/hdowner/dev ]; then
+    alias dev="cd /opt/hdowner/dev"
+else
+    alias dev="cd ~/dev"
+fi
