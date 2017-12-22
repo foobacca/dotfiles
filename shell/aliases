@@ -19,7 +19,6 @@ alias po=popd
 alias pu=pushd
 alias suod=sudo
 alias s='screen -r'
-alias ss='screen -Rd'
 
 alias lhttp='lighttpd -D -f ~/dev/lighttpd/lighttpd.conf'
 
