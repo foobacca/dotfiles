@@ -9,19 +9,31 @@ windows:
         -
         -
   - free:
-  - free:
-  - todo:
       layout: even-horizontal
+      root: /opt/hdowner/dev
       panes:
-        - cd ~/tasks ; ls
-        - cd ~/tasks
-  - cindexd:
-      layout: even-horizontal
-      panes:
-        - ssh cindexd.soldev
         -
-  - cindexd22:
+        -
+  - cindexd-dev:
       layout: even-horizontal
+      root: /opt/hdowner/dev/cindexd
+      panes:
+        - 
+        -
+  - todo:
+      root: /home/hdowner/tasks
+      layout: even-horizontal
+      panes:
+        - ls
+        - 
+  - cindexd.openstack:
+      layout: even-horizontal
+      panes:
+        - ssh root@cindexd-master.ods.os.linguamatics.com
+        -
+  - free:
+      layout: even-horizontal
+      root: /opt/hdowner/dev
       panes:
         -
         -
