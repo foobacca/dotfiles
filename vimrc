@@ -30,6 +30,8 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'groenewege/vim-less'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'hashivim/vim-terraform'
 
 " status line
 Plug 'bling/vim-airline'
