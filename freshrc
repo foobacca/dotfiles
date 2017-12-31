@@ -94,6 +94,9 @@ fresh powerline --file=~/.config/powerline/
 # redshift
 fresh redshift.conf --file=~/.config/redshift.conf
 
+# urxvt set up
+fresh Xdefaults --file
+
 # terminator solarized sample config
 fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
