@@ -16,6 +16,14 @@ function ldlibrarypathadd {
     fi
 }
 
+typeset -T LD_PRELOAD ld_preload
+typeset -U ld_preload
+function ldpreloadadd {
+    if [ -f "$1" ] && [[ ":$LD_PRELOAD:" != *":$1:"* ]]; then
+        ld_preload=($ld_preload $1)
+    fi
+}
+
 pathadd $HOME/.wp-cli/bin
 pathadd $HOME/Dropbox/tech/bin
 pathadd $HOME/lib/pebble/bin
