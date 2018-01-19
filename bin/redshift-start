@@ -1,3 +1,4 @@
 #!/bin/sh
 
-redshift-gtk -l geoclue || redshift-gtk -l manual
+# redshift-gtk -l gnome-clock
+redshift-gtk -l geoclue2 || redshift-gtk -l manual
