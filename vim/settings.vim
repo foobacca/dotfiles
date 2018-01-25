@@ -71,6 +71,19 @@ set backupdir=~/.vim/_backup//    " where to put backup files.
 set directory=~/.vim/_temp//      " where to put swap files.
 
 ""
+"" neovim settings
+""
+if has('nvim')
+    set termguicolors
+    "set guicursor=
+    
+    " set which python to use
+    if filereadable('/home/hdowner/envs/neovim/bin/python')
+        g:python3_host_prog = '/home/hdowner/envs/neovim/bin/python'
+    endif
+endif
+
+""
 "" gvim settings
 ""
 if has('gui running')

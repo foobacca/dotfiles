@@ -50,13 +50,15 @@ fresh gvimrc --file
 fresh vimperatorrc --file
 # note vimrc sources files from .dotfiles/vim in particular order
 fresh vimrc --file=~/.vimrc
-fresh vimrc --file=~/.nvimrc
 fresh ideavimrc --file=~/.ideavimrc
 # if we copy in blindly we might stuff up the vundle installation
 # so only copy in once the directory exists
 if [ -d "$HOME/.vim/plugged/vim-airline/autoload/airline/themes" ]; then
     fresh vim/airline/themes/solarized2.vim --file=~/.vim/plugged/vim-airline/autoload/airline/themes/solarized2.vim
 fi
+
+# neovim
+fresh nvim/init.vim --file=~/.config/nvim/init.vim
 
 # emacs
 fresh emacs.d/init.el --file=~/.emacs.d/init.el
