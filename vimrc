@@ -33,10 +33,10 @@ Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Shutnik/jshint2.vim', {'for': 'javascript'}
 Plug 'chase/vim-ansible-yaml', {'for': 'ansible'}
-Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja2'}
+Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
 Plug 'groenewege/vim-less', {'for': 'less'}
-Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
-Plug 'martinda/Jenkinsfile-vim-syntax', {'for': 'jenkinsfile'}
+Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
+Plug 'martinda/Jenkinsfile-vim-syntax', {'for': 'Jenkinsfile'}
 Plug 'hashivim/vim-terraform', {'for': 'terraform'}
 
 " git (and merge)
