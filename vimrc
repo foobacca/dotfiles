@@ -100,15 +100,15 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'terryma/vim-expand-region'
 
-" email
-Plug 'guyzmo/notmuch-abook'
+" email - python 2 only
+" Plug 'guyzmo/notmuch-abook'
 " org mode and related
 Plug 'hsitz/VimOrganizer'
 Plug 'vim-scripts/utl.vim'
 Plug 'mattn/calendar-vim'
 Plug 'bitterjug/vim-notebook'
-" utility
-Plug 'mbadran/headlights'
+" utility - python 2 only
+" Plug 'mbadran/headlights'
 
 call plug#end()
 
