@@ -33,6 +33,7 @@ pathadd $HOME/node_modules/phantomjs/bin
 pathadd $HOME/.local/bin
 pathadd $HOME/.local/share/go/bin
 pathadd $HOME/.linuxbrew/bin
+pathadd $HOME/.cargo/bin
 pathadd $HOME/bin
 
 ldlibrarypathadd /usr/local/lib

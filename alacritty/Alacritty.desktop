@@ -1,0 +1,18 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Alacritty
+GenericName=Terminal
+Exec="/home/hamish/bin/alacritty"
+# Icon=utilities-terminal
+# Icon=alacritty
+Icon=/home/hamish/.local/share/icons/hicolor/256x256/apps/alacritty.png
+Terminal=false
+Categories=System;TerminalEmulator;
+Comment=A cross-platform, GPU enhanced terminal emulator
+StartupWMClass=Alacritty
+Actions=New;
+
+[Desktop Action New]
+Name=New Terminal
+Exec="/home/hamish/bin/alacritty"
