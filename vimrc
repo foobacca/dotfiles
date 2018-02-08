@@ -10,7 +10,8 @@ call plug#begin('~/.vim/plugged')
 "Add your bundles here
 
 " Colours
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'bitterjug/vim-colors-freyr'
 "
 " status line
