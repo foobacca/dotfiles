@@ -27,9 +27,7 @@ nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
 
 
-" have F5 toggle the solarized colorscheme from light to dark
-set bg=dark
-colorscheme solarized
+" have F6 toggle the solarized colorscheme from light to dark
 call togglebg#map("<F6>")
 
 " have \tf ("toggle format") toggle the automatic insertion of line breaks

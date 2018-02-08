@@ -79,6 +79,12 @@ if has('nvim')
     "set guicursor=
 endif
 
+""
+"" colours
+""
+set background=dark
+colorscheme solarized
+
 
 ""
 "" gvim settings
