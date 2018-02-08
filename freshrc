@@ -99,6 +99,11 @@ fresh redshift.conf --file=~/.config/redshift.conf
 # urxvt set up
 fresh Xdefaults --file
 
+# alacritty set up
+fresh alacritty/Alacritty.desktop --file=~/.local/share/applications/Alacritty.desktop
+fresh alacritty/alacritty.png --file=~/.local/share/icons/hicolor/256x256/apps/alacritty.png
+fresh alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
+
 # terminator solarized sample config
 fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
