@@ -39,6 +39,9 @@ alias tma='tmux attach -d -t'
 # new tmux session with git dir name
 alias git-tmux='tmux new -s $(basename $(pwd))'
 
+# vim
+alias nv='nvim'
+
 # pwsafe
 #alias pw='pwsafe -p'
 
