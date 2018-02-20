@@ -23,4 +23,4 @@ set-option -g allow-rename off
 
 # This should allow changing the terminal cursor shape
 # from: https://github.com/neovim/neovim/wiki/FAQ#cursor-shape-doesnt-change-in-tmux
-set -g -a terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q,xterm*:Tc'
+set -g -a terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q,xterm*:Tc,tmux*:Tc'
