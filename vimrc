@@ -22,7 +22,7 @@ Plug 'lambdatoast/elm.vim'
 " syntax highlighting
 Plug 'vim-scripts/django.vim'
 Plug 'tpope/vim-haml', {'for': 'haml'}
-Plug 'tpope/vim-markdown', {'for': 'markdown'}
+" Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'ajf/puppet-vim', {'for': 'puppet'}
 Plug 'tpope/vim-git'
 Plug 'timcharper/textile.vim', {'for': 'textile'}
@@ -39,6 +39,8 @@ Plug 'groenewege/vim-less', {'for': 'less'}
 Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
 Plug 'martinda/Jenkinsfile-vim-syntax', {'for': 'Jenkinsfile'}
 Plug 'hashivim/vim-terraform', {'for': 'terraform'}
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " git (and merge)
 Plug 'tpope/vim-fugitive'
@@ -85,6 +87,8 @@ Plug 'vim-scripts/VimRepress'
 Plug 'chrismetcalf/vim-yankring'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdcommenter'
+" distraction free editing
+Plug 'junegunn/goyo.vim'
 
 " Plugin 'ervandew/supertab'
 Plug 'sjl/gundo.vim'
