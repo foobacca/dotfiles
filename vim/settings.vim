@@ -152,7 +152,7 @@ let g:pymode_rope_goto_def_newwin='new'
 let NERDTreeIgnore = ['\.pyc$']
 
 " Pymode:Lint
-let g:pymode_lint_ignore="E126,E128,E501"
+let g:pymode_lint_ignore=["E126", "E128", "E501"]
 
 let g:pymode_folding = 0
 let g:pymode_syntax_space_errors = 0
