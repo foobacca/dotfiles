@@ -62,7 +62,7 @@ endif
 
 " python stuff
 Plug 'zchee/deoplete-jedi'
-Plug 'klen/python-mode'
+Plug 'klen/python-mode', {'branch': 'develop'}
 " Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/Tagbar'
 
