@@ -71,7 +71,7 @@ Plug 'vim-scripts/Tagbar'
 "Plugin 'xolox/vim-easytags'
 "Plugin 'jbking/vim-pep8'
 " manage buffers and windows
-Plug 'vim-scripts/ZoomWin'
+" Plug 'vim-scripts/ZoomWin' - seems broken
 Plug 'jeetsukumaran/vim-buffergator'
 " Plugin 'rgarver/Kwbd.vim'
 Plug 'sjl/clam.vim'
