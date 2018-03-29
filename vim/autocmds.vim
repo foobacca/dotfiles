@@ -82,17 +82,17 @@ if has("autocmd")
 
     " for HTML, generally format text, but if a long line has been created leave it
     " alone when editing:
-    autocmd FileType html,htmldjango setlocal formatoptions+=tl noexpandtab softtabstop=2 tabstop=2 shiftwidth=2
+    autocmd FileType html,htmldjango setlocal formatoptions+=tl expandtab softtabstop=2 tabstop=2 shiftwidth=2
 
-    autocmd FileType javascript setlocal noexpandtab softtabstop=4 tabstop=4 shiftwidth=4
+    autocmd FileType javascript setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 
     " for HTML, generally format text, but if a long line has been created leave it
     " alone when editing:
-    autocmd FileType php setlocal formatoptions+=tl noexpandtab softtabstop=2 tabstop=2 shiftwidth=2
+    autocmd FileType php setlocal formatoptions+=tl expandtab softtabstop=2 tabstop=2 shiftwidth=2
 
     " for both CSS and HTML, use genuine tab characters for indentation, to make
     " files a few bytes smaller:
-    autocmd FileType css setlocal noexpandtab softtabstop=2 tabstop=2 shiftwidth=2 smartindent
+    autocmd FileType css setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2 smartindent
 
     autocmd FileType rst setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2 smartindent
 
