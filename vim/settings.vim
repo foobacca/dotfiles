@@ -143,6 +143,7 @@ set infercase
 let g:deoplete#enable_at_startup = 1
 
 " PYTHON MODE
+let g:pymode_python = 'python3'
 
 " Rope
 " Go to definition in a new buffer: horizontal split
