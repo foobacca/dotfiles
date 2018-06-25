@@ -41,6 +41,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax', {'for': 'Jenkinsfile'}
 Plug 'hashivim/vim-terraform', {'for': 'terraform'}
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'cespare/vim-toml'
 
 " git (and merge)
 Plug 'tpope/vim-fugitive'
