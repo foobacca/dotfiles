@@ -34,10 +34,16 @@ pathadd $HOME/.local/bin
 pathadd $HOME/.local/share/go/bin
 pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/.cargo/bin
+pathadd $HOME/.pyenv/bin
 pathadd $HOME/bin
 
 ldlibrarypathadd /usr/local/lib
 ldlibrarypathadd $HOME/.linuxbrew/lib
+
+if [ -f "$HOME/.pyenv/bin/pyenv" ]; then
+    eval "$($HOME/.pyenv/bin/pyenv init -)"
+    eval "$($HOME/.pyenv/bin/pyenv virtualenv-init -)"
+fi
 
 # make neovim checkhealth a bit happier
 # see https://vi.stackexchange.com/questions/7644/use-vim-with-virtualenv/7654#7654
