@@ -180,3 +180,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " YouCompleteMe settings
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" pandoc settings
+let g:pandoc#folding#level = 5
