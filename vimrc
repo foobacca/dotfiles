@@ -42,6 +42,7 @@ Plug 'hashivim/vim-terraform', {'for': 'terraform'}
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'cespare/vim-toml'
+Plug 'posva/vim-vue', {'for': 'vue'}
 
 " git (and merge)
 Plug 'tpope/vim-fugitive'
