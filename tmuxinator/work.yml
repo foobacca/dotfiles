@@ -10,13 +10,13 @@ windows:
         -
   - free:
       layout: even-horizontal
-      root: /opt/hdowner/dev
+      root: /home/hdowner/dev
       panes:
         -
         -
   - cindexd-dev:
       layout: even-horizontal
-      root: /opt/hdowner/dev/cindexd
+      root: /home/hdowner/dev/cindexd
       panes:
         - 
         -
@@ -33,7 +33,7 @@ windows:
         -
   - free:
       layout: even-horizontal
-      root: /opt/hdowner/dev
+      root: /home/hdowner/dev
       panes:
         -
         -
