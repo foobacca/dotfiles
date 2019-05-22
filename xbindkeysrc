@@ -1,0 +1,20 @@
+# various launch or switch commands
+# from https://askubuntu.com/a/76626/150
+
+"wmctrl -xa Terminal || gnome-terminal"
+    Mod4 + 2
+
+"wmctrl -xa Firefox || firefox"
+    Mod4 + 3
+
+"wmctrl -xa PyCharm || /bin/sh /snap/pycharm-professional/132/bin/pycharm.sh"
+    Mod4 + 4
+
+"wmctrl -xa TortoiseHg || thg"
+    Mod4 + 5
+
+"wmctrl -xa Thunderbird || thunderbird"
+    Mod4 + 6
+
+"wmctrl -xa Chromium || chromium-browser"
+    Mod4 + 8
