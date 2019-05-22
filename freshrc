@@ -30,6 +30,9 @@ fresh zsh-users/zsh-syntax-highlighting . --file=~/.oh-my-zsh/custom/plugins/zsh
 fresh 'shell/*'
 fresh jasoncodes/dotfiles shell/aliases/editor.sh
 
+# xbindkeys for switching windows
+fresh xbindkeysrc --file
+
 # tools
 fresh ackrc --file
 fresh jasoncodes/dotfiles config/sqliterc --file
@@ -71,7 +74,7 @@ fresh emacsmirror/evil . --file=~/.emacs.d/evil/
 fresh 'tmux/*' --file=~/.tmux.conf
 
 # dircolors - solarized
-fresh seebi/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
+fresh foobacca/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
 
 # development lighttpd
 fresh lighttpd.conf --file=~/dev/lighttpd/lighttpd.conf
