@@ -20,6 +20,12 @@ alias pu=pushd
 alias suod=sudo
 alias s='screen -r'
 
+# bat is a nice alternative to cat
+# see https://github.com/sharkdp/bat
+if [ -x "$(command -v bat)" ]; then
+    alias cat=bat
+fi
+
 alias lhttp='lighttpd -D -f ~/dev/lighttpd/lighttpd.conf'
 
 # from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
