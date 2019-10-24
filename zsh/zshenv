@@ -29,6 +29,7 @@ pathadd $HOME/Dropbox/tech/bin
 pathadd $HOME/lib/pebble/bin
 pathadd /var/lib/gems/1.8/bin
 pathadd /var/lib/gems/1.9.1/bin
+pathadd $HOME/.gem/ruby/2.5.0/bin
 pathadd $HOME/node_modules/phantomjs/bin
 pathadd $HOME/.local/bin
 pathadd $HOME/.local/share/go/bin
