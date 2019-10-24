@@ -119,7 +119,7 @@ fresh xmonad/xmonad.hs --file=~/.xmonad/xmonad.hs
 # regolith/i3
 fresh regolith/i3/config --file=~/.config/regolith/i3/config
 fresh regolith/i3xrocks/config --file=~/.config/regolith/i3xrocks/config
-fresh Xresources-regolith
+fresh Xresources-regolith --file=~/.Xresources-regolith
 
 ############
 # mail stuff
