@@ -31,8 +31,11 @@ label_color=xresource:i3xrocks.label.color
 # Network manager VPN
 #
 # Displays currently connected VPN using the nm-cli tool.
-#[nm-vpn]
-#interval=5
+# [nm-vpn]
+# interval=60
+
+[openvpn]
+interval=60
 
 # Wifi
 #
@@ -46,8 +49,8 @@ interval=5
 # Keyboard layout
 #
 # Displays current keyboard layout.
-#[keyboard_layout]
-#interval=persist
+[keyboard_layout]
+interval=persist
 
 # CPU usage
 #
@@ -57,6 +60,15 @@ interval=5
 interval=5
 min_width=100%
 #separator=false
+
+[memory]
+interval=20
+
+[bandwidth]
+interval=5
+
+[load_average]
+interval=10
 
 # Battery indicator
 #
