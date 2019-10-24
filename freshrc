@@ -116,6 +116,11 @@ fresh solarized/xchat-colors-solarized solarized-dark-colors.conf --file=~/.xcha
 # xmonad
 fresh xmonad/xmonad.hs --file=~/.xmonad/xmonad.hs
 
+# regolith/i3
+fresh regolith/i3/config --file=~/.config/regolith/i3/config
+fresh regolith/i3xrocks/config --file=~/.config/regolith/i3xrocks/config
+fresh Xresources-regolith
+
 ############
 # mail stuff
 ############
