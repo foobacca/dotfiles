@@ -13,6 +13,7 @@ ldlibrarypathadd() {
     fi
 }
 
+pathadd /snap/bin
 pathadd $HOME/.wp-cli/bin
 pathadd $HOME/Dropbox/tech/bin
 pathadd $HOME/lib/pebble/bin
