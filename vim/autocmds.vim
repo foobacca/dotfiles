@@ -30,9 +30,6 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.txt setlocal filetype=human
     autocmd BufNewFile,BufRead *.template setlocal filetype=html
 
-    " Treat JSON files like JavaScript
-    autocmd BufNewFile,BufRead *.json setlocal ft=javascript
-
     " Puppet files
     autocmd BufNewFile,BufRead *.pp setlocal ft=puppet
 
