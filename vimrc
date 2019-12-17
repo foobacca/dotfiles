@@ -118,7 +118,7 @@ Plug 'bitterjug/vim-notebook'
 " Plug 'mbadran/headlights'
 
 if isdirectory(expand("~/.fzf"))
-    Plug "~/.fzf"
+    Plug '~/.fzf'
 endif
 
 call plug#end()
