@@ -117,6 +117,10 @@ Plug 'bitterjug/vim-notebook'
 " utility - python 2 only
 " Plug 'mbadran/headlights'
 
+if isdirectory(expand("~/.fzf"))
+    Plug "~/.fzf"
+endif
+
 call plug#end()
 
 
