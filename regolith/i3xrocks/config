@@ -23,34 +23,47 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 command=/usr/share/i3xrocks/$BLOCK_NAME
-separator_block_width=40
+separator_block_width=35
 markup=pango
 color=xresource:i3xrocks.value.color
 label_color=xresource:i3xrocks.label.color
 
+# Link to execute shortcuts.
+[info]
+full_text=xresource:i3xrocks.label.help
+command=i3-msg -q exec /usr/bin/remontoire-toggle
+
 # Network manager VPN
 #
 # Displays currently connected VPN using the nm-cli tool.
-# [nm-vpn]
-# interval=60
+#[nm-vpn]
+#interval=5
 
-[openvpn]
-interval=60
+# [openvpn]
+# interval=60
 
 # Wifi
 #
 # Displays the wifi network's name
 # If the auto-discovered wifi device is incorrect,
 # override the "instance" value with the desired device
-[wifi2]
-#instance=wlp3s0 Replace with your wifi device if you need
-interval=5
+#[wifi2]
+# Replace with your wifi device if you need on next line
+#instance=wlp3s0 
+#interval=5
+
+# nettraffic
+#
+# Displays network load
+[nettraffic]
+interval=10
 
 # Keyboard layout
 #
 # Displays current keyboard layout.
 [keyboard_layout]
 interval=persist
+LABEL=⌨
 
 # CPU usage
 #
@@ -59,7 +72,6 @@ interval=persist
 [cpu_usage]
 interval=5
 min_width=100%
-#separator=false
 
 [memory]
 interval=20
@@ -72,22 +84,25 @@ interval=10
 
 # Battery indicator
 #
-# Displays total percentage charge left across all batteries.
-#
-# To display colored text (or icon, if "icon_only" is enabled)
-# depending on charge remaining, uncomment "percent_color".
-#
-# To display est. time remaining, uncomment "display_time_left".
-#
-# To display the battery icon only, uncomment "icon_only".
-[battery2]
+# Displays total percentage charge left of specified battery.
+[battery3]
 interval=30
-#display_time_left=true
-percent_color=true
-#icon_only=true
+instance=BAT0
+
+# Rofication
+#
+# Displays notifications.
+[rofication]
+command=/usr/share/i3xrocks/rofication-statusi3blocks.py
+interval=10
 
 # Date Time
-#
 [time]
-interval=60
+interval=10
 
+# Show title of focused window
+#[focused-window-name]
+#label=  # uncomment to show an icon
+#interval=1
+#filter_list=evince libreoffice # uncomment to show only for these window instances
+#short_length=10 # uncomment to change maximum size of shortened text
