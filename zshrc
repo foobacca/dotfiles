@@ -114,3 +114,8 @@ setopt noflowcontrol
 if [ -f ~/.fresh/build/shell.sh ]; then
     source ~/.fresh/build/shell.sh
 fi
+
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+fi
+

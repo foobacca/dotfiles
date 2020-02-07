@@ -7,6 +7,8 @@ source ~/.dotfiles/vim/settings.vim
 set incsearch
 set surround
 
+" use kj to escape insert mode
+:inoremap kj <Esc>
 
 " others, from http://stackoverflow.com/a/33988035/3189
 map <leader>a :action Annotate<CR>
