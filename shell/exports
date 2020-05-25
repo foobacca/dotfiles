@@ -28,4 +28,7 @@ export DJANGO_COLORS="dark"
 # build go stuff
 export GO_PATH="$HOME/.local/share/go/"
 
+# pypyp config file
+export PYP_CONFIG_PATH="$HOME/.config/pypyp.py"
+
 # vi: ft=sh

@@ -120,6 +120,10 @@ fresh xmonad/xmonad.hs --file=~/.xmonad/xmonad.hs
 fresh regolith/i3/config --file=~/.config/regolith/i3/config
 fresh regolith/Xresources --file=~/.config/regolith/Xresources
 
+# pypyp
+# need to do `pipsi install pypyp` and then install pipetools into that venv and then
+fresh pypyp.py --file=~/.config/pypyp.py
+
 ############
 # mail stuff
 ############
