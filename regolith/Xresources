@@ -1,0 +1,10 @@
+! -- This points to the root Xresource file.
+#include "/etc/regolith/styles/lascaille/root"
+
+! -- Overrides
+!i3xrocks.date.format2:       + %d/%m %H:%M
+!i3xrocks.date.format2:       + %m/%d %I:%M %p
+i3xrocks.date.format2:       + %Y-%m-%d %H:%M
+i3xrocks.label.keyboard_layout: ⌨ 
+
+# vi: ft=Xresource
