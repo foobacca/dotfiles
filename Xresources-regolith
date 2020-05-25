@@ -1,9 +1,0 @@
-! -- This points to the root Xresource file.
-#include "/etc/regolith/styles/cahuella/root"
-
-! -- Overrides
-!i3xrocks.date.format:       + %d/%m %H:%M
-!i3xrocks.date.format:       + %m/%d %I:%M %p
-i3xrocks.date.format:       + %Y-%m-%d %H:%M
-i3xrocks.label.keyboard_layout: ⌨ 
-
