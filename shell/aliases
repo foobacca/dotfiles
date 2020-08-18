@@ -25,6 +25,12 @@ alias s='screen -r'
 if [ -x "$(command -v bat)" ]; then
     alias cat=bat
 fi
+if [ -x "$(command -v batcat)" ]; then
+    alias cat=batcat
+fi
+if [ -x "$(command -v fdfind)" ]; then
+    alias fd=fdfind
+fi
 
 alias lhttp='lighttpd -D -f ~/dev/lighttpd/lighttpd.conf'
 
