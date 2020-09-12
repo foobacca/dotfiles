@@ -25,6 +25,12 @@ alias s='screen -r'
 if [ -x "$(command -v bat)" ]; then
     alias cat=bat
 fi
+if [ -x "$(command -v batcat)" ]; then
+    alias cat=batcat
+fi
+if [ -x "$(command -v fdfind)" ]; then
+    alias fd=fdfind
+fi
 
 alias lhttp='lighttpd -D -f ~/dev/lighttpd/lighttpd.conf'
 
@@ -36,9 +42,7 @@ alias rmpyc='find . -name \*.pyc -delete'
 alias vimcheat='eog file:///home/mish/Desktop/vi-vim-cheat-sheet.gif'
 
 # ssh
-alias mailao='ssh -t mail.aptivate.org tmux attach -d'
-alias socks='ssh -C -D 1080 lin-vnc2.aptivate.org'
-alias heltun='ssh -f hamish -L 8042:hamish:8042 -N'
+alias ssh='TERM=xterm-color ssh'
 
 # tmux - tab completion of session names
 alias tma='tmux attach -d -t'
