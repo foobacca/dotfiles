@@ -69,3 +69,7 @@ if [ -d /opt/hdowner/dev ]; then
 else
     alias dev="cd ~/dev"
 fi
+
+# sshfs at home
+alias sshfs-kingston="sshfs -o idmap=user kingston: ~/kingston"
+alias sshfs-kmedia="sshfs -o idmap=user kingston:/bigstore/media ~/kingston_media"

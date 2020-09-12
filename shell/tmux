@@ -1,7 +1,8 @@
 # set ft=sh
 
 # for tmux: export 256color
-[ -n "$TMUX" ] && export TERM=tmux-256color
+# [ -n "$TMUX" ] && export TERM=tmux-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 if [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]]; then
   source $HOME/.tmuxinator/scripts/tmuxinator
