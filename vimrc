@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 " Colours
 " Plug 'altercation/vim-colors-solarized'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'bitterjug/vim-colors-freyr'
+" Plug 'bitterjug/vim-colors-freyr'
 "
 " status line
 Plug 'bling/vim-airline'
@@ -25,7 +25,7 @@ Plug 'tpope/vim-haml', {'for': 'haml'}
 " Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'ajf/puppet-vim', {'for': 'puppet'}
 Plug 'tpope/vim-git'
-Plug 'timcharper/textile.vim', {'for': 'textile'}
+" Plug 'timcharper/textile.vim', {'for': 'textile'}
 Plug 'vim-scripts/csv.vim'
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 Plug 'jnwhiteh/vim-golang', {'for': 'golang'}
@@ -47,7 +47,7 @@ Plug 'posva/vim-vue', {'for': 'vue'}
 " git (and merge)
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'sjl/threesome.vim'
+" Plug 'sjl/threesome.vim'
 Plug 'gregsexton/gitv'
 
 " functional plugins
@@ -84,7 +84,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 " wordpress
-Plug 'vim-scripts/VimRepress'
+" Plug 'vim-scripts/VimRepress'
 " editing
 Plug 'chrismetcalf/vim-yankring'
 Plug 'tpope/vim-unimpaired'
@@ -101,7 +101,7 @@ Plug 'tpope/vim-repeat'
 Plug 'ap/vim-css-color'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'chrisbra/NrrwRgn'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'bronson/vim-visual-star-search'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-lastpat'
@@ -110,9 +110,9 @@ Plug 'terryma/vim-expand-region'
 " email - python 2 only
 " Plug 'guyzmo/notmuch-abook'
 " org mode and related
-Plug 'hsitz/VimOrganizer'
-Plug 'vim-scripts/utl.vim'
-Plug 'mattn/calendar-vim'
+" Plug 'hsitz/VimOrganizer'
+" Plug 'vim-scripts/utl.vim'
+" Plug 'mattn/calendar-vim'
 Plug 'bitterjug/vim-notebook'
 " utility - python 2 only
 " Plug 'mbadran/headlights'

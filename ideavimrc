@@ -3,6 +3,9 @@ source ~/.dotfiles/vim/autocmds.vim
 source ~/.dotfiles/vim/mappings-safe.vim
 source ~/.dotfiles/vim/settings.vim
 
+set visualbell
+set noerrorbells
+
 " mappings just for ideavim
 set incsearch
 set surround
