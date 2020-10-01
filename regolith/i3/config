@@ -174,11 +174,6 @@ bindsym $mod+Ctrl+Shift+Down move workspace to output down
 bindsym $mod+Ctrl+Shift+Up move workspace to output up
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
 #
-# move workspaces to outputs
-bindsym $mod+Ctrl+Shift+Left move workspace to output left
-bindsym $mod+Ctrl+Shift+Down move workspace to output down
-bindsym $mod+Ctrl+Shift+Up move workspace to output up
-bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 ## Modify // Next Window Orientation // <> Backspace ##
 bindsym $mod+BackSpace split toggle
@@ -244,8 +239,8 @@ bindsym $mod+$alt+Ctrl+8 move container to workspace number $ws18; workspace num
 bindsym $mod+$alt+Ctrl+9 move container to workspace number $ws19; workspace number $ws19
 
 # move workspace to other monitor
-bindsym $mod+z move workspace to output left
-bindsym $mod+x move workspace to output right
+#bindsym $mod+z move workspace to output left
+#bindsym $mod+x move workspace to output right
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

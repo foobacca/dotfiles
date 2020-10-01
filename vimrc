@@ -18,6 +18,7 @@ Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'bling/vim-airline'
 Plug 'lambdatoast/elm.vim'
 
+Plug 'neovim/nvim-lsp'
 
 " syntax highlighting
 Plug 'vim-scripts/django.vim'
@@ -54,16 +55,19 @@ Plug 'gregsexton/gitv'
 " syntax checkers
 Plug 'scrooloose/syntastic'
 " completion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" Or install latest release tag
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 " python stuff
-Plug 'zchee/deoplete-jedi'
+" Plug 'zchee/deoplete-jedi'
 Plug 'klen/python-mode', {'branch': 'develop'}
 " Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/Tagbar'
@@ -163,6 +167,12 @@ command! OrgCaptureFile :call org#OpenCaptureFile()
 
 " make ack work on ubuntu
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+" Use LSP - python language server
+lua << EOF
+-- require'nvim_lsp'.pyls_ms.setup{}
+require'nvim_lsp'.pyls.setup{}
+EOF
 
 " NERD tree
 nmap <Leader>n :NERDTreeToggle<cr>
