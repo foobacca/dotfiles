@@ -107,6 +107,10 @@ fresh alacritty/Alacritty.desktop --file=~/.local/share/applications/Alacritty.d
 fresh alacritty/alacritty.png --file=~/.local/share/icons/hicolor/256x256/apps/alacritty.png
 fresh alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
 
+# kitty
+
+fresh kitty/kitty.conf --file=~/.config/kitty/kitty.conf
+
 # terminator solarized sample config
 fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
 
