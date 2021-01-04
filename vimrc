@@ -170,8 +170,8 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " Use LSP - python language server
 lua << EOF
--- require'nvim_lsp'.pyls_ms.setup{}
-require'nvim_lsp'.pyls.setup{}
+-- require('lspconfig').pyls_ms.setup{}
+require('lspconfig').pyls.setup{}
 EOF
 
 " NERD tree
