@@ -10,6 +10,10 @@ set noerrorbells
 set incsearch
 set surround
 
+" to workaround being unable to save settings
+" from https://youtrack.jetbrains.com/issue/VIM-1851
+set noideamarks
+
 " use kj to escape insert mode
 :inoremap kj <Esc>
 
