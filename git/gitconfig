@@ -38,6 +38,10 @@
 [push]
     default = tracking
 
+[fetch]
+    # clean local copies of branches that have been deleted on the remote
+    prune = true
+
 [diff "zip"]
     textconv = unzip -c -a
 
