@@ -41,6 +41,7 @@ fresh jasoncodes/dotfiles config/sqliterc --file
 fresh git/gitconfig.$(hostname) --file=~/.gitconfig
 fresh git/gitconfig --file
 fresh git/gitignore --file
+fresh git/gitattributes --file
 
 fresh tigrc --file
 

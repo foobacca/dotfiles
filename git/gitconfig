@@ -33,6 +33,7 @@
     excludesfile = ~/.gitignore
     pager = less -FRSX
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    attributesfile = ~/.gitattributes
 
 [push]
     default = tracking
