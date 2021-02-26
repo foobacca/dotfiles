@@ -1,3 +1,9 @@
 color cursor black green
 
 set wrap-lines = yes
+
+set line-graphics = utf-8
+
+set tab-size = 4
+
+set refresh-mode = auto
