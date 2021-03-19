@@ -24,7 +24,7 @@ Plug 'neovim/nvim-lsp'
 Plug 'vim-scripts/django.vim'
 Plug 'tpope/vim-haml', {'for': 'haml'}
 " Plug 'tpope/vim-markdown', {'for': 'markdown'}
-Plug 'ajf/puppet-vim', {'for': 'puppet'}
+" Plug 'ajf/puppet-vim', {'for': 'puppet'}
 Plug 'tpope/vim-git'
 " Plug 'timcharper/textile.vim', {'for': 'textile'}
 Plug 'vim-scripts/csv.vim'
@@ -71,6 +71,8 @@ Plug 'scrooloose/syntastic'
 Plug 'klen/python-mode', {'branch': 'develop'}
 " Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/Tagbar'
+" to use this, do `pip install black` in the neovim3 virtualenv
+Plug 'psf/black', {'branch': 'stable'}
 
 "Plugin 'tmhedberg/SimpylFold'  " might play with this one day
 "Plugin 'xolox/vim-misc'
