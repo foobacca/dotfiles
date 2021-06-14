@@ -31,4 +31,7 @@ export GO_PATH="$HOME/.local/share/go/"
 # pypyp config file
 export PYP_CONFIG_PATH="$HOME/.config/pypyp.py"
 
+# ansible: don't do cowsay!
+export ANSIBLE_NOCOWS=1
+
 # vi: ft=sh
