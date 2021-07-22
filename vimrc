@@ -18,7 +18,7 @@ Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'bling/vim-airline'
 Plug 'lambdatoast/elm.vim'
 
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 
 " syntax highlighting
 Plug 'vim-scripts/django.vim'
