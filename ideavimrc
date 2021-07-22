@@ -43,4 +43,7 @@ map <leader>u :action PublishGroup.Upload<CR>
 " map <leader>[ :action EditorCodeBlockStart<CR>
 " map <leader>] :action EditorCodeBlockEnd<CR>
 
+" do :Black to run black on the file
+command Black action Tool_External Tools_Black
+
 command! -nargs=* Usages action FindUsages
