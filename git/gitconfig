@@ -36,6 +36,9 @@
     attributesfile = ~/.gitattributes
     autocrlf = input
 
+[commit]
+    template = ~/.gitmessage
+
 [push]
     default = tracking
 
