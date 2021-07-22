@@ -38,10 +38,11 @@ fresh ackrc --file
 fresh jasoncodes/dotfiles config/sqliterc --file
 
 # git
-fresh git/gitconfig.$(hostname) --file=~/.gitconfig
+fresh "git/gitconfig.$(hostname)" --file=~/.gitconfig
 fresh git/gitconfig --file
 fresh git/gitignore --file
 fresh git/gitattributes --file
+fresh git/gitmessage --file
 
 fresh tigrc --file
 
