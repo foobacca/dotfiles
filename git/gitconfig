@@ -52,6 +52,10 @@
 [diff "po"]
     textconv = msgcat --no-location --no-wrap --sort-output
 
+[diff "odf"]
+    binary = true
+    textconv = odt2txt
+
 [merge]
     log = true
     conflictstyle = diff3
