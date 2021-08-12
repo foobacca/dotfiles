@@ -30,3 +30,6 @@
 *.rs    diff=rust
 *.lisp  diff=lisp
 *.el    diff=lisp
+*.ods   diff=odf
+*.odt   diff=odf
+*.odp   diff=odf
