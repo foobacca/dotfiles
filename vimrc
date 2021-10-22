@@ -21,6 +21,7 @@ Plug 'lambdatoast/elm.vim'
 Plug 'neovim/nvim-lspconfig'
 
 " syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'vim-scripts/django.vim'
 Plug 'tpope/vim-haml', {'for': 'haml'}
 " Plug 'tpope/vim-markdown', {'for': 'markdown'}
@@ -148,6 +149,7 @@ source ~/.dotfiles/vim/mappings.vim
 " source ~/.dotfiles/vim/python.vim
 source ~/.dotfiles/vim/settings.vim
 source ~/.dotfiles/vim/statusline.vim
+source ~/.dotfiles/vim/treesitter.vim
 
 " do autocmds last to do filetype override of other config
 source ~/.dotfiles/vim/autocmds.vim
@@ -174,7 +176,7 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 " Use LSP - python language server
 lua << EOF
 -- require('lspconfig').pyls_ms.setup{}
-require('lspconfig').pyls.setup{}
+require('lspconfig').pyright.setup{}
 EOF
 
 " NERD tree
