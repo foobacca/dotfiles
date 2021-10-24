@@ -74,7 +74,7 @@ Plug 'klen/python-mode', {'branch': 'develop'}
 " Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/Tagbar'
 " to use this, do `pip install black` in the neovim3 virtualenv
-Plug 'psf/black', {'branch': 'stable'}
+Plug 'psf/black'
 
 "Plugin 'tmhedberg/SimpylFold'  " might play with this one day
 "Plugin 'xolox/vim-misc'
