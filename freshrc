@@ -40,6 +40,9 @@ fresh jasoncodes/dotfiles config/sqliterc --file
 # git
 fresh "git/gitconfig.$(hostname)" --file=~/.gitconfig
 fresh git/gitconfig --file
+if hash delta 2>/dev/null; then
+    fresh "git/gitconfig.delta" --file=~/.gitconfig
+fi
 fresh git/gitignore --file
 fresh git/gitattributes --file
 fresh git/gitmessage --file
