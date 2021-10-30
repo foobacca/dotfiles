@@ -76,6 +76,10 @@ fresh emacs.d/init --file=~/.emacs.d/init/
 fresh emacsmirror/evil . --file=~/.emacs.d/evil/
 
 # tmux
+if [ $(hostname) != "foobacca.co.uk" ] && [ $(hostname) != "kingston" ]; then
+    # this contains using ctrl-space - only do that on laptop/desktop - not on servers
+    fresh 'tmux-local/*' --file=~/.tmux.conf
+fi
 fresh 'tmux/*' --file=~/.tmux.conf
 
 # dircolors - solarized
