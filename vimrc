@@ -46,6 +46,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'cespare/vim-toml'
 Plug 'posva/vim-vue', {'for': 'vue'}
 Plug 'chikamichi/mediawiki.vim'
+Plug 'zsh-users/zsh-syntax-highlighting'
 
 " git (and merge)
 Plug 'tpope/vim-fugitive'
