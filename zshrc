@@ -84,6 +84,7 @@ plugins=(
     vi-mode
     virtualenv
     virtualenvwrapper
+    zsh-syntax-highlighting
 )
 # Others to consider
 # history 
