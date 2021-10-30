@@ -21,9 +21,9 @@ fresh zshrc --file
 fresh zsh/zshenv --file
 fresh freshshell/fresh contrib/completion/fresh-completion.zsh --file=~/.zshrc
 fresh zsh/foobacca.zsh-theme --file=~/.oh-my-zsh/custom/themes/foobacca.zsh-theme
-fresh zsh/mosh.plugin.zsh --file=~/.oh-my-zsh/custom/mosh.plugin.zsh
-fresh zsh/tmuxinator.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/tmuxinator.plugin.zsh
-fresh zsh/tmuxinator.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/tmuxinator.plugin.zsh
+fresh zsh/foobacca-git.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/foobacca-git/foobacca-git.plugin.zsh
+# fresh zsh/mosh.plugin.zsh --file=~/.oh-my-zsh/custom/mosh.plugin.zsh
+# fresh zsh/tmuxinator.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/tmuxinator.plugin.zsh
 fresh zsh-users/zsh-syntax-highlighting . --file=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
 
 # general shell stuff for both bash and zsh
