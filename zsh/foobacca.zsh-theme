@@ -108,7 +108,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     #RPROMPT='${return_code}$(git_prompt_status) %{$fg[yellow]%}[%*]%{$reset_color%}'
     #PROMPT='%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(abbrev_pwd) $(git_prompt_info)%{$fg[cyan]%}%#%{$reset_color%} '
     # 3 line prompt
-    RPROMPT='$(git_prompt_status2) %{$fg[yellow]%}[%*]%{$reset_color%}'
+    RPROMPT='$(git_prompt_status_foobacca) %{$fg[yellow]%}[%*]%{$reset_color%}'
     PROMPT='
 ${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)$(hg_prompt_slosh)
 %{$fg[cyan]%}%#%{$reset_color%} '
