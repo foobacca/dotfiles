@@ -40,6 +40,9 @@ if has("autocmd")
     " less css files
     autocmd BufNewFile,BufRead *.less setlocal ft=less
 
+    " task.conf
+    autocmd BufNewFile,BufRead task.conf setlocal ft=json
+
     autocmd BufNewFile,BufRead admin.py     setlocal filetype=python.django
     autocmd BufNewFile,BufRead urls.py      setlocal filetype=python.django
     autocmd BufNewFile,BufRead models.py    setlocal filetype=python.django
