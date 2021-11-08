@@ -34,8 +34,9 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.pp setlocal ft=puppet
 
     " Markdown files
-    autocmd BufNewFile,BufRead *.md setlocal ft=markdown
-    autocmd BufNewFile,BufRead *.mdwn setlocal filetype=markdown
+    autocmd BufNewFile,BufRead *.md setlocal ft=pandoc
+    autocmd BufNewFile,BufRead *.mkd setlocal ft=pandoc
+    autocmd BufNewFile,BufRead *.mdwn setlocal filetype=pandoc
 
     " less css files
     autocmd BufNewFile,BufRead *.less setlocal ft=less
