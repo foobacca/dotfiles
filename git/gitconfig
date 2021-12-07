@@ -46,6 +46,12 @@
     # clean local copies of branches that have been deleted on the remote
     prune = true
 
+[diff]
+    tool = vimdiff
+
+[difftool]
+    prompt = false
+
 [diff "zip"]
     textconv = unzip -c -a
 
