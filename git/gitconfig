@@ -59,8 +59,8 @@
 [merge]
     log = true
     conflictstyle = diff3
-    # tool = vimdiff
-    tool = meld
+    tool = vimdiff
+    # tool = meld
 
 [mergetool]
     prompt = false
