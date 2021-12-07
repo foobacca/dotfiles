@@ -48,6 +48,7 @@
 
 [diff]
     tool = vimdiff
+    guitool = meld
 
 [difftool]
     prompt = false
