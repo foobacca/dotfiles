@@ -1,3 +1,4 @@
+# general settings
 color cursor black green
 
 set wrap-lines = yes
@@ -7,3 +8,8 @@ set line-graphics = utf-8
 set tab-size = 4
 
 set refresh-mode = auto
+
+# vim like movement
+# can't use g or gg - g is "grep"
+bind diff b move-first-line
+bind diff G move-last-line
