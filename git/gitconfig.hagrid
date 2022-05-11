@@ -2,4 +2,10 @@
 [user]
     email = hamish.downer@iqvia.com
 
+[include]
+    path = ~/dev/ods_settings/ods_gitconfig
+
+[init]
+    templatedir = ~/dev/ods_settings/git-templates
+
 # vi: ft=gitconfig
