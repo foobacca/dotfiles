@@ -47,6 +47,7 @@ Plug 'cespare/vim-toml'
 Plug 'posva/vim-vue', {'for': 'vue'}
 Plug 'chikamichi/mediawiki.vim'
 Plug 'zsh-users/zsh-syntax-highlighting'
+Plug 'aklt/plantuml-syntax'
 
 " git (and merge)
 Plug 'tpope/vim-fugitive'
