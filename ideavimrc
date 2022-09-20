@@ -9,6 +9,8 @@ set noerrorbells
 " mappings just for ideavim
 set incsearch
 set surround
+" join lines - strings and comments handle sensibly
+set ideajoin
 
 " to workaround being unable to save settings
 " from https://youtrack.jetbrains.com/issue/VIM-1851
