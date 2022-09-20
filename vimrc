@@ -75,8 +75,7 @@ Plug 'scrooloose/syntastic'
 Plug 'klen/python-mode', {'branch': 'develop'}
 " Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/Tagbar'
-" to use this, do `pip install black` in the neovim3 virtualenv
-Plug 'psf/black'
+Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
 
 "Plugin 'tmhedberg/SimpylFold'  " might play with this one day
 "Plugin 'xolox/vim-misc'
