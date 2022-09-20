@@ -1,7 +1,10 @@
 # stop the pc speaker ever annoying me :)
 # but not supported when inside screen/tmux
 if [[ "$TERM" =~ ^(screen|tmux)(-256color)?$ ]]; then
-    setterm --bfreq 0
+    # no setterm on mac
+    if command -v setterm &> /dev/null; then
+        setterm --bfreq 0
+    fi
 fi
 
 # vi: ft=sh
