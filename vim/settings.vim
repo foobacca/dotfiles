@@ -145,6 +145,12 @@ let g:deoplete#enable_at_startup = 1
 " PYTHON MODE
 let g:pymode_python = 'python3'
 
+" black
+let g:black#settings = {
+    \ 'fast': 1,
+    \ 'line_length': 120
+\}
+
 " Rope
 " Go to definition in a new buffer: horizontal split
 let g:pymode_rope_goto_def_newwin='new'
