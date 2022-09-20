@@ -1,7 +1,8 @@
 # ~/.tmuxinator/work.yml
 # you can make as many tabs as you wish...
 name: Linguamatics work setup
-root: /home/hdowner
+root: /Users/hdowner
+on_project_start: ssh-add --apple-use-keychain
 windows:
   - local:
       layout: even-horizontal
@@ -10,18 +11,18 @@ windows:
         -
   - free:
       layout: even-horizontal
-      root: /home/hdowner/dev
+      root: /Users/hdowner/dev
       panes:
         -
         -
   - cindexd-dev:
       layout: even-horizontal
-      root: /home/hdowner/dev/cindexd
+      root: /Users/hdowner/dev/cindexd
       panes:
         - 
         -
   - todo:
-      root: /home/hdowner/tasks
+      root: /Users/hdowner/tasks
       layout: even-horizontal
       panes:
         - ls
@@ -33,7 +34,7 @@ windows:
         -
   - free:
       layout: even-horizontal
-      root: /home/hdowner/dev
+      root: /Users/hdowner/dev
       panes:
         -
         -
