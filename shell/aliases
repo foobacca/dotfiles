@@ -50,7 +50,8 @@ alias tma='tmux attach -d -t'
 alias git-tmux='tmux new -s $(basename $(pwd))'
 
 # vim
-alias nv='nvim'
+alias nv='arch -arm64 nvim'
+alias vim='arch -arm64 nvim'
 
 # pwsafe
 #alias pw='pwsafe -p'
@@ -73,3 +74,8 @@ fi
 # sshfs at home
 alias sshfs-kingston="sshfs -o idmap=user kingston: ~/kingston"
 alias sshfs-kmedia="sshfs -o idmap=user kingston:/bigstore/media ~/kingston_media"
+
+alias tig="TERM=xterm-256color tig"
+
+# Mac - when was password last changed
+alias lastpwchange="dscl . read $HOME | grep passwordLastSetTime -A1 | grep real | cut -d'>' -f 2 | cut -d'.' -f 1 | xargs date -r"
