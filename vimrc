@@ -9,6 +9,10 @@ call plug#begin('~/.vim/plugged')
 
 "Add your bundles here
 
+" ghost text, for firefox text box editing
+" Plug 'subnut/nvim-ghost.nvim', {'do': ':call nvim_ghost#installer#install()'}
+" unfortunately this gets considered malware by counterstrike, so can't use it
+
 " Colours
 " Plug 'altercation/vim-colors-solarized'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
@@ -22,32 +26,18 @@ Plug 'neovim/nvim-lspconfig'
 
 " syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'vim-scripts/django.vim'
-Plug 'tpope/vim-haml', {'for': 'haml'}
-" Plug 'tpope/vim-markdown', {'for': 'markdown'}
-" Plug 'ajf/puppet-vim', {'for': 'puppet'}
-Plug 'tpope/vim-git'
-" Plug 'timcharper/textile.vim', {'for': 'textile'}
-Plug 'vim-scripts/csv.vim'
-Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
-Plug 'jnwhiteh/vim-golang', {'for': 'golang'}
+
+" many languages
+Plug 'sheerun/vim-polyglot'
+
+" Plug 'tpope/vim-git'
 Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Shutnik/jshint2.vim', {'for': 'javascript'}
-Plug 'chase/vim-ansible-yaml', {'for': 'ansible'}
-Plug 'Glench/Vim-Jinja2-Syntax', {'for': 'jinja'}
-Plug 'groenewege/vim-less', {'for': 'less'}
-Plug 'ekalinin/Dockerfile.vim', {'for': 'Dockerfile'}
-Plug 'martinda/Jenkinsfile-vim-syntax', {'for': 'Jenkinsfile'}
-Plug 'hashivim/vim-terraform', {'for': 'terraform'}
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'cespare/vim-toml'
-Plug 'posva/vim-vue', {'for': 'vue'}
 Plug 'chikamichi/mediawiki.vim'
-Plug 'zsh-users/zsh-syntax-highlighting'
-Plug 'aklt/plantuml-syntax'
 
 " git (and merge)
 Plug 'tpope/vim-fugitive'
