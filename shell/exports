@@ -6,7 +6,7 @@ HISTSIZE=50000
 export PYTHONIOENCODING=utf-8
 
 # default editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # make bc work nicely - use math library
 export BC_ENV_ARGS=-l
@@ -31,7 +31,11 @@ export GO_PATH="$HOME/.local/share/go/"
 # pypyp config file
 export PYP_CONFIG_PATH="$HOME/.config/pypyp.py"
 
+export PYENV_ROOT="$HOME/.pyenv"
+
 # ansible: don't do cowsay!
 export ANSIBLE_NOCOWS=1
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # vi: ft=sh
