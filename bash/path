@@ -26,7 +26,12 @@ pathadd $HOME/.local/share/go/bin
 pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/.cargo/bin
 pathadd $HOME/bin
+pathadd /Applications/Postgres.app/Contents/Versions/latest/bin
 
 ldlibrarypathadd $HOME/.linuxbrew/lib
+
+if [ -x "$(command -v mcfly)" ]; then
+    eval "$(mcfly init bash)"
+fi
 
 # vi: ft=sh

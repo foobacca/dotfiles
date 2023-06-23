@@ -1,3 +1,6 @@
+# required for pycharm to find docker-compose - I think
+source /etc/zprofile
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -66,6 +69,7 @@ DISABLE_AUTO_TITLE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+export FZF_BASE="/opt/homebrew/opt/fzf"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -78,16 +82,18 @@ plugins=(
     history
     history-substring-search
     pip
+    pyenv
     python
-    tmux
-    tmuxinator
-    vi-mode
+    #tmux
+    #tmuxinator
     virtualenv
     virtualenvwrapper
     zsh-syntax-highlighting
+    zsh-vi-mode
 )
 # Others to consider
-# history 
+# history? 
+# vi-mode - the default one, replaced by zsh-vi-mode, which is more powerful
 
 source $ZSH/oh-my-zsh.sh
 

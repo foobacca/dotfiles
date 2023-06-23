@@ -33,11 +33,14 @@ pathadd /var/lib/gems/1.9.1/bin
 pathadd $HOME/.gem/ruby/2.5.0/bin
 pathadd $HOME/node_modules/phantomjs/bin
 pathadd $HOME/.local/bin
+pathadd $HOME/Library/Python/3.9/bin
 pathadd $HOME/.local/share/go/bin
 pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/.cargo/bin
 pathadd $HOME/.pyenv/bin
 pathadd $HOME/bin
+pathadd /Applications/Postgres.app/Contents/Versions/latest/bin
+pathadd /opt/homebrew/Cellar/pyenv/2.3.5/bin
 
 ldlibrarypathadd /usr/local/lib
 ldlibrarypathadd $HOME/.linuxbrew/lib
@@ -47,10 +50,19 @@ if [ -f "$HOME/.pyenv/bin/pyenv" ]; then
     eval "$($HOME/.pyenv/bin/pyenv virtualenv-init -)"
 fi
 
+if [ -f "/opt/homebrew/Cellar/pyenv/2.3.5/bin/pyenv" ]; then
+    eval "$(/opt/homebrew/Cellar/pyenv/2.3.5/bin/pyenv init -)"
+    eval "$(/opt/homebrew/Cellar/pyenv/2.3.5/bin/pyenv virtualenv-init -)"
+fi
+
 # make neovim checkhealth a bit happier
 # see https://vi.stackexchange.com/questions/7644/use-vim-with-virtualenv/7654#7654
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   source "${VIRTUAL_ENV}/bin/activate"
+fi
+
+if [ -x "$(command -v mcfly)" ]; then
+    eval "$(mcfly init zsh)"
 fi
 
 if [[ -o login ]]; then
