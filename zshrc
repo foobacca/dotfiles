@@ -160,3 +160,20 @@ fi
 # if [ -f ~/.fzf.zsh ]; then
 #     source ~/.fzf.zsh
 # fi
+
+# Mac only
+# this shows 85 days after the last password change, whenever you start a new terminal.
+if [ -f /usr/bin/dscl ]; then
+    # unix timestamp of last change
+    last_pw_change=$(dscl . read $HOME | grep -A 1 passwordLast | grep real | cut -d'>' -f 2 | cut -d'.' -f 1)
+    now=$(date +%s)
+    eighty_days=$((80*24*60*60))
+    eighty_five_days=$((85*24*60*60))
+    next_pw_change=$(echo $((last_pw_change+eighty_five_days)) | xargs date -r)
+    echo "Next password change due: $next_pw_change"
+    if [[ $now -gt $((last_pw_change+eighty_days)) ]]; then
+        RED='\033[0;31m'
+        NC='\033[0m' # No Color
+        echo "${RED}     ***** LESS THAN 5 DAYS LEFT *****${NC}"
+    fi
+fi
