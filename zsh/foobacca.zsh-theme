@@ -57,6 +57,18 @@ function prompt_color {
     fi
 }
 
+function user_host_color {
+    if [ "$USER" = "root" ]; then
+        echo "red"
+    else
+        if [ -n "$SSH_TTY" ]; then
+            echo "blue"
+        else
+            echo "green"
+        fi
+    fi
+}
+
 # stuff nicked from kphoen.zsh-theme and pygmalion.zsh-theme
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
@@ -92,7 +104,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     # 3 line prompt
     RPROMPT='$(git_prompt_status_foobacca) %{$fg[yellow]%}[%*]%{$reset_color%}'
     PROMPT='
-${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%n@%m:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)
+${return_code}%{$fg[blue]%}$(venv_active)%{$fg[magenta]%}%(1j.[%j].)%{$fg[green]%}%{$fg[$(user_host_color)]%}%n@%m%{$reset_color%}:%{$fg[cyan]%}$(prompt_pwd) $(git_prompt_info)
 %{$fg[cyan]%}%#%{$reset_color%} '
 
 else
