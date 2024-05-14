@@ -11,7 +11,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="foobacca"
+# ZSH_THEME="foobacca"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
@@ -89,7 +90,7 @@ plugins=(
     virtualenv
     virtualenvwrapper
     zsh-syntax-highlighting
-    zsh-vi-mode
+    #zsh-vi-mode
 )
 # Others to consider
 # history? 
@@ -119,6 +120,9 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+
+# Use native zsh vi mode
+bindkey -v
 
 # rebind keys for history substring search - they seem to get lost somewhere
 bindkey '\e[A' history-substring-search-up
@@ -177,3 +181,10 @@ if [ -f /usr/bin/dscl ]; then
         echo "${RED}     ***** LESS THAN 5 DAYS LEFT *****${NC}"
     fi
 fi
+
+# powerlevel10k bits
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+if [ -f ~/.p10k.zsh ]; then
+    source ~/.p10k.zsh
+fi
+
