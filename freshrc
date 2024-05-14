@@ -25,7 +25,8 @@ fresh zsh/foobacca-git.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/foobacca-gi
 # fresh zsh/mosh.plugin.zsh --file=~/.oh-my-zsh/custom/mosh.plugin.zsh
 # fresh zsh/tmuxinator.plugin.zsh --file=~/.oh-my-zsh/custom/plugins/tmuxinator.plugin.zsh
 fresh zsh-users/zsh-syntax-highlighting . --file=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/
-fresh jeffreytse/zsh-vi-mode . --file=~/.oh-my-zsh/custom/plugins/zsh-vi-mode/
+# fresh jeffreytse/zsh-vi-mode . --file=~/.oh-my-zsh/custom/plugins/zsh-vi-mode/
+fresh zsh/p10k.zsh --file=~/.p10k.zsh
 
 # general shell stuff for both bash and zsh
 fresh 'shell/*'
