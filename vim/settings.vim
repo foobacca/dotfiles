@@ -78,6 +78,9 @@ set directory=~/.vim/_temp//      " where to put swap files.
 if has('nvim')
     set termguicolors
     "set guicursor=
+
+    " auto write to disk
+    set autowriteall
 endif
 
 ""
