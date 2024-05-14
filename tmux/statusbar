@@ -14,6 +14,8 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 # use powerline stuff
-source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+# need to `pip install --user powerline-status` first
+source ~/Library/Python/3.9/lib/python/site-packages/powerline/bindings/tmux/powerline.conf
+#source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
 #source ~/.vim/bundle/powerline/powerline/bindings/tmux/powerline.conf
 
