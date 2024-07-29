@@ -46,8 +46,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'gregsexton/gitv'
 
 " functional plugins
-" syntax checkers
-Plug 'scrooloose/syntastic'
 " completion
 " Or install latest release tag
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
@@ -62,7 +60,7 @@ Plug 'scrooloose/syntastic'
 
 " python stuff
 " Plug 'zchee/deoplete-jedi'
-Plug 'klen/python-mode', {'branch': 'develop'}
+Plug 'klen/python-mode', {'for': 'python', 'branch': 'develop'}
 " Plug 'davidhalter/jedi-vim'
 Plug 'vim-scripts/Tagbar'
 Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
@@ -137,6 +135,7 @@ runtime macros/matchit.vim
 source ~/.dotfiles/vim/abbrev.vim
 source ~/.dotfiles/vim/gui_settings.vim
 source ~/.dotfiles/vim/mappings.vim
+" this is sourced at the top of the file
 " source ~/.dotfiles/vim/python.vim
 source ~/.dotfiles/vim/settings.vim
 source ~/.dotfiles/vim/statusline.vim
