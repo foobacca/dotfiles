@@ -50,9 +50,9 @@ if [ -f "$HOME/.pyenv/bin/pyenv" ]; then
     eval "$($HOME/.pyenv/bin/pyenv virtualenv-init -)"
 fi
 
-if [ -f "/opt/homebrew/Cellar/pyenv/2.3.5/bin/pyenv" ]; then
-    eval "$(/opt/homebrew/Cellar/pyenv/2.3.5/bin/pyenv init -)"
-    eval "$(/opt/homebrew/Cellar/pyenv/2.3.5/bin/pyenv virtualenv-init -)"
+if [ -f "/opt/homebrew/Cellar/pyenv/2.4.8/bin/pyenv" ]; then
+    eval "$(/opt/homebrew/Cellar/pyenv/2.4.8/bin/pyenv init - --no-rehash)"
+    eval "$(/opt/homebrew/Cellar/pyenv/2.4.8/bin/pyenv virtualenv-init -)"
 fi
 
 # make neovim checkhealth a bit happier
