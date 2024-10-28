@@ -1,5 +1,7 @@
 # required for pycharm to find docker-compose - I think
-source /etc/zprofile
+if [[ -f /etc/zprofile ]]; then
+    source /etc/zprofile
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
