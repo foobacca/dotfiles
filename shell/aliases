@@ -50,8 +50,13 @@ alias tma='tmux attach -d -t'
 alias git-tmux='tmux new -s $(basename $(pwd))'
 
 # vim
-alias nv='arch -arm64 nvim'
-alias vim='arch -arm64 nvim'
+if [[ "$OSTYPE" == "darwin" ]]; then
+    alias nv='arch -arm64 nvim'
+    alias vim='arch -arm64 nvim'
+else
+    alias nv='nvim'
+    alias vim='nvim'
+fi
 
 # pwsafe
 #alias pw='pwsafe -p'
