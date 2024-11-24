@@ -85,7 +85,7 @@ plugins=(
     history
     history-substring-search
     pip
-    pyenv
+    # pyenv
     python
     #tmux
     #tmuxinator
@@ -190,3 +190,5 @@ if [ -f ~/.p10k.zsh ]; then
     source ~/.p10k.zsh
 fi
 
+# alternative pyenv activate
+function pyenv-activate() {source $HOME/.pyenv/versions/${1}/bin/activate}

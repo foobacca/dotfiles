@@ -35,7 +35,13 @@ fi
 alias lhttp='lighttpd -D -f ~/dev/lighttpd/lighttpd.conf'
 
 # from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
-alias xopen="xdg-open"
+if [ -f /usr/bin/xdg-open ]; then
+    alias xopen="xdg-open"
+fi
+# give mac the same alias
+if [ -f /usr/bin/open ]; then
+    alias xopen="open"
+fi
 
 alias rmpyc='find . -name \*.pyc -delete'
 
