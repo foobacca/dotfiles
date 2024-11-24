@@ -1,3 +1,18 @@
+if true then
+return {
+  -- add gruvbox
+  { "frankier/neovim-colors-solarized-truecolor-only" },
+
+  -- Configure LazyVim to load gruvbox
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "solarized",
+    },
+  },
+} 
+end
+
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
 if true then return {} end
