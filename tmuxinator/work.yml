@@ -17,7 +17,7 @@ windows:
         -
   - cindexd-dev:
       layout: even-horizontal
-      root: /Users/hdowner/dev/cindexd
+      root: /Users/hdowner/dev/csi/projects
       panes:
         - 
         -
@@ -32,9 +32,15 @@ windows:
       panes:
         - ssh root@cindexd-master.ods.os.linguamatics.com
         -
-  - free:
+  - infra:
       layout: even-horizontal
-      root: /Users/hdowner/dev
+      root: /Users/hdowner/dev/csi/infrastructure
+      panes:
+        -
+        -
+  - i2e-dev:
+      layout: even-horizontal
+      root: /Users/hdowner/dev/dev/i2e
       panes:
         -
         -
