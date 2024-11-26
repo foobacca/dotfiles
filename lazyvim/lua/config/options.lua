@@ -7,3 +7,6 @@ vim.opt.relativenumber = false
 
 -- don't auto copy to the system clipboard
 vim.opt.clipboard = ""
+
+-- disable all mouse stuff
+vim.opt.mouse = ""
