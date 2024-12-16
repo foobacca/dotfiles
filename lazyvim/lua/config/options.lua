@@ -10,3 +10,6 @@ vim.opt.clipboard = ""
 
 -- disable all mouse stuff
 vim.opt.mouse = ""
+
+-- create Wrap command
+vim.api.nvim_create_user_command("Wrap", "set wrap linebreak nolist", {})
