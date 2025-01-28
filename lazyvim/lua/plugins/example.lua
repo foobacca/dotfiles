@@ -45,6 +45,14 @@ if true then
 				},
 			},
 		},
+
+		-- revert to standard `s` keybinding
+		{
+			"folke/flash.nvim",
+			keys = {
+				{ "s", false },
+			},
+		},
 	}
 end
 
