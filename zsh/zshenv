@@ -8,6 +8,12 @@ function pathadd {
     fi
 }
 
+function pathaddprefix {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        path=($1 $path)
+    fi
+}
+
 typeset -T LD_LIBRARY_PATH ld_library_path
 typeset -U ld_library_path
 function ldlibrarypathadd {
@@ -38,7 +44,7 @@ pathadd $HOME/.local/share/go/bin
 pathadd $HOME/.linuxbrew/bin
 pathadd $HOME/.cargo/bin
 pathadd $HOME/.pyenv/bin
-pathadd $HOME/bin
+pathaddprefix $HOME/bin
 pathadd /Applications/Postgres.app/Contents/Versions/latest/bin
 pathadd /opt/homebrew/Cellar/pyenv/2.3.5/bin
 
