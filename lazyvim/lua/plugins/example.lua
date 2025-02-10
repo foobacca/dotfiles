@@ -53,6 +53,17 @@ if true then
 				{ "s", false },
 			},
 		},
+
+    -- disable minipairs and try nvim-autopairs instead
+    {
+      "echasnovski/mini.pairs",
+      enabled = false,
+    },
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      opts = {},
+    },
 	}
 end
 
