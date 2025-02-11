@@ -54,6 +54,11 @@ if true then
 			},
 		},
 
+    -- note making plugin
+    {
+      "foobacca/foobacca-note",
+    },
+
     -- disable minipairs and try nvim-autopairs instead
     {
       "echasnovski/mini.pairs",
