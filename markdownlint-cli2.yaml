@@ -1,0 +1,9 @@
+---
+config:
+  # header style
+  MD003:
+    style: setext_with_atx
+  # line length
+  MD013: false
+
+  gitignore: true

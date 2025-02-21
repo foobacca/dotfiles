@@ -144,6 +144,9 @@ fresh regolith/Xresources --file=~/.config/regolith/Xresources
 # need to do `pipsi install pypyp` and then install pipetools into that venv and then
 fresh pypyp.py --file=~/.config/pypyp.py
 
+# markdown lint
+fresh markdownlint-cli2.yaml --file
+
 ############
 # mail stuff
 ############
