@@ -91,5 +91,4 @@ alias tig="TERM=xterm-256color tig"
 # Mac - when was password last changed
 alias lastpwchange="dscl . read $HOME | grep passwordLastSetTime -A1 | grep real | cut -d'>' -f 2 | cut -d'.' -f 1 | xargs date -r"
 
-alias pych="open -aPyCharm"
-alias ij="open -aIntelliJ"
+alias uvr="uv run"
