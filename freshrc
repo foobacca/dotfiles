@@ -51,10 +51,6 @@ fresh git/gitmessage --file
 
 fresh tigrc --file
 
-# hg - in dev, do:
-# hg clone http://bitbucket.org/sjl/hg-prompt/
-fresh hgrc-promptonly --file
-
 # vim
 fresh gvimrc --file
 fresh vimperatorrc --file
@@ -62,18 +58,6 @@ fresh vimperatorrc --file
 # lazyvim
 fresh lazyvim/init.lua --file=~/.config/nvim/init.lua
 fresh lazyvim/lua --file=~/.config/nvim/lua/
-
-# note vimrc sources files from .dotfiles/vim in particular order
-# fresh vimrc --file=~/.vimrc
-# fresh ideavimrc --file=~/.ideavimrc
-# # if we copy in blindly we might stuff up the vundle installation
-# # so only copy in once the directory exists
-# if [ -d "$HOME/.vim/plugged/vim-airline/autoload/airline/themes" ]; then
-#     fresh vim/airline/themes/solarized2.vim --file=~/.vim/plugged/vim-airline/autoload/airline/themes/solarized2.vim
-# fi
-# 
-# # neovim
-# fresh nvim/init.vim --file=~/.config/nvim/init.vim
 
 # emacs
 fresh emacs.d/init.el --file=~/.emacs.d/init.el
@@ -151,34 +135,6 @@ fresh markdownlint-cli2.yaml --file
 # mail stuff
 ############
 
-# common stuff
-if [ $(hostname) = "foobacca.co.uk" ] || [ $(hostname) = "lap-e330" ] || [ $(hostname) = "mishtop" ]; then
-    fresh mail/signature.work --file=~/.signature.work
-    fresh mail/mbsyncrc --file=~/.mbsyncrc
-    fresh mail/checkworkmail --bin
-    # fresh mail/offlineimaprc --file=~/.offlineimaprc
-
-    # notmuch filtering
-    fresh mail/notmuch-post-new.work --bin=~/workmail/.notmuch/hooks/post-new
-    fresh afew/config --file=~/.config/afew/config
-
-fi
-
-if [ $(hostname) = "steelcommando" ]; then
-    fresh mail/signature.linguamatics --file=~/.signature
-    fresh mail/mbsyncrc.linguamatics --file=~/.mbsyncrc
-    fresh mail/checkworkmail --bin
-    fresh mail/mail-pass --bin
-    # fresh mail/offlineimaprc --file=~/.offlineimaprc
-
-    # notmuch filtering
-    fresh mail/notmuch-config-linguamatics --file=~/.notmuch-config
-    fresh mail/notmuch-post-new.linguamatics --bin=~/local/mail/.notmuch/hooks/post-new
-    fresh afew/config.linguamatics --file=~/.config/afew/config
-    fresh mail/notmuch-work-abook-ignore --file=/opt/hdowner/.notmuch-work-abook-ignore
-
-fi
-
 # foobacca only stuff
 if [ $(hostname) = "foobacca.co.uk" ]; then
     fresh mail/mailcap.server --file=~/.mailcap
@@ -204,22 +160,6 @@ if [ $(hostname) = "foobacca.co.uk" ]; then
     fresh-options --file=~/.config/alot/config
         fresh alot/config.common
         fresh alot/config.gmail
-        fresh alot/config.bindings
-        fresh alot/config.theme
-    fresh-options
-    fresh alot/hooks.py --file=~/.config/alot/hooks.py
-    fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
-fi
-
-# laptop only stuff
-if [ $(hostname) = "lap-e330" ]; then
-    fresh mail/mailcap.laptop --file=~/.mailcap
-    fresh mail/notmuch-config-work --file=~/.notmuch-config
-
-    # alot - notmuch based mail client
-    fresh-options --file=~/.config/alot/config
-        fresh alot/config.common
-        fresh alot/config.work
         fresh alot/config.bindings
         fresh alot/config.theme
     fresh-options

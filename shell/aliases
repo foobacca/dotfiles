@@ -59,6 +59,11 @@ alias git-tmux='tmux new -s $(basename $(pwd))'
 if [[ "$OSTYPE" == "darwin" ]]; then
     alias nv='arch -arm64 nvim'
     alias vim='arch -arm64 nvim'
+elif [[ -f "/home/linuxbrew/.linuxbrew/bin/nvim" ]]; then
+    # assuming we've set this up via alternatives to be the default vim by doing
+    # sudo update-alternatives --install /usr/bin/nvim nvim /home/linuxbrew/.linuxbrew/bin/nvim 100
+    alias nv='vim'
+    alias nvim='vim'
 else
     alias nv='nvim'
     alias vim='nvim'
