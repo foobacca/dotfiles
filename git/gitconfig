@@ -36,6 +36,9 @@
     attributesfile = ~/.gitattributes
     autocrlf = input
 
+[init]
+    defaultBranch = main
+
 [commit]
     template = ~/.gitmessage
 
