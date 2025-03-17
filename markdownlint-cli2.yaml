@@ -2,7 +2,7 @@
 config:
   # header style
   MD003:
-    style: setext_with_atx
+    style: atx
   # line length
   MD013: false
 
