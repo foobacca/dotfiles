@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+from pathlib import Path
+
+HOME_DEV = Path.home() / "dev"
+CACHE_DEV = Path("/home/cache/dev")
+DIRS_MOVED = (".venv", "node_modules")
+
+
+def parse_args(argv: list[str]) -> str:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("dir_to_move", choices=DIRS_MOVED, help="The directory to move to /home/cache/")
+    args = parser.parse_args(argv)
+    return args.dir_to_move
+
+
+def main(argv: list[str]) -> int:
+    dir_to_move = parse_args(argv)
+    cwd = Path.cwd().absolute()
+    if HOME_DEV not in cwd.parents:
+        print("This script only works if you are in $HOME/dev/")
+        return 1
+    new_dir = CACHE_DEV / cwd.relative_to(HOME_DEV)
+    new_dir.mkdir(parents=True, exist_ok=True)
+    (cwd / dir_to_move).rename(new_dir / dir_to_move)
+    print(f"Moved {dir_to_move} to {new_dir}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
