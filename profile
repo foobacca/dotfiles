@@ -19,3 +19,5 @@ fi
 setxkbmap -option 'caps:ctrl_modifier'
 # xcape -e 'Caps_Lock=Escape'
 # xcape -e '#66=Escape'
+
+XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share/:$XDG_DATA_DIRS"
