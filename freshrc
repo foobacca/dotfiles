@@ -42,7 +42,7 @@ fresh jasoncodes/dotfiles config/sqliterc --file
 fresh "git/gitconfig.$(hostname)" --file=~/.gitconfig
 fresh git/gitconfig --file
 if hash delta 2>/dev/null; then
-    fresh "git/gitconfig.delta" --file=~/.gitconfig
+  fresh "git/gitconfig.delta" --file=~/.gitconfig
 fi
 fresh git/gitignore --file
 fresh git/gitattributes --file
@@ -72,8 +72,8 @@ fresh emacsmirror/evil . --file=~/.emacs.d/evil/
 
 # tmux
 if [ $(hostname) != "foobacca.co.uk" ] && [ $(hostname) != "kingston" ]; then
-    # this contains using ctrl-space - only do that on laptop/desktop - not on servers
-    fresh 'tmux-local/*' --file=~/.tmux.conf
+  # this contains using ctrl-space - only do that on laptop/desktop - not on servers
+  fresh 'tmux-local/*' --file=~/.tmux.conf
 fi
 fresh 'tmux/*' --file=~/.tmux.conf
 
@@ -141,34 +141,34 @@ fresh markdownlint-cli2.yaml --file
 
 # foobacca only stuff
 if [ $(hostname) = "foobacca.co.uk" ]; then
-    fresh mail/mailcap.server --file=~/.mailcap
-    fresh mail/msmtprc --file=~/.msmtprc
+  fresh mail/mailcap.server --file=~/.mailcap
+  fresh mail/msmtprc --file=~/.msmtprc
 
-    # core notmuch
-    fresh mail/notmuch-config-work --file=~/.notmuch-config-work
-    fresh mail/notmuch-config-gmail --file=~/.notmuch-config
-    # gmail collection script
-    fresh zx2c4/gmail-notmuch gmail-notmuch.py --bin
+  # core notmuch
+  fresh mail/notmuch-config-work --file=~/.notmuch-config-work
+  fresh mail/notmuch-config-gmail --file=~/.notmuch-config
+  # gmail collection script
+  fresh zx2c4/gmail-notmuch gmail-notmuch.py --bin
 
-    fresh mail/notmuch-work-abook-ignore --file=~/.notmuch-work-abook-ignore
+  fresh mail/notmuch-work-abook-ignore --file=~/.notmuch-work-abook-ignore
 
-    fresh-options --file=~/.config/alotwork/config
-        fresh alot/config.common
-        fresh alot/config.work
-        fresh alot/config.bindings
-        fresh alot/config.theme
-    fresh-options
-    fresh alot/hooks.py --file=~/.config/alotwork/hooks.py
-    fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
+  fresh-options --file=~/.config/alotwork/config
+  fresh alot/config.common
+  fresh alot/config.work
+  fresh alot/config.bindings
+  fresh alot/config.theme
+  fresh-options
+  fresh alot/hooks.py --file=~/.config/alotwork/hooks.py
+  fresh alot/themes/solarized_dark --file=~/.config/alotwork/themes/solarized_dark
 
-    fresh-options --file=~/.config/alot/config
-        fresh alot/config.common
-        fresh alot/config.gmail
-        fresh alot/config.bindings
-        fresh alot/config.theme
-    fresh-options
-    fresh alot/hooks.py --file=~/.config/alot/hooks.py
-    fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
+  fresh-options --file=~/.config/alot/config
+  fresh alot/config.common
+  fresh alot/config.gmail
+  fresh alot/config.bindings
+  fresh alot/config.theme
+  fresh-options
+  fresh alot/hooks.py --file=~/.config/alot/hooks.py
+  fresh alot/themes/solarized_dark --file=~/.config/alot/themes/solarized_dark
 fi
 
 # vi: ft=sh
