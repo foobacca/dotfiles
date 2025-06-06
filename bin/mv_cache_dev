@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import shutil
 import sys
 from pathlib import Path
 
@@ -22,10 +23,24 @@ def main(argv: list[str]) -> int:
     if HOME_DEV not in cwd.parents:
         print("This script only works if you are in $HOME/dev/")
         return 1
-    new_dir = CACHE_DEV / cwd.relative_to(HOME_DEV)
-    new_dir.mkdir(parents=True, exist_ok=True)
-    (cwd / dir_to_move).rename(new_dir / dir_to_move)
-    print(f"Moved {dir_to_move} to {new_dir}")
+
+    old_dir = cwd / dir_to_move
+    if not old_dir.is_dir():
+        print(f"The directory to move, {old_dir}, does not exist or is not a directory.")
+        return 1
+
+    new_parent_dir = CACHE_DEV / cwd.relative_to(HOME_DEV)
+    new_parent_dir.mkdir(parents=True, exist_ok=True)
+    new_dir = new_parent_dir / dir_to_move
+    if new_dir.exists():
+        print(f"The directory to move to, {new_dir}, already exists.")
+        return 1
+
+    shutil.copytree(old_dir, new_dir)
+    shutil.rmtree(old_dir)
+    old_dir.symlink_to(new_dir)
+    
+    print(f"Moved {old_dir} to {new_dir} and made a sym link.")
     return 0
 
 
