@@ -4,7 +4,6 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
-
 # inputrc - base set up
 fresh profile --file
 fresh Xmodmap --file
@@ -58,6 +57,11 @@ fresh vimperatorrc --file
 # lazyvim
 fresh lazyvim/init.lua --file=~/.config/nvim/init.lua
 fresh lazyvim/lua --file=~/.config/nvim/lua/
+
+# claude code
+fresh claude/CLAUDE.md --file=~/.claude/CLAUDE.md
+fresh claude/commands --file=~/.claude/commands/
+fresh claude/docs --file=~/.claude/docs/
 
 # emacs
 fresh emacs.d/init.el --file=~/.emacs.d/init.el
