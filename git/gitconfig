@@ -73,8 +73,7 @@
 [merge]
     log = true
     conflictstyle = diff3
-    tool = vimdiff
-    # tool = meld
+    tool = meld
 
 [mergetool]
     prompt = false
@@ -82,6 +81,12 @@
 [mergetool "threesome"]
     cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
     trustExitCode = true
+
+[mergetool "meld"]
+    # from https://stackoverflow.com/a/34119867
+    # Choose one of these two lines (not both!) explained below.
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 
 [rebase]
 autosquash = true
