@@ -85,6 +85,7 @@ export FZF_BASE="/opt/homebrew/opt/fzf"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    eza
     fzf
     foobacca-git
     git
@@ -97,12 +98,18 @@ plugins=(
     #tmuxinator
     virtualenv
     virtualenvwrapper
+    zoxide
     zsh-syntax-highlighting
     #zsh-vi-mode
 )
 # Others to consider
 # history? 
 # vi-mode - the default one, replaced by zsh-vi-mode, which is more powerful
+
+# eza args
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'git-status' yes
+zstyle ':omz:plugins:eza' 'icons' yes
 
 source $ZSH/oh-my-zsh.sh
 
