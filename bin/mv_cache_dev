@@ -2,6 +2,7 @@
 
 import argparse
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -10,23 +11,37 @@ CACHE_DEV = Path("/home/cache/dev")
 DIRS_MOVED = (".venv", "node_modules")
 
 
-def parse_args(argv: list[str]) -> str:
+def parse_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument("dir_to_move", choices=DIRS_MOVED, help="The directory to move to /home/cache/")
+    parser.add_argument(
+        "dir_to_move", choices=DIRS_MOVED, help="The directory to move to /home/cache/"
+    )
+    parser.add_argument(
+        "-c",
+        "--create",
+        action="store_true",
+        help="Should the directory be created first if it doesn't exist - only for .venv for now",
+    )
     args = parser.parse_args(argv)
-    return args.dir_to_move
+    return args
 
 
 def main(argv: list[str]) -> int:
-    dir_to_move = parse_args(argv)
+    args = parse_args(argv)
+    dir_to_move = args.dir_to_move
     cwd = Path.cwd().absolute()
     if HOME_DEV not in cwd.parents:
         print("This script only works if you are in $HOME/dev/")
         return 1
 
     old_dir = cwd / dir_to_move
+    if not old_dir.exists() and args.create:
+        subprocess.run(["uv", "venv"], check=True)
+        print("Created venv using uv.")
     if not old_dir.is_dir():
-        print(f"The directory to move, {old_dir}, does not exist or is not a directory.")
+        print(
+            f"The directory to move, {old_dir}, does not exist or is not a directory."
+        )
         return 1
 
     new_parent_dir = CACHE_DEV / cwd.relative_to(HOME_DEV)
@@ -39,7 +54,7 @@ def main(argv: list[str]) -> int:
     shutil.copytree(old_dir, new_dir)
     shutil.rmtree(old_dir)
     old_dir.symlink_to(new_dir)
-    
+
     print(f"Moved {old_dir} to {new_dir} and made a sym link.")
     return 0
 
