@@ -1,11 +1,19 @@
-# some more ls aliases
-alias ll='ls -l'
-alias lh='ls -lh'
-alias llh='ls -lh'
-alias la='ls -A'
-alias l="ls -CF --hide='*.pyc' --hide='*.pyo' --hide='__pycache__'"
-alias lt='ls -laptr' #oldest first sort
-alias labc='ls -lap' #alphabetical sort
+if [ -f "/usr/bin/eza" ]; then
+  # alias ll - provided by ohmyzsh eza plugin
+  alias lh='eza -gh'
+  # alias la - provided by ohmyzsh eza plugin
+  alias l="eza -F --git-ignore"
+  alias lt='eza -laF --sort=newest' #oldest first sort
+else
+  # some more ls aliases
+  alias ll='ls -l'
+  alias lh='ls -lh'
+  alias llh='ls -lh'
+  alias la='ls -A'
+  alias l="ls -CF --hide='*.pyc' --hide='*.pyo' --hide='__pycache__'"
+  alias lt='ls -laptr' #oldest first sort
+  alias labc='ls -lap' #alphabetical sort
+fi
 
 # cd aliases
 alias ..='cd ..'
