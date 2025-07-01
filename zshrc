@@ -219,3 +219,8 @@ function pyenv-activate() {source $HOME/.pyenv/versions/${1}/bin/activate}
 
 # tre-command make editing easier
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
+
+# atuin set up
+if [ -f "/home/linuxbrew/.linuxbrew/bin/atuin" ]; then
+  eval "$(atuin init zsh)"
+fi
