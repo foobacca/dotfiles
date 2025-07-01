@@ -1,4 +1,4 @@
-if [ -f "/usr/bin/eza" ]; then
+if command -v eza; then
   # alias ll - provided by ohmyzsh eza plugin
   alias lh='eza -gh'
   # alias la - provided by ohmyzsh eza plugin
