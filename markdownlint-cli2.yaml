@@ -5,5 +5,7 @@ config:
     style: atx
   # line length
   MD013: false
+  # no duplicate named headers
+  MD024: false
 
   gitignore: true
