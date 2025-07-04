@@ -42,6 +42,7 @@ pathadd $HOME/.local/bin
 pathadd $HOME/Library/Python/3.9/bin
 pathadd $HOME/.local/share/go/bin
 pathadd $HOME/.linuxbrew/bin
+pathadd /home/linuxbrew/.linuxbrew/bin
 pathadd $HOME/.cargo/bin
 pathadd $HOME/.pyenv/bin
 pathaddprefix $HOME/bin
