@@ -63,6 +63,9 @@ fresh claude/CLAUDE.md --file=~/.claude/CLAUDE.md
 fresh claude/commands --file=~/.claude/commands/
 fresh claude/docs --file=~/.claude/docs/
 
+# ncspot
+fresh ncspot/config.toml --file ~/.config/ncspot/config.toml
+
 # emacs
 fresh emacs.d/init.el --file=~/.emacs.d/init.el
 fresh emacs.d/notmuch-config.el --file=~/.emacs.d/notmuch-config.el
