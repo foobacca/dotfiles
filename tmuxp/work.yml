@@ -1,0 +1,39 @@
+# ~/.config/tmuxp/work.yml
+# you can make as many tabs as you wish...
+session_name: SF work setup
+start_directory: /home/hamish
+windows:
+  - window_name: local
+    layout: even-horizontal
+    panes:
+      -
+  - window_name: dev
+    layout: even-horizontal
+    start_directory: /home/hamish/dev/sf
+    panes:
+      -
+  - window_name: dev
+    layout: even-horizontal
+    start_directory: /home/hamish/dev/sf
+    panes:
+      -
+  - window_name: todo
+    start_directory: /home/hamish/tasks
+    layout: even-horizontal
+    panes:
+      - ls
+  - window_name: dev
+    layout: even-horizontal
+    start_directory: /home/hamish/dev/sf
+    panes:
+      -
+  - window_name: dev
+    layout: even-horizontal
+    start_directory: /home/hamish/dev/sf
+    panes:
+      -
+  - window_name: dev
+    layout: even-horizontal
+    start_directory: /home/hamish/dev/sf
+    panes:
+      -

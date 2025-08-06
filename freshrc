@@ -80,6 +80,9 @@ if [ $(hostname) != "foobacca.co.uk" ] && [ $(hostname) != "kingston" ]; then
 fi
 fresh 'tmux/*' --file=~/.tmux.conf
 
+# tmuxp
+fresh tmuxp --file=~/.config/tmuxp/
+
 # dircolors - solarized
 fresh foobacca/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
 
