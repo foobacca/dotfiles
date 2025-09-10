@@ -27,6 +27,11 @@ windows:
     start_directory: /home/hamish/dev/sf
     panes:
       -
+  - window_name: claude
+    layout: even-horizontal
+    start_directory: /home/hamish/dev/sf
+    panes:
+      -
   - window_name: dev
     layout: even-horizontal
     start_directory: /home/hamish/dev/sf
@@ -35,5 +40,9 @@ windows:
   - window_name: dev
     layout: even-horizontal
     start_directory: /home/hamish/dev/sf
+    panes:
+      -
+  - window_name: music
+    layout: even-horizontal
     panes:
       -
