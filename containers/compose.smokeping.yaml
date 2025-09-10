@@ -1,0 +1,18 @@
+services:
+  smokeping:
+    image: lscr.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    hostname: smokeping
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - MASTER_URL=http://localhost:8032/smokeping/ #optional
+      # - SHARED_SECRET=password #optional
+      # - CACHE_DIR=/tmp #optional
+    volumes:
+      - /home/hamish/containers/smokeping/config:/config
+      - /home/hamish/containers/smokeping/data:/data
+    ports:
+      - 8032:80
+    restart: unless-stopped

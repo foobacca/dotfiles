@@ -141,6 +141,9 @@ fresh pypyp.py --file=~/.config/pypyp.py
 # markdown lint
 fresh markdownlint-cli2.yaml --file
 
+# containers
+fresh containers/compose.smokeping.yaml --file=~/containers/compose.smokeping.yaml
+
 ############
 # mail stuff
 ############
