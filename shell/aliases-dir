@@ -4,9 +4,11 @@ if command -v eza >/dev/null; then
   # alias la - provided by ohmyzsh eza plugin
   alias l="eza -F --git-ignore"
   alias lt='eza -laF --sort=newest' #oldest first sort
+  alias l1='eza -1'
 else
   # some more ls aliases
   alias ll='ls -l'
+  alias l1='ls -1'
   alias lh='ls -lh'
   alias llh='ls -lh'
   alias la='ls -A'
