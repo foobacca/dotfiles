@@ -74,7 +74,7 @@ if true then
 
 		-- disable minipairs and try nvim-autopairs instead
 		{
-			"echasnovski/mini.pairs",
+			"nvim-mini/mini.pairs",
 			enabled = false,
 		},
 		{
