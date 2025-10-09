@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+import argparse
+import shutil
+import sys
+from pathlib import Path
+
+HOME_SYNC = Path.home() / "Sync"  # home directory for syncthing
+HOME_TASKS = Path.home() / "tasks"
+HOME_TASKS_NOTES = HOME_TASKS / "notes"
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file_to_move", help="The md file to move to ~/tasks/")
+    args = parser.parse_args(argv)
+    return args
+
+
+def main(argv: list[str]) -> int:
+    args = parse_args(argv)
+    file_to_move = Path(args.file_to_move).absolute()
+    if HOME_SYNC in file_to_move.parents or HOME_TASKS in file_to_move.parents:
+        print("Will not move files already under ~/tasks/ or ~/Sync/")
+        return 1
+    if file_to_move.is_symlink():
+        print(f"{file_to_move} is already a sym link, exiting.")
+        return 1
+
+    relative_path = file_to_move.relative_to(Path.home())
+    tasks_path = HOME_TASKS_NOTES / relative_path
+
+    if tasks_path.exists():
+        print("Cannot move files as destination already taken")
+        return 1
+
+    new_parent_dir = tasks_path.parent
+    new_parent_dir.mkdir(parents=True, exist_ok=True)
+
+    shutil.move(file_to_move, tasks_path)
+    file_to_move.symlink_to(tasks_path)
+
+    print(f"Moved {file_to_move} to {tasks_path} and made a sym link.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
