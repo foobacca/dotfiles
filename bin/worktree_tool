@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+
+"""
+- create a new git worktree with a new branch
+- set up the virtualenv using uv, moved to the cache dir
+
+so should be:
+
+git worktree add -b branch-name ../branch-name
+cd ../branch-name
+mv_cache_dev -c .venv
+uv sync
+
+Though would be nice to auto work-out if we're not in the git root - and if not, go up and down extra directories
+
+Ideas:
+
+- dry run flag?
+    - could have code makes plan, tests can assert the plan
+    - but plan has both subprocess and pathlib ...
+    - also reacts to input from both (git cmd, path already exists ...)
+- put all these python scripts into one with subcommands?
+    - aliases to run each subcommand?
+"""
+
+import argparse
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+HOME_DEV = Path.home() / "dev"
+CACHE_DEV = Path("/home/cache/dev")
+
+
+def parse_args(argv: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "name",
+        help="The name of the branch/worktree to create (or remove)",
+    )
+    parser.add_argument(
+        "-r",
+        "--remove",
+        action="store_true",
+        help="Should the worktree be removed?",
+    )
+    parser.add_argument(
+        "-f",
+        "--force",
+        action="store_true",
+        help="Should the worktree be removed even if it hasn't been merged back to the main branch?",
+    )
+    args = parser.parse_args(argv)
+    return args
+
+
+def get_git_root(working_dir: Path) -> Path:
+    result = subprocess.run(
+        ["git", "rev-parse", "--show-toplevel"],
+        cwd=working_dir,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise Exception(
+            f"Could not find git root, command output was:\n{result.stdout}\n{result.stderr}"
+        )
+    return Path(result.stdout.strip())
+
+
+def get_git_branch(working_dir: Path) -> str:
+    result = subprocess.run(
+        ["git", "branch", "--show-current"],
+        cwd=working_dir,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise Exception(
+            f"Could not find git branch, command output was:\n{result.stdout}\n{result.stderr}"
+        )
+    return result.stdout.strip()
+
+
+def check_current_branch_is_main(working_dir: Path) -> None:
+    git_branch = get_git_branch(working_dir)
+    if git_branch != "main":
+        raise Exception(
+            f"This command should be run from the worktree for the main branch, found {git_branch}"
+        )
+
+
+def get_worktree_relative_dir(working_dir: Path, branch_name: str) -> str:
+    git_root = get_git_root(working_dir)
+    working_rel_path = working_dir.relative_to(git_root)
+    if working_rel_path == Path("."):
+        sub_dir_count = 1
+    else:
+        sub_dir_count = 1 + len(working_rel_path.parents)
+    # get enough ../.. to get out of the git root
+    dot_dots = [".."] * sub_dir_count
+    return "/".join([*dot_dots, branch_name])
+
+
+def create_git_worktree(working_dir: Path, branch_name: str) -> Path:
+    worktree_relative_dir = get_worktree_relative_dir(working_dir, branch_name)
+    git_root = get_git_root(working_dir)
+    working_rel_path = working_dir.relative_to(git_root)
+    subprocess.run(["git", "worktree", "add", "-b", branch_name, worktree_relative_dir])
+    new_working_dir = git_root.parent / branch_name / working_rel_path
+    return new_working_dir
+
+
+def remove_git_worktree_venv(working_dir: Path, branch_name: str) -> None:
+    def remove_venv(venv_path: Path) -> None:
+        print(f"Deleting virtualenv at {venv_path}")
+        shutil.rmtree(venv_path)
+
+    git_root = get_git_root(working_dir)
+    worktree_venv = (
+        git_root.parent / branch_name / working_dir.relative_to(git_root) / ".venv"
+    )
+    if worktree_venv.is_dir():
+        remove_venv(worktree_venv)
+    elif worktree_venv.is_symlink():
+        cache_venv = CACHE_DEV / worktree_venv.relative_to(HOME_DEV)
+        if cache_venv.is_dir():
+            remove_venv(cache_venv)
+        worktree_venv.unlink()
+
+
+def remove_git_worktree(
+    working_dir: Path, branch_name: str, *, force_remove: bool = False
+) -> None:
+    # TODO: check if the branch has been merged into main
+    # TODO: check if anything is not committed in the worktree
+    worktree_relative_dir = get_worktree_relative_dir(working_dir, branch_name)
+    force_arg = ["-f"] if force_remove else []
+    worktree_rm_cmd = (
+        ["git", "worktree", "remove"] + force_arg + [worktree_relative_dir]
+    )
+    subprocess.run(worktree_rm_cmd, cwd=working_dir, check=True)
+
+
+def setup_venv(new_base_dir: Path) -> None:
+    dir_to_move = ".venv"
+    old_dir = new_base_dir / dir_to_move
+    if old_dir.exists():
+        raise Exception(f"Unexpectedly found {old_dir} - exiting")
+
+    subprocess.run(["uv", "venv"], cwd=dir_to_move, check=True)
+    print("Created venv using uv.")
+    if not old_dir.is_dir():
+        raise Exception(
+            f"The directory to move, {old_dir}, does not exist or is not a directory."
+        )
+
+    new_parent_dir = CACHE_DEV / new_base_dir.relative_to(HOME_DEV)
+    new_parent_dir.mkdir(parents=True, exist_ok=True)
+    new_dir = new_parent_dir / dir_to_move
+    if new_dir.exists():
+        raise Exception(f"The directory to move to, {new_dir}, already exists.")
+
+    shutil.copytree(old_dir, new_dir)
+    shutil.rmtree(old_dir)
+    old_dir.symlink_to(new_dir)
+
+    print(f"Moved {old_dir} to {new_dir} and made a sym link.")
+
+    subprocess.run(["uv", "sync"], cwd=dir_to_move, check=True)
+    print("Installed packages in venv using uv")
+
+
+def main(argv: list[str]) -> int:
+    args = parse_args(argv)
+    cwd = Path.cwd().absolute()
+    if HOME_DEV not in cwd.parents:
+        print("This script only works if you are in $HOME/dev/")
+        return 1
+
+    if args.remove:
+        check_current_branch_is_main(cwd)
+        remove_git_worktree_venv(cwd, branch_name=args.name)
+        remove_git_worktree(cwd, branch_name=args.name, force_remove=args.force)
+    else:
+        worktree_work_dir = create_git_worktree(cwd, branch_name=args.name)
+        setup_venv(worktree_work_dir)
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))
