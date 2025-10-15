@@ -107,7 +107,9 @@ def create_git_worktree(working_dir: Path, branch_name: str) -> Path:
     worktree_relative_dir = get_worktree_relative_dir(working_dir, branch_name)
     git_root = get_git_root(working_dir)
     working_rel_path = working_dir.relative_to(git_root)
-    subprocess.run(["git", "worktree", "add", "-b", branch_name, worktree_relative_dir])
+    subprocess.run(
+        ["git", "worktree", "add", "-b", branch_name, worktree_relative_dir], check=True
+    )
     new_working_dir = git_root.parent / branch_name / working_rel_path
     return new_working_dir
 
@@ -121,13 +123,33 @@ def remove_git_worktree_venv(working_dir: Path, branch_name: str) -> None:
     worktree_venv = (
         git_root.parent / branch_name / working_dir.relative_to(git_root) / ".venv"
     )
-    if worktree_venv.is_dir():
-        remove_venv(worktree_venv)
-    elif worktree_venv.is_symlink():
+    if worktree_venv.is_symlink():
         cache_venv = CACHE_DEV / worktree_venv.relative_to(HOME_DEV)
         if cache_venv.is_dir():
             remove_venv(cache_venv)
         worktree_venv.unlink()
+    elif worktree_venv.is_dir():
+        remove_venv(worktree_venv)
+    else:
+        print(f"no virtualenv found at {worktree_venv} - continuing.")
+
+
+def remove_git_worktree_node_modules(working_dir: Path, branch_name: str) -> None:
+    def remove_node_modules(node_modules_path: Path) -> None:
+        print(f"Deleting node_modules at {node_modules_path}")
+        shutil.rmtree(node_modules_path)
+
+    git_root = get_git_root(working_dir)
+    worktree_node_modules = (
+        git_root.parent
+        / branch_name
+        / working_dir.relative_to(git_root)
+        / "node_modules"
+    )
+    if worktree_node_modules.is_dir():
+        remove_node_modules(worktree_node_modules)
+    else:
+        print(f"no node_modules found at {worktree_node_modules} - continuing.")
 
 
 def remove_git_worktree(
@@ -149,7 +171,7 @@ def setup_venv(new_base_dir: Path) -> None:
     if old_dir.exists():
         raise Exception(f"Unexpectedly found {old_dir} - exiting")
 
-    subprocess.run(["uv", "venv"], cwd=dir_to_move, check=True)
+    subprocess.run(["uv", "venv"], cwd=new_base_dir, check=True)
     print("Created venv using uv.")
     if not old_dir.is_dir():
         raise Exception(
@@ -168,7 +190,7 @@ def setup_venv(new_base_dir: Path) -> None:
 
     print(f"Moved {old_dir} to {new_dir} and made a sym link.")
 
-    subprocess.run(["uv", "sync"], cwd=dir_to_move, check=True)
+    subprocess.run(["uv", "sync"], cwd=new_base_dir, check=True)
     print("Installed packages in venv using uv")
 
 
@@ -182,10 +204,15 @@ def main(argv: list[str]) -> int:
     if args.remove:
         check_current_branch_is_main(cwd)
         remove_git_worktree_venv(cwd, branch_name=args.name)
+        remove_git_worktree_node_modules(cwd, branch_name=args.name)
+        # should we just run `git clean -f` to delete all untracked files?
         remove_git_worktree(cwd, branch_name=args.name, force_remove=args.force)
+        # TODO: should we also delete the branch?
     else:
         worktree_work_dir = create_git_worktree(cwd, branch_name=args.name)
         setup_venv(worktree_work_dir)
+        # should we set up node_modules? run `just install`? something else?
+        # should we copy over `.claude/settings.local.json` ?
 
     return 0
 
