@@ -1,10 +1,10 @@
 if command -v eza >/dev/null; then
   # alias ll - provided by ohmyzsh eza plugin
-  alias lh='eza -gh'
+  alias lh='eza -gl --group-directories-first --git --icons=auto'
   # alias la - provided by ohmyzsh eza plugin
-  alias l="eza -F --git-ignore"
-  alias lt='eza -laF --sort=newest' #oldest first sort
-  alias l1='eza -1'
+  alias l="eza -F --git-ignore --group-directories-first --icons=auto"
+  alias lt='eza -laF --sort=newest --group-directories-first --icons=auto --git' #oldest first sort
+  alias l1='eza -1 --group-directories-first --icons=auto'
 else
   # some more ls aliases
   alias ll='ls -l'
