@@ -211,8 +211,9 @@ def main(argv: list[str]) -> int:
     else:
         worktree_work_dir = create_git_worktree(cwd, branch_name=args.name)
         setup_venv(worktree_work_dir)
-        # should we set up node_modules? run `just install`? something else?
-        # should we copy over `.claude/settings.local.json` ?
+        # TODO: should we set up node_modules? run `just install`? something else?
+        # TODO: should we copy over `.claude/settings.local.json` ?
+        # TODO: should we copy over `.env` ?
 
     return 0
 
