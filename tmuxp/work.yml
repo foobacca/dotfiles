@@ -12,9 +12,9 @@ windows:
     start_directory: /home/hamish/dev/sf
     panes:
       -
-  - window_name: dev
+  - window_name: devnotes
     layout: even-horizontal
-    start_directory: /home/hamish/dev/sf
+    start_directory: /home/hamish/tasks/claude/flask-20250812
     panes:
       -
   - window_name: todo
@@ -22,19 +22,19 @@ windows:
     layout: even-horizontal
     panes:
       - ls
-  - window_name: dev
+  - window_name: odlp-edit
     layout: even-horizontal
-    start_directory: /home/hamish/dev/sf
+    start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
-      -
+      - uv run vim
   - window_name: claude
     layout: even-horizontal
-    start_directory: /home/hamish/dev/sf
+    start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
       -
-  - window_name: dev
+  - window_name: odlp
     layout: even-horizontal
-    start_directory: /home/hamish/dev/sf
+    start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
       -
   - window_name: dev
@@ -44,5 +44,7 @@ windows:
       -
   - window_name: music
     layout: even-horizontal
+    start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
-      -
+      - just flask
+      - just celery
