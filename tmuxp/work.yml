@@ -14,9 +14,9 @@ windows:
       -
   - window_name: devnotes
     layout: even-horizontal
-    start_directory: /home/hamish/tasks/claude/flask-20250812
+    start_directory: /home/hamish/tasks/opendlp
     panes:
-      -
+      - nvim *.md
   - window_name: todo
     start_directory: /home/hamish/tasks
     layout: even-horizontal
