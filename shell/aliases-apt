@@ -1,15 +1,27 @@
-# from lifehacker
-# install a package and automatically respond yes to confirmation prompt
-alias ins="sudo apt install"
-alias update="sudo apt update"
-alias upgrade="sudo apt upgrade"
+if [ -f "/usr/bin/nala" ]; then
+  alias ins="sudo nala install"
+  alias update="sudo nala update"
+  alias upgrade="sudo nala upgrade"
 
-# remove a package and its configuration files
-alias remp="sudo apt purge"
+  # remove a package and its configuration files
+  alias remp="sudo nala purge"
 
-# search for a package
-alias searcha="apt search"
-alias search="aptitude search"
-alias show="apt show"
+  # search for a package
+  alias searcha="nala search"
+  alias search="aptitude search"
+  alias show="nala show"
+else
+  alias ins="sudo apt install"
+  alias update="sudo apt update"
+  alias upgrade="sudo apt upgrade"
+
+  # remove a package and its configuration files
+  alias remp="sudo apt purge"
+
+  # search for a package
+  alias searcha="apt search"
+  alias search="aptitude search"
+  alias show="apt show"
+fi
 
 # vi: ft=sh
