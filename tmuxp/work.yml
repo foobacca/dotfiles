@@ -4,46 +4,46 @@ session_name: SF work setup
 start_directory: /home/hamish
 windows:
   - window_name: local
-    layout: even-horizontal
+    layout: even-vertical
     panes:
       -
   - window_name: dev
-    layout: even-horizontal
+    layout: even-vertical
     start_directory: /home/hamish/dev/sf
     panes:
       -
   - window_name: devnotes
-    layout: even-horizontal
+    layout: even-vertical
     start_directory: /home/hamish/tasks/opendlp
     panes:
       - nvim *.md
   - window_name: todo
     start_directory: /home/hamish/tasks
-    layout: even-horizontal
+    layout: even-vertical
     panes:
       - ls
   - window_name: odlp-edit
-    layout: even-horizontal
+    layout: even-vertical
     start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
       - uv run vim
   - window_name: claude
-    layout: even-horizontal
+    layout: even-vertical
     start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
       -
   - window_name: odlp
-    layout: even-horizontal
+    layout: even-vertical
     start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
       -
   - window_name: dev
-    layout: even-horizontal
+    layout: even-vertical
     start_directory: /home/hamish/dev/sf
     panes:
       -
   - window_name: music
-    layout: even-horizontal
+    layout: even-vertical
     start_directory: /home/hamish/dev/sf/opendlp/backend
     panes:
       - just flask
