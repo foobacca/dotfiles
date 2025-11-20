@@ -108,7 +108,14 @@ if true then
 			optional = true,
 			opts = {
 				formatters_by_ft = {
+					["htmldjango"] = { "djlint" },
+					["html"] = { "djlint" },
 					["python"] = { "ruff_format" },
+				},
+				formatters = {
+					djlint = {
+						args = { "--reformat", "-" },
+					},
 				},
 			},
 		},
