@@ -1,0 +1,35 @@
+-- Based on https://www.digitalocean.com/community/tutorials/how-to-customize-the-postgresql-prompt-with-psqlrc-on-ubuntu-14-04
+
+-- no output until QUIET 0 - so the settings don't show up in output
+\set QUIET 1
+
+\set PROMPT1 '%M:%[%033[1;31m%]%>%[%033[0m%] %n@%/%R%#%x '
+\set PROMPT2 '%M %n@%/%R %# '
+
+-- Make NULL easier to spot in output
+\pset null '[null]'
+
+-- autocompletion of keywords will be uppercase
+\set COMP_KEYWORD_CASE upper
+
+-- show how long queries take
+\timing
+
+\set HISTSIZE 2000
+
+-- automatically change format of output to be one column per line if it won't fit as standard format
+\x auto
+
+-- increase verbosity of errors
+\set VERBOSITY verbose
+
+\set QUIET 0
+
+\echo 'Welcome to PostgreSQL! \n'
+\echo 'Type :version to see the PostgreSQL version. \n' 
+\echo 'Type :extensions to see the available extensions. \n'
+\echo 'Type \\q or Ctrl-D to exit. \n'
+\set version 'SELECT version();'
+\set extensions 'select * from pg_available_extensions;'
+
+-- vi ft=sql

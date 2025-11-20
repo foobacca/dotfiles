@@ -37,6 +37,7 @@ fresh xbindkeysrc --file
 # tools
 fresh ackrc --file
 fresh jasoncodes/dotfiles config/sqliterc --file
+fresh psqlrc --file
 
 # git
 fresh "git/gitconfig.$(hostname)" --file=~/.gitconfig
