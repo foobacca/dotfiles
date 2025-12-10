@@ -4,6 +4,9 @@ if true then
 		{ "frankier/neovim-colors-solarized-truecolor-only" },
 		{ "ellisonleao/gruvbox.nvim" },
 
+		-- add typos lsp plugin
+		{ "tekumara/typos-lsp" },
+
 		-- Configure LazyVim to load gruvbox
 		{
 			"LazyVim/LazyVim",

@@ -1,0 +1,3 @@
+[default.extend-words]
+# short for stratification - we use it sometimes, particularly strat select
+strat = "strat"
