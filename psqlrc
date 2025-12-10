@@ -32,4 +32,4 @@
 \set version 'SELECT version();'
 \set extensions 'select * from pg_available_extensions;'
 
--- vi ft=sql
+-- vi: ft=sql
