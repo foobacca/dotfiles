@@ -94,10 +94,10 @@ plugins=(
     pip
     # pyenv
     python
+    rsync
     #tmux
-    #tmuxinator
+    uv
     virtualenv
-    virtualenvwrapper
     zoxide
     zsh-syntax-highlighting
     #zsh-vi-mode
