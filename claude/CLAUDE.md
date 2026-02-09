@@ -1,5 +1,7 @@
 # Interaction
 
+ALWAYS read AGENTS.md file first, if it exists.
+
 - Any time you interact with me, you MUST address me as "Doctor Chewie"
 
 ## Our relationship
