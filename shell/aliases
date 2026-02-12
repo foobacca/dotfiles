@@ -13,7 +13,7 @@ alias grep='egrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias h=history
-alias n=note.sh  # dev journal
+alias n=note.sh # dev journal
 alias j=jobs
 alias po=popd
 alias pu=pushd
@@ -23,24 +23,24 @@ alias s='screen -r'
 # bat is a nice alternative to cat
 # see https://github.com/sharkdp/bat
 if [ -x "$(command -v bat)" ]; then
-    alias cat=bat
+  alias cat=bat
 fi
 if [ -x "$(command -v batcat)" ]; then
-    alias cat=batcat
+  alias cat=batcat
 fi
 if [ -x "$(command -v fdfind)" ]; then
-    alias fd=fdfind
+  alias fd=fdfind
 fi
 
 alias lhttp='lighttpd -D -f ~/dev/lighttpd/lighttpd.conf'
 
 # from http://superuser.com/questions/38984/linux-equivalent-command-for-open-command-on-mac-windows
 if [ -f /usr/bin/xdg-open ]; then
-    alias xopen="xdg-open"
+  alias xopen="xdg-open"
 fi
 # give mac the same alias
 if [ -f /usr/bin/open ]; then
-    alias xopen="open"
+  alias xopen="open"
 fi
 
 alias rmpyc='find . -name \*.pyc -delete'
@@ -57,17 +57,19 @@ alias git-tmux='tmux new -s $(basename $(pwd))'
 
 # vim
 if [[ "$OSTYPE" == "darwin" ]]; then
-    alias nv='arch -arm64 nvim'
-    alias vim='arch -arm64 nvim'
+  alias nv='arch -arm64 nvim'
+  alias vim='arch -arm64 nvim'
 elif [[ -f "/home/linuxbrew/.linuxbrew/bin/nvim" ]]; then
-    # assuming we've set this up via alternatives to be the default vim by doing
-    # sudo update-alternatives --install /usr/bin/vim vim /home/linuxbrew/.linuxbrew/bin/nvim 100
-    alias nv='vim'
-    alias nvim='vim'
+  # assuming we've set this up via alternatives to be the default vim by doing
+  # sudo update-alternatives --install /usr/bin/vim vim /home/linuxbrew/.linuxbrew/bin/nvim 100
+  alias nv='vim'
+  alias nvim='vim'
 else
-    alias nv='nvim'
-    alias vim='nvim'
+  alias nv='nvim'
+  alias vim='nvim'
 fi
+
+alias uvv='uv run vim'
 
 # pwsafe
 #alias pw='pwsafe -p'
@@ -82,9 +84,9 @@ alias renicedropbox="ps -ef | grep dropbox | grep -v grep | awk '{print \$2}' | 
 
 # go to the dev directory
 if [ -d /opt/hdowner/dev ]; then
-    alias dev="cd /opt/hdowner/dev"
+  alias dev="cd /opt/hdowner/dev"
 else
-    alias dev="cd ~/dev"
+  alias dev="cd ~/dev"
 fi
 
 # sshfs at home
