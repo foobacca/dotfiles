@@ -64,3 +64,4 @@ Whenever you build out a new project and specifically start a new `Claude.md` - 
 - @~/.claude/docs/python.md
 - @~/.claude/docs/source-control.md
 - @~/.claude/docs/using-uv.md
+- when you need to test with a browser, consider using rodney. Run `uvx rodney --help` to learn about what it can do.
