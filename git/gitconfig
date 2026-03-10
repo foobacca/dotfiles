@@ -41,6 +41,7 @@
 
 [commit]
     template = ~/.gitmessage
+    verbose = true
 
 [push]
     default = tracking
