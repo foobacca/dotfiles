@@ -10,5 +10,6 @@ alias gdt='git difftool'
 alias gdtg='git difftool --gui'
 alias gitg='GTK_THEME=Ambiance gitg &'
 
+alias lg='lazygit'
 
 # vi: ft=sh
