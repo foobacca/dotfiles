@@ -96,7 +96,11 @@ plugins=(
     python
     rsync
     #tmux
-    uv
+    # The uv plugin adds an alias of uv -> 'noglob uv' - so you don't need to quote
+    # things like 'uv add pkg[extra]'
+    # But this means that 'uv run vim path/to/*.py' does not work as expected
+    # So we disable the plugin.
+    # uv
     virtualenv
     zoxide
     zsh-syntax-highlighting
