@@ -85,6 +85,7 @@ export FZF_BASE="/opt/homebrew/opt/fzf"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    brew
     eza
     fzf
     foobacca-git
@@ -220,6 +221,18 @@ fi
 
 # alternative pyenv activate
 function pyenv-activate() {source $HOME/.pyenv/versions/${1}/bin/activate}
+
+# completion for just file
+_justfile_comp() {
+    if [[ -f "justfile" ]];
+    then
+        local opts
+        opts="`just --summary`"
+        reply=(${(s: :)opts})
+    fi
+}
+
+compctl -K _justfile_comp just
 
 # tre-command make editing easier
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
