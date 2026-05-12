@@ -40,14 +40,14 @@ fresh jasoncodes/dotfiles config/sqliterc --file
 fresh psqlrc --file
 
 # git
-fresh "git/gitconfig.$(hostname)" --file=~/.gitconfig
-fresh git/gitconfig --file
+fresh "git/gitconfig.$(hostname)" --file=~/.config/git/config
+fresh git/gitconfig --file=~/.config/git/config
 if hash delta 2>/dev/null; then
-  fresh "git/gitconfig.delta" --file=~/.gitconfig
+  fresh "git/gitconfig.delta" --file=~/.config/git/config
 fi
-fresh git/gitignore --file
-fresh git/gitattributes --file
-fresh git/gitmessage --file
+fresh git/gitignore --file=~/.config/git/ignore-fresh
+fresh git/gitattributes --file=~/.config/git/attributes
+fresh git/gitmessage --file=~/.config/git/message
 
 fresh tigrc --file
 

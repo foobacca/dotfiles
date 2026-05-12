@@ -2,3 +2,4 @@
 *.pybundle
 db_dump.sql
 .vagrant
+**/.claude/settings.local.json

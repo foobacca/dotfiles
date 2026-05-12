@@ -9,7 +9,7 @@
     user = foobacca
 
 [include]
-    path = .gitconfig.local
+    path = ~/.gitconfig.local
 
 [color]
     diff = auto
@@ -30,17 +30,17 @@
     untracked = cyan
 
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.config/git/ignore-fresh
     pager = less -FRSX
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    attributesfile = ~/.gitattributes
+    attributesfile = ~/.config/git/attributes
     autocrlf = input
 
 [init]
     defaultBranch = main
 
 [commit]
-    template = ~/.gitmessage
+    template = ~/.config/git/message
     verbose = true
 
 [push]
