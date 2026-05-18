@@ -4,11 +4,13 @@
 # and then think "oh yeah, the weekly updates too"
 # "${HOME}/bin/daily-updates.sh"
 
-UPDATES_FILE="${HOME}/.weekly-updates-timestamp"
+UPDATES_FILE="${HOME}/.updates-status.json"
 
-local start_time="$(date --iso-8601=seconds)"
+local start_time="$(date +%A) $(date --iso-8601=seconds)"
 
-echo "Starting weekly updates at ${start_time}" | tee "$UPDATES_FILE"
+echo "Starting weekly updates at ${start_time}"
+[[ -f "$UPDATES_FILE" ]] || echo '{}' > "$UPDATES_FILE"
+jq --arg t "$start_time" '.weekly.start = $t | del(.weekly.end)' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
 
 # home brew packages
 echo
@@ -63,7 +65,8 @@ echo "#########################"
 echo
 dust --limit-filesystem "${HOME}"
 
-local end_time="$(date --iso-8601=seconds)"
+local end_time="$(date +%A) $(date --iso-8601=seconds)"
 
 echo
-echo "Finished weekly updates at ${end_time}" | tee -a "$UPDATES_FILE"
+echo "Finished weekly updates at ${end_time}"
+jq --arg t "$end_time" '.weekly.end = $t' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
