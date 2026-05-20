@@ -10,7 +10,7 @@ local start_time="$(date +%A) $(date --iso-8601=seconds)"
 
 echo "Starting weekly updates at ${start_time}"
 [[ -f "$UPDATES_FILE" ]] || echo '{}' > "$UPDATES_FILE"
-jq --arg t "$start_time" '.weekly.start = $t | del(.weekly.end)' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
+jq --arg t "$start_time" '.weekly.start = $t | del(.weekly.ended)' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
 
 # home brew packages
 echo
@@ -69,4 +69,4 @@ local end_time="$(date +%A) $(date --iso-8601=seconds)"
 
 echo
 echo "Finished weekly updates at ${end_time}"
-jq --arg t "$end_time" '.weekly.end = $t' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
+jq --arg t "$end_time" '.weekly.ended = $t' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"

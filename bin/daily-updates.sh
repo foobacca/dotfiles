@@ -6,7 +6,7 @@ local start_time="$(date +%A) $(date --iso-8601=seconds)"
 
 echo "Starting daily updates at ${start_time}"
 [[ -f "$UPDATES_FILE" ]] || echo '{}' > "$UPDATES_FILE"
-jq --arg t "$start_time" '.daily.start = $t | del(.daily.end)' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
+jq --arg t "$start_time" '.daily.start = $t | del(.daily.ended)' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
 
 # package updates
 echo
@@ -40,4 +40,4 @@ local end_time="$(date +%A) $(date --iso-8601=seconds)"
 
 echo
 echo "Finished daily updates at ${end_time}"
-jq --arg t "$end_time" '.daily.end = $t' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
+jq --arg t "$end_time" '.daily.ended = $t' "$UPDATES_FILE" > "${UPDATES_FILE}.tmp" && mv "${UPDATES_FILE}.tmp" "$UPDATES_FILE"
