@@ -64,6 +64,9 @@ fresh claude/CLAUDE.md --file=~/.claude/CLAUDE.md
 fresh claude/commands --file=~/.claude/commands/
 fresh claude/docs --file=~/.claude/docs/
 
+# harper
+fresh harper-ls/dictionary.txt --file=~/.config/harper-ls/dictionary.txt
+
 # ncspot
 fresh ncspot/config.toml --file ~/.config/ncspot/config.toml
 
