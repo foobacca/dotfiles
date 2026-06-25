@@ -1,13 +1,18 @@
 Al
 Alastair
+backoffice
+BDD
 bsky
 cookiebot
+CTA
 DRDemocracy
 ECP
 EU
 Golz
 GSheet
 Imre
+justfile
+Krisztina
 leximin
 Liv
 Mackie
@@ -16,6 +21,7 @@ NB
 OpenDLP
 PAF
 Philipp
+porkbun
 RSPCA
 RPA
 TBC
