@@ -10,6 +10,9 @@ alias gdt='git difftool'
 alias gdtg='git difftool --gui'
 alias gitg='GTK_THEME=Ambiance gitg &'
 
+# file change summary since branching
+alias gdbs='git diff --stat --merge-base main'
+
 alias lg='lazygit'
 
 # vi: ft=sh
