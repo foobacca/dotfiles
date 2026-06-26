@@ -63,6 +63,7 @@ fresh lazyvim/lua --file=~/.config/nvim/lua/
 fresh claude/CLAUDE.md --file=~/.claude/CLAUDE.md
 fresh claude/commands --file=~/.claude/commands/
 fresh claude/docs --file=~/.claude/docs/
+fresh claude/skills --file=~/.claude/skills/
 
 # harper
 fresh harper-ls/dictionary.txt --file=~/.config/harper-ls/dictionary.txt
