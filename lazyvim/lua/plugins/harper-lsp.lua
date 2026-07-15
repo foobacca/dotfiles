@@ -1,52 +1,54 @@
--- Harper is a grammar checker
--- This has started with all the defaults
--- from https://writewithharper.com/docs/integrations/neovim
-return {
-	"neovim/nvim-lspconfig",
-	opts = {
-		servers = {
-			harper_ls = {
-				settings = {
-					["harper-ls"] = {
-						userDictPath = "",
-						workspaceDictPath = "",
-						fileDictPath = "",
-						-- full list at https://writewithharper.com/docs/rules
-						linters = {
-							AnA = true,
-							CorrectNumberSuffix = true,
-							Dashes = false,
-							ExpandMemoryShorthands = false,
-							ExpandMinimum = false,
-							LongSentences = true,
-							NumericRangeEnDash = false,
-							OkToOkay = false,
-							RepeatedWords = true,
-							SentenceCapitalization = true,
-							Spaces = true,
-							SpellCheck = false,
-							SpelledNumbers = false,
-							ToDoHyphen = false,
-							UnclosedQuotes = true,
-							UseEllipsisCharacter = false,
-							UseTitleCase = false,
-							WrongApostrophe = false,
-						},
-						codeActions = {
-							ForceStable = false,
-						},
-						markdown = {
-							IgnoreLinkTitle = false,
-						},
-						diagnosticSeverity = "hint",
-						isolateEnglish = false,
-						dialect = "British",
-						maxFileLength = 120000,
-						ignoredLintsPath = "",
-						excludePatterns = {},
-					},
-				},
-			},
-		},
-	},
-}
+-- -- Harper is a grammar checker
+-- -- This has started with all the defaults
+-- -- from https://writewithharper.com/docs/integrations/neovim
+-- return {
+-- 	"neovim/nvim-lspconfig",
+-- 	opts = {
+-- 		servers = {
+-- 			harper_ls = {
+-- 				settings = {
+-- 					["harper-ls"] = {
+-- 						userDictPath = "",
+-- 						workspaceDictPath = "",
+-- 						fileDictPath = "",
+-- 						-- full list at https://writewithharper.com/docs/rules
+-- 						linters = {
+-- 							AnA = true,
+-- 							CorrectNumberSuffix = true,
+-- 							Dashes = false,
+-- 							ExpandMemoryShorthands = false,
+-- 							ExpandMinimum = false,
+-- 							LongSentences = true,
+-- 							NoOxfordComma = false,
+-- 							NumericRangeEnDash = false,
+-- 							OkToOkay = false,
+-- 							OxfordComma = false,
+-- 							RepeatedWords = true,
+-- 							SentenceCapitalization = true,
+-- 							Spaces = true,
+-- 							SpellCheck = false,
+-- 							SpelledNumbers = false,
+-- 							ToDoHyphen = false,
+-- 							UnclosedQuotes = true,
+-- 							UseEllipsisCharacter = false,
+-- 							UseTitleCase = false,
+-- 							WrongApostrophe = false,
+-- 						},
+-- 						codeActions = {
+-- 							ForceStable = false,
+-- 						},
+-- 						markdown = {
+-- 							IgnoreLinkTitle = false,
+-- 						},
+-- 						diagnosticSeverity = "hint",
+-- 						isolateEnglish = false,
+-- 						dialect = "British",
+-- 						maxFileLength = 120000,
+-- 						ignoredLintsPath = "",
+-- 						excludePatterns = {},
+-- 					},
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- }
