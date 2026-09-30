@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+import json
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+STATUS_FILE = Path.home() / ".updates-status.json"
+
+
+def read_status() -> dict[str, dict[str, datetime]]:
+    with open(STATUS_FILE) as status_file:
+        status = json.load(status_file)
+    for top_key in status:
+        for sub_key in status[top_key]:
+            status[top_key][sub_key] = datetime.fromisoformat(
+                status[top_key][sub_key].split(" ", 1)[1]
+            )
+    return status
+
+
+def report_update_status(section: str, section_status: dict[str, datetime]) -> None:
+    if "start" not in section_status:
+        print(f"{section} updates have not run.")
+        return
+    now = datetime.now(timezone.utc)
+    started_ago = now - section_status["start"]
+    if "ended" not in section_status:
+        print(
+            f"{section} updates started {started_ago} but has not finished yet/successfully."
+        )
+        return
+    ended_ago = now - section_status["ended"]
+    print(f"{ended_ago}")
+    print(f"{section} updates ran successfully - ended {ended_ago.days} days ago")
+
+
+def main() -> int:
+    status = read_status()
+    report_update_status("Daily", status.get("daily", {}))
+    print()
+    report_update_status("Weekly", status.get("weekly", {}))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
