@@ -63,7 +63,10 @@ fresh lazyvim/lua --file=~/.config/nvim/lua/
 fresh claude/CLAUDE.md --file=~/.claude/CLAUDE.md
 fresh claude/commands --file=~/.claude/commands/
 fresh claude/docs --file=~/.claude/docs/
-fresh claude/skills --file=~/.claude/skills/
+fresh claude/skills/implement-plan --file=~/.claude/skills/implement-plan/
+fresh claude/skills/integrate-doc-comments --file=~/.claude/skills/integrate-doc-comments/
+fresh git@github.com:gazdagergo/tour-engine-skill.git SKILL.md --file=~/.claude/skills/scaffold-tour/SKILL.md
+fresh git@github.com:gazdagergo/tour-engine-skill.git tour-engine/template --file=~/.claude/skills/scaffold-tour/template/
 
 # harper
 fresh harper-ls/dictionary.txt --file=~/.config/harper-ls/dictionary.txt
