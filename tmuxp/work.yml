@@ -16,7 +16,7 @@ windows:
     layout: even-vertical
     start_directory: /home/hamish/tasks/opendlp
     panes:
-      - nvim *.md
+      - nvim issue-notes.md my-prompts.md notes.md
   - window_name: todo
     start_directory: /home/hamish/tasks
     layout: even-vertical
