@@ -1,13 +1,18 @@
+ADR
 Al
 Alastair
 backoffice
 BDD
 bsky
+comms
 cookiebot
 CTA
 DRDemocracy
 ECP
 EU
+GDoc
+Gergely
+Gergo
 Golz
 GSheet
 Imre
@@ -25,4 +30,7 @@ porkbun
 RSPCA
 RPA
 TBC
+TomL
 WG
+Yoss
+Yossarian
