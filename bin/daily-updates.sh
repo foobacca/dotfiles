@@ -10,14 +10,15 @@ jq --arg t "$start_time" '.daily.start = $t | del(.daily.ended)' "$UPDATES_FILE"
 
 # package updates
 echo
-echo "#######################"
-echo "About to do apt updates"
-echo "#######################"
+echo "##################################"
+echo "About to do apt and claude updates"
+echo "##################################"
 echo
 # nala upgrade does the update automatically - reinstate if using apt
 # sudo nala update
 sudo nala upgrade
 sudo nala autoremove
+claude update
 
 # back up
 echo
