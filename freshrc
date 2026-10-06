@@ -75,11 +75,11 @@ fresh harper-ls/dictionary.txt --file=~/.config/harper-ls/dictionary.txt
 fresh ncspot/config.toml --file ~/.config/ncspot/config.toml
 
 # emacs
-fresh emacs.d/init.el --file=~/.emacs.d/init.el
-fresh emacs.d/notmuch-config.el --file=~/.emacs.d/notmuch-config.el
-fresh emacs.d/init --file=~/.emacs.d/init/
+# fresh emacs.d/init.el --file=~/.emacs.d/init.el
+# fresh emacs.d/notmuch-config.el --file=~/.emacs.d/notmuch-config.el
+# fresh emacs.d/init --file=~/.emacs.d/init/
 #fresh emacs.d/org-mode --file=~/.emacs.d/org-mode
-fresh emacsmirror/evil . --file=~/.emacs.d/evil/
+# fresh emacsmirror/evil . --file=~/.emacs.d/evil/
 
 # tmux
 if [ $(hostname) != "foobacca.co.uk" ] && [ $(hostname) != "kingston" ]; then
@@ -94,20 +94,10 @@ fresh tmuxp --file=~/.config/tmuxp/
 # dircolors - solarized
 fresh foobacca/dircolors-solarized dircolors.ansi-universal --file=~/.dircolors
 
-# development lighttpd
-fresh lighttpd.conf --file=~/dev/lighttpd/lighttpd.conf
-fresh empty --file=~/dev/lighttpd/logs/empty
-
 # bin commands
 fresh 'bin/*' --bin
 fresh 'gitbin/*' --bin
 fresh clvv/fasd fasd --bin
-
-# sack stuff - https://github.com/sampson-chen/sack
-fresh sampson-chen/sack sack --bin
-fresh sampson-chen/sack sag --bin
-fresh sampson-chen/sack sgrep --bin
-fresh sampson-chen/sack .sackrc
 
 # powerline
 fresh powerline --file=~/.config/powerline/
@@ -120,27 +110,9 @@ fresh redshift.conf --file=~/.config/redshift.conf
 # urxvt set up
 fresh Xdefaults --file
 
-# alacritty set up
-fresh alacritty/Alacritty.desktop --file=~/.local/share/applications/Alacritty.desktop
-fresh alacritty/alacritty.png --file=~/.local/share/icons/hicolor/256x256/apps/alacritty.png
-fresh alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
-
 # kitty
 
 fresh kitty/kitty.conf --file=~/.config/kitty/kitty.conf
-
-# terminator solarized sample config
-fresh ghuntley/terminator-solarized config --file=~/.config/terminator/config-solarized
-
-# xchat - solarized
-fresh solarized/xchat-colors-solarized solarized-dark-colors.conf --file=~/.xchat2/colors.conf
-
-# xmonad
-fresh xmonad/xmonad.hs --file=~/.xmonad/xmonad.hs
-
-# regolith/i3
-fresh regolith/i3/config --file=~/.config/regolith/i3/config
-fresh regolith/Xresources --file=~/.config/regolith/Xresources
 
 # pypyp
 # need to do `pipsi install pypyp` and then install pipetools into that venv and then
