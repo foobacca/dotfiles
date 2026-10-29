@@ -69,7 +69,7 @@ fresh git@github.com:gazdagergo/tour-engine-skill.git SKILL.md --file=~/.claude/
 fresh git@github.com:gazdagergo/tour-engine-skill.git tour-engine/template --file=~/.claude/skills/scaffold-tour/template/
 
 # harper
-fresh harper-ls/dictionary.txt --file=~/.config/harper-ls/dictionary.txt
+# fresh harper-ls/dictionary.txt --file=~/.config/harper-ls/dictionary.txt
 
 # ncspot
 fresh ncspot/config.toml --file ~/.config/ncspot/config.toml
